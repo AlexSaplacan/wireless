@@ -1,0 +1,45 @@
+{ 
+"Models": [
+	 {
+	 	"name":"WRLS_Flex Metallic",
+		"blend" : "Cables.blend",
+		"cable":true
+	},
+	{
+		"name":"WRLS_USB_F",
+		"blend" : "Cables.blend",
+		"cable":false
+	},
+	{
+	
+		"name":"WRLS_USB_Type_C",
+		"blend" : "Cables.blend",
+		"cable":false
+	}
+
+	],
+"model_types": {
+	"Cable":[
+		"WRLS_FlexMetallic"
+	],
+	"Ends":[
+		"WRLS_USB_F",
+		"WRLS_USB_Type_C"
+	]
+},
+"Thumbs": [
+	{
+		"id":"Flex Metallic",
+		"img":"WRLS_FlexMetallic.jpg"
+
+	},
+	{
+		"id":"USB F",
+		"img":"WRLS_USB_F.jpg"
+	},
+	{
+		"id":"USB Type C",
+		"img":"WRLS_USB_Type_C.jpg"
+	}
+]
+}
