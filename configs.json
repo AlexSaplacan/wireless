@@ -20,11 +20,12 @@
 	],
 "model_types": {
 	"Cable":[
-		"WRLS_FlexMetallic"
+		"Flex Metallic",
+		"Dual Cable"
 	],
 	"Ends":[
-		"WRLS_USB_F",
-		"WRLS_USB_Type_C"
+		"USB F",
+		"USB Type C"
 	]
 },
 "Thumbs": [
@@ -40,6 +41,10 @@
 	{
 		"id":"USB Type C",
 		"img":"WRLS_USB_Type_C.jpg"
+	},
+	{
+		"id":"Dual Cable",
+		"img":"WRLS_Dual_Cable.jpg"
 	}
 ]
 }

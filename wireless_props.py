@@ -56,13 +56,24 @@ def toggle_wireless(self, context):
     return None
 
 def load_thumbs():
+    """create a collection of thumbs and stores it in the configs.thumbs
+
+        make one collection for cables and one collection for heads/tails
+    """
+
 
     pcoll_thumbs = bpy.utils.previews.new()
     pcoll_thumbs_dir = os.path.join(
                     os.path.dirname(__file__),"thumbs")
 
     thumbs_list = configs.data["Thumbs"]
+    cables_list = configs.data["model_types"]["Cable"]
+    log.debug("Model_types Cable is: %s" %cables_list)
+
+    # find a way to load only certain thumbs
+    # this function runs when registering, can I register again somewhere else to update the lists?
     for item in thumbs_list:
+        # if item["id"] in cables_list:
         name = item["id"]
         img = item["img"]
         filepath = os.path.join(pcoll_thumbs_dir, img)
@@ -76,19 +87,23 @@ def load_thumbs():
 def cable_preview_items(self, context):
     """EnumProperty callback"""
     
-
+    enum_thumbs = []
+    count = 0
     thumbs = configs.thumbs["cables"]
+    thumbs_data = configs.data["Thumbs"]
+
+    log.debug(thumbs)
 
     if not thumbs:
         return []
 
 
-
-    for thumb in thumbs:
-        name = thumb["id"]
-        icon = configs.thumbs["cables"][name]
-        number = thumb["img"][:-4]
-        enum_thumbs.append((str(count), name, "", thumb["img"], number))
+    for data in thumbs_data:
+        log.debug("This thunb is: %s" %data["id"])
+        name = data["id"]
+        icon = thumbs[name]
+        log.debug("This icon is %s" %icon )
+        enum_thumbs.append((name, name, "", icon.icon_id, count))
         count += 1
     
     log.debug(enum_thumbs)
@@ -97,6 +112,7 @@ def cable_preview_items(self, context):
 
 
 def cable_preview_update(self, context):
+    """This should run when you  choose a different cables group"""
 
     pass
 
@@ -127,9 +143,9 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
                     )
     cables_previews_dir = bpy.props.StringProperty(
                     name = "Cables Path",
-                    subtype = 'DIR_PATH'.
+                    subtype = 'DIR_PATH',
                     default = "",
-                    update=preview_cable_dir_update
+                    update=cable_preview_update
                     )
 
 def register():

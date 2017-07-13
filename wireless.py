@@ -26,7 +26,7 @@ def get_is_undefined_curve(context):
     """
     Check if the selected object is a curve and if has wrls_status UNDEFINED.
 
-    Return bool
+    Return True or False
     """
     s_obj = context.active_object
     return bool(s_obj.type == 'CURVE' and s_obj.wrls.wrls_status == 'UNDEFINED')
@@ -128,11 +128,12 @@ class OBJECT_OT_InitCable(bpy.types.Operator):
     def execute(self, context):
         if get_is_undefined_curve(context):
 
-
             curve = context.active_object
             log.debug("This is an undefined curve, doing something.")
             obj_name = curve.name
             set_wrls_status(context, obj_name, 'CURVE')
+
+            # this needs to be changed to a default set value
             cable_shape = import_model("WRLS_FlexMetallic")
             set_wrls_status(context, cable_shape.name, 'CABLE')
             configs.switch = True
@@ -148,7 +149,7 @@ class OBJECT_OT_InitCable(bpy.types.Operator):
             bpy.ops.object.parent_set()
             cable_shape.select = False
 
-            # put 2 modifiers on the shape object
+            # put 2 modifiers on the shape object ARRAY and CURVE
             wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
             wrls_array.curve = curve
             wrls_array.fit_type = 'FIT_CURVE'
@@ -190,6 +191,7 @@ class OBJECT_OT_RemoveCable(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
+    """Load the previous cable type from the cable preview items"""
 
     bl_idname = "wrls.cable_prev"
     bl_label = "Previous Cable type"
@@ -199,6 +201,7 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Next(bpy.types.Operator):
+    """Load the next cable type from the cable preview items"""
 
     bl_idname = "wrls.cable_next"
     bl_label = "Next Cable type"

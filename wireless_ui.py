@@ -24,7 +24,7 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     	self.layout.prop(context.active_object.wrls, "enable", text="")
 
     def draw(self, context):
-    	scene_wrls = bpy.context.scene.wrls
+    	scene_wrls = bpy.context.window_manager.wrls
     	layout = self.layout
     	if context.active_object:
     		layout.active = context.active_object.wrls.enable
