@@ -40,13 +40,13 @@ def import_model(obj_name):
     """
     import the model obj_name from the relative assets blend file
 
-    return object - bpyobject
+    return object - bpy object
     """
     models = configs.data["Models"]
-    log.debug("models are %s" % models)
+    model_data = models[obj_name]
     
-    my_model = models[0]["name"]
-    model_file = models[0]["blend"]
+    my_model = models[obj_name]["name"]
+    model_file = models[obj_name]["blend"]
     log.debug("My model is %s" % my_model)
 
     file_path = os.path.join(os.path.dirname(__file__),"assets", model_file)
@@ -134,7 +134,12 @@ class OBJECT_OT_InitCable(bpy.types.Operator):
             set_wrls_status(context, obj_name, 'CURVE')
 
             # this needs to be changed to a default set value
-            cable_shape = import_model("WRLS_FlexMetallic")
+            # we use the config.data to load the first thumb
+            first_cable = bpy.context.window_manager.wrls.cables_types
+
+            # cable_name = configs.data["Models"][first_cable]["name"]
+            # log.debug("OBJECT_OT_InitCable- cable_name is: %s" %cable_name)
+            cable_shape = import_model(first_cable)
             set_wrls_status(context, cable_shape.name, 'CABLE')
             configs.switch = True
             cable_shape.wrls.enable = True
@@ -178,6 +183,7 @@ class OBJECT_OT_RemoveCable(bpy.types.Operator):
             wrls_off_and_delete_childs(cable)
         elif wrls_status == 'CABLE':
             cable = cable.parent
+            cable.select = True
             # make active the curve so doesn't return error on wireless_ui
             # context.scene.objects.active =  bpy.data.objects[cable.name]
             wrls_off_and_delete_childs(cable)
@@ -191,7 +197,7 @@ class OBJECT_OT_RemoveCable(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
-    """Load the previous cable type from the cable preview items"""
+    """Load the previous cable type"""
 
     bl_idname = "wrls.cable_prev"
     bl_label = "Previous Cable type"
@@ -201,7 +207,7 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Next(bpy.types.Operator):
-    """Load the next cable type from the cable preview items"""
+    """Load the next cable type"""
 
     bl_idname = "wrls.cable_next"
     bl_label = "Next Cable type"

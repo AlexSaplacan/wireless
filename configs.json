@@ -1,23 +1,26 @@
 { 
-"Models": [
-	 {
-	 	"name":"WRLS_Flex Metallic",
+"Models": {
+	"Flex Metallic" : {
+	 	"name" : "WRLS_Flex_Metallic",
 		"blend" : "Cables.blend",
 		"cable":true
-	},
-	{
+		},
+	"USB F":{
 		"name":"WRLS_USB_F",
 		"blend" : "Cables.blend",
 		"cable":false
-	},
-	{
-	
+		},
+	"USB Type C":{
 		"name":"WRLS_USB_Type_C",
 		"blend" : "Cables.blend",
 		"cable":false
-	}
-
-	],
+		},
+	"Dual Cable":{
+		"name":"WRLS_Dual_Cable",
+		"blend" : "Cables.blend",
+		"cable":true
+		}
+	},
 "model_types": {
 	"Cable":[
 		"Flex Metallic",

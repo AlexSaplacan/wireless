@@ -2,21 +2,21 @@ def init():
 
 	#########################################
 	#  logging stuff
-	import logging
+	# import logging
 	
 	
 	
-	ch = logging.StreamHandler()
-	# set debug level here
-	# ########################
-	ch.setLevel(logging.DEBUG)
-	# ########################
-	# global formatter
-	formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-	ch.setFormatter(formatter)
+	# ch = logging.StreamHandler()
+	# # set debug level here
+	# # ########################
+	# ch.setLevel(logging.DEBUG)
+	# # ########################
+	# # global formatter
+	# formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+	# ch.setFormatter(formatter)
 
-	log = logging.getLogger('wrls.configs')
-	log.setLevel(logging.DEBUG)
+	# log = logging.getLogger('wrls.configs')
+	# log.setLevel(logging.DEBUG)
 
 	##########################################
 	# data handling

@@ -4,7 +4,7 @@ import logging
 
 
 from . import configs
-# from . import wireless
+from . import wireless
 
 from bpy.types import PropertyGroup
 from bpy.props import BoolProperty
@@ -58,9 +58,8 @@ def toggle_wireless(self, context):
 def load_thumbs():
     """create a collection of thumbs and stores it in the configs.thumbs
 
-        make one collection for cables and one collection for heads/tails
+        this runs on register
     """
-
 
     pcoll_thumbs = bpy.utils.previews.new()
     pcoll_thumbs_dir = os.path.join(
@@ -73,7 +72,6 @@ def load_thumbs():
     # find a way to load only certain thumbs
     # this function runs when registering, can I register again somewhere else to update the lists?
     for item in thumbs_list:
-        # if item["id"] in cables_list:
         name = item["id"]
         img = item["img"]
         filepath = os.path.join(pcoll_thumbs_dir, img)
@@ -91,31 +89,65 @@ def cable_preview_items(self, context):
     count = 0
     thumbs = configs.thumbs["cables"]
     thumbs_data = configs.data["Thumbs"]
-
-    log.debug(thumbs)
+    types = configs.data["model_types"]["Cable"]
 
     if not thumbs:
         return []
 
 
     for data in thumbs_data:
-        log.debug("This thunb is: %s" %data["id"])
-        name = data["id"]
-        icon = thumbs[name]
-        log.debug("This icon is %s" %icon )
-        enum_thumbs.append((name, name, "", icon.icon_id, count))
-        count += 1
+        # here sort only the thumbs that are for cables
+        if data["id"] in types:
+            name = data["id"]
+            icon = thumbs[name]
+            enum_thumbs.append((name, name, "", icon.icon_id, count))
+            count += 1
     
-    log.debug(enum_thumbs)
     return enum_thumbs
 
 
 
 def cable_preview_update(self, context):
-    """This should run when you  choose a different cables group"""
+    """This should run when you  choose a different cable type"""
 
-    pass
+    # find the new choice of cable
+    new_cable = context.window_manager.wrls.cables_types
 
+    # remove existing cable from context and set the wrls.status to undefined
+    active_obj = bpy.context.active_object
+
+    if active_obj.wrls.wrls_status == 'CURVE':
+        wireless.wrls_off_and_delete_childs(active_obj)
+    elif active_obj.wrls.wrls_status == 'CABLE':
+        active_obj = active_obj.parent
+        active_obj.select = True
+        # make active the curve so doesn't return error on wireless_ui
+        context.scene.objects.active =  bpy.data.objects[active_obj.name]
+        wireless.wrls_off_and_delete_childs(active_obj)
+
+    #  import ne cable and set wrls status
+
+    cable_shape = wireless.import_model(new_cable)
+    wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
+    configs.switch = True
+    cable_shape.wrls.enable = True
+    configs.switch = False
+    context.scene.objects.link(cable_shape)
+
+    # put the cable shape at the desired location and parent it
+    cable_shape.location = active_obj.location
+    cable_shape.select = True
+    bpy.ops.object.parent_set()
+    cable_shape.select = False
+
+    # put 2 modifiers on the shape object ARRAY and CURVE
+    wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
+    wrls_array.curve = active_obj
+    wrls_array.fit_type = 'FIT_CURVE'
+
+
+    wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
+    wrls_curve.object = active_obj
 
 ############### Property Group ########################
 

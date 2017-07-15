@@ -19,10 +19,10 @@
 bl_info = {
     "name": "Wireless",
     "author": "Alex_Saplacan",
-    "version": (0, 2, 0),
+    "version": (0, 3, 0),
     "blender": (2, 78, 0),
     "location": "3D View > Toolbar > Misc",
-    "description": "Lets you quickly and easily transform a curve into a cable",
+    "description": "Transform quickly a curve into a cable",
     "warning": "",
     "wiki_url": "",
     "tracker_url": "",

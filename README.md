@@ -9,11 +9,12 @@ electric sockets.
 At the moment you are able to turn on and off wireless on a curve, it loads a default cable type.
 
 Next steps to implement:
+DONE
+1.a Be able to change the cable from the thumbnails collection. 
+	- cable_preview_update function (wireless_props.py)  
 
-1.a Be able to change the cable from the thumbnails collection.
-	- cable_preview_update function (wireless_props.py)
-
-1.b Make thumbnail collection load only cables thumbs, not heads/tails
+DONE
+1.b Make thumbnail collection load only cables thumbs, not heads/tails DONE
 
 1.c  Be able to change the cable type from previous / next buttons 
 	-OBJECT_OT_Cable_Previous operator
