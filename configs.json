@@ -19,11 +19,17 @@
 		"name":"WRLS_Dual_Cable",
 		"blend" : "Cables.blend",
 		"cable":true
-		}
+		},
+		"Data Flat":{
+			"name":"WRLS_Data_Flat",
+			"blend" : "Cables.blend",
+			"cable":true
+			}
 	},
 "model_types": {
 	"Cable":[
 		"Flex Metallic",
+		"Data Flat",
 		"Dual Cable"
 	],
 	"Ends":[
@@ -48,6 +54,10 @@
 	{
 		"id":"Dual Cable",
 		"img":"WRLS_Dual_Cable.jpg"
+	},
+	{
+		"id":"Data Flat",
+		"img":"WRLS_Data_Flat.jpg"
 	}
 ]
 }

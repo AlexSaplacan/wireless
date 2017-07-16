@@ -203,6 +203,23 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
     bl_label = "Previous Cable type"
 
     def execute(self, context):
+        # get the actual cable type
+        current = context.window_manager.wrls.cables_types
+        log.debug("Cable Previous OP current: %s" %current)
+    
+
+        cables_list = configs.data["model_types"]["Cable"]
+        current_pos = [i for i,x in enumerate(cables_list) if x == current]
+        log.debug("Cable Previous OP current_pos: %s" %current_pos)
+
+        if current_pos == [0]:
+            new_pos = len(cables_list) - 1
+            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        else:
+            new_pos = current_pos[0] - 1
+            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
 
         return {'FINISHED'}
 
@@ -213,6 +230,24 @@ class OBJECT_OT_Cable_Next(bpy.types.Operator):
     bl_label = "Next Cable type"
 
     def execute(self, context):
+
+        # get the actual cable type
+        current = context.window_manager.wrls.cables_types
+        log.debug("Cable Previous OP current: %s" %current)
+        
+
+        cables_list = configs.data["model_types"]["Cable"]
+        log.debug("Cable list is %s items long" %len(cables_list))
+        current_pos = [i for i,x in enumerate(cables_list) if x == current]
+        log.debug("Cable Previous OP current_pos: %s" %current_pos)
+
+        if current_pos == [len(cables_list) - 1]:
+            new_pos = 0
+            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        else:
+            new_pos = current_pos[0] + 1
+            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
 
         return {'FINISHED'}
 

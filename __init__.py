@@ -18,7 +18,7 @@
 
 bl_info = {
     "name": "Wireless",
-    "author": "Alex_Saplacan",
+    "author": "A_S",
     "version": (0, 3, 0),
     "blender": (2, 78, 0),
     "location": "3D View > Toolbar > Misc",
