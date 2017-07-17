@@ -1,12 +1,5 @@
 # ##############################
 # wireless.py
-#
-# Read a library of images
-
-# Load the object for each image from the blend file
-# Head for one side
-# Tail for the other
-#
 # ##############################
 
 import bpy
@@ -18,40 +11,59 @@ import bmesh
 from . import configs
 
 
+# logging setup
 log = logging.getLogger('wrls.wireless')
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 
 def get_is_undefined_curve(context):
     """
     Check if the selected object is a curve and if has wrls_status UNDEFINED.
 
-    Return True or False
+    Args:
+        context - required by bpy
+
+    Return
+        bool - True if the curve has wrls_status "UNDEFINED", else False
     """
     s_obj = context.active_object
     return bool(s_obj.type == 'CURVE' and s_obj.wrls.wrls_status == 'UNDEFINED')
 
 def set_wrls_status(context, obj_name, value):
-    """Turn the wrls_status of the object with obj_name to the value """
+    """
+    Turn the wrls_status of the object with obj_name to the value
+    Args:
+        context - required by bpy
+        obj_name (str(never None)) - the name of the object, never None
+        value (str(never None)) - predefined value, enum in
+                                ['UNDEFINED', 'CURVE', 'CABLE', 'HEAD', 'TAIL']
+
+    Returns
+        None
+    """
     bpy.data.objects[obj_name].wrls.wrls_status = value
     log.debug("wrls_status of %s changed to %s" % (obj_name, value))
 
 def import_model(obj_name):
     """
-    import the model obj_name from the relative assets blend file
+    Look for the obj_name model into the assets an import it into blender data
 
-    return object - bpy object
+    Args:
+        obj_name (str(never None)) - the name of the blender object to be imported
+
+    Return:
+        (bpy object) - the imported object from the local data
     """
     models = configs.data["Models"]
-    model_data = models[obj_name]
-    
+
     my_model = models[obj_name]["name"]
     model_file = models[obj_name]["blend"]
     log.debug("My model is %s" % my_model)
 
-    file_path = os.path.join(os.path.dirname(__file__),"assets", model_file)
-    if not os.path.exists(file_path):raise OSError()
-    with bpy.data.libraries.load(file_path, link = False) as (data_from, data_to):
+    file_path = os.path.join(os.path.dirname(__file__), "assets", model_file)
+    if not os.path.exists(file_path):
+        raise OSError()
+    with bpy.data.libraries.load(file_path, link=False) as (data_from, data_to):
         if my_model in data_from.objects:
             data_to.objects.append(my_model)
         else:
@@ -61,29 +73,48 @@ def import_model(obj_name):
 
 
 def mirror_head(obj_name):
-    """Mirror all verts on x axis so the head is facing the right direction"""
+    """
+    Switch to edit mode and mirror all the vertices on x axis o the object
+    is facing now the right way
+
+    Args:
+        obj_name (str(never None)) - the name of the bpy object that is going to be mirrored
+
+    Return:
+        None
+    """
+    a_object = bpy.context.active_object
     head_obj = bpy.data.objects[obj_name]
     bpy.context.scene.objects.active = head_obj
+
     bpy.ops.object.editmode_toggle()
     mesh = bmesh.from_edit_mesh(bpy.context.object.data)
-    for v in mesh.verts:
-        v.co.x *= -1
+    for vert in mesh.verts:
+        vert.co.x *= -1
     bpy.ops.object.editmode_toggle()
-    bpy.context.scene.objects.active = bpy.context.scene.objects.active
-
+    bpy.context.scene.objects.active = a_object
 def tail_and_head(obj):
-    """Find the tail and head of the array modifier"""
+    """
+    Find the tail and head object names of the array modifier
+
+    Args:
+        obj (bpy object(never None)) - the object that is supposed to have a tail and a head
+
+    Returns:
+        None if no tail and head foud
+        Array of strings containing the names of the head and/or tail objects
+    """
 
     extrems = []
     array = obj.modifiers["WRLS_Array"]
     try:
-        head = obj.modifiers["WRLS_Array"].end_cap
-        extrems.append(head)    
+        head = array.end_cap
+        extrems.append(head)
     except:
         pass
 
-    try: 
-        tail = obj.modifiers["WRLS_Array"].start_cap
+    try:
+        tail = array.start_cap
         extrems.append(tail)
     except:
         pass
@@ -94,15 +125,26 @@ def tail_and_head(obj):
     else:
         return None
 
-def wrls_off_and_delete_childs(cable):
+def wrls_off_and_delete_childs(curve):
+    """
+    Find all the children of the curve tha have wrls_status 'CABLE'
+    and remove them from the scene
+
+    Args:
+        curve - (bpy object(never None)) - the curve object that is searched for children
+
+    Return:
+        None
+    """
     children = []
 
-    for child in cable.children:
+    for child in curve.children:
         if child.wrls.wrls_status == 'CABLE':
             children.append(child)
-            log.debug("Childs are: %s" % children)
             extrems = tail_and_head(child)
-            log.debug("Extrems are: %s" %extrems)
+    log.debug("Extrems are: %s" %extrems)
+    log.debug("Childs are: %s" % children)
+
     for extrem in extrems:
         if extrem is not None:
             bpy.data.objects[extrem.name].remove(extrem, do_unlink=True)
@@ -111,34 +153,73 @@ def wrls_off_and_delete_childs(cable):
         if child is not None:
             bpy.data.objects.remove(child, do_unlink=True)
                     
+def get_cables_list_and_position(context):
 
+    # get the actual cable type
+    # a bodge up but untill I find how to inherit better can do the work
+    current = context.window_manager.wrls.cables_types
+    log.debug("Cable Previous OP current: %s" %current)
+    
 
+    cables_list = configs.data["model_types"]["Cable"]
+    current_pos = [i for i, x in enumerate(cables_list) if x == current]
+    log.debug("Cable Previous OP current_pos: %s" %current_pos)
 
+    return [cables_list, current_pos]
+
+def find_cable(a_object):
+    """Return the cable object within the wireless "group" of the selected object
+    The active object but the active object might be the curve.
+
+    Args:
+        object - (bpy.Object(never None)) - the serched object object
+    
+    Return
+        bpyObject - the object that has wrls_status 'CABLE'
+     """
+    if a_object.wrls.wrls_status == 'CABLE':
+        cable = a_object
+
+    else:
+        # this is the curve, we have to get to the cable
+        for child in a_object.children:
+            if child.wrls.wrls_status == 'CABLE':
+                cable = child
+                break
+
+    return cable
 ############## OPERATORS ###############################
 
 class OBJECT_OT_InitCable(bpy.types.Operator):
-    """Put a cable on selected wire"""
+
+    """Put a cable on selected wire.
+
+    """
+
     bl_idname = "wrls.wrls_init"
     bl_label = "Create Cable"
 
     @classmethod
     def pool(cls, context):
+        """Don't run this unless it's a curve object"""
         return context.active_object.type != 'CURVE'
 
     def execute(self, context):
-        if get_is_undefined_curve(context):
+        """Create the cable for the firs time"""
+        # If the curve is already not set as undefined get this message
+        if get_is_undefined_curve(context) is False:
+            log.debug("This curve is already cable.")
 
+        else:
             curve = context.active_object
             log.debug("This is an undefined curve, doing something.")
             obj_name = curve.name
             set_wrls_status(context, obj_name, 'CURVE')
 
-            # this needs to be changed to a default set value
             # we use the config.data to load the first thumb
             first_cable = bpy.context.window_manager.wrls.cables_types
 
-            # cable_name = configs.data["Models"][first_cable]["name"]
-            # log.debug("OBJECT_OT_InitCable- cable_name is: %s" %cable_name)
+            log.debug("OBJECT_OT_InitCable- cable_name is: %s" %first_cable)
             cable_shape = import_model(first_cable)
             set_wrls_status(context, cable_shape.name, 'CABLE')
             configs.switch = True
@@ -163,14 +244,14 @@ class OBJECT_OT_InitCable(bpy.types.Operator):
             wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
             wrls_curve.object = curve
 
-        else:
-            log.debug("This curve is already cable.")
-            
 
         return {'FINISHED'}
 
 class OBJECT_OT_RemoveCable(bpy.types.Operator):
-    """Turn off cable and reset."""
+
+    """Turn off cable and reset.
+
+    """
     bl_idname = "wrls.cable_unset"
     bl_label = "Remove Cable"
 
@@ -196,21 +277,35 @@ class OBJECT_OT_RemoveCable(bpy.types.Operator):
 
         return {'FINISHED'}
 
+# class OBJECT_OT_Cable_Arrows(bpy.types.Operator):
+
+#     # get the actual cable type
+#     current = bpy.context.window_manager.wrls.cables_types
+
+#     cables_list = configs.data["model_types"]["Cable"]
+#     current_pos = [i for i, x in enumerate(cables_list) if x == current]
+#     log.debug("Cable Previous OP current_pos: %s" %current_pos)
+
+#     def execute(self, context):
+
+#         return {'FINISHED'}
+
+
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
-    """Load the previous cable type"""
+
+    """Load the previous cable type.
+
+    """
 
     bl_idname = "wrls.cable_prev"
     bl_label = "Previous Cable type"
 
     def execute(self, context):
-        # get the actual cable type
-        current = context.window_manager.wrls.cables_types
-        log.debug("Cable Previous OP current: %s" %current)
-    
 
-        cables_list = configs.data["model_types"]["Cable"]
-        current_pos = [i for i,x in enumerate(cables_list) if x == current]
-        log.debug("Cable Previous OP current_pos: %s" %current_pos)
+        list_pos = get_cables_list_and_position(context)
+
+        cables_list = list_pos[0]
+        current_pos = list_pos[1]
 
         if current_pos == [0]:
             new_pos = len(cables_list) - 1
@@ -224,22 +319,19 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Next(bpy.types.Operator):
-    """Load the next cable type"""
+    """Load the next cable type.
+
+    """
 
     bl_idname = "wrls.cable_next"
     bl_label = "Next Cable type"
 
     def execute(self, context):
 
-        # get the actual cable type
-        current = context.window_manager.wrls.cables_types
-        log.debug("Cable Previous OP current: %s" %current)
-        
+        list_pos = get_cables_list_and_position(context)
 
-        cables_list = configs.data["model_types"]["Cable"]
-        log.debug("Cable list is %s items long" %len(cables_list))
-        current_pos = [i for i,x in enumerate(cables_list) if x == current]
-        log.debug("Cable Previous OP current_pos: %s" %current_pos)
+        cables_list = list_pos[0]
+        current_pos = list_pos[1]
 
         if current_pos == [len(cables_list) - 1]:
             new_pos = 0
@@ -251,6 +343,30 @@ class OBJECT_OT_Cable_Next(bpy.types.Operator):
 
         return {'FINISHED'}
 
+class OBJECT_OT_Init_Head(bpy.types.Operator):
+
+    """Use a head endcap.
+
+    """
+
+    bl_idname = "wrls.use_head"
+    bl_label = "Use head end"
+
+    def execute(self, context):
+        a_object = context.active_object
+        first_head = context.window_manager.wrls.head_types
+        cable = find_cable(a_object)
+
+        head_model = import_model(first_head)
+
+        cable.modifiers["WRLS_Array"].end_cap = head_model
+
+        context.scene.objects.link(head_model)
+        mirror_head(head_model.name)
+        bpy.data.objects[head_model.name].hide = True
+        bpy.data.objects[head_model.name].hide_render = True
+
+        return {'FINISHED'}
 
 def register():
     "register"

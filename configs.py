@@ -1,40 +1,21 @@
 def init():
 
-	#########################################
-	#  logging stuff
-	# import logging
-	
-	
-	
-	# ch = logging.StreamHandler()
-	# # set debug level here
-	# # ########################
-	# ch.setLevel(logging.DEBUG)
-	# # ########################
-	# # global formatter
-	# formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-	# ch.setFormatter(formatter)
+    # data handling
 
-	# log = logging.getLogger('wrls.configs')
-	# log.setLevel(logging.DEBUG)
+    import os
+    import json
 
-	##########################################
-	# data handling
+    json_path = os.path.join(os.path.dirname(__file__), "configs.json")
 
-	import os
-	import json
+    global data
+    with open(json_path) as data_file:
+        data = json.load(data_file)
 
-	json_path = os.path.join(os.path.dirname(__file__),"configs.json")
+    # #########################################
 
-	global data
-	with open(json_path) as data_file:
-		data = json.load(data_file)
+    global thumbs
+    thumbs = {}
 
-	# #########################################
-
-	global thumbs
-	thumbs = {}
-
-	# to avoid loops
-	global switch
-	switch = False
+    # to avoid loops
+    global switch
+    switch = False

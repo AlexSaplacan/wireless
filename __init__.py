@@ -28,28 +28,53 @@ bl_info = {
     "tracker_url": "",
     "category": "3D View"
 }
-import logging
-logger = logging.getLogger("wrls")
-handler = logging.StreamHandler()
+# import logging
+# logger = logging.getLogger("wrls")
+# handler = logging.StreamHandler()
 
-# set logging level here
-logger.addHandler(handler) 
-handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-handler.setFormatter(formatter)
+# # set logging level here
+# logger.addHandler(handler) 
+# handler.setLevel(logging.DEBUG)
+# formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+# handler.setFormatter(formatter)
 
 if "bpy" in locals():
-    import importlib
-    
 
-    importlib.reload(configs)
-    importlib.reload(wireless)
-    importlib.reload(wireless_ui)
-    importlib.reload(wireless_props)
+    import logging
+    logger = logging.getLogger("wrls")
+    handler = logging.StreamHandler()
+    # file_handler = logging.FileHandler("wireless.log")
+
+    # set logging level here
+    logger.addHandler(handler)
+    # logger.addHandler(file_handler)
+
+
+    handler.setLevel(logging.DEBUG)
+    # file_handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+    handler.setFormatter(formatter)
+    # file_handler.setFormatter(formatter)
+
+    import imp
+
+    imp.reload(configs)
+    imp.reload(wireless)
+    imp.reload(wireless_ui)
+    imp.reload(wireless_props)
 
     configs.init()
 
 else:
+    import logging
+    logger = logging.getLogger("wrls")
+    handler = logging.StreamHandler()
+
+    # set logging level here
+    logger.addHandler(handler) 
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+    handler.setFormatter(formatter)
     import bpy   
     from . import (
         configs,

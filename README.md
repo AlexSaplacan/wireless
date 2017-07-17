@@ -8,31 +8,18 @@ electric sockets.
 
 At the moment you are able to turn on and off wireless on a curve, it loads a default cable type.
 
-Next steps to implement:
-DONE
-1.a Be able to change the cable from the thumbnails collection. 
-	- cable_preview_update function (wireless_props.py)  
 
-DONE
-1.b Make thumbnail collection load only cables thumbs, not heads/tails DONE
 
-1.c  Be able to change the cable type from previous / next buttons 
-	-OBJECT_OT_Cable_Previous operator
-	-OBJECT_OT_Cable_Next operator
+How to install it:
 
-2 HEAD and TAIL
-these are quite similar so do one and copy the other , will need to add different props for each.
-Similar UI as the cable part, will stay hidden until enabled with the radio button ()
+Open blender and go to File > User Preferences (Ctrl-Alt-U)
 
-3 Enchantments 
+Switch to the Add-ons tab
+Choose Install from file and grab the zip file you have downloaded.
+Once installed, you have to enable the addon from the add-ons list
 
-3.1 Be able to scale the radius of the cable
-3.2 Be able to choose different categories of cables / heads like:
-	-electrical
-	-data
-	-ropes
-	-chains?? - maybe will require extra scripting
-	-and others
+Now you in the Tools shelf in the 3D view you have a (new) tab called Misc with the wireless addon pannels are.
 
+Once you have a curve selected, you can use the add-on.
 
 
