@@ -13,7 +13,7 @@ from . import configs
 
 # logging setup
 log = logging.getLogger('wrls.wireless')
-# log.setLevel(logging.DEBUG)
+log.setLevel(logging.DEBUG)
 
 
 def get_is_undefined_curve(context):
@@ -353,18 +353,41 @@ class OBJECT_OT_Init_Head(bpy.types.Operator):
     bl_label = "Use head end"
 
     def execute(self, context):
+        """Put on both cable and curve "use_head" as True
+        and then import the head model asset and connect i to the cable
+        """
         a_object = context.active_object
+        log.debug("OBJECT_OT_Init_head -- a_object object is %s" %a_object)
         first_head = context.window_manager.wrls.head_types
         cable = find_cable(a_object)
+        active_status = a_object.wrls.wrls_status
 
+        # let's make sure both curve and cable have "use_head" = True
+        if active_status == 'CURVE':
+            configs.switch = True
+            cable.wrls.use_head = True
+            configs.switch = False
+
+        else:
+            curve = a_object.parent
+            configs.switch = True
+            curve.wrls.use_head = True
+            configs.switch = False
+
+        log.debug("OBJECT_OT_Init_head -- cable object is %s" %cable)
         head_model = import_model(first_head)
 
         cable.modifiers["WRLS_Array"].end_cap = head_model
 
         context.scene.objects.link(head_model)
+        # mirror to orient the head in the right direction
         mirror_head(head_model.name)
-        bpy.data.objects[head_model.name].hide = True
-        bpy.data.objects[head_model.name].hide_render = True
+        
+        head_model.hide = True
+        head_model.hide_render = True
+        head_model.wrls.wrls_status = 'HEAD'
+        head_model.parent = cable
+
 
         return {'FINISHED'}
 

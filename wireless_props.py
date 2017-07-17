@@ -13,8 +13,8 @@ from bpy.props import EnumProperty
 
 from bpy.utils import previews
 
-props_log = logging.getLogger('wrls.wireless_props')
-# props_log.setLevel(logging.DEBUG)
+log = logging.getLogger('wrls.props')
+log.setLevel(logging.DEBUG)
 
 
 ############### Property Update Functions ############
@@ -51,7 +51,7 @@ def toggle_wireless(self, context):
             pass
         else:
 
-            props_log.debug("Now I'm deleting everything")
+            log.debug("Now I'm deleting everything")
             bpy.ops.wrls.cable_unset()
 
     return None
@@ -78,7 +78,7 @@ def load_thumbs():
 
     # even if is called "cables", hera are all the thumbs cables and heads
     configs.thumbs["cables"] = pcoll_thumbs
-    props_log.debug("Thumbs collection is %s" %configs.thumbs["cables"])
+    log.debug("Thumbs collection is %s" %configs.thumbs["cables"])
 
 def create_preview_by_category(category):
 
@@ -174,10 +174,15 @@ def toggle_head_end_cap(self, context):
 
     active_obj = context.active_object
     # Do something when is On
-    cable = wireless.find_cable(active_obj)
-    if cable.wrls.use_head is True:
-        bpy.ops.wrls.use_head()
-    # Do something else when is off
+    # cable = wireless.find_cable(active_obj)
+    if configs.switch is False:
+        if active_obj.wrls.use_head is True:
+                bpy.ops.wrls.use_head()
+
+        # Do something else when turned off
+    # Do nothing when switch is True
+    else:
+        log.debug("toggle head endcap - Now I should do something else")
 
 def toggle_tail_end_cap(self, context):
 

@@ -28,33 +28,17 @@ bl_info = {
     "tracker_url": "",
     "category": "3D View"
 }
-# import logging
-# logger = logging.getLogger("wrls")
-# handler = logging.StreamHandler()
+import logging
+logger = logging.getLogger("wrls")
+handler = logging.StreamHandler()
 
-# # set logging level here
-# logger.addHandler(handler) 
-# handler.setLevel(logging.DEBUG)
-# formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-# handler.setFormatter(formatter)
+# set logging level here
+logger.addHandler(handler) 
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+handler.setFormatter(formatter)
 
 if "bpy" in locals():
-
-    import logging
-    logger = logging.getLogger("wrls")
-    handler = logging.StreamHandler()
-    # file_handler = logging.FileHandler("wireless.log")
-
-    # set logging level here
-    logger.addHandler(handler)
-    # logger.addHandler(file_handler)
-
-
-    handler.setLevel(logging.DEBUG)
-    # file_handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-    handler.setFormatter(formatter)
-    # file_handler.setFormatter(formatter)
 
     import imp
 
@@ -66,15 +50,17 @@ if "bpy" in locals():
     configs.init()
 
 else:
-    import logging
-    logger = logging.getLogger("wrls")
-    handler = logging.StreamHandler()
+    # import logging
+    # logger = logging.getLogger("wrls")
+    # handler = logging.StreamHandler()
 
-    # set logging level here
-    logger.addHandler(handler) 
-    handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-    handler.setFormatter(formatter)
+    # # set logging level here
+    # logger.addHandler(handler) 
+    # handler.setLevel(logging.DEBUG)
+    # formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+    # handler.setFormatter(formatter)
+
+
     import bpy   
     from . import (
         configs,
