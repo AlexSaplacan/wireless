@@ -147,12 +147,14 @@ def wrls_off_and_delete_childs(curve):
 
     for extrem in extrems:
         if extrem is not None:
-            bpy.data.objects[extrem.name].remove(extrem, do_unlink=True)
+            clean_obsolete_materials(extrem)
+            bpy.data.objects.remove(extrem, do_unlink=True)
 
     for child in children:
         if child is not None:
+            clean_obsolete_materials(child)
             bpy.data.objects.remove(child, do_unlink=True)
-                    
+
 def get_cables_list_and_position(context):
 
     # get the actual cable type
@@ -167,16 +169,19 @@ def get_cables_list_and_position(context):
 
     return [cables_list, current_pos]
 
-def find_cable(a_object):
-    """Return the cable object within the wireless "group" of the selected object
+def find_part(a_object, part='CABLE'):
+    """Find the part object within the wireless "group" of the selected object
     The active object but the active object might be the curve.
 
     Args:
-        object - (bpy.Object(never None)) - the serched object object
-    
+        a_object - (bpy.Object(never None)) - the serched object
+        part (str(never None)) (default 'CABLE') - part that we need to look for
+
     Return
-        bpyObject - the object that has wrls_status 'CABLE'
+        bpyObject - the part object declared in the part argument
      """
+
+    data_obj = bpy.data.objects
     if a_object.wrls.wrls_status == 'CABLE':
         cable = a_object
 
@@ -187,7 +192,71 @@ def find_cable(a_object):
                 cable = child
                 break
 
-    return cable
+    log.debug("found_part child: %s" %cable)
+    cable = bpy.data.objects[cable.name]
+    try:
+        head_name = cable.modifiers["WRLS_Array"].end_cap.name
+        head = data_obj[head_name]
+        log.debug("find_part head is: %s" %head)
+    except:
+        log.debug("head not found POOOOOOOOOOOOOOOP")
+        head = None
+    try:
+        tail_name = cable.modifiers["WRLS_Array"].start_cap.name
+        tail = data_obj[tail_name]
+    except:
+        log.debug("TAIL not found AAAAAAAAAAAAAAAAARRRRRRGH!")
+        tail = None
+
+    curve = cable.parent
+
+    if part == 'HEAD':
+        if head:
+            log.debug("find_part has found a head: %s" %head)
+            return head
+        else:
+            return None
+    elif part == 'TAIL':
+        if tail:
+            log.debug("find_part has found a tail: %s" %tail.name)
+            return tail
+        else:
+            return None
+
+    elif part == 'CURVE':
+        log.debug("find_part has found a curve %s" %curve.name)
+        return curve
+
+    else:
+        log.debug("find_part has found a cable")
+        return cable
+
+
+def clean_obsolete_materials(obj):
+    """Look trough the materials used by the obj object and if they have only one user
+    get rid of them
+
+    Args:
+        obj (bpy Object(never None)) - the target object where to look for materials
+
+    Return:
+        None
+    """
+    count = 0
+    group_count = 0
+    for slot in obj.material_slots:
+        material = slot.material
+        if bpy.data.materials[material.name].users == 1:
+            count += 1
+            bpy.data.materials.remove(material, do_unlink=True)
+
+    log.debug("Removed %s obsolete material(s) used by %s" % (count, obj.name))
+    node_count = 0
+    for node_tree in bpy.data.node_groups:
+        if node_tree.users == 0:
+            bpy.data.node_groups.remove(node_tree, do_unlink = True)
+    log.debug("Removed %s obsolete node group(s)")
+
 ############## OPERATORS ###############################
 
 class OBJECT_OT_InitCable(bpy.types.Operator):
@@ -247,49 +316,6 @@ class OBJECT_OT_InitCable(bpy.types.Operator):
 
         return {'FINISHED'}
 
-class OBJECT_OT_RemoveCable(bpy.types.Operator):
-
-    """Turn off cable and reset.
-
-    """
-    bl_idname = "wrls.cable_unset"
-    bl_label = "Remove Cable"
-
-    def execute(self, context):
-
-        cable = context.active_object
-        wrls_status = cable.wrls.wrls_status
-
-        if wrls_status == 'CURVE':
-            wrls_off_and_delete_childs(cable)
-        elif wrls_status == 'CABLE':
-            cable = cable.parent
-            cable.select = True
-            # make active the curve so doesn't return error on wireless_ui
-            # context.scene.objects.active =  bpy.data.objects[cable.name]
-            wrls_off_and_delete_childs(cable)
-            configs.switch = True
-            cable.wrls.enable = False
-            configs.switch = False
-        else:
-            log.debug("This should not happen.")
-        cable.wrls.wrls_status = 'UNDEFINED'
-
-        return {'FINISHED'}
-
-# class OBJECT_OT_Cable_Arrows(bpy.types.Operator):
-
-#     # get the actual cable type
-#     current = bpy.context.window_manager.wrls.cables_types
-
-#     cables_list = configs.data["model_types"]["Cable"]
-#     current_pos = [i for i, x in enumerate(cables_list) if x == current]
-#     log.debug("Cable Previous OP current_pos: %s" %current_pos)
-
-#     def execute(self, context):
-
-#         return {'FINISHED'}
-
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
 
@@ -340,54 +366,6 @@ class OBJECT_OT_Cable_Next(bpy.types.Operator):
         else:
             new_pos = current_pos[0] + 1
             bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
-
-        return {'FINISHED'}
-
-class OBJECT_OT_Init_Head(bpy.types.Operator):
-
-    """Use a head endcap.
-
-    """
-
-    bl_idname = "wrls.use_head"
-    bl_label = "Use head end"
-
-    def execute(self, context):
-        """Put on both cable and curve "use_head" as True
-        and then import the head model asset and connect i to the cable
-        """
-        a_object = context.active_object
-        log.debug("OBJECT_OT_Init_head -- a_object object is %s" %a_object)
-        first_head = context.window_manager.wrls.head_types
-        cable = find_cable(a_object)
-        active_status = a_object.wrls.wrls_status
-
-        # let's make sure both curve and cable have "use_head" = True
-        if active_status == 'CURVE':
-            configs.switch = True
-            cable.wrls.use_head = True
-            configs.switch = False
-
-        else:
-            curve = a_object.parent
-            configs.switch = True
-            curve.wrls.use_head = True
-            configs.switch = False
-
-        log.debug("OBJECT_OT_Init_head -- cable object is %s" %cable)
-        head_model = import_model(first_head)
-
-        cable.modifiers["WRLS_Array"].end_cap = head_model
-
-        context.scene.objects.link(head_model)
-        # mirror to orient the head in the right direction
-        mirror_head(head_model.name)
-        
-        head_model.hide = True
-        head_model.hide_render = True
-        head_model.wrls.wrls_status = 'HEAD'
-        head_model.parent = cable
-
 
         return {'FINISHED'}
 

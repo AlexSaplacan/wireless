@@ -17,9 +17,20 @@ Open blender and go to File > User Preferences (Ctrl-Alt-U)
 Switch to the Add-ons tab
 Choose Install from file and grab the zip file you have downloaded.
 Once installed, you have to enable the addon from the add-ons list
+Save User Settings.
 
 Now you in the Tools shelf in the 3D view you have a (new) tab called Misc with the wireless addon pannels are.
 
 Once you have a curve selected, you can use the add-on.
+
+Personally I setup my work like this:
+I have my working directory where the github repo is
+I symlink this where the addon was installed ( my case ~/.config/blender/2.78/scripting/addons)
+
+Now all the work I do on my working folder is updated on the blender addon folder.
+
+Are not required to install any modules, bpy it's already part of blender wheere the addon is run from.
+
+When you start blender, start it from the console, in such way thaat you can always see log messages.
 
 

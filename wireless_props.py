@@ -1,6 +1,6 @@
-import bpy
 import os
 import logging
+import bpy
 
 
 from . import configs
@@ -15,7 +15,6 @@ from bpy.utils import previews
 
 log = logging.getLogger('wrls.props')
 log.setLevel(logging.DEBUG)
-
 
 ############### Property Update Functions ############
 
@@ -37,11 +36,49 @@ def toggle_wireless(self, context):
     """
     curve = context.active_object
 
-
     configs.switch = False
     if curve.wrls.enable:
         if context.object.type == 'CURVE':
-            bpy.ops.wrls.wrls_init()
+            """Create the cable for the firs time"""
+            # If the curve is already not set as undefined get this message
+            if wireless.get_is_undefined_curve(context) is False:
+                log.debug("This curve is already cable.")
+
+            else:
+                log.debug("This is an undefined curve, doing something.")
+                obj_name = curve.name
+                wireless.set_wrls_status(context, obj_name, 'CURVE')
+
+                # we use the config.data to load the first thumb
+                first_cable = bpy.context.window_manager.wrls.cables_types
+
+                log.debug("OBJECT_OT_InitCable- cable_name is: %s" %first_cable)
+                cable_shape = wireless.import_model(first_cable)
+                wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
+                configs.switch = True
+                cable_shape.wrls.enable = True
+                configs.switch = False
+                context.scene.objects.link(cable_shape)
+
+                log.debug("Curve location is %s" % curve.location)
+
+                # put the cable shape at the desired location and parent it
+                cable_shape.location = curve.location
+                cable_shape.select = True
+                bpy.ops.object.parent_set()
+                cable_shape.select = False
+
+                # put 2 modifiers on the shape object ARRAY and CURVE
+                wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
+                wrls_array.curve = curve
+                wrls_array.fit_type = 'FIT_CURVE'
+
+
+                wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
+                wrls_curve.object = curve
+
+
+            # bpy.ops.wrls.wrls_init()
         else:
             configs.switch = True
             curve.wrls.enable = False
@@ -52,7 +89,25 @@ def toggle_wireless(self, context):
         else:
 
             log.debug("Now I'm deleting everything")
-            bpy.ops.wrls.cable_unset()
+
+            cable = context.active_object
+            wrls_status = cable.wrls.wrls_status
+
+            if wrls_status == 'CURVE':
+                wireless.wrls_off_and_delete_childs(cable)
+            elif wrls_status == 'CABLE':
+                cable = cable.parent
+                cable.select = True
+                # make active the curve so doesn't return error on wireless_ui
+                bpy.context.scene.objects.active = bpy.data.objects[cable.name]
+                wireless.wrls_off_and_delete_childs(cable)
+                configs.switch = True
+                cable.wrls.enable = False
+                configs.switch = False
+            else:
+                log.debug("This should not happen.")
+            cable.wrls.wrls_status = 'UNDEFINED'
+            # bpy.ops.wrls.cable_unset()
 
     return None
 
@@ -131,23 +186,23 @@ def cable_preview_update(self, context):
     # find the new choice of cable
     new_cable = context.window_manager.wrls.cables_types
 
-    # Add here a record of the tais and heads
-
-    # remove existing cable from context and set the wrls.status to undefined
     active_obj = bpy.context.active_object
+    # Add here a record of the tais and heads
+    head = wireless.find_part(active_obj, 'HEAD')
+    tail = wireless.find_part(active_obj, 'TAIL')
+    cable = wireless.find_part(active_obj, 'CABLE')
+    curve = wireless.find_part(active_obj, 'CURVE')
+    log.debug("cable_preview_update -- found parts are: %s, %s, %s, %s" %(
+        curve, cable, head, tail))
 
-    if active_obj.wrls.wrls_status == 'CURVE':
-        wireless.wrls_off_and_delete_childs(active_obj)
-    elif active_obj.wrls.wrls_status == 'CABLE':
-        active_obj = active_obj.parent
-        active_obj.select = True
-        # make active the curve so doesn't return error on wireless_ui
-        context.scene.objects.active = bpy.data.objects[active_obj.name]
-        wireless.wrls_off_and_delete_childs(active_obj)
+    curve.select = True
+    cable.select = False
+    context.scene.objects.active = bpy.data.objects[curve.name]
 
-    #  import ne cable and set wrls status
 
+    #  import new cable and set wrls status
     cable_shape = wireless.import_model(new_cable)
+
     wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
     configs.switch = True
     cable_shape.wrls.enable = True
@@ -165,24 +220,80 @@ def cable_preview_update(self, context):
     wrls_array.curve = active_obj
     wrls_array.fit_type = 'FIT_CURVE'
 
+    if head is not None:
+        configs.switch = True
+        cable_shape.wrls.use_head = True
+        configs.switch = False
+        wrls_array.end_cap = head
+    if tail is not None:
+        configs.switch = True
+        cable_shape.wrls.use_tail = True
+        configs.switch = False
+        wrls_array.start_cap = tail
+
 
     wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
     wrls_curve.object = active_obj
+
+    wireless.clean_obsolete_materials(cable)
+    bpy.data.objects.remove(cable, do_unlink=True)
 
 def toggle_head_end_cap(self, context):
     """Runs when turning on/off the use head option"""
 
     active_obj = context.active_object
-    # Do something when is On
-    # cable = wireless.find_cable(active_obj)
-    if configs.switch is False:
+    # Do nothing when switch is True
+    if configs.switch is True:
+        log.debug("toggle head endcap - Now I should do something else")
+    else:
+        # Do something when is On
         if active_obj.wrls.use_head is True:
-                bpy.ops.wrls.use_head()
+            first_head = context.window_manager.wrls.head_types
+            cable = wireless.find_part(active_obj)
+            curve = cable.parent
+            active_status = active_obj.wrls.wrls_status
+            # let's make sure both curve and cable have "use_head" = True
+            if active_status == 'CURVE':
+                configs.switch = True
+                cable.wrls.use_head = True
+                configs.switch = False
+
+            else:
+                curve = active_obj.parent
+                configs.switch = True
+                curve.wrls.use_head = True
+                configs.switch = False
+
+            log.debug("toggle_head_end_cap -- cable object is %s" %cable)
+            head_model = wireless.import_model(first_head)
+
+            cable.modifiers["WRLS_Array"].end_cap = head_model
+
+            context.scene.objects.link(head_model)
+            # mirror to orient the head in the right direction
+            wireless.mirror_head(head_model.name)
+
+            head_model.hide = True
+            head_model.hide_render = True
+            head_model.wrls.wrls_status = 'HEAD'
+            head_model.parent = curve
+            # bpy.ops.wrls.use_head()
 
         # Do something else when turned off
-    # Do nothing when switch is True
-    else:
-        log.debug("toggle head endcap - Now I should do something else")
+        else:
+            # find the head object
+            head = wireless.find_part(active_obj, 'HEAD')
+            cable = wireless.find_part(active_obj, 'CABLE')
+            curve = wireless.find_part(active_obj, 'CURVE')
+            log.debug("toggle_head_endcap -- found parts are: %s, %s, %s" %(
+                head.name, cable.name, curve.name))
+            wireless.clean_obsolete_materials(head)
+            bpy.data.objects.remove(head, do_unlink=True)
+            configs.switch = True
+            cable.wrls.use_head = False
+            curve.wrls.use_head = False
+            configs.switch = False
+
 
 def toggle_tail_end_cap(self, context):
 
