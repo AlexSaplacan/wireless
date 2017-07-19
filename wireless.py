@@ -58,7 +58,7 @@ def import_model(obj_name):
 
     my_model = models[obj_name]["name"]
     model_file = models[obj_name]["blend"]
-    log.debug("My model is %s" % my_model)
+    log.debug("My new imported model is %s" % my_model)
 
     file_path = os.path.join(os.path.dirname(__file__), "assets", model_file)
     if not os.path.exists(file_path):
@@ -155,19 +155,78 @@ def wrls_off_and_delete_childs(curve):
             clean_obsolete_materials(child)
             bpy.data.objects.remove(child, do_unlink=True)
 
-def get_cables_list_and_position(context):
 
-    # get the actual cable type
-    # a bodge up but untill I find how to inherit better can do the work
-    current = context.window_manager.wrls.cables_types
-    log.debug("Cable Previous OP current: %s" %current)
-    
 
-    cables_list = configs.data["model_types"]["Cable"]
+def get_list_and_position(context, list_name):
+    """search for the list_name list in the configs.json
+    and also find the position on the list of the corrispective context value
+    for example: if I want to look for the head_types I will get the head_types list and 
+    the position of the wrls.heads_types in that list
+
+    Args:
+        context - the bpy.context
+        list_name (str (never None)) - the name of the list to look in
+    Return:
+        list containing the list_name list and the position of the list_name attribute in it
+        example [list_name, 2] 
+    """
+    wrls = context.window_manager.wrls
+    current = getattr(wrls, list_name)
+    cables_list = configs.data["model_types"][list_name]
     current_pos = [i for i, x in enumerate(cables_list) if x == current]
-    log.debug("Cable Previous OP current_pos: %s" %current_pos)
+    log.debug("get_list_and_position current_pos: %s" %current_pos)
 
     return [cables_list, current_pos]
+
+def get_prev_item(context, list_name):
+    """Read the list_name list and set the wrls.list_name attribute to the previous value
+
+    Args:
+        context - the bpy.caontext
+        list_name (str(never None)) -the name of the list to look in
+
+    Return:
+        None
+    """
+    list_pos = get_list_and_position(context, list_name)
+
+    items_list = list_pos[0]
+    current_pos = list_pos[1]
+    wrls = bpy.context.window_manager.wrls
+
+    if current_pos == [0]:
+        new_pos = len(items_list) - 1
+        setattr(wrls, list_name, items_list[new_pos])
+
+    else:
+        new_pos = current_pos[0] - 1
+        setattr(wrls, list_name, items_list[new_pos])
+
+def get_next_item(context, list_name):
+    """Read the list_name list and set the wrls.list_name attribute to the next value
+
+    Args:
+        context - the bpy.caontext
+        list_name (str(never None)) -the name of the list to look in
+
+    Return:
+        None
+    """
+
+    list_pos = get_list_and_position(context, list_name)
+
+    items_list = list_pos[0]
+    current_pos = list_pos[1]
+    wrls = context.window_manager.wrls
+
+    if current_pos == [len(items_list) - 1]:
+        new_pos = 0
+        setattr(wrls, list_name, items_list[new_pos])
+
+    else:
+        new_pos = current_pos[0] + 1
+        setattr(wrls, list_name, items_list[new_pos])
+
 
 def find_part(a_object, part='CABLE'):
     """Find the part object within the wireless "group" of the selected object
@@ -243,79 +302,64 @@ def clean_obsolete_materials(obj):
         None
     """
     count = 0
-    group_count = 0
     for slot in obj.material_slots:
         material = slot.material
         if bpy.data.materials[material.name].users == 1:
             count += 1
             bpy.data.materials.remove(material, do_unlink=True)
 
-    log.debug("Removed %s obsolete material(s) used by %s" % (count, obj.name))
+    log.info("Removed %s obsolete material(s) used by %s" % (count, obj.name))
     node_count = 0
     for node_tree in bpy.data.node_groups:
         if node_tree.users == 0:
-            bpy.data.node_groups.remove(node_tree, do_unlink = True)
-    log.debug("Removed %s obsolete node group(s)")
+            node_count += 1
+            bpy.data.node_groups.remove(node_tree, do_unlink=True)
+    log.info("Removed %s obsolete node group(s)" %node_count)
+
+def connect_head(cable, head):
+    """Import and connect the head object to the cable object,
+    set it as end cap to the array modifier
+    and link it to the scene, set to hidden and hide_render
+
+    Args:
+        cable (bpy Object (never None) -the mesh object to which the heada is attached
+        head (bpy Object (never None)) the mesh object to be set as head
+    """
+    head_model = import_model(head)
+
+    cable.modifiers["WRLS_Array"].end_cap = head_model
+
+    bpy.context.scene.objects.link(head_model)
+    # mirror to orient the head in the right direction
+    mirror_head(head_model.name)
+
+    head_model.hide = True
+    head_model.hide_render = True
+    head_model.wrls.wrls_status = 'HEAD'
+    head_model.parent = cable.parent
+
+def connect_tail(cable, tail):
+    """Import and connect the tail object to the cable object,
+    set it as end cap to the array modifier
+    and link it to the scene, set to hidden and hide_render
+
+    Args:
+        cable (bpy Object (never None) -the mesh object to which the heada is attached
+        tail (bpy Object (never None)) the mesh object to be set as tail
+    """
+    tail_model = import_model(tail)
+
+    cable.modifiers["WRLS_Array"].start_cap = tail_model
+
+    bpy.context.scene.objects.link(tail_model)
+    # mirror to orient the tail in the right direction
+
+    tail_model.hide = True
+    tail_model.hide_render = True
+    tail_model.wrls.wrls_status = 'TAIL'
+    tail_model.parent = cable.parent
 
 ############## OPERATORS ###############################
-
-class OBJECT_OT_InitCable(bpy.types.Operator):
-
-    """Put a cable on selected wire.
-
-    """
-
-    bl_idname = "wrls.wrls_init"
-    bl_label = "Create Cable"
-
-    @classmethod
-    def pool(cls, context):
-        """Don't run this unless it's a curve object"""
-        return context.active_object.type != 'CURVE'
-
-    def execute(self, context):
-        """Create the cable for the firs time"""
-        # If the curve is already not set as undefined get this message
-        if get_is_undefined_curve(context) is False:
-            log.debug("This curve is already cable.")
-
-        else:
-            curve = context.active_object
-            log.debug("This is an undefined curve, doing something.")
-            obj_name = curve.name
-            set_wrls_status(context, obj_name, 'CURVE')
-
-            # we use the config.data to load the first thumb
-            first_cable = bpy.context.window_manager.wrls.cables_types
-
-            log.debug("OBJECT_OT_InitCable- cable_name is: %s" %first_cable)
-            cable_shape = import_model(first_cable)
-            set_wrls_status(context, cable_shape.name, 'CABLE')
-            configs.switch = True
-            cable_shape.wrls.enable = True
-            configs.switch = False
-            context.scene.objects.link(cable_shape)
-
-            log.debug("Curve location is %s" % curve.location)
-
-            # put the cable shape at the desired location and parent it
-            cable_shape.location = curve.location
-            cable_shape.select = True
-            bpy.ops.object.parent_set()
-            cable_shape.select = False
-
-            # put 2 modifiers on the shape object ARRAY and CURVE
-            wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
-            wrls_array.curve = curve
-            wrls_array.fit_type = 'FIT_CURVE'
-
-
-            wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
-            wrls_curve.object = curve
-
-
-        return {'FINISHED'}
-
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
 
@@ -328,23 +372,26 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
 
     def execute(self, context):
 
-        list_pos = get_cables_list_and_position(context)
 
-        cables_list = list_pos[0]
-        current_pos = list_pos[1]
+        get_prev_item(context, "cables_types")
+        # list_pos = get_list_and_position(context, "cable_types")
 
-        if current_pos == [0]:
-            new_pos = len(cables_list) - 1
-            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+        # cables_list = list_pos[0]
+        # current_pos = list_pos[1]
 
-        else:
-            new_pos = current_pos[0] - 1
-            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+        # if current_pos == [0]:
+        #     new_pos = len(cables_list) - 1
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        # else:
+        #     new_pos = current_pos[0] - 1
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
 
 
         return {'FINISHED'}
 
 class OBJECT_OT_Cable_Next(bpy.types.Operator):
+
     """Load the next cable type.
 
     """
@@ -354,20 +401,58 @@ class OBJECT_OT_Cable_Next(bpy.types.Operator):
 
     def execute(self, context):
 
-        list_pos = get_cables_list_and_position(context)
+        get_next_item(context, "cables_types")
 
-        cables_list = list_pos[0]
-        current_pos = list_pos[1]
+        # list_pos = get_list_and_position(context, 'cable_types')
 
-        if current_pos == [len(cables_list) - 1]:
-            new_pos = 0
-            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+        # cables_list = list_pos[0]
+        # current_pos = list_pos[1]
 
-        else:
-            new_pos = current_pos[0] + 1
-            bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+        # if current_pos == [len(cables_list) - 1]:
+        #     new_pos = 0
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        # else:
+        #     new_pos = current_pos[0] + 1
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
 
         return {'FINISHED'}
+
+class OBJECT_OT_Head_Next(bpy.types.Operator):
+
+    """Load the next head type.
+    """
+    bl_idname = "wrls.head_next"
+    bl_label = "Next head type"
+
+    def execute(self, context):
+        get_next_item(context, "head_types")
+        # list_pos = get_list_and_position(context, 'head_types')
+
+        # cables_list = list_pos[0]
+        # current_pos = list_pos[1]
+
+        # if current_pos == [len(cables_list) - 1]:
+        #     new_pos = 0
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        # else:
+        #     new_pos = current_pos[0] + 1
+        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
+
+        return {'FINISHED'}
+
+class OBJECT_OT_Head_Prev(bpy.types.Operator):
+
+    """Load the prevoius head type.
+    """
+    bl_idname = "wrls.head_prev"
+    bl_label = "Previous head type"
+
+    def execute(self, context):
+        get_prev_item(context, "head_types")
+
+        return {'FINISHED'} 
 
 def register():
     "register"

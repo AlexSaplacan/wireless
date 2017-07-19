@@ -67,12 +67,12 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = layout.row()
                 col = row.column()
                 col.scale_y = 6
-                col.operator("wrls.cable_prev", icon="TRIA_LEFT", text="")
+                col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
                 col = row.column()
                 col.template_icon_view(scene_wrls, "head_types", show_labels=True, scale=4)
                 col = row.column()
                 col.scale_y = 6
-                col.operator("wrls.cable_next", icon="TRIA_RIGHT", text="")
+                col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
 
 
         # the tail endcap area
@@ -82,6 +82,21 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
             row = layout.row()
             row.prop(context.active_object.wrls, "use_tail", text="")
             row.label(text="Use tail end cap")
+
+            if not a_object.wrls.use_tail:
+                layout.label(text="")
+            else:
+                # layout.active = False
+                row = layout.row()
+                col = row.column()
+                col.scale_y = 6
+                col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
+                col = row.column()
+                col.template_icon_view(scene_wrls, "tail_types", show_labels=True, scale=4)
+                col = row.column()
+                col.scale_y = 6
+                col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
+
 
 
 

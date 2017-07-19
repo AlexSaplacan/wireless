@@ -27,12 +27,16 @@
 			}
 	},
 "model_types": {
-	"Cable":[
+	"cables_types":[
 		"Flex Metallic",
 		"Data Flat",
 		"Dual Cable"
 	],
-	"Ends":[
+	"head_types":[
+		"USB F",
+		"USB Type C"
+	],
+	"tail_types":[
 		"USB F",
 		"USB Type C"
 	]

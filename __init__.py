@@ -30,10 +30,11 @@ bl_info = {
 }
 import logging
 logger = logging.getLogger("wrls")
-handler = logging.StreamHandler()
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    logger.addHandler(handler) 
 
 # set logging level here
-logger.addHandler(handler) 
 handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
 handler.setFormatter(formatter)
@@ -84,6 +85,7 @@ def unregister():
     wireless.unregister()
     wireless_props.unregister()
     wireless_ui.unregister()
+
 
 
 if __name__ == "__main__":
