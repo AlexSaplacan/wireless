@@ -83,11 +83,15 @@ def mirror_head(obj_name):
     Return:
         None
     """
+    # check first if is in editmode and if yes turn in object mode
     a_object = bpy.context.active_object
+    if  a_object.data.is_editmode:
+            bpy.ops.object.editmode_toggle()
     head_obj = bpy.data.objects[obj_name]
     bpy.context.scene.objects.active = head_obj
-
-    bpy.ops.object.editmode_toggle()
+    data = head_obj.data
+    if not data.is_editmode:
+        bpy.ops.object.editmode_toggle()
     mesh = bmesh.from_edit_mesh(bpy.context.object.data)
     for vert in mesh.verts:
         vert.co.x *= -1
@@ -374,18 +378,6 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
 
 
         get_prev_item(context, "cables_types")
-        # list_pos = get_list_and_position(context, "cable_types")
-
-        # cables_list = list_pos[0]
-        # current_pos = list_pos[1]
-
-        # if current_pos == [0]:
-        #     new_pos = len(cables_list) - 1
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
-
-        # else:
-        #     new_pos = current_pos[0] - 1
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
 
 
         return {'FINISHED'}
@@ -427,18 +419,6 @@ class OBJECT_OT_Head_Next(bpy.types.Operator):
 
     def execute(self, context):
         get_next_item(context, "head_types")
-        # list_pos = get_list_and_position(context, 'head_types')
-
-        # cables_list = list_pos[0]
-        # current_pos = list_pos[1]
-
-        # if current_pos == [len(cables_list) - 1]:
-        #     new_pos = 0
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
-
-        # else:
-        #     new_pos = current_pos[0] + 1
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
 
         return {'FINISHED'}
 
@@ -451,6 +431,30 @@ class OBJECT_OT_Head_Prev(bpy.types.Operator):
 
     def execute(self, context):
         get_prev_item(context, "head_types")
+
+        return {'FINISHED'} 
+
+class OBJECT_OT_Tail_Next(bpy.types.Operator):
+
+    """Load the next head type.
+    """
+    bl_idname = "wrls.tail_next"
+    bl_label = "Next tail type"
+
+    def execute(self, context):
+        get_next_item(context, "tail_types")
+
+        return {'FINISHED'}
+
+class OBJECT_OT_Tail_Prev(bpy.types.Operator):
+
+    """Load the prevoius head type.
+    """
+    bl_idname = "wrls.tail_prev"
+    bl_label = "Previous tail type"
+
+    def execute(self, context):
+        get_prev_item(context, "tail_types")
 
         return {'FINISHED'} 
 

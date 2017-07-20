@@ -29,7 +29,8 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
         def pool(cls, context):
             not context.object
 
-        scene_wrls = bpy.context.window_manager.wrls
+        wm_wrls = bpy.context.window_manager.wrls
+        obj_wrls = bpy.context.active_object.wrls
         layout = self.layout
         # setting layout to Active , but I see this still allows me to change previews,
         # therefore, I could make strange choiches
@@ -45,11 +46,16 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
             col.scale_y = 6
             col.operator("wrls.cable_prev", icon="TRIA_LEFT", text="")
             col = row.column()
-            col.template_icon_view(scene_wrls, "cables_types", show_labels=True, scale=4)
+            col.template_icon_view(wm_wrls, "cables_types", show_labels=True, scale=4)
 
             col = row.column()
             col.scale_y = 6
             col.operator("wrls.cable_next", icon="TRIA_RIGHT", text="")
+
+            # the thicknes slider
+            row = layout.row()
+            row.label(text="Thickness")
+            row.prop(obj_wrls, "cable_thickness", text="")
 
         # the head endcap area
 
@@ -69,7 +75,7 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 col.scale_y = 6
                 col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
                 col = row.column()
-                col.template_icon_view(scene_wrls, "head_types", show_labels=True, scale=4)
+                col.template_icon_view(wm_wrls, "head_types", show_labels=True, scale=4)
                 col = row.column()
                 col.scale_y = 6
                 col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
@@ -90,12 +96,12 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = layout.row()
                 col = row.column()
                 col.scale_y = 6
-                col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
+                col.operator("wrls.tail_prev", icon="TRIA_LEFT", text="")
                 col = row.column()
-                col.template_icon_view(scene_wrls, "tail_types", show_labels=True, scale=4)
+                col.template_icon_view(wm_wrls, "tail_types", show_labels=True, scale=4)
                 col = row.column()
                 col.scale_y = 6
-                col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
+                col.operator("wrls.tail_next", icon="TRIA_RIGHT", text="")
 
 
 

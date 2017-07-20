@@ -1,6 +1,8 @@
 import os
 import logging
 import bpy
+import bmesh
+import mathutils
 
 
 from . import configs
@@ -10,6 +12,7 @@ from bpy.types import PropertyGroup
 from bpy.props import BoolProperty
 from bpy.props import PointerProperty
 from bpy.props import EnumProperty
+from bpy.props import FloatProperty
 
 from bpy.utils import previews
 
@@ -372,6 +375,42 @@ def tail_preview_update(self, context):
     wireless.clean_obsolete_materials(tail)
     bpy.data.objects.remove(tail, do_unlink=True)
 
+def set_old_thickness(self, value):
+    self["old_c_thickness"] = value
+
+def update_cable_thickness(self,context):
+    """go on editmode and scale the vets on y and z by value
+    """
+    if configs.switch is False:
+        active_obj = bpy.context.active_object
+        cable = wireless.find_part(active_obj, 'CABLE')
+        curve = wireless.find_part(active_obj, 'CURVE')
+        old_value = cable.wrls.old_c_thickness
+        value = cable.wrls.cable_thickness
+        factor = value / old_value
+        log.debug("Found cable thickness on cable: %s" % cable.wrls.cable_thickness)
+        log.debug("Found cable thickness on curve: %s" % curve.wrls.cable_thickness)
+        log.debug("Old cable thickness on : %s" % old_value)
+        log.debug("Factor is : %s" % factor)
+        mesh = cable.data
+        bpy.context.scene.objects.active = cable
+        if not mesh.is_editmode:
+            bpy.ops.object.editmode_toggle()
+
+        b_mesh = bmesh.from_edit_mesh(mesh)
+
+        for vert in b_mesh.verts:
+            vert.co.y *= factor
+            vert.co.z *= factor
+        bmesh.update_edit_mesh(mesh, True)
+        # back to object mode now
+        bpy.ops.object.editmode_toggle()
+        set_old_thickness(self, value)
+        configs.switch = True
+        curve.wrls.cable_thickness = value
+        bpy.context.scene.update()
+        configs.switch = False
+
 ############### Property Group ########################
 
 class WirelessPropertyGroup(PropertyGroup):
@@ -400,8 +439,23 @@ class WirelessPropertyGroup(PropertyGroup):
 
     use_tail = BoolProperty(
         default=False,
-        description="Use tail end cap",
+        description="Use tail end cap", 
         update=toggle_tail_end_cap
+        )
+    cable_thickness = FloatProperty(
+        name="Cable thickness",
+        description="Set the Cable thickness",
+        default=1.0,
+        min=0.001,
+        max=100.0,
+        soft_min=0.0,
+        soft_max=10.0,
+        update=update_cable_thickness
+        )
+    old_c_thickness = FloatProperty(
+        name="Old thickness",
+        description="",
+        default=1.0
         )
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
