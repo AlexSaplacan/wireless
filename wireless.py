@@ -72,13 +72,15 @@ def import_model(obj_name):
     return data_to.objects[0]
 
 
-def mirror_head(obj_name):
+def mirror_and_translate_head(obj_name, cable):
     """
     Switch to edit mode and mirror all the vertices on x axis o the object
-    is facing now the right way
+    is facing now the right way. Also translate the head by value on negative x to
+    avoid the gap between the cable and the head
 
     Args:
         obj_name (str(never None)) - the name of the bpy object that is going to be mirrored
+        cable (bpyObject (neve rNone)) - the cable at whom the head is conected
 
     Return:
         None
@@ -88,6 +90,7 @@ def mirror_head(obj_name):
     if  a_object.data.is_editmode:
             bpy.ops.object.editmode_toggle()
     head_obj = bpy.data.objects[obj_name]
+    cable_x = cable.wrls.cable_x
     bpy.context.scene.objects.active = head_obj
     data = head_obj.data
     if not data.is_editmode:
@@ -95,8 +98,20 @@ def mirror_head(obj_name):
     mesh = bmesh.from_edit_mesh(bpy.context.object.data)
     for vert in mesh.verts:
         vert.co.x *= -1
+        vert.co.x -= cable_x
     bpy.ops.object.editmode_toggle()
     bpy.context.scene.objects.active = a_object
+
+def translate_head(head, value):
+    """Move all the geometry of the head by negative value ammount on x axis
+    It is needed to avoid the gab between the cable and the head
+
+    Args:
+        head - (bpy Object (never None)) - the object that needs the geometry moved
+        value (float) - the distance on negative x axis to be translated
+    Returns:
+        None
+    """
 def tail_and_head(obj):
     """
     Find the tail and head object names of the array modifier
@@ -307,10 +322,12 @@ def clean_obsolete_materials(obj):
     """
     count = 0
     for slot in obj.material_slots:
-        material = slot.material
-        if bpy.data.materials[material.name].users == 1:
-            count += 1
-            bpy.data.materials.remove(material, do_unlink=True)
+        if slot.material is not None:
+            material = slot.material
+
+            if bpy.data.materials[material.name].users == 1:
+                count += 1
+                bpy.data.materials.remove(material, do_unlink=True)
 
     log.info("Removed %s obsolete material(s) used by %s" % (count, obj.name))
     node_count = 0
@@ -323,24 +340,25 @@ def clean_obsolete_materials(obj):
 def connect_head(cable, head):
     """Import and connect the head object to the cable object,
     set it as end cap to the array modifier
-    and link it to the scene, set to hidden and hide_render
+    and link it to the scene, set to hidden and hide_render, setup materials
 
     Args:
         cable (bpy Object (never None) -the mesh object to which the heada is attached
         head (bpy Object (never None)) the mesh object to be set as head
     """
     head_model = import_model(head)
-
+    head_model.wrls.wrls_status = 'HEAD'
+    # materials setup for the head
+    setup_materials(cable, head_model)
     cable.modifiers["WRLS_Array"].end_cap = head_model
-
     bpy.context.scene.objects.link(head_model)
     # mirror to orient the head in the right direction
-    mirror_head(head_model.name)
+    mirror_and_translate_head(head_model.name, cable)
 
     head_model.hide = True
     head_model.hide_render = True
-    head_model.wrls.wrls_status = 'HEAD'
     head_model.parent = cable.parent
+
 
 def connect_tail(cable, tail):
     """Import and connect the tail object to the cable object,
@@ -352,16 +370,74 @@ def connect_tail(cable, tail):
         tail (bpy Object (never None)) the mesh object to be set as tail
     """
     tail_model = import_model(tail)
-
-    cable.modifiers["WRLS_Array"].start_cap = tail_model
-
+    tail_model.wrls.wrls_status = 'TAIL'
     bpy.context.scene.objects.link(tail_model)
+    setup_materials(cable, tail_model, False)
+    cable.modifiers["WRLS_Array"].start_cap = tail_model
     # mirror to orient the tail in the right direction
 
     tail_model.hide = True
     tail_model.hide_render = True
-    tail_model.wrls.wrls_status = 'TAIL'
     tail_model.parent = cable.parent
+
+def setup_materials(cable, cap, is_head=True):
+    """Adjust the materials of the cable in such way that the extremity cap has
+    the material on it.
+
+    Args:
+        cable  bpyObject (notNone) - the cable object
+        cap  bpyObject(not None) - the extremity (can be either the tail or the head)
+        position (bool) default True -  if True, the function affects the head materials,
+        otherwire the tail 
+    """
+    if is_head:
+        if not cable.wrls.head_use_cable_mat:
+            for idx, slot in enumerate(cap.material_slots):
+                if idx >= 1 and idx <= 3:
+                    cable.material_slots[idx].material = slot.material
+
+        else:
+            cable_mat = cable.material_slots[0].material
+            cable.material_slots[1].material = cable_mat
+    else:
+        # this is a tail
+        # we need first to assign diferent material slots to the tail obhect.
+        # vertices from slot 1 will be assigned to 4, 2 --> 5 and 3 --> 6
+
+        # first make sure we're not on editmode
+        a_object = bpy.context.active_object
+        if  a_object.data.is_editmode:
+                bpy.ops.object.editmode_toggle()
+
+        # now perform stuff on the tail
+        cap.select = True
+        cap.hide = False
+        bpy.context.scene.objects.active = cap
+        bpy.ops.object.editmode_toggle()
+
+        # safty check... how many material slots we have?
+        existig_slots_n = len(cap.material_slots)
+        # add the missing ones
+        for i in range(7 - existig_slots_n):
+            bpy.ops.object.material_slot_add()
+        # assign verts 3 slots forward
+        for i in range(1, 4):
+            bpy.ops.mesh.select_all(action='DESELECT')
+            cap.active_material_index = i
+            bpy.ops.object.material_slot_select()
+            cap.active_material_index = i + 3
+            bpy.ops.object.material_slot_assign()
+            cable.material_slots[i + 3].material = cap.material_slots[i].material
+        
+        bpy.ops.object.editmode_toggle()
+        cap.hide = True
+        # now check if to use the cable material 
+        if cable.wrls.tail_use_cable_mat:
+            cable.material_slots[4].material = cable.material_slots[0].material
+        a_object.select = True
+        bpy.context.scene.objects.active = a_object
+
+
 
 ############## OPERATORS ###############################
 
@@ -432,7 +508,7 @@ class OBJECT_OT_Head_Prev(bpy.types.Operator):
     def execute(self, context):
         get_prev_item(context, "head_types")
 
-        return {'FINISHED'} 
+        return {'FINISHED'}
 
 class OBJECT_OT_Tail_Next(bpy.types.Operator):
 
@@ -456,11 +532,11 @@ class OBJECT_OT_Tail_Prev(bpy.types.Operator):
     def execute(self, context):
         get_prev_item(context, "tail_types")
 
-        return {'FINISHED'} 
+        return {'FINISHED'}
 
 def register():
     "register"
-   
+
 
 def unregister():
-   "unregister"
+    "unregister"

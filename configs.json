@@ -15,37 +15,68 @@
 		"blend" : "Cables.blend",
 		"cable":false
 		},
-	"Dual Cable":{
-		"name":"WRLS_Dual_Cable",
+	"Dual Flat":{
+		"name":"WRLS_Dual_Flat",
 		"blend" : "Cables.blend",
 		"cable":true
 		},
-		"Data Flat":{
-			"name":"WRLS_Data_Flat",
-			"blend" : "Cables.blend",
-			"cable":true
-			}
+	"Data Flat":{
+		"name":"WRLS_Data_Flat",
+		"blend" : "Cables.blend",
+		"cable":true
+		},
+	"Round Simple":{
+		"name":"WRLS_Round_Simple",
+		"blend" : "Cables.blend",
+		"cable":true
+		},
+	"Dual Twisted":{
+		"name":"WRLS_Dual_Twisted",
+		"blend" : "Cables.blend",
+		"cable":true
+		},
+	"Triple Twisted":{
+		"name":"WRLS_Triple_Twisted",
+		"blend" : "Cables.blend",
+		"cable":true
+		},
+	"Triple Flat":{
+		"name":"WRLS_Triple_Flat",
+		"blend" : "Cables.blend",
+		"cable":true
+		},
+	"USB 2B":{
+		"name":"WRLS_USB_2B",
+		"blend" : "Cables.blend",
+		"cable":false
+		}
+
 	},
 "model_types": {
 	"cables_types":[
-		"Flex Metallic",
+		"Round Simple",
 		"Data Flat",
-		"Dual Cable"
+		"Dual Flat",
+		"Flex Metallic",
+		"Dual Twisted",
+		"Triple Twisted",
+		"Triple Flat"
 	],
 	"head_types":[
 		"USB F",
-		"USB Type C"
+		"USB Type C",
+		"USB 2B"
 	],
 	"tail_types":[
 		"USB F",
-		"USB Type C"
+		"USB Type C",
+		"USB 2B"
 	]
 },
 "Thumbs": [
 	{
 		"id":"Flex Metallic",
 		"img":"WRLS_FlexMetallic.jpg"
-
 	},
 	{
 		"id":"USB F",
@@ -56,12 +87,32 @@
 		"img":"WRLS_USB_Type_C.jpg"
 	},
 	{
-		"id":"Dual Cable",
-		"img":"WRLS_Dual_Cable.jpg"
+		"id":"Dual Flat",
+		"img":"WRLS_Dual_Flat.jpg"
 	},
 	{
 		"id":"Data Flat",
 		"img":"WRLS_Data_Flat.jpg"
+	},
+	{
+		"id":"Round Simple",
+		"img":"WRLS_Round_Simple.jpg"
+	},
+	{
+		"id":"Dual Twisted",
+		"img":"WRLS_Dual_Twisted.jpg"
+	},
+	{
+		"id":"Triple Twisted",
+		"img":"WRLS_Triple_Twisted.jpg"
+	},
+	{
+		"id":"Triple Flat",
+		"img":"WRLS_Triple_Flat.jpg"
+	},
+	{
+		"id":"USB 2B",
+		"img":"WRLS_USB_2B.jpg"
 	}
 ]
 }

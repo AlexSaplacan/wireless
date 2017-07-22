@@ -42,7 +42,9 @@ def toggle_wireless(self, context):
     configs.switch = False
     if curve.wrls.enable:
         if context.object.type == 'CURVE':
-            """Create the cable for the firs time"""
+            """Create the cable for the firs time
+            """
+
             # If the curve is already not set as undefined get this message
             if wireless.get_is_undefined_curve(context) is False:
                 log.debug("This curve is already cable.")
@@ -67,6 +69,7 @@ def toggle_wireless(self, context):
 
                 # put the cable shape at the desired location and parent it
                 cable_shape.location = curve.location
+                cable_shape.rotation_euler = curve.rotation_euler
                 cable_shape.select = True
                 bpy.ops.object.parent_set()
                 cable_shape.select = False
@@ -75,7 +78,8 @@ def toggle_wireless(self, context):
                 wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
                 wrls_array.curve = curve
                 wrls_array.fit_type = 'FIT_CURVE'
-
+                wrls_array.use_merge_vertices = True
+                wrls_array.merge_threshold = 0.0001
 
                 wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
                 wrls_curve.object = curve
@@ -147,7 +151,7 @@ def create_preview_by_category(category):
 
     returns a list of tuples for each thumbnail image for the corrispective items in the
     configs.data["model_types"]["Cable"]
-    In other words, if the item is in the list declared as category  in the "model types", add it's
+    In other words, if the item is in the list declared as category in the "model types", add it's
     thumbnail data to the list
 
     Args:
@@ -183,8 +187,6 @@ def cable_preview_items(self, context):
 
     return create_preview_by_category("cables_types")
 
-
-
 def cable_preview_update(self, context):
     """This runs when you  choose a different cable type"""
 
@@ -199,6 +201,10 @@ def cable_preview_update(self, context):
     curve = wireless.find_part(active_obj, 'CURVE')
     log.debug("cable_preview_update -- found parts are: %s, %s, %s, %s" %(
         curve, cable, head, tail))
+    # Keep record of the active object
+    reverse = False
+    if active_obj is cable:
+        reverse = True
 
     curve.select = True
     cable.select = False
@@ -207,7 +213,7 @@ def cable_preview_update(self, context):
 
     #  import new cable and set wrls status
     cable_shape = wireless.import_model(new_cable)
-
+    cable_shape.wrls.cable_x = cable_shape.dimensions[0]
     wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
     configs.switch = True
     cable_shape.wrls.enable = True
@@ -216,6 +222,7 @@ def cable_preview_update(self, context):
 
     # put the cable shape at the desired location and parent it
     cable_shape.location = active_obj.location
+    cable_shape.rotation_euler = active_obj.rotation_euler
     cable_shape.select = True
     bpy.ops.object.parent_set()
     cable_shape.select = False
@@ -224,6 +231,8 @@ def cable_preview_update(self, context):
     wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
     wrls_array.curve = curve
     wrls_array.fit_type = 'FIT_CURVE'
+    wrls_array.use_merge_vertices = True
+    wrls_array.merge_threshold = 0.0001
 
     # check for tail and head, and if there were, put them back
     if head is not None:
@@ -242,6 +251,9 @@ def cable_preview_update(self, context):
     wrls_curve.object = curve
     wireless.clean_obsolete_materials(cable)
     bpy.data.objects.remove(cable, do_unlink=True)
+
+    if reverse:
+        context.scene.objects.active = cable_shape
 
 def toggle_head_end_cap(self, context):
     """Runs when turning on/off the use head option"""
@@ -271,7 +283,6 @@ def toggle_head_end_cap(self, context):
 
             log.debug("toggle_head_end_cap -- cable object is %s" %cable)
             wireless.connect_head(cable, first_head)
-            
 
         # Do something else when turned off
         else:
@@ -324,14 +335,13 @@ def toggle_tail_end_cap(self, context):
             cable = wireless.find_part(active_obj, 'CABLE')
             curve = wireless.find_part(active_obj, 'CURVE')
             log.debug("toggle_tail_endcap -- found parts are: %s, %s, %s" %(
-                tail.name, cable.name, curve.name))
+                tail, cable, curve))
             wireless.clean_obsolete_materials(tail)
             bpy.data.objects.remove(tail, do_unlink=True)
             configs.switch = True
             cable.wrls.use_tail = False
             curve.wrls.use_tail = False
             configs.switch = False
-
 
 def head_preview_items(self, context):
     """Create an EnumProperty for the head endcaps"""
@@ -344,7 +354,6 @@ def head_preview_update(self, context):
     active_obj = context.active_object
     head = wireless.find_part(active_obj, 'HEAD')
     cable = wireless.find_part(active_obj, 'CABLE')
-    curve = wireless.find_part(active_obj, 'CURVE')
 
     # find the selected head type
     new_head_name = context.window_manager.wrls.head_types
@@ -365,7 +374,6 @@ def tail_preview_update(self, context):
     active_obj = context.active_object
     tail = wireless.find_part(active_obj, 'TAIL')
     cable = wireless.find_part(active_obj, 'CABLE')
-    curve = wireless.find_part(active_obj, 'CURVE')
 
     # find the selected tail type
     new_tail_name = context.window_manager.wrls.tail_types
@@ -411,6 +419,28 @@ def update_cable_thickness(self,context):
         bpy.context.scene.update()
         configs.switch = False
 
+def head_use_cable_mat_toggle(self, context):
+    """Make the head use the first material the same one used by the cable
+    if swithched True, or use it's default material if switched False.
+    By default materials for heads and tails are on material slots 2, 3 and 4
+     This function is copying the cable material from slot 1 to slot 2
+    """
+    a_obj = context.active_object
+    cable = wireless.find_part(a_obj)
+    head = wireless.find_part(a_obj, 'HEAD')
+    wireless.setup_materials(cable, head)
+def tail_use_cable_mat_toggle(self, context):
+    """Make the tail use the first material the same one used by the cable
+    if swithched True, or use it's default material.
+    By default materials for heads and tails are on material slots 2, 3 and 4
+    For tails they are moved on 5, 6 and 7. This function is copying the cable material
+    from slot 1 to slot 4
+    """
+    a_obj = context.active_object
+    cable = wireless.find_part(a_obj)
+    tail = wireless.find_part(a_obj, 'TAIL')
+    wireless.setup_materials(cable, tail, False)
+
 ############### Property Group ########################
 
 class WirelessPropertyGroup(PropertyGroup):
@@ -439,7 +469,7 @@ class WirelessPropertyGroup(PropertyGroup):
 
     use_tail = BoolProperty(
         default=False,
-        description="Use tail end cap", 
+        description="Use tail end cap",
         update=toggle_tail_end_cap
         )
     cable_thickness = FloatProperty(
@@ -456,6 +486,24 @@ class WirelessPropertyGroup(PropertyGroup):
         name="Old thickness",
         description="",
         default=1.0
+        )
+    # cable_x stores the x size of the cable without modifiers (used for the head translation)
+    cable_x = FloatProperty(
+        name="cable_x",
+        description="",
+        default=0.01
+        )
+    head_use_cable_mat = BoolProperty(
+        name="hea use cable material",
+        description="",
+        default=True,
+        update=head_use_cable_mat_toggle
+        )
+    tail_use_cable_mat = BoolProperty(
+        name="tail use cable material",
+        description="",
+        default=True,
+        update=tail_use_cable_mat_toggle
         )
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
