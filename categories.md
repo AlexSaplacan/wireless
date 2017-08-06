@@ -5,8 +5,8 @@
 
  		- Round Simple **
  		- Data Flat **
- 		- Dual Flat 
- 		- Duble Twisted
+ 		- Dual Flat **
+ 		- Duble Twisted **
  		- Flexible Metallic **
 	 	- Triple twisted **
 	 	- Triple Flat **
@@ -17,21 +17,21 @@
  		- USB Type C **
  		- USB F **
  		- USB 2B **
- 		- Ethernet
+ 		- Ethernet **
 
 
  	Audio - Video
  		- Earphones
- 		- Jack 3.5 
+ 		- Jack 3.5 **
  		- Jack 3.5 F
  		- Jack Guitar
  		- Jack Rounded
- 		- HDMI
+ 		- HDMI **
  		- XLR 3 Pin M
  		- XLR 3 Pin F
  		- Audio Optic Fiber
  		- S Video Cable
- 		- RCA Video Cable
+ 		- RCA Video Cable **
  		- BCN
  		- DVI - D
  		- SCART
@@ -39,17 +39,22 @@
 
  	Electrical:
  		- shucko
- 		- EU simple
- 		- EU Triple plug
- 		- UK Triple Plug
- 		- UK standard
- 		- 2 Flat Pin
+ 		- EU simple **
+ 		- EU Triple plug **
+ 		- UK Triple Plug  **
+ 		- UK standard     **
+ 		- Schuko **
+ 		- 2 Flat Pin **
  		- 3 Flat Pin
  		- Triple 2 Flat Pin
- 		- industrial 220V
+ 		- industrial 220V M **
+ 		- industrial 220V F **
  		- industrial 380V
  		- Industrial Triple
- 		- 12 V Charger
+ 		- 12 V Charger **
+ 		- Appliance end **
+ 		- Laptop Adapter **
+ 		- Cloverleaf **
 
  	Connectors:
  		-plenty

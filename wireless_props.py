@@ -2,8 +2,8 @@ import os
 import logging
 import bpy
 import bmesh
+import math
 import mathutils
-
 
 from . import configs
 from . import wireless
@@ -60,6 +60,7 @@ def toggle_wireless(self, context):
                 log.debug("OBJECT_OT_InitCable- cable_name is: %s" %first_cable)
                 cable_shape = wireless.import_model(first_cable)
                 wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
+                cable_shape.wrls.cable_original_x = cable_shape.dimensions[0]
                 configs.switch = True
                 cable_shape.wrls.enable = True
                 configs.switch = False
@@ -83,7 +84,6 @@ def toggle_wireless(self, context):
 
                 wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
                 wrls_curve.object = curve
-
 
             # bpy.ops.wrls.wrls_init()
         else:
@@ -201,6 +201,7 @@ def cable_preview_update(self, context):
     curve = wireless.find_part(active_obj, 'CURVE')
     log.debug("cable_preview_update -- found parts are: %s, %s, %s, %s" %(
         curve, cable, head, tail))
+
     # Keep record of the active object
     reverse = False
     if active_obj is cable:
@@ -234,18 +235,19 @@ def cable_preview_update(self, context):
     wrls_array.use_merge_vertices = True
     wrls_array.merge_threshold = 0.0001
 
-    # check for tail and head, and if there were, put them back
+    # check for tail and head, and if there were, put them back, set up materials
     if head is not None:
         configs.switch = True
         cable_shape.wrls.use_head = True
         configs.switch = False
         wrls_array.end_cap = head
+        wireless.setup_materials(cable_shape, head)
     if tail is not None:
         configs.switch = True
         cable_shape.wrls.use_tail = True
         configs.switch = False
         wrls_array.start_cap = tail
-
+        wireless.setup_materials(cable_shape, tail, False)
 
     wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
     wrls_curve.object = curve
@@ -254,6 +256,7 @@ def cable_preview_update(self, context):
 
     if reverse:
         context.scene.objects.active = cable_shape
+        cable_shape.select
 
 def toggle_head_end_cap(self, context):
     """Runs when turning on/off the use head option"""
@@ -383,6 +386,7 @@ def tail_preview_update(self, context):
     wireless.clean_obsolete_materials(tail)
     bpy.data.objects.remove(tail, do_unlink=True)
 
+
 def set_old_thickness(self, value):
     self["old_c_thickness"] = value
 
@@ -426,8 +430,9 @@ def head_use_cable_mat_toggle(self, context):
      This function is copying the cable material from slot 1 to slot 2
     """
     a_obj = context.active_object
-    cable = wireless.find_part(a_obj)
+    cable = wireless.find_part(a_obj, 'CABLE')
     head = wireless.find_part(a_obj, 'HEAD')
+    context.scene.objects.active = cable
     wireless.setup_materials(cable, head)
 def tail_use_cable_mat_toggle(self, context):
     """Make the tail use the first material the same one used by the cable
@@ -437,9 +442,52 @@ def tail_use_cable_mat_toggle(self, context):
     from slot 1 to slot 4
     """
     a_obj = context.active_object
-    cable = wireless.find_part(a_obj)
+    cable = wireless.find_part(a_obj, 'CABLE')
     tail = wireless.find_part(a_obj, 'TAIL')
+    context.scene.objects.active = cable
     wireless.setup_materials(cable, tail, False)
+def set_old_cable_stretch(self, value):
+    self["old_cable_stretch"] = value
+    
+def update_cable_stretch(self, context):
+    """go on editmode and scale the vets on x by value
+    """
+    if configs.switch is False:
+        active_obj = bpy.context.active_object
+        cable = wireless.find_part(active_obj, 'CABLE')
+        curve = wireless.find_part(active_obj, 'CURVE')
+        head = wireless.find_part(active_obj, 'HEAD')
+        old_value = cable.wrls.old_cable_stretch
+        value = cable.wrls.cable_stretch
+        factor = value / old_value
+        log.debug("Found cable stretch on cable: %s" % cable.wrls.cable_stretch)
+        log.debug("Found cable stretch on curve: %s" % curve.wrls.cable_stretch)
+        log.debug("Old cable stretch on cable : %s" % old_value)
+        log.debug("Factor is : %s" % factor)
+        mesh = cable.data
+        bpy.context.scene.objects.active = cable
+        if not mesh.is_editmode:
+            bpy.ops.object.editmode_toggle()
+
+        b_mesh = bmesh.from_edit_mesh(mesh)
+
+        for vert in b_mesh.verts:
+            vert.co.x *= factor
+        bmesh.update_edit_mesh(mesh, True)
+        # back to object mode now
+        bpy.ops.object.editmode_toggle()
+        set_old_cable_stretch(self, value)
+        if head:
+            head.hide = False
+            head.select = True
+            wireless.mirror_and_translate_head(head.name, cable, stretch=True)
+            head.hide = False
+            bpy.context.scene.objects.active = active_obj
+        configs.switch = True
+        curve.wrls.cable_stretch = value
+        cable.wrls.cable_stretch = value
+        bpy.context.scene.update()
+        configs.switch = False   
 
 ############### Property Group ########################
 
@@ -454,19 +502,16 @@ class WirelessPropertyGroup(PropertyGroup):
         default='UNDEFINED',
         items=status_items
         )
-
     enable = BoolProperty(
         default=False,
         description="Enable Wireless",
         update=toggle_wireless
         )
-
     use_head = BoolProperty(
         default=False,
         description="Use head end cap",
         update=toggle_head_end_cap
         )
-
     use_tail = BoolProperty(
         default=False,
         description="Use tail end cap",
@@ -478,7 +523,7 @@ class WirelessPropertyGroup(PropertyGroup):
         default=1.0,
         min=0.001,
         max=100.0,
-        soft_min=0.0,
+        soft_min=0.01,
         soft_max=10.0,
         update=update_cable_thickness
         )
@@ -496,14 +541,33 @@ class WirelessPropertyGroup(PropertyGroup):
     head_use_cable_mat = BoolProperty(
         name="hea use cable material",
         description="",
-        default=True,
+        default=False,
         update=head_use_cable_mat_toggle
         )
     tail_use_cable_mat = BoolProperty(
         name="tail use cable material",
         description="",
-        default=True,
+        default=False,
         update=tail_use_cable_mat_toggle
+        )
+    old_cable_stretch = FloatProperty(
+        name="Cable Stretch",
+        description="",
+        default=1.0
+        )
+    cable_stretch = FloatProperty(
+        name="Cable Stretch",
+        description="",
+        default=1.0,
+        min=0.1,
+        max=20.0,
+        soft_min=0.1,
+        soft_max=10.0,
+        update=update_cable_stretch
+        )
+    cable_original_x = FloatProperty(
+        name="Cable Original X",
+        description=""
         )
 
 class WirelessSettingsPropertyGroup(PropertyGroup):

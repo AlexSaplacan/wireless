@@ -1,6 +1,7 @@
 import os
 import bpy
 from . import configs
+from . import wireless
 
 
 ################## UI #####################
@@ -10,7 +11,7 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_wireless"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'TOOLS'
-    bl_category = "Misc"
+    bl_category = "Wireless"
 
     # @classmethod
     # def pool(cls,context):
@@ -36,11 +37,12 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
 
             wm_wrls = bpy.context.window_manager.wrls
             obj_wrls = bpy.context.active_object.wrls
+            # cable = wireless.find_part(bpy.context.active_object, 'CABLE')
             layout = self.layout
             box = layout.box()
             # setting layout to Active , but I see this still allows me to change previews,
             # therefore, I could make strange choiches
-            a_object = context.active_object 
+            a_object = context.active_object
             if a_object.type != 'CURVE' and a_object.wrls.wrls_status == 'UNDEFINED':
                 layout.label(text="Plese select a curve")
             elif a_object.wrls.wrls_status == 'UNDEFINED':
@@ -63,6 +65,12 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row.label(text="Thickness")
                 row = box.row()
                 row.prop(obj_wrls, "cable_thickness", text="")
+
+                # # the stretch slider
+                # row = box.row()
+                # row.label(text="Stretch")
+                # row = box.row()
+                # row.prop(cable.wrls, "cable_stretch", text="")
 
             # the head endcap area
 
@@ -89,7 +97,6 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     row = box.row()
                     row.prop(obj_wrls, "head_use_cable_mat", text="Use cable material")
 
-
             # the tail endcap area
             if a_object.wrls.wrls_status == 'UNDEFINED':
                 pass
@@ -113,6 +120,18 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     col.operator("wrls.tail_next", icon="TRIA_RIGHT", text="")
                     row = box.row()
                     row.prop(obj_wrls, "tail_use_cable_mat", text="Use cable material")
+
+            # a box with apply and purge buttons:
+            # the tail endcap area
+            if a_object.wrls.wrls_status == 'UNDEFINED':
+                pass
+            else:
+                box = layout.box()
+                box.label(text="Utilityes")
+                row = box.row()
+                row.operator("wrls.apply_wrls", icon="FILE_TICK", text="Apply Wireless Data")
+                row = box.row()
+                row.operator("wrls.purge_wrls", icon="PARTICLES", text="Purge Wireless Data")
         except:
             pass
 

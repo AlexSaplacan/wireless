@@ -72,7 +72,7 @@ def import_model(obj_name):
     return data_to.objects[0]
 
 
-def mirror_and_translate_head(obj_name, cable):
+def mirror_and_translate_head(obj_name, cable, stretch=False):
     """
     Switch to edit mode and mirror all the vertices on x axis o the object
     is facing now the right way. Also translate the head by value on negative x to
@@ -91,27 +91,35 @@ def mirror_and_translate_head(obj_name, cable):
             bpy.ops.object.editmode_toggle()
     head_obj = bpy.data.objects[obj_name]
     cable_x = cable.wrls.cable_x
+    # cable_s = cable.wrls.cable_stretch
+    # cable_o_s = cable.wrls.old_cable_stretch
+    # cable_o = cable.wrls.cable_original_x
+
+
     bpy.context.scene.objects.active = head_obj
     data = head_obj.data
     if not data.is_editmode:
         bpy.ops.object.editmode_toggle()
-    mesh = bmesh.from_edit_mesh(bpy.context.object.data)
+    me = bpy.context.object.data
+    mesh = bmesh.from_edit_mesh(me)
+
     for vert in mesh.verts:
-        vert.co.x *= -1
-        vert.co.x -= cable_x
+        if not stretch:
+
+            vert.co.x *= -1
+            vert.co.x -= cable_x
+        # else:
+        #     vert.co.x -= cable_o * (cable_s - cable_o_s)
+
+
+    # recalculate normals here
+    bpy.ops.mesh.select_all(action='DESELECT')
+    bpy.ops.mesh.select_all(action='TOGGLE')
+    bpy.ops.mesh.normals_make_consistent(inside=False)
+
     bpy.ops.object.editmode_toggle()
     bpy.context.scene.objects.active = a_object
 
-def translate_head(head, value):
-    """Move all the geometry of the head by negative value ammount on x axis
-    It is needed to avoid the gab between the cable and the head
-
-    Args:
-        head - (bpy Object (never None)) - the object that needs the geometry moved
-        value (float) - the distance on negative x axis to be translated
-    Returns:
-        None
-    """
 def tail_and_head(obj):
     """
     Find the tail and head object names of the array modifier
@@ -270,43 +278,43 @@ def find_part(a_object, part='CABLE'):
                 cable = child
                 break
 
-    log.debug("found_part child: %s" %cable)
+    # log.debug("found_part child: %s" %cable)
     cable = bpy.data.objects[cable.name]
     try:
         head_name = cable.modifiers["WRLS_Array"].end_cap.name
         head = data_obj[head_name]
-        log.debug("find_part head is: %s" %head)
+        # log.debug("find_part head is: %s" %head)
     except:
-        log.debug("head not found POOOOOOOOOOOOOOOP")
+        # log.debug("head not found POOOOOOOOOOOOOOOP")
         head = None
     try:
         tail_name = cable.modifiers["WRLS_Array"].start_cap.name
         tail = data_obj[tail_name]
     except:
-        log.debug("TAIL not found AAAAAAAAAAAAAAAAARRRRRRGH!")
+        # log.debug("TAIL not found AAAAAAAAAAAAAAAAARRRRRRGH!")
         tail = None
 
     curve = cable.parent
 
     if part == 'HEAD':
         if head:
-            log.debug("find_part has found a head: %s" %head)
+            # log.debug("find_part has found a head: %s" %head)
             return head
         else:
             return None
     elif part == 'TAIL':
         if tail:
-            log.debug("find_part has found a tail: %s" %tail.name)
+            # log.debug("find_part has found a tail: %s" %tail.name)
             return tail
         else:
             return None
 
     elif part == 'CURVE':
-        log.debug("find_part has found a curve %s" %curve.name)
+        # log.debug("find_part has found a curve %s" %curve.name)
         return curve
 
     else:
-        log.debug("find_part has found a cable")
+        # log.debug("find_part has found a cable")
         return cable
 
 
@@ -417,9 +425,13 @@ def setup_materials(cable, cap, is_head=True):
 
         # safty check... how many material slots we have?
         existig_slots_n = len(cap.material_slots)
+        log.debug("%s has %s slot materials" %(cap.name, existig_slots_n))
         # add the missing ones
+        count = 0
         for i in range(7 - existig_slots_n):
             bpy.ops.object.material_slot_add()
+            count += 1
+        log.debug("I have added %s slot materials" % count)
         # assign verts 3 slots forward
         for i in range(1, 4):
             bpy.ops.mesh.select_all(action='DESELECT')
@@ -428,7 +440,7 @@ def setup_materials(cable, cap, is_head=True):
             cap.active_material_index = i + 3
             bpy.ops.object.material_slot_assign()
             cable.material_slots[i + 3].material = cap.material_slots[i].material
-        
+
         bpy.ops.object.editmode_toggle()
         cap.hide = True
         # now check if to use the cable material 
@@ -436,8 +448,6 @@ def setup_materials(cable, cap, is_head=True):
             cable.material_slots[4].material = cable.material_slots[0].material
         a_object.select = True
         bpy.context.scene.objects.active = a_object
-
-
 
 ############## OPERATORS ###############################
 
@@ -533,6 +543,87 @@ class OBJECT_OT_Tail_Prev(bpy.types.Operator):
         get_prev_item(context, "tail_types")
 
         return {'FINISHED'}
+
+class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
+
+    """Apply wireless modifiers and make the cable a normal object.
+    """
+    bl_idname = "wrls.apply_wrls"
+    bl_label = "Apply wireless data"
+
+    def execute(self, context):
+
+        active_object = context.active_object
+
+        cable = find_part(active_object, 'CABLE')
+        head = find_part(active_object, 'HEAD')
+        tail = find_part(active_object, 'TAIL')
+        curve = find_part(active_object, 'CURVE')
+
+        context.scene.objects.active = cable
+
+        # find WRLS modifiers and apply them
+        for modifier in cable.modifiers:
+            if modifier.name.startswith("WRLS"):
+                bpy.ops.object.modifier_apply(modifier=modifier.name)
+
+        # delete head and tail if they exist
+        if head is not None:
+            bpy.data.objects.remove(head, do_unlink=True)
+        if tail is not None:
+            bpy.data.objects.remove(tail, do_unlink=True)
+
+        # cable now has no parent
+        a_object = context.active_object
+        a_object.select = True
+        log.debug("Before_clear active object is %s" % a_object)
+        bpy.ops.object.parent_clear(type='CLEAR_KEEP_TRANSFORM')
+
+        # set WRLS status to UNDEFINED to cable and curve
+        configs.switch = True
+        bpy.ops.wm.properties_remove(data_path="object", property="wrls")
+        context.scene.objects.active = curve
+        bpy.ops.wm.properties_remove(data_path="object", property="wrls")
+        configs.switch = False
+
+        return {'FINISHED'}
+
+class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
+
+    """Just in case something went wrong.
+    """
+    bl_idname = "wrls.purge_wrls"
+    bl_label = "Purge wireless"
+
+    def execute(self, context):
+        active_object = context.active_object
+
+        cable = find_part(active_object, 'CABLE')
+        head = find_part(active_object, 'HEAD')
+        tail = find_part(active_object, 'TAIL')
+        curve = find_part(active_object, 'CURVE')
+
+        # delete head and tail if they exist
+        if head is not None:
+            bpy.data.objects.remove(head, do_unlink=True)
+        if tail is not None:
+            bpy.data.objects.remove(tail, do_unlink=True)
+
+        # clear materials data and remove cable
+        clean_obsolete_materials(cable)
+        bpy.data.objects.remove(cable, do_unlink=True)
+
+         # select the curve and set wrls_status to UNDEFINED
+        context.scene.objects.active = curve
+        curve.select = True
+        configs.switch = True
+        bpy.ops.wm.properties_remove(data_path="object", property="wrls")
+        configs.switch = False
+        log.info("All wrls data cleaned.")
+
+        return {'FINISHED'}
+
+
 
 def register():
     "register"

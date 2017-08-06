@@ -49,7 +49,113 @@
 		"name":"WRLS_USB_2B",
 		"blend" : "Cables.blend",
 		"cable":false
+		},
+	"Jack 3.5mm":{
+		"name":"WRLS_Jack_3.5",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Industrial 220V M":{
+		"name":"WRLS_220_Industrial_M",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Industrial 220V F open":{
+		"name":"WRLS_220_Industrial_F_A",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Industrial 220V F closed":{
+		"name":"WRLS_220_Industrial_F_B",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Plug 220 UK":{
+		"name":"WRLS_Electric_UK.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"UK Mainpower 3Way":{
+		"name":"WRLS_Electrical_Triple_UK.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Plug EU Simple_M":{
+		"name":"WRLS_Electric_EU.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Plug EU Simple_F":{
+		"name":"WRLS_Electric_EU.001",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Power Plug US 2 pin":{
+		"name":"WRLS_Plug_US_Simple_M.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Appliance End":{
+		"name":"WRLS_Appliance_end",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Ethernet":{
+		"name":"WRLS_Ethernet",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"12 Volt 2 pin":{
+		"name":"WRLS_12v_2Pin",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Laptop Adapter":{
+		"name":"WRLS_Laptop_Adapter",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Schuko":{
+		"name":"WRLS_Schuko.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Cloverleaf":{
+		"name":"WRLS_Cloverleaf",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"PC Plug":{
+		"name":"WRLS_PC_Plug.000",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Schuko Triple":{
+		"name":"WRLS_Schuko_triple",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Power Plug US 3 pin":{
+		"name":"WRLS_Power_Cable_US_3_pin",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"HDMI Simple":{
+		"name":"WRLS_HDMI",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"RCA":{
+		"name":"WRLS_RCA",
+		"blend" : "Cables.blend",
+		"cable":false
+		},
+	"Guitar Jack":{
+		"name":"WRLS_Guitar_Jack",
+		"blend" : "Cables.blend",
+		"cable":false
 		}
+	
 
 	},
 "model_types": {
@@ -65,12 +171,54 @@
 	"head_types":[
 		"USB F",
 		"USB Type C",
-		"USB 2B"
+		"USB 2B",
+		"Jack 3.5mm",
+		"Industrial 220V M",
+		"Industrial 220V F open",
+		"Industrial 220V F closed",
+		"Plug 220 UK",
+		"UK Mainpower 3Way",
+		"Plug EU Simple_M",
+		"Plug EU Simple_F",
+		"Power Plug US 2 pin",
+		"Power Plug US 3 pin",
+		"Appliance End",
+		"Ethernet",
+		"12 Volt 2 pin",
+		"Laptop Adapter",
+		"Schuko",
+		"Schuko Triple",
+		"Cloverleaf",
+		"PC Plug",
+		"HDMI Simple",
+		"RCA",
+		"Guitar Jack"
 	],
 	"tail_types":[
 		"USB F",
 		"USB Type C",
-		"USB 2B"
+		"USB 2B",
+		"Jack 3.5mm",
+		"Industrial 220V M",
+		"Industrial 220V F open",
+		"Industrial 220V F closed",
+		"Plug 220 UK",
+		"UK Mainpower 3Way",
+		"Plug EU Simple_M",
+		"Plug EU Simple_F",
+		"Power Plug US 2 pin",
+		"Power Plug US 3 pin",
+		"Appliance End",
+		"Ethernet",
+		"12 Volt 2 pin",
+		"Laptop Adapter",
+		"Schuko",
+		"Schuko Triple",
+		"Cloverleaf",
+		"PC Plug",
+		"HDMI Simple",
+		"RCA",
+		"Guitar Jack"
 	]
 },
 "Thumbs": [
@@ -113,6 +261,90 @@
 	{
 		"id":"USB 2B",
 		"img":"WRLS_USB_2B.jpg"
+	},
+	{
+		"id":"Jack 3.5mm",
+		"img":"WRLS_Jack3_5.jpg"
+	},
+	{
+		"id":"Industrial 220V M",
+		"img":"WRLS_220_Industrial_M.jpg"
+	},
+	{
+		"id":"Industrial 220V F open",
+		"img":"WRLS_220_Industrial_F_A.jpg"
+	},
+	{
+		"id":"Industrial 220V F closed",
+		"img":"WRLS_220_Industrial_F_B.jpg"
+	},
+	{
+		"id":"Plug 220 UK",
+		"img":"WRLS_Electric_UK_000.jpg"
+	},
+	{
+		"id":"UK Mainpower 3Way",
+		"img":"WRLS_Electrical_Triple_UK.000.jpg"
+	},
+	{
+		"id":"Plug EU Simple_M",
+		"img":"WRLS_Electric_EU.000.jpg"
+	},
+	{
+		"id":"Plug EU Simple_F",
+		"img":"WRLS_Electric_EU.001.jpg"
+	},
+	{
+		"id":"Power Plug US 2 pin",
+		"img":"WRLS_Plug_US_NEMA.jpg"
+	},
+	{
+		"id":"Appliance End",
+		"img":"WRLS_Appliance_end.jpg"
+	},
+	{
+		"id":"Ethernet",
+		"img":"WRLS_Ethernet_01.jpg"
+	},
+	{
+		"id":"12 Volt 2 pin",
+		"img":"WRLS_12V_2pin.jpg"
+	},
+	{
+		"id":"Laptop Adapter",
+		"img":"WRLS_LaptopAdapter.jpg"
+	},
+	{
+		"id":"Schuko",
+		"img":"WRLS_Schucko.jpg"
+	},
+	{
+		"id":"Cloverleaf",
+		"img":"WRLS_Cloverleaf.jpg"
+	},
+	{
+		"id":"PC Plug",
+		"img":"WRLS_PC_plug.jpg"
+	},
+	{
+		"id":"Schuko Triple",
+		"img":"WRLS_Schuko_triple.jpg"
+	},
+	{
+		"id":"Power Plug US 3 pin",
+		"img":"WRLS_Power_US_3_pin.jpg"
+	},
+	{
+		"id":"HDMI Simple",
+		"img":"WRLS_HDMI.01.jpg"
+	},
+	{
+		"id":"RCA",
+		"img":"WRLS_RCA.jpg"
+	},
+	{
+		"id":"Guitar Jack",
+		"img":"WRLS_guitar_jack.jpg"
 	}
 ]
 }
