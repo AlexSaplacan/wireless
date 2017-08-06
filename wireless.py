@@ -254,68 +254,45 @@ def get_next_item(context, list_name):
         new_pos = current_pos[0] + 1
         setattr(wrls, list_name, items_list[new_pos])
 
-
-def find_part(a_object, part='CABLE'):
-    """Find the part object within the wireless "group" of the selected object
-    The active object but the active object might be the curve.
+def find_parts(a_object):
+    """Find all the objects within the wireless "group" of a_object and put them in a list
 
     Args:
         a_object - (bpy.Object(never None)) - the serched object
-        part (str(never None)) (default 'CABLE') - part that we need to look for
 
     Return
-        bpyObject - the part object declared in the part argument
-     """
+        list of bpy Objects (4) containing [Curve, Cable, Head, Tail].
+        if any of this don't exits, it's replaced with 'None'
+    """
 
     data_obj = bpy.data.objects
-    if a_object.wrls.wrls_status == 'CABLE':
-        cable = a_object
 
-    else:
-        # this is the curve, we have to get to the cable
-        for child in a_object.children:
+    if a_object.wrls.wrls_status == 'CURVE':
+        # this is the curve
+        curve = data_obj[a_object.name]
+
+        # now let's check out if a cable exists
+        cable = None
+        for child in curve.children:
             if child.wrls.wrls_status == 'CABLE':
                 cable = child
                 break
-
-    # log.debug("found_part child: %s" %cable)
-    cable = bpy.data.objects[cable.name]
-    try:
-        head_name = cable.modifiers["WRLS_Array"].end_cap.name
-        head = data_obj[head_name]
-        # log.debug("find_part head is: %s" %head)
-    except:
-        # log.debug("head not found POOOOOOOOOOOOOOOP")
-        head = None
-    try:
-        tail_name = cable.modifiers["WRLS_Array"].start_cap.name
-        tail = data_obj[tail_name]
-    except:
-        # log.debug("TAIL not found AAAAAAAAAAAAAAAAARRRRRRGH!")
-        tail = None
-
-    curve = cable.parent
-
-    if part == 'HEAD':
-        if head:
-            # log.debug("find_part has found a head: %s" %head)
-            return head
-        else:
-            return None
-    elif part == 'TAIL':
-        if tail:
-            # log.debug("find_part has found a tail: %s" %tail.name)
-            return tail
-        else:
-            return None
-
-    elif part == 'CURVE':
-        # log.debug("find_part has found a curve %s" %curve.name)
-        return curve
-
     else:
-        # log.debug("find_part has found a cable")
-        return cable
+        # this is the cable
+        cable = data_obj[a_object.name]
+        curve = cable.parent
+
+    # head and tail
+    head, tail = None, None
+
+    if cable is not None:
+        head = cable.modifiers['WRLS_Array'].end_cap
+        tail = cable.modifiers['WRLS_Array'].start_cap
+
+    wrls_group = [curve, cable, head, tail]
+    log.debug("Elements found: %s" %wrls_group)
+
+    return wrls_group
 
 
 def clean_obsolete_materials(obj):
@@ -555,10 +532,12 @@ class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
         active_object = context.active_object
 
-        cable = find_part(active_object, 'CABLE')
-        head = find_part(active_object, 'HEAD')
-        tail = find_part(active_object, 'TAIL')
-        curve = find_part(active_object, 'CURVE')
+        # cable = find_part(active_object, 'CABLE')
+        # head = find_part(active_object, 'HEAD')
+        # tail = find_part(active_object, 'TAIL')
+        # curve = find_part(active_object, 'CURVE')
+
+        curve, cable, head, tail = find_parts(active_object)
 
         context.scene.objects.active = cable
 
@@ -598,10 +577,7 @@ class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
     def execute(self, context):
         active_object = context.active_object
 
-        cable = find_part(active_object, 'CABLE')
-        head = find_part(active_object, 'HEAD')
-        tail = find_part(active_object, 'TAIL')
-        curve = find_part(active_object, 'CURVE')
+        curve, cable, head, tail = find_parts(active_object)
 
         # delete head and tail if they exist
         if head is not None:

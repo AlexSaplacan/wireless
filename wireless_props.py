@@ -194,13 +194,8 @@ def cable_preview_update(self, context):
     new_cable = context.window_manager.wrls.cables_types
 
     active_obj = bpy.context.active_object
-    # Add here a record of the tais and heads
-    head = wireless.find_part(active_obj, 'HEAD')
-    tail = wireless.find_part(active_obj, 'TAIL')
-    cable = wireless.find_part(active_obj, 'CABLE')
-    curve = wireless.find_part(active_obj, 'CURVE')
-    log.debug("cable_preview_update -- found parts are: %s, %s, %s, %s" %(
-        curve, cable, head, tail))
+
+    curve, cable, head, tail = wireless.find_parts(active_obj)
 
     # Keep record of the active object
     reverse = False
@@ -262,6 +257,7 @@ def toggle_head_end_cap(self, context):
     """Runs when turning on/off the use head option"""
 
     active_obj = context.active_object
+    curve, cable, head, tail = wireless.find_parts(active_obj)
     # Do nothing when switch is True
     if configs.switch is True:
         log.debug("toggle head endcap -- Now I should do something else")
@@ -269,8 +265,6 @@ def toggle_head_end_cap(self, context):
         # Do something when is On
         if active_obj.wrls.use_head is True:
             first_head = context.window_manager.wrls.head_types
-            cable = wireless.find_part(active_obj)
-            curve = cable.parent
             active_status = active_obj.wrls.wrls_status
             # let's make sure both curve and cable have "use_head" = True
             if active_status == 'CURVE':
@@ -289,12 +283,6 @@ def toggle_head_end_cap(self, context):
 
         # Do something else when turned off
         else:
-            # find the head object
-            head = wireless.find_part(active_obj, 'HEAD')
-            cable = wireless.find_part(active_obj, 'CABLE')
-            curve = wireless.find_part(active_obj, 'CURVE')
-            log.debug("toggle_head_endcap -- found parts are: %s, %s, %s" %(
-                head.name, cable.name, curve.name))
             wireless.clean_obsolete_materials(head)
             bpy.data.objects.remove(head, do_unlink=True)
             configs.switch = True
@@ -306,6 +294,7 @@ def toggle_tail_end_cap(self, context):
     """Runs when turning on/off the use tail option"""
 
     active_obj = context.active_object
+    curve, cable, head, tail = wireless.find_parts(active_obj)
     # Do nothing when switch is True
     if configs.switch is True:
         log.debug("toggle tail endcap -- Now I should do something else")
@@ -313,7 +302,6 @@ def toggle_tail_end_cap(self, context):
         # Do something when is On
         if active_obj.wrls.use_tail is True:
             first_tail = context.window_manager.wrls.tail_types
-            cable = wireless.find_part(active_obj)
             curve = cable.parent
             active_status = active_obj.wrls.wrls_status
             # let's make sure both curve and cable have "use_head" = True
@@ -333,12 +321,6 @@ def toggle_tail_end_cap(self, context):
 
         # Do something else when turned off
         else:
-            # find the tail object
-            tail = wireless.find_part(active_obj, 'TAIL')
-            cable = wireless.find_part(active_obj, 'CABLE')
-            curve = wireless.find_part(active_obj, 'CURVE')
-            log.debug("toggle_tail_endcap -- found parts are: %s, %s, %s" %(
-                tail, cable, curve))
             wireless.clean_obsolete_materials(tail)
             bpy.data.objects.remove(tail, do_unlink=True)
             configs.switch = True
@@ -355,8 +337,7 @@ def head_preview_update(self, context):
     """Update the head object to the new model"""
 
     active_obj = context.active_object
-    head = wireless.find_part(active_obj, 'HEAD')
-    cable = wireless.find_part(active_obj, 'CABLE')
+    curve, cable, head, tail = wireless.find_parts(active_obj)
 
     # find the selected head type
     new_head_name = context.window_manager.wrls.head_types
@@ -375,8 +356,7 @@ def tail_preview_update(self, context):
     """Update the tail object to the new model"""
 
     active_obj = context.active_object
-    tail = wireless.find_part(active_obj, 'TAIL')
-    cable = wireless.find_part(active_obj, 'CABLE')
+    curve, cable, head, tail = wireless.find_parts(active_obj)
 
     # find the selected tail type
     new_tail_name = context.window_manager.wrls.tail_types
@@ -395,8 +375,8 @@ def update_cable_thickness(self,context):
     """
     if configs.switch is False:
         active_obj = bpy.context.active_object
-        cable = wireless.find_part(active_obj, 'CABLE')
-        curve = wireless.find_part(active_obj, 'CURVE')
+        curve, cable, head, tail = wireless.find_parts(active_obj)
+
         old_value = cable.wrls.old_c_thickness
         value = cable.wrls.cable_thickness
         factor = value / old_value
@@ -429,11 +409,12 @@ def head_use_cable_mat_toggle(self, context):
     By default materials for heads and tails are on material slots 2, 3 and 4
      This function is copying the cable material from slot 1 to slot 2
     """
-    a_obj = context.active_object
-    cable = wireless.find_part(a_obj, 'CABLE')
-    head = wireless.find_part(a_obj, 'HEAD')
+    active_obj = context.active_object
+    curve, cable, head, tail = wireless.find_parts(active_obj)
+
     context.scene.objects.active = cable
     wireless.setup_materials(cable, head)
+
 def tail_use_cable_mat_toggle(self, context):
     """Make the tail use the first material the same one used by the cable
     if swithched True, or use it's default material.
@@ -441,9 +422,9 @@ def tail_use_cable_mat_toggle(self, context):
     For tails they are moved on 5, 6 and 7. This function is copying the cable material
     from slot 1 to slot 4
     """
-    a_obj = context.active_object
-    cable = wireless.find_part(a_obj, 'CABLE')
-    tail = wireless.find_part(a_obj, 'TAIL')
+    active_obj = context.active_object
+    curve, cable, head, tail = wireless.find_parts(active_obj)
+
     context.scene.objects.active = cable
     wireless.setup_materials(cable, tail, False)
 def set_old_cable_stretch(self, value):
@@ -454,9 +435,8 @@ def update_cable_stretch(self, context):
     """
     if configs.switch is False:
         active_obj = bpy.context.active_object
-        cable = wireless.find_part(active_obj, 'CABLE')
-        curve = wireless.find_part(active_obj, 'CURVE')
-        head = wireless.find_part(active_obj, 'HEAD')
+        curve, cable, head, tail = wireless.find_parts(active_obj)
+ 
         old_value = cable.wrls.old_cable_stretch
         value = cable.wrls.cable_stretch
         factor = value / old_value
