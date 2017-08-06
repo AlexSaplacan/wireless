@@ -1,0 +1,1201 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cable",
+				"cable_shape"
+			],
+			[
+				"WRLS_Sc",
+				"WRLS_Schuko_triple"
+			],
+			[
+				"c",
+				"cable_original_x"
+			],
+			[
+				"activ",
+				"active_obj"
+			],
+			[
+				"enu",
+				"EnumProperty"
+			],
+			[
+				"hea",
+				"head_rotation"
+			],
+			[
+				"set",
+				"set_old_head_rot"
+			],
+			[
+				"obj",
+				"object"
+			],
+			[
+				"old_rot",
+				"old_rot"
+			],
+			[
+				"active",
+				"active_object"
+			],
+			[
+				"acti",
+				"active_obj"
+			],
+			[
+				"soft",
+				"soft_min"
+			],
+			[
+				"exi",
+				"existig_slots_n"
+			],
+			[
+				"se",
+				"setup_materials"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"sel",
+				"select_all"
+			],
+			[
+				"norm",
+				"normals_make_consistent"
+			],
+			[
+				"act",
+				"active_obj"
+			],
+			[
+				"las",
+				"last_active"
+			],
+			[
+				"objec",
+				"objects"
+			],
+			[
+				"mat",
+				"material"
+			],
+			[
+				"wrls",
+				"wrls_status"
+			],
+			[
+				"mater",
+				"material_slots"
+			],
+			[
+				"mate",
+				"material_slots"
+			],
+			[
+				"tail_use_c",
+				"tail_use_cable_mat"
+			],
+			[
+				"wr",
+				"wrls_array"
+			],
+			[
+				"cab",
+				"cable_x"
+			],
+			[
+				"ca",
+				"cable_x"
+			],
+			[
+				"WRLS_US",
+				"WRLS_USB_2B"
+			],
+			[
+				"WRLS_Dua",
+				"WRLS_Dual_Twisted"
+			],
+			[
+				"Te",
+				"true"
+			],
+			[
+				"ol",
+				"old_c_thickness"
+			],
+			[
+				"end",
+				"end_cap"
+			],
+			[
+				"WRLS_",
+				"WRLS_Array"
+			],
+			[
+				"an",
+				"anti_value"
+			],
+			[
+				"up",
+				"update_cable_thickness"
+			],
+			[
+				"s",
+				"switch"
+			],
+			[
+				"get",
+				"get_cable_thickness"
+			],
+			[
+				"find",
+				"find_part"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"WR",
+				"WRLS_USB_F"
+			],
+			[
+				"Pro",
+				"PropertyGroup"
+			],
+			[
+				"preview",
+				"preview_collections"
+			],
+			[
+				"bo",
+				"box"
+			],
+			[
+				"box",
+				"bl_context"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"head",
+				"head_obj"
+			],
+			[
+				"ob",
+				"objects"
+			],
+			[
+				"wrl",
+				"wrls"
+			],
+			[
+				"tail",
+				"tail"
+			],
+			[
+				"mo",
+				"modifier_add("
+			],
+			[
+				"shape",
+				"shape_obj"
+			],
+			[
+				"object",
+				"objects"
+			],
+			[
+				"me",
+				"meshes"
+			],
+			[
+				"dA",
+				"data_dest"
+			],
+			[
+				"lib",
+				"library_path"
+			],
+			[
+				"mod",
+				"model_types"
+			],
+			[
+				"li",
+				"library_path"
+			],
+			[
+				"au",
+				"autosmooth_angle"
+			],
+			[
+				"off",
+				"offset"
+			],
+			[
+				"cen",
+				"center_y"
+			],
+			[
+				"ve",
+				"velocity_y"
+			],
+			[
+				"fo",
+				"font_size"
+			],
+			[
+				"center",
+				"center_x"
+			],
+			[
+				"Po",
+				"PongGame"
+			],
+			[
+				"dr",
+				"draw_used_indexes"
+			],
+			[
+				"ty",
+				"types"
+			],
+			[
+				"dra",
+				"draw_text"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"threebasma",
+				"THREE.MeshBasicMaterial"
+			],
+			[
+				"im",
+				"import"
+			],
+			[
+				"ge",
+				"generate_cats"
+			],
+			[
+				"gene",
+				"generate_subs"
+			],
+			[
+				"co",
+				"context_cat"
+			],
+			[
+				"list",
+				"list_mat_types"
+			],
+			[
+				"name",
+				"namecheck"
+			],
+			[
+				"color",
+				"color_mode"
+			],
+			[
+				"b",
+				"bl_idname"
+			],
+			[
+				"Maca",
+				"MaterialCategories"
+			],
+			[
+				"imp",
+				"importable_categories"
+			],
+			[
+				"MA",
+				"MASTER_BLEND"
+			],
+			[
+				"import",
+				"imported_materials"
+			],
+			[
+				"render_y",
+				"render_y"
+			],
+			[
+				"rend",
+				"renderAlts"
+			],
+			[
+				"tre",
+				"node_tree"
+			],
+			[
+				"img",
+				"imgNode"
+			],
+			[
+				"ima",
+				"image"
+			],
+			[
+				"loa",
+				"load"
+			],
+			[
+				"imag",
+				"images"
+			],
+			[
+				"render",
+				"renderPath"
+			],
+			[
+				"No",
+				"NONE"
+			],
+			[
+				"ma",
+				"material"
+			],
+			[
+				"o",
+				"objects"
+			],
+			[
+				"tee",
+				"textures"
+			],
+			[
+				"cyc",
+				"cyclesPath"
+			],
+			[
+				"gr",
+				"groups"
+			],
+			[
+				"g",
+				"groups"
+			],
+			[
+				"grou",
+				"groupName"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"da",
+				"data_to"
+			],
+			[
+				"ownda",
+				"onwanda"
+			],
+			[
+				"La",
+				"label"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"pr",
+				"prop"
+			],
+			[
+				"owhan",
+				"onwhite_and_alts"
+			],
+			[
+				"pop",
+				"prop"
+			],
+			[
+				"p",
+				"props"
+			],
+			[
+				"O",
+				"OnWhiteAndAltsProperties"
+			],
+			[
+				"u",
+				"unregister_class("
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "wireless.py",
+			"settings":
+			{
+				"buffer_size": 16354,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wireless_props.py",
+			"settings":
+			{
+				"buffer_size": 21052,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wireless_ui.py",
+			"settings":
+			{
+				"buffer_size": 4567,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "configs.py",
+			"settings":
+			{
+				"buffer_size": 372,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "configs.json",
+			"settings":
+			{
+				"buffer_size": 6058,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1290,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "__init__.py",
+			"settings":
+			{
+				"buffer_size": 2438,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "categories.md",
+			"settings":
+			{
+				"buffer_size": 1044,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"synta",
+				"Preferences: Settings – Syntax Specific"
+			],
+			[
+				"blende",
+				"Blender : Execute in Blender"
+			],
+			[
+				"prefs",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"pac ",
+				"Package Control: Disable Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Blender : Execute in Blender"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 94.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/alex/Blender/Projects/wireless"
+	],
+	"file_history":
+	[
+		"/home/alex/Blender/assets/Addons/curve_tools.py",
+		"/home/alex/Blender/Projects/wireless/wireless.py",
+		"/home/alex/Blender/Projects/wireless/model_guidelines.md",
+		"/home/alex/working/LL_Blender_addon/OnWhiteAndAlts/LLUtils.py",
+		"/home/alex/Blender/Projects/wireless/wrls.sublime-project",
+		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/cycles/properties.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/pl_studio_ui.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/operators/sharpeners/soft_sharpen.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/ui/sub_menus.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/ui/main_menu.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/keymap.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/subsets_previews.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/operators/booleans/bool_intersection.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/preferences.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/HOps/operators/utils.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/license.txt",
+		"/home/alex/Blender/Projects/Cables/wireless/models.json",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/conf.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/__init__.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/pl_studio_floors.py",
+		"/home/alex/Blender/Projects/Cables/wireless_props.py",
+		"/home/alex/Blender/Projects/Cables/wireless_ui.py",
+		"/home/alex/Blender/Projects/Cables/configs.json",
+		"/home/alex/Blender/Projects/Cables/wireless.py",
+		"/home/alex/Blender/Projects/Cables/models.json",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/pl_studio_props.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/pl_studio_lighting.py",
+		"/home/alex/Blender/Projects/Cables/Create_meshes.py",
+		"/home/alex/kivyinstall/practice/pong/main.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/setups.json",
+		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/archimesh/achm_window_maker.py",
+		"/home/alex/kivyinstall/practice/pong/pong.kv",
+		"/home/alex/kivyinstall/local/lib/python2.7/site-packages/kivy/uix/bubble.py",
+		"/home/alex/kivyinstall/local/lib/python2.7/site-packages/kivy/uix/anchorlayout.py",
+		"/home/alex/kivyinstall/local/lib/python2.7/site-packages/kivy/uix/boxlayout.py",
+		"/home/alex/kivyinstall/local/lib/python2.7/site-packages/kivy/uix/button.py",
+		"/home/alex/Blender/threejs/example/example.html",
+		"/home/alex/kivyinstall/pracatice/myfirstapp.py",
+		"/home/alex/blender.sh",
+		"/home/alex/Downloads/apps/OBS/cef_binary_3.2987.1601.gf035232_linux64/tests/cefclient/browser/client_types.h",
+		"/home/alex/Downloads/apps/OBS/cef_binary_3.2987.1601.gf035232_linux64/CMakeLists.txt",
+		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/io_import_dxf/__init__.py",
+		"/home/alex/working/LL_Blender_addon/check_render_previews.py",
+		"/home/alex/working/material_library/__init__.py",
+		"/home/alex/working/material_library/materialslib.py",
+		"/home/alex/livelink/GITHUBS/graphic-scripts/CalendarPrep/01_SeparateYears.sh",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_eyedropper/eyedropper_modal.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/lib/classes/sketchbrush/sketchbrush.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/lib/common_mesh.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/lib/common_shader.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/lib/common_utilities.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_tweak/tweak_ui.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/cache.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/interface.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/key_maps.py",
+		"/home/alex/livelink/GITHUBS/graphic-scripts/PhotoCollageGen/collage_to_template.js",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/preferences.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/lib/classes/profiler/profiler.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_tweak/tweak_modal.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_tweak/tweak_ui_tools.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_tweak/__init__.py",
+		"/tmp/dumps/crash_20170320202759_1.dmp",
+		"/tmp/dumps/crash_20170319145350_1.dmp",
+		"/home/alex/.config/blender/2.78/scripts/addons/Link to LLUtils.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/__init__.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_tools_cloning.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_tools.py",
+		"/home/alex/Blender/Freelance/ArteForm/AICO/Scenes/renders/makeJPGs.sh",
+		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/__init__.py",
+		"/home/alex/working/material_library/mateeerialslib.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_vertex_paint.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/developer_utils.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/utils/blender_ui.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/utils/draw_px.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/__init__.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/operators/boolean_operators/bool_bmesh.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/utils/lists.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/utils/modifiers.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/BoxCutter Demo/utils/objects.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/Dark-Blender-master/__init__.py",
+		"/home/alex/Blender/scripting/animrendB.py",
+		"/home/alex/Blender/Projects/Lamps/Desk Lamp/scenes/Site_Renders/reesize_to_1200x600.sh",
+		"/home/alex/Blender/assets/Dynamat lite/__init__.py",
+		"/home/alex/.config/blender/2.78/config/blender_id/profiles.json",
+		"/home/alex/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/alex/.config/sublime-text-3/Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+		"/home/alex/.config/blender/2.78/scripts/addons/quicktools/__init__.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/quicktools/quick_edit_mode.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/quicktools/quick_object_mode.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/quicktools/quick_operators.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/SublimeBlenderAddon-master/__init__.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/SublimeBlenderAddon-master/blender_commander.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/SublimeBlenderAddon-master/__pycache__/__init__.cpython-35.pyc",
+		"/home/alex/.config/blender/2.78/scripts/addons/SublimeBlenderAddon-master/README.md",
+		"/home/alex/Desktop/runBlender.sh",
+		"/home/alex/Blender/scripting/OnWhiteAndAlts/UIpannel_test.py",
+		"/home/alex/Blender/scripting/OnWhiteAndAlts/materials.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/node_wrangler.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/ui.py",
+		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/node_wrangler.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/utils.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/flex.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/ordered_set.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/export_smd.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/datamodel.py",
+		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/new/makeJPGs.sh",
+		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/black/makeJPGs.sh",
+		"/home/alex/Blender/Freelance/ArteForm/STEP/TOKI/scenes/renders/steel/makeJPGs.sh",
+		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/steel/makeJPGs.sh"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Cloverleaf",
+			"Schuko",
+			"thickness",
+			"tail_use_cable_mat_toggle",
+			"layout",
+			"cable.modifiers[\"WRLS_Array\"]",
+			"head_model",
+			"mirror_head",
+			"Twisted",
+			"WRLS_Dual_Twisted",
+			"Dual",
+			"old_c_thickness",
+			"old_c_thicknes",
+			"WRLS_Array",
+			"curve",
+			"True",
+			"get_cable_thickness",
+			"value",
+			"scene_wrls",
+			"set_cable_thickness",
+			"pic_in",
+			"enum_previews_from_directory_items",
+			"dynamats_preview_thumbs",
+			"dynamats_preview_thumbs_dir",
+			"dynamats_preview_thumbs",
+			"enum_previews_from_directory_items",
+			"dynamats_preview_thumbs",
+			"enum_previews_from_directory_items",
+			"dynamats_preview_thumbs",
+			"reflections_setups_previews",
+			"reflection_set",
+			"dynamats_preview_thumbs",
+			"ynamats_preview_thumbs",
+			"dynamats_preview_thumb",
+			"settings",
+			"world",
+			"conf.internal_change",
+			"use_pl_studio_lights",
+			"lighting_changegroup",
+			"conf.internal_change",
+			"use_pl_studio_floors",
+			"layout.active",
+			"enable",
+			"use_pl_studio_floors",
+			"Soft Box",
+			"reflection_set",
+			"reloadIcons",
+			"thumb",
+			"Thumbs",
+			"Models",
+			"pl_studio_props",
+			"toggle_pl_studio_lights",
+			"floor_use_fresnel_update",
+			"blend",
+			"bl_context",
+			"layout",
+			"models = get_models()\n\n# load_object(models[0])\n# load_object(models[1])\n\n# make_cable(models[0], models[1])\n# print (models)",
+			"EDIT",
+			"head_obj",
+			"OnWhiteAndAltsProperties",
+			"head",
+			"clean_cables_data",
+			"obj_name",
+			"curve",
+			"objects.link",
+			"models",
+			"vert",
+			"WindowFrane",
+			"vert",
+			"edges",
+			"bm",
+			"object",
+			"ob",
+			"cleanup",
+			"tweak_data",
+			"sketch",
+			"pxl_rad",
+			"tool_data",
+			"stroke_radius",
+			"sketch_brush",
+			"world_width",
+			"stroke_radius",
+			"modal_scale_brush_pixel_tool",
+			"rot_collage_obj",
+			"ratio",
+			"rotate_collage",
+			"border_file",
+			"ll_mat_lib",
+			"RefreshMen",
+			"generate_cat",
+			"MainCat_Update",
+			"generate_cat",
+			"ll_mat_lib",
+			"bpy.props.StringProperty",
+			"importableGroups",
+			"list_mat_cats",
+			"onwhite_and_alts",
+			"Dynamats",
+			"ca",
+			"scene.dynamats_PanelLoc",
+			"logger",
+			"filename",
+			"errors",
+			"filepath",
+			"groupName",
+			" importableGroups",
+			"material_category",
+			"OnWhiteAndAltsProperties",
+			"onwhite_and_alts",
+			"OnWhiteAndAltsProperties",
+			"mat_tpes",
+			"path_to_lib_master",
+			"print",
+			"fileName",
+			"filePath",
+			"filepath",
+			"filePath",
+			"filepath",
+			"filePath",
+			"filepath",
+			"filePath",
+			"fileName",
+			"pathist",
+			"fileName",
+			"filename",
+			"fileName",
+			"pathList",
+			"renderAlts"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "wireless.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3225,
+								3225
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5292.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "wireless_props.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8527,
+								8527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2884.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wireless_ui.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								917,
+								917
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 42.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "configs.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "configs.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6050,
+								6050
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1582.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1244,
+								1244
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "categories.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								349,
+								349
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "wrls.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
