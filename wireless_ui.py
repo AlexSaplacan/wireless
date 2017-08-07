@@ -127,7 +127,7 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 pass
             else:
                 box = layout.box()
-                box.label(text="Utilityes")
+                box.label(text="Utilities")
                 row = box.row()
                 row.operator("wrls.apply_wrls", icon="FILE_TICK", text="Apply Wireless Data")
                 row = box.row()

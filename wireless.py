@@ -532,11 +532,6 @@ class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
         active_object = context.active_object
 
-        # cable = find_part(active_object, 'CABLE')
-        # head = find_part(active_object, 'HEAD')
-        # tail = find_part(active_object, 'TAIL')
-        # curve = find_part(active_object, 'CURVE')
-
         curve, cable, head, tail = find_parts(active_object)
 
         context.scene.objects.active = cable
