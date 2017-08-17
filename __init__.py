@@ -19,7 +19,7 @@
 bl_info = {
     "name": "Wireless",
     "author": "A_S",
-    "version": (0, 4, 8),
+    "version": (0, 4, 9),
     "blender": (2, 78, 3),
     "location": "3D View > Toolbar > Wireless",
     "description": "Transform quickly a curve into a cable",
