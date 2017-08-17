@@ -13,7 +13,7 @@ from . import configs
 
 # logging setup
 log = logging.getLogger('wrls.wireless')
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 def get_is_undefined_curve(context):
@@ -258,7 +258,7 @@ def find_parts(a_object):
     """Find all the objects within the wireless "group" of a_object and put them in a list
 
     Args:
-        a_object - (bpy.Object(never None)) - the searched object
+        a_object - (bpy.Object(never None)) - the serched object
 
     Return
         list of bpy Objects (4) containing [Curve, Cable, Head, Tail].
@@ -305,7 +305,6 @@ def clean_obsolete_materials(obj):
     Return:
         None
     """
-    
     count = 0
     for slot in obj.material_slots:
         if slot.material is not None:
@@ -385,9 +384,6 @@ def setup_materials(cable, cap, is_head=True):
         else:
             cable_mat = cable.material_slots[0].material
             cable.material_slots[1].material = cable_mat
-            for idx, slot in enumerate(cap.material_slots):
-                if idx >= 2 and idx <= 3:
-                    cable.material_slots[idx].material = slot.material
     else:
         # this is a tail
         # we need first to assign diferent material slots to the tail obhect.
@@ -404,7 +400,7 @@ def setup_materials(cable, cap, is_head=True):
         bpy.context.scene.objects.active = cap
         bpy.ops.object.editmode_toggle()
 
-        # safety check... how many material slots we have?
+        # safty check... how many material slots we have?
         existig_slots_n = len(cap.material_slots)
         log.debug("%s has %s slot materials" %(cap.name, existig_slots_n))
         # add the missing ones

@@ -17,7 +17,7 @@ from bpy.props import FloatProperty
 from bpy.utils import previews
 
 log = logging.getLogger('wrls.props')
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 ############### Property Update Functions ############
 
