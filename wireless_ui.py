@@ -30,25 +30,28 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
         """The layout of the UI"""
         @classmethod
         def pool(cls, context):
-            context.active_object = None
+            context.object = None
 
 
         try:
 
             wm_wrls = bpy.context.window_manager.wrls
             obj_wrls = bpy.context.active_object.wrls
-            # cable = wireless.find_part(bpy.context.active_object, 'CABLE')
+            curve, cable, head, tail  = wireless.find_parts(bpy.context.active_object)
             layout = self.layout
             box = layout.box()
             # setting layout to Active , but I see this still allows me to change previews,
             # therefore, I could make strange choiches
-            a_object = context.active_object
+            a_object = context.object
             if a_object.type != 'CURVE' and a_object.wrls.wrls_status == 'UNDEFINED':
                 layout.label(text="Plese select a curve")
             elif a_object.wrls.wrls_status == 'UNDEFINED':
                 layout.label(text="Enable wireless")
-            else:
+            elif a_object.wrls.wrls_status != 'UNDEFINED':
                 # layout.active = False
+                box.label(text='Category:')
+                row = box.row()
+                row.prop(wm_wrls, 'cable_categories', text='')
                 row = box.row()
                 col = row.column()
                 col.scale_y = 6
@@ -72,6 +75,15 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 # row = box.row()
                 # row.prop(cable.wrls, "cable_stretch", text="")
 
+                # a Recalculate head button
+
+                # row = box.row()
+                # row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
+
+                # slide head
+                # row = box.row()
+                # row.prop(cable.wrls, "head_slide", text="")
+
             # the head endcap area
 
             if a_object.wrls.wrls_status == 'UNDEFINED':
@@ -85,6 +97,9 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     box.label(text="")
                 else:
                     # box.active = False
+                    box.label(text='Category:')
+                    row = box.row()
+                    row.prop(wm_wrls, 'head_categories', text='')
                     row = box.row()
                     col = row.column()
                     col.scale_y = 6
@@ -109,6 +124,9 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     box.label(text="")
                 else:
                     # box.active = False
+                    box.label(text='Category:')
+                    row = box.row()
+                    row.prop(wm_wrls, 'tail_categories', text='')
                     row = box.row()
                     col = row.column()
                     col.scale_y = 6

@@ -13,11 +13,12 @@ from bpy.props import BoolProperty
 from bpy.props import PointerProperty
 from bpy.props import EnumProperty
 from bpy.props import FloatProperty
+from bpy.props import StringProperty
 
 from bpy.utils import previews
 
 log = logging.getLogger('wrls.props')
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 ############### Property Update Functions ############
 
@@ -53,6 +54,8 @@ def toggle_wireless(self, context):
                 log.debug("This is an undefined curve, doing something.")
                 obj_name = curve.name
                 wireless.set_wrls_status(context, obj_name, 'CURVE')
+                curve.wrls.curve = curve.name
+
 
                 # we use the config.data to load the first thumb
                 first_cable = bpy.context.window_manager.wrls.cables_types
@@ -60,9 +63,11 @@ def toggle_wireless(self, context):
                 log.debug("OBJECT_OT_InitCable- cable_name is: %s" %first_cable)
                 cable_shape = wireless.import_model(first_cable)
                 wireless.set_wrls_status(context, cable_shape.name, 'CABLE')
+                curve.wrls.cable = cable_shape.name
                 cable_shape.wrls.cable_original_x = cable_shape.dimensions[0]
                 configs.switch = True
                 cable_shape.wrls.enable = True
+                curve.wrls.cable = cable_shape.name
                 configs.switch = False
                 context.scene.objects.link(cable_shape)
 
@@ -119,6 +124,7 @@ def toggle_wireless(self, context):
             # bpy.ops.wrls.cable_unset()
 
     return None
+
 
 def load_thumbs():
     """
@@ -182,15 +188,32 @@ def create_preview_by_category(category):
 
     return enum_thumbs
 
+
+def create_items_from_category_list(category):
+    """
+    EnumProperty callback
+
+    return a list of tuples for each element in the category.
+    The tuple item looks like ('name', 'name, '', count, count)
+    """
+    enum_categories = []
+    for pos, item in enumerate(configs.data[category]):
+        enum_categories.append((item, item, '', item, pos))
+
+    return enum_categories
+
+
 def cable_preview_items(self, context):
     """Create an Enum Property for the cables"""
 
-    return create_preview_by_category("cables_types")
+
+    return create_preview_by_category(self.cable_categories)
 
 def cable_preview_update(self, context):
     """This runs when you  choose a different cable type"""
 
     # find the new choice of cable
+    log.debug('Running cable preview update')
     new_cable = context.window_manager.wrls.cables_types
 
     active_obj = bpy.context.active_object
@@ -304,7 +327,7 @@ def toggle_tail_end_cap(self, context):
             first_tail = context.window_manager.wrls.tail_types
             curve = cable.parent
             active_status = active_obj.wrls.wrls_status
-            # let's make sure both curve and cable have "use_head" = True
+            # let's make sure both curve and cable have "use_tail" = True
             if active_status == 'CURVE':
                 configs.switch = True
                 cable.wrls.use_tail = True
@@ -329,9 +352,9 @@ def toggle_tail_end_cap(self, context):
             configs.switch = False
 
 def head_preview_items(self, context):
-    """Create an EnumProperty for the head endcaps"""
+    """Create an EnumProperty for the head endcaps""" 
 
-    return create_preview_by_category("head_types")
+    return create_preview_by_category(self.head_categories)
 
 def head_preview_update(self, context):
     """Update the head object to the new model"""
@@ -350,7 +373,7 @@ def head_preview_update(self, context):
 def tail_preview_items(self, context):
     """Create an EnumProperty for the tail endcaps"""
 
-    return create_preview_by_category("tail_types")
+    return create_preview_by_category(self.tail_categories)
 
 def tail_preview_update(self, context):
     """Update the tail object to the new model"""
@@ -366,6 +389,33 @@ def tail_preview_update(self, context):
     wireless.clean_obsolete_materials(tail)
     bpy.data.objects.remove(tail, do_unlink=True)
 
+def cable_categories_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+
+
+    return create_items_from_category_list('cable_categories')
+
+def cable_categories_update(self, context):
+    pass
+
+def head_categories_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+
+
+    return create_items_from_category_list('head_categories')
+
+def head_categories_update(self, context):
+    pass
+
+def tail_categories_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+
+
+    return create_items_from_category_list('tail_categories')
+
+def tail_categories_update(self, context):
+    pass
+
 
 def set_old_thickness(self, value):
     self["old_c_thickness"] = value
@@ -378,10 +428,10 @@ def update_cable_thickness(self,context):
         curve, cable, head, tail = wireless.find_parts(active_obj)
 
         old_value = cable.wrls.old_c_thickness
-        value = cable.wrls.cable_thickness
+        value = active_obj.wrls.cable_thickness
         factor = value / old_value
         log.debug("Found cable thickness on cable: %s" % cable.wrls.cable_thickness)
-        log.debug("Found cable thickness on curve: %s" % curve.wrls.cable_thickness)
+        log.debug("Found cable thickness on active object: %s" % active_obj.wrls.cable_thickness)
         log.debug("Old cable thickness on : %s" % old_value)
         log.debug("Factor is : %s" % factor)
         mesh = cable.data
@@ -461,13 +511,105 @@ def update_cable_stretch(self, context):
             head.hide = False
             head.select = True
             wireless.mirror_and_translate_head(head.name, cable, stretch=True)
-            head.hide = False
+            head.hide = True
             bpy.context.scene.objects.active = active_obj
         configs.switch = True
         curve.wrls.cable_stretch = value
         cable.wrls.cable_stretch = value
         bpy.context.scene.update()
-        configs.switch = False   
+        configs.switch = False
+        head.wrls.head_updated = True
+        bpy.context.scene.objects.active = active_obj
+
+def set_old_head_slide(self, value):
+    self["old_head_slide"] = value
+
+def update_head_slide(self, context):
+    """in editmode move the vertices on x  by certain ammount
+    """
+    if configs.switch is False:
+        active_obj = bpy.context.active_object
+        curve, cable, head, tail = wireless.find_parts(active_obj)
+
+        old_value = cable.wrls.old_head_slide
+        value = cable.wrls.head_slide
+        wireless.update_wrls_data(cable, 'head_slide', value)
+        factor = value - old_value
+
+        head.hide = False
+        bpy.context.scene.objects.active = head
+
+        data = head.data
+        if not data.is_editmode:
+            bpy.ops.object.editmode_toggle()
+        me = bpy.context.object.data
+        mesh = bmesh.from_edit_mesh(me)
+
+        for vert in mesh.verts:
+
+            vert.co.x += factor
+        bpy.ops.object.editmode_toggle()
+        set_old_head_slide(self, value)
+        wireless.update_wrls_data(cable, 'head_slide', value)
+        wireless.update_wrls_data(cable, 'old_head_slide', value)
+        head.hide = True  
+
+
+def curve_set(self, value):
+    self['curve'] = value
+    return None
+
+
+def curve_get(self):
+    return self['curve']
+
+
+def curve_update(self, context):
+    pass
+
+
+def cable_set(self, value):
+    self['cable'] = value
+    return None
+
+
+def cable_get(self):
+    return self['cable']
+
+
+def cable_update(self, context):
+    configs.switch = True
+
+
+    pass
+
+
+def head_set(self, value):
+    self['head'] = value
+    return None
+
+
+def head_get(self):
+
+    return self['head']
+
+
+def head_update(self, context):
+    pass
+
+
+def tail_set(self, value):
+    self['tail'] = value
+    return None
+
+
+def tail_get(self):
+    return self['tail']
+
+
+def tail_update(self, context):
+    pass
+
 
 ############### Property Group ########################
 
@@ -486,6 +628,41 @@ class WirelessPropertyGroup(PropertyGroup):
         default=False,
         description="Enable Wireless",
         update=toggle_wireless
+        )
+
+    curve = StringProperty(
+        name='Curve',
+        description='The curve object',
+        default='None',
+        update=curve_update,
+        set=curve_set,
+        get=curve_get
+        )
+
+    cable = StringProperty(
+        name='Cable',
+        description='The cable object',
+        default='None',
+        update=cable_update,
+        set=cable_set,
+        get=cable_get
+        )
+    head = StringProperty(
+        name='Head',
+        description='The head object',
+        default='None',
+        update=head_update,
+        set=head_set,
+        get=head_get
+        )
+
+    tail = StringProperty(
+        name='Tail',
+        description='The tail object',
+        default='None',
+        update=tail_update,
+        set=tail_set,
+        get=tail_get
         )
     use_head = BoolProperty(
         default=False,
@@ -549,6 +726,26 @@ class WirelessPropertyGroup(PropertyGroup):
         name="Cable Original X",
         description=""
         )
+    head_updated = BoolProperty(
+        name="head is updated",
+        description="",
+        default=False
+        )
+    old_head_slide = FloatProperty(
+        name="Cable Stretch",
+        description="",
+        default=0
+        )
+    head_slide = FloatProperty(
+        name="Head Slide",
+        description="",
+        default=0,
+        min=-2,
+        max=2,
+        soft_min=-1.0,
+        soft_max=1.0,
+        update=update_head_slide
+        )
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
 
@@ -573,6 +770,25 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         description="Choose the tail endcap",
         items=tail_preview_items,
         update=tail_preview_update
+        )
+    cable_categories = bpy.props.EnumProperty(
+        name='Cable Categories',
+        description='Select category for the cable',
+        items=cable_categories_items,
+        update=cable_categories_update
+        )
+
+    head_categories = bpy.props.EnumProperty(
+        name='Head Categories',
+        description='Select category for the head',
+        items=head_categories_items,
+        update=head_categories_update
+        )
+    tail_categories = bpy.props.EnumProperty(
+        name='Tail Categories',
+        description='Select category for the tail',
+        items=tail_categories_items,
+        update=tail_categories_update
         )
 
 def register():

@@ -9,11 +9,12 @@ import logging
 import bmesh
 
 from . import configs
+from . import wireless_props
 
 
 # logging setup
 log = logging.getLogger('wrls.wireless')
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 
 def get_is_undefined_curve(context):
@@ -29,6 +30,7 @@ def get_is_undefined_curve(context):
     s_obj = context.active_object
     return bool(s_obj.type == 'CURVE' and s_obj.wrls.wrls_status == 'UNDEFINED')
 
+
 def set_wrls_status(context, obj_name, value):
     """
     Turn the wrls_status of the object with obj_name to the value
@@ -43,6 +45,8 @@ def set_wrls_status(context, obj_name, value):
     """
     bpy.data.objects[obj_name].wrls.wrls_status = value
     log.debug("wrls_status of %s changed to %s" % (obj_name, value))
+
+
 
 def import_model(obj_name):
     """
@@ -94,7 +98,8 @@ def mirror_and_translate_head(obj_name, cable, stretch=False):
     # cable_s = cable.wrls.cable_stretch
     # cable_o_s = cable.wrls.old_cable_stretch
     # cable_o = cable.wrls.cable_original_x
-
+    curve_length = measure_curve()
+    x_offset = curve_length % cable_x
 
     bpy.context.scene.objects.active = head_obj
     data = head_obj.data
@@ -107,10 +112,10 @@ def mirror_and_translate_head(obj_name, cable, stretch=False):
         if not stretch:
 
             vert.co.x *= -1
+
             vert.co.x -= cable_x
         # else:
         #     vert.co.x -= cable_o * (cable_s - cable_o_s)
-
 
     # recalculate normals here
     bpy.ops.mesh.select_all(action='DESELECT')
@@ -184,7 +189,7 @@ def wrls_off_and_delete_childs(curve):
 
 
 
-def get_list_and_position(context, list_name):
+def get_list_and_position(context, list_name, part_type):
     """search for the list_name list in the configs.json
     and also find the position on the list of the corrispective context value
     for example: if I want to look for the head_types I will get the head_types list and 
@@ -197,15 +202,21 @@ def get_list_and_position(context, list_name):
         list containing the list_name list and the position of the list_name attribute in it
         example [list_name, 2] 
     """
-    wrls = context.window_manager.wrls
-    current = getattr(wrls, list_name)
-    cables_list = configs.data["model_types"][list_name]
+    wm_wrls = context.window_manager.wrls
+    part_types = {'cables_types': 'cable_categories',
+                  'head_types': 'head_categories',
+                  'tail_types': 'tail_categories'
+
+    }
+    category = getattr(wm_wrls, part_types[part_type])
+    cables_list = configs.data["model_types"][category]
+    current = list_name
     current_pos = [i for i, x in enumerate(cables_list) if x == current]
-    log.debug("get_list_and_position current_pos: %s" %current_pos)
+    log.debug("get_list_and_position current_pos: %s, list : %s" %(current_pos, cables_list))
 
     return [cables_list, current_pos]
 
-def get_prev_item(context, list_name):
+def get_prev_item(context, list_name, part_type):
     """Read the list_name list and set the wrls.list_name attribute to the previous value
 
     Args:
@@ -215,7 +226,7 @@ def get_prev_item(context, list_name):
     Return:
         None
     """
-    list_pos = get_list_and_position(context, list_name)
+    list_pos = get_list_and_position(context, list_name, part_type)
 
     items_list = list_pos[0]
     current_pos = list_pos[1]
@@ -223,36 +234,40 @@ def get_prev_item(context, list_name):
 
     if current_pos == [0]:
         new_pos = len(items_list) - 1
-        setattr(wrls, list_name, items_list[new_pos])
+        setattr(wrls, part_type, items_list[new_pos])
 
     else:
         new_pos = current_pos[0] - 1
-        setattr(wrls, list_name, items_list[new_pos])
+        setattr(wrls, part_type, items_list[new_pos])
 
-def get_next_item(context, list_name):
+def get_next_item(context, list_name, part_type):
     """Read the list_name list and set the wrls.list_name attribute to the next value
 
     Args:
-        context - the bpy.caontext
-        list_name (str(never None)) -the name of the list to look in
+        context - the bpy.context
+        list_name (bpy Enum Property -the name of the list to look in
+        part_type (str) -the string name of the list-name
 
     Return:
         None
     """
 
-    list_pos = get_list_and_position(context, list_name)
+    list_pos = get_list_and_position(context, list_name, part_type)
 
     items_list = list_pos[0]
     current_pos = list_pos[1]
     wrls = context.window_manager.wrls
+    log.debug('list_name is %s' %list_name)
 
     if current_pos == [len(items_list) - 1]:
         new_pos = 0
-        setattr(wrls, list_name, items_list[new_pos])
+        setattr(wrls, part_type, items_list[new_pos])
 
     else:
         new_pos = current_pos[0] + 1
-        setattr(wrls, list_name, items_list[new_pos])
+        # wrls.list_name = items_list[new_pos]
+        setattr(wrls, part_type, items_list[new_pos])
+
 
 def find_parts(a_object):
     """Find all the objects within the wireless "group" of a_object and put them in a list
@@ -322,6 +337,7 @@ def clean_obsolete_materials(obj):
             bpy.data.node_groups.remove(node_tree, do_unlink=True)
     log.info("Removed %s obsolete node group(s)" %node_count)
 
+
 def connect_head(cable, head):
     """Import and connect the head object to the cable object,
     set it as end cap to the array modifier
@@ -365,6 +381,7 @@ def connect_tail(cable, tail):
     tail_model.hide_render = True
     tail_model.parent = cable.parent
 
+
 def setup_materials(cable, cap, is_head=True):
     """Adjust the materials of the cable in such way that the extremity cap has
     the material on it.
@@ -392,7 +409,7 @@ def setup_materials(cable, cap, is_head=True):
         # first make sure we're not on editmode
         a_object = bpy.context.active_object
         if  a_object.data.is_editmode:
-                bpy.ops.object.editmode_toggle()
+            bpy.ops.object.editmode_toggle()
 
         # now perform stuff on the tail
         cap.select = True
@@ -402,7 +419,7 @@ def setup_materials(cable, cap, is_head=True):
 
         # safty check... how many material slots we have?
         existig_slots_n = len(cap.material_slots)
-        log.debug("%s has %s slot materials" %(cap.name, existig_slots_n))
+        log.debug("%s has %s slot materials" % (cap.name, existig_slots_n))
         # add the missing ones
         count = 0
         for i in range(7 - existig_slots_n):
@@ -420,11 +437,55 @@ def setup_materials(cable, cap, is_head=True):
 
         bpy.ops.object.editmode_toggle()
         cap.hide = True
-        # now check if to use the cable material 
+        # now check if to use the cable material
         if cable.wrls.tail_use_cable_mat:
             cable.material_slots[4].material = cable.material_slots[0].material
         a_object.select = True
         bpy.context.scene.objects.active = a_object
+
+
+def measure_curve():
+    """
+    Duplicates the curve, convert it to mesh and add all segments lenghts.
+    Delete the object at the end.
+
+    Return:
+        Float - the Length of the curve
+
+    """
+    a_object = bpy.context.active_object
+    scene = bpy.context.scene
+    curve = find_parts(a_object)[0]
+
+    scene.objects.active = curve
+    mesh = curve.to_mesh(scene=scene, apply_modifiers=True, settings='PREVIEW')
+
+    bm = bmesh.new()
+    bm.from_mesh(mesh, face_normals=True, use_shape_key=True)
+
+    length=0
+    for edge in bm.edges:
+        length += edge.calc_length()
+
+    bpy.data.meshes.remove(mesh, do_unlink=True)
+    bm.free()
+
+    bpy.ops.object.modifier_remove(modifier='WRLS_Measure_Subsuf')
+    return length
+
+
+def update_wrls_data(element, property_name, value):
+    """
+    Update the property on all other members of the cable group
+
+    """
+    elements =  find_parts(element)
+    for part in elements:
+        if part is None:
+            continue
+        setattr(part.wrls, property_name, value)
+        log.debug("Property set: %s = %s" %(property_name, value))
+
 
 ############## OPERATORS ###############################
 
@@ -438,12 +499,13 @@ class OBJECT_OT_Cable_Previous(bpy.types.Operator):
     bl_label = "Previous Cable type"
 
     def execute(self, context):
+        wm_wrls = bpy.context.window_manager.wrls
 
-
-        get_prev_item(context, "cables_types")
+        get_prev_item(context, wm_wrls.cables_types, 'cables_types')
 
 
         return {'FINISHED'}
+
 
 class OBJECT_OT_Cable_Next(bpy.types.Operator):
 
@@ -455,23 +517,11 @@ class OBJECT_OT_Cable_Next(bpy.types.Operator):
     bl_label = "Next Cable type"
 
     def execute(self, context):
+        wm_wrls = bpy.context.window_manager.wrls
 
-        get_next_item(context, "cables_types")
-
-        # list_pos = get_list_and_position(context, 'cable_types')
-
-        # cables_list = list_pos[0]
-        # current_pos = list_pos[1]
-
-        # if current_pos == [len(cables_list) - 1]:
-        #     new_pos = 0
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
-
-        # else:
-        #     new_pos = current_pos[0] + 1
-        #     bpy.context.window_manager.wrls.cables_types = cables_list[new_pos]
-
+        get_next_item(context, wm_wrls.cables_types, 'cables_types')
         return {'FINISHED'}
+
 
 class OBJECT_OT_Head_Next(bpy.types.Operator):
 
@@ -481,9 +531,11 @@ class OBJECT_OT_Head_Next(bpy.types.Operator):
     bl_label = "Next head type"
 
     def execute(self, context):
-        get_next_item(context, "head_types")
+        wm_wrls = bpy.context.window_manager.wrls
+        get_next_item(context, wm_wrls.head_types, 'head_types')
 
         return {'FINISHED'}
+
 
 class OBJECT_OT_Head_Prev(bpy.types.Operator):
 
@@ -493,9 +545,11 @@ class OBJECT_OT_Head_Prev(bpy.types.Operator):
     bl_label = "Previous head type"
 
     def execute(self, context):
-        get_prev_item(context, "head_types")
+        wm_wrls = bpy.context.window_manager.wrls
+        get_prev_item(context, wm_wrls.head_types, 'head_types')
 
         return {'FINISHED'}
+
 
 class OBJECT_OT_Tail_Next(bpy.types.Operator):
 
@@ -505,9 +559,11 @@ class OBJECT_OT_Tail_Next(bpy.types.Operator):
     bl_label = "Next tail type"
 
     def execute(self, context):
-        get_next_item(context, "tail_types")
+        wm_wrls = bpy.context.window_manager.wrls
+        get_next_item(context, wm_wrls.tail_types, 'tail_types')
 
         return {'FINISHED'}
+
 
 class OBJECT_OT_Tail_Prev(bpy.types.Operator):
 
@@ -517,9 +573,11 @@ class OBJECT_OT_Tail_Prev(bpy.types.Operator):
     bl_label = "Previous tail type"
 
     def execute(self, context):
-        get_prev_item(context, "tail_types")
+        wm_wrls = bpy.context.window_manager.wrls
+        get_prev_item(context, wm_wrls.tail_types, 'tail_types')
 
         return {'FINISHED'}
+
 
 class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
@@ -562,6 +620,7 @@ class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
         return {'FINISHED'}
 
+
 class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
 
     """Just in case something went wrong.
@@ -588,12 +647,76 @@ class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
         context.scene.objects.active = curve
         curve.select = True
         configs.switch = True
-        bpy.ops.wm.properties_remove(data_path="object", property="wrls")
+        bpy.ops.wm.properties_remove(data_path="object",
+                                     property="wrls")
         configs.switch = False
         log.info("All wrls data cleaned.")
 
         return {'FINISHED'}
 
+
+class OBJECT_OT_Update_Head(bpy.types.Operator):
+    """
+    Recalculate the head position after stretching
+    """
+    bl_idname = "wrls.recalculate_head"
+    bl_label = "Recalculate head"
+
+    def execute(self, context):
+        a_object = context.active_object
+
+        # just make sure we're not in edit mode
+        if  a_object.data.is_editmode:
+                bpy.ops.object.editmode_toggle()
+
+        curve, cable, head, tail = find_parts(a_object)
+
+        if head is not None:
+            if not head.wrls.head_updated:
+                pass
+            else:
+
+                curve_length = measure_curve()
+
+                # get length of the cable mesh.
+                # maybe best way to do it is just to disable the modifiers,
+                # measure and re-enable
+                cable.modifiers["WRLS_Array"].show_viewport = False
+                cable.modifiers["WRLS_Curve"].show_viewport = False
+                bpy.context.scene.update()
+                cable_length = cable.dimensions[0]
+                cable.modifiers["WRLS_Array"].show_viewport = True
+                cable.modifiers["WRLS_Curve"].show_viewport = True
+
+                head_offset = curve_length % cable_length
+                log.debug("Curve length is %s" %curve_length)
+                log.debug("Cable length is %s" %cable_length)
+                log.debug("Head offset is %s" %head_offset)
+
+                curve.wrls.use_head = False
+                curve.wrls.use_head = True
+
+                curve, cable, head, tail = find_parts(a_object)
+
+                head.hide = False
+                bpy.context.scene.objects.active = head
+
+                data = head.data
+                if not data.is_editmode:
+                    bpy.ops.object.editmode_toggle()
+                me = bpy.context.object.data
+                mesh = bmesh.from_edit_mesh(me)
+
+                for vert in mesh.verts:
+
+                    vert.co.x -= head_offset
+
+                head.wrls.head_updated = False
+                bpy.ops.object.editmode_toggle()
+                head.hide = True
+                bpy.context.scene.objects.active = a_object
+
+        return {'FINISHED'}
 
 
 def register():

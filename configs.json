@@ -159,7 +159,7 @@
 
 	},
 "model_types": {
-	"cables_types":[
+	"All Cables":[
 		"Round Simple",
 		"Data Flat",
 		"Dual Flat",
@@ -168,6 +168,19 @@
 		"Triple Twisted",
 		"Triple Flat"
 	],
+	"Electric Cables":[
+		"Round Simple",
+		"Data Flat",
+		"Dual Flat",
+		"Dual Twisted",
+		"Triple Twisted",
+		"Triple Flat"
+	],
+	"Ropes":[],
+	"Chains":[],
+	"Automotive Parts":[],
+
+
 	"head_types":[
 		"USB F",
 		"USB Type C",
@@ -194,7 +207,7 @@
 		"RCA",
 		"Guitar Jack"
 	],
-	"tail_types":[
+	"All Heads and Tails":[
 		"USB F",
 		"USB Type C",
 		"USB 2B",
@@ -219,8 +232,70 @@
 		"HDMI Simple",
 		"RCA",
 		"Guitar Jack"
+	],
+	"Audio Parts":[
+		"Jack 3.5mm",
+		"Guitar Jack",
+		"RCA"
+	],
+	"Electric Plugs":
+	[
+		"Industrial 220V M",
+		"Industrial 220V F open",
+		"Industrial 220V F closed",
+		"Plug 220 UK",
+		"UK Mainpower 3Way",
+		"Plug EU Simple_M",
+		"Plug EU Simple_F",
+		"Power Plug US 2 pin",
+		"Power Plug US 3 pin",
+		"Laptop Adapter",
+		"Schuko",
+		"Schuko Triple",
+		"Cloverleaf",
+		"PC Plug"
+	],
+	"Data Parts":
+	[
+		"USB F",
+		"USB Type C",
+		"USB 2B",
+		"Ethernet",
+		"12 Volt 2 pin",
+		"Laptop Adapter",
+		"Cloverleaf",
+		"PC Plug",
+		"HDMI Simple"
+
 	]
 },
+
+"cable_categories":[
+	"All Cables",
+	"Electric Cables",
+	"Ropes",
+	"Chains",
+	"Automotive Parts"
+],
+
+"head_categories":[
+	"All Heads and Tails",
+	"Audio Parts",
+	"Data Parts",
+	"Knots",
+	"Chains",
+	"Automotive Parts"
+],
+
+"tail_categories":[
+	"All Heads and Tails",
+	"Audio Parts",
+	"Data Parts",
+	"Knots",
+	"Chains",
+	"Automotive Parts"
+],
+
 "Thumbs": [
 	{
 		"id":"Flex Metallic",

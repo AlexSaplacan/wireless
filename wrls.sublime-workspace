@@ -4,6 +4,166 @@
 		"selected_items":
 		[
 			[
+				"Tail",
+				"Tail"
+			],
+			[
+				"Te",
+				"TestWirelessPropertyGroup\tclass"
+			],
+			[
+				"loa",
+				"loadTestsFromTestCase\tfunction"
+			],
+			[
+				"tes",
+				"testCases\tparam"
+			],
+			[
+				"che",
+				"check_output\tfunction"
+			],
+			[
+				"ble",
+				"blendFile\tstatement"
+			],
+			[
+				"py",
+				"pyFile\tstatement"
+			],
+			[
+				"en",
+				"endswith\tfunction"
+			],
+			[
+				"ex",
+				"exists"
+			],
+			[
+				"make",
+				"makedirs\tfunction"
+			],
+			[
+				"asser",
+				"assertEqual"
+			],
+			[
+				"enable",
+				"enable"
+			],
+			[
+				"ass",
+				"assertIsNotNone\tfunction"
+			],
+			[
+				"e",
+				"enable"
+			],
+			[
+				"Str",
+				"StringProperty\tmodule"
+			],
+			[
+				"sub",
+				"subject"
+			],
+			[
+				"subject",
+				"Subject"
+			],
+			[
+				"s",
+				"subject"
+			],
+			[
+				"un",
+				"unittest\tmodule"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"p",
+				"primitive_bezier_curve_add("
+			],
+			[
+				"uni",
+				"unitttest\tmodule"
+			],
+			[
+				"propert",
+				"property_name"
+			],
+			[
+				"the",
+				"the_property"
+			],
+			[
+				"pro",
+				"property_name"
+			],
+			[
+				"upda",
+				"update_wrls_data"
+			],
+			[
+				"get",
+				"getattr"
+			],
+			[
+				"se",
+				"set_wrls_status"
+			],
+			[
+				"elem",
+				"elements"
+			],
+			[
+				"set_",
+				"set_old_head_slide"
+			],
+			[
+				"ed",
+				"editmode_toggle"
+			],
+			[
+				"use",
+				"use_head"
+			],
+			[
+				"wire",
+				"wireless_props"
+			],
+			[
+				"cur",
+				"curve_length"
+			],
+			[
+				"cab",
+				"cable_x"
+			],
+			[
+				"me",
+				"measure_cable"
+			],
+			[
+				"cable",
+				"cable_length"
+			],
+			[
+				"ac",
+				"active_object"
+			],
+			[
+				"assi",
+				"assigned_users"
+			],
+			[
+				"hea",
+				"head_use_cable_mat"
+			],
+			[
 				"active",
 				"active_obj"
 			],
@@ -40,10 +200,6 @@
 				"modifier"
 			],
 			[
-				"cable",
-				"cable_shape"
-			],
-			[
 				"WRLS_Sc",
 				"WRLS_Schuko_triple"
 			],
@@ -58,10 +214,6 @@
 			[
 				"enu",
 				"EnumProperty"
-			],
-			[
-				"hea",
-				"head_rotation"
 			],
 			[
 				"set",
@@ -86,10 +238,6 @@
 			[
 				"exi",
 				"existig_slots_n"
-			],
-			[
-				"se",
-				"setup_materials"
 			],
 			[
 				"a",
@@ -140,10 +288,6 @@
 				"wrls_array"
 			],
 			[
-				"cab",
-				"cable_x"
-			],
-			[
 				"ca",
 				"cable_x"
 			],
@@ -154,10 +298,6 @@
 			[
 				"WRLS_Dua",
 				"WRLS_Dual_Twisted"
-			],
-			[
-				"Te",
-				"true"
 			],
 			[
 				"ol",
@@ -178,14 +318,6 @@
 			[
 				"up",
 				"update_cable_thickness"
-			],
-			[
-				"s",
-				"switch"
-			],
-			[
-				"get",
-				"get_cable_thickness"
 			],
 			[
 				"de",
@@ -238,10 +370,6 @@
 			[
 				"object",
 				"objects"
-			],
-			[
-				"me",
-				"meshes"
 			],
 			[
 				"dA",
@@ -372,10 +500,6 @@
 				"image"
 			],
 			[
-				"loa",
-				"load"
-			],
-			[
 				"imag",
 				"images"
 			],
@@ -390,111 +514,71 @@
 			[
 				"ma",
 				"material"
-			],
-			[
-				"o",
-				"objects"
-			],
-			[
-				"tee",
-				"textures"
-			],
-			[
-				"cyc",
-				"cyclesPath"
-			],
-			[
-				"gr",
-				"groups"
-			],
-			[
-				"g",
-				"groups"
-			],
-			[
-				"grou",
-				"groupName"
-			],
-			[
-				"file",
-				"filepath"
-			],
-			[
-				"da",
-				"data_to"
-			],
-			[
-				"ownda",
-				"onwanda"
-			],
-			[
-				"La",
-				"label"
-			],
-			[
-				"col",
-				"column"
-			],
-			[
-				"pr",
-				"prop"
-			],
-			[
-				"owhan",
-				"onwhite_and_alts"
-			],
-			[
-				"pop",
-				"prop"
-			],
-			[
-				"p",
-				"props"
-			],
-			[
-				"O",
-				"OnWhiteAndAltsProperties"
-			],
-			[
-				"u",
-				"unregister_class("
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "categories.md",
+			"settings":
+			{
+				"buffer_size": 1044,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{ \n\"Models\": {\n\t\"Flex Metallic\" : {\n\t \t\"name\" : \"WRLS_Flex_Metallic\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"USB F\":{\n\t\t\"name\":\"WRLS_USB_F\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"USB Type C\":{\n\t\t\"name\":\"WRLS_USB_Type_C\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Dual Flat\":{\n\t\t\"name\":\"WRLS_Dual_Flat\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"Data Flat\":{\n\t\t\"name\":\"WRLS_Data_Flat\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"Round Simple\":{\n\t\t\"name\":\"WRLS_Round_Simple\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"Dual Twisted\":{\n\t\t\"name\":\"WRLS_Dual_Twisted\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"Triple Twisted\":{\n\t\t\"name\":\"WRLS_Triple_Twisted\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"Triple Flat\":{\n\t\t\"name\":\"WRLS_Triple_Flat\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":true\n\t\t},\n\t\"USB 2B\":{\n\t\t\"name\":\"WRLS_USB_2B\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Jack 3.5mm\":{\n\t\t\"name\":\"WRLS_Jack_3.5\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Industrial 220V M\":{\n\t\t\"name\":\"WRLS_220_Industrial_M\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Industrial 220V F open\":{\n\t\t\"name\":\"WRLS_220_Industrial_F_A\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Industrial 220V F closed\":{\n\t\t\"name\":\"WRLS_220_Industrial_F_B\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Plug 220 UK\":{\n\t\t\"name\":\"WRLS_Electric_UK.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"UK Mainpower 3Way\":{\n\t\t\"name\":\"WRLS_Electrical_Triple_UK.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Plug EU Simple_M\":{\n\t\t\"name\":\"WRLS_Electric_EU.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Plug EU Simple_F\":{\n\t\t\"name\":\"WRLS_Electric_EU.001\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Power Plug US 2 pin\":{\n\t\t\"name\":\"WRLS_Plug_US_Simple_M.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Appliance End\":{\n\t\t\"name\":\"WRLS_Appliance_end\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Ethernet\":{\n\t\t\"name\":\"WRLS_Ethernet\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"12 Volt 2 pin\":{\n\t\t\"name\":\"WRLS_12v_2Pin\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Laptop Adapter\":{\n\t\t\"name\":\"WRLS_Laptop_Adapter\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Schuko\":{\n\t\t\"name\":\"WRLS_Schuko.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Cloverleaf\":{\n\t\t\"name\":\"WRLS_Cloverleaf\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"PC Plug\":{\n\t\t\"name\":\"WRLS_PC_Plug.000\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Schuko Triple\":{\n\t\t\"name\":\"WRLS_Schuko_triple\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Power Plug US 3 pin\":{\n\t\t\"name\":\"WRLS_Power_Cable_US_3_pin\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"HDMI Simple\":{\n\t\t\"name\":\"WRLS_HDMI\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"RCA\":{\n\t\t\"name\":\"WRLS_RCA\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t},\n\t\"Guitar Jack\":{\n\t\t\"name\":\"WRLS_Guitar_Jack\",\n\t\t\"blend\" : \"Cables.blend\",\n\t\t\"cable\":false\n\t\t}\n\t\n\n\t},\n\"model_types\": {\n\t\"cables_types\":[\n\t\t\"Round Simple\",\n\t\t\"Data Flat\",\n\t\t\"Dual Flat\",\n\t\t\"Flex Metallic\",\n\t\t\"Dual Twisted\",\n\t\t\"Triple Twisted\",\n\t\t\"Triple Flat\"\n\t],\n\t\"head_types\":[\n\t\t\"USB F\",\n\t\t\"USB Type C\",\n\t\t\"USB 2B\",\n\t\t\"Jack 3.5mm\",\n\t\t\"Industrial 220V M\",\n\t\t\"Industrial 220V F open\",\n\t\t\"Industrial 220V F closed\",\n\t\t\"Plug 220 UK\",\n\t\t\"UK Mainpower 3Way\",\n\t\t\"Plug EU Simple_M\",\n\t\t\"Plug EU Simple_F\",\n\t\t\"Power Plug US 2 pin\",\n\t\t\"Power Plug US 3 pin\",\n\t\t\"Appliance End\",\n\t\t\"Ethernet\",\n\t\t\"12 Volt 2 pin\",\n\t\t\"Laptop Adapter\",\n\t\t\"Schuko\",\n\t\t\"Schuko Triple\",\n\t\t\"Cloverleaf\",\n\t\t\"PC Plug\",\n\t\t\"HDMI Simple\",\n\t\t\"RCA\",\n\t\t\"Guitar Jack\"\n\t],\n\t\"tail_types\":[\n\t\t\"USB F\",\n\t\t\"USB Type C\",\n\t\t\"USB 2B\",\n\t\t\"Jack 3.5mm\",\n\t\t\"Industrial 220V M\",\n\t\t\"Industrial 220V F open\",\n\t\t\"Industrial 220V F closed\",\n\t\t\"Plug 220 UK\",\n\t\t\"UK Mainpower 3Way\",\n\t\t\"Plug EU Simple_M\",\n\t\t\"Plug EU Simple_F\",\n\t\t\"Power Plug US 2 pin\",\n\t\t\"Power Plug US 3 pin\",\n\t\t\"Appliance End\",\n\t\t\"Ethernet\",\n\t\t\"12 Volt 2 pin\",\n\t\t\"Laptop Adapter\",\n\t\t\"Schuko\",\n\t\t\"Schuko Triple\",\n\t\t\"Cloverleaf\",\n\t\t\"PC Plug\",\n\t\t\"HDMI Simple\",\n\t\t\"RCA\",\n\t\t\"Guitar Jack\"\n\t],\n\t\"Audio_heads\":[\n\t\t\"Jack 3.5mm\",\n\t\t\"Guitar Jack\"\n\t\t\"RCA\",\n\t]\n\n},\n\"Thumbs\": [\n\t{\n\t\t\"id\":\"Flex Metallic\",\n\t\t\"img\":\"WRLS_FlexMetallic.jpg\"\n\t},\n\t{\n\t\t\"id\":\"USB F\",\n\t\t\"img\":\"WRLS_USB_F.jpg\"\n\t},\n\t{\n\t\t\"id\":\"USB Type C\",\n\t\t\"img\":\"WRLS_USB_Type_C.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Dual Flat\",\n\t\t\"img\":\"WRLS_Dual_Flat.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Data Flat\",\n\t\t\"img\":\"WRLS_Data_Flat.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Round Simple\",\n\t\t\"img\":\"WRLS_Round_Simple.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Dual Twisted\",\n\t\t\"img\":\"WRLS_Dual_Twisted.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Triple Twisted\",\n\t\t\"img\":\"WRLS_Triple_Twisted.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Triple Flat\",\n\t\t\"img\":\"WRLS_Triple_Flat.jpg\"\n\t},\n\t{\n\t\t\"id\":\"USB 2B\",\n\t\t\"img\":\"WRLS_USB_2B.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Jack 3.5mm\",\n\t\t\"img\":\"WRLS_Jack3_5.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Industrial 220V M\",\n\t\t\"img\":\"WRLS_220_Industrial_M.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Industrial 220V F open\",\n\t\t\"img\":\"WRLS_220_Industrial_F_A.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Industrial 220V F closed\",\n\t\t\"img\":\"WRLS_220_Industrial_F_B.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Plug 220 UK\",\n\t\t\"img\":\"WRLS_Electric_UK_000.jpg\"\n\t},\n\t{\n\t\t\"id\":\"UK Mainpower 3Way\",\n\t\t\"img\":\"WRLS_Electrical_Triple_UK.000.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Plug EU Simple_M\",\n\t\t\"img\":\"WRLS_Electric_EU.000.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Plug EU Simple_F\",\n\t\t\"img\":\"WRLS_Electric_EU.001.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Power Plug US 2 pin\",\n\t\t\"img\":\"WRLS_Plug_US_NEMA.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Appliance End\",\n\t\t\"img\":\"WRLS_Appliance_end.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Ethernet\",\n\t\t\"img\":\"WRLS_Ethernet_01.jpg\"\n\t},\n\t{\n\t\t\"id\":\"12 Volt 2 pin\",\n\t\t\"img\":\"WRLS_12V_2pin.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Laptop Adapter\",\n\t\t\"img\":\"WRLS_LaptopAdapter.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Schuko\",\n\t\t\"img\":\"WRLS_Schucko.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Cloverleaf\",\n\t\t\"img\":\"WRLS_Cloverleaf.jpg\"\n\t},\n\t{\n\t\t\"id\":\"PC Plug\",\n\t\t\"img\":\"WRLS_PC_plug.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Schuko Triple\",\n\t\t\"img\":\"WRLS_Schuko_triple.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Power Plug US 3 pin\",\n\t\t\"img\":\"WRLS_Power_US_3_pin.jpg\"\n\t},\n\t{\n\t\t\"id\":\"HDMI Simple\",\n\t\t\"img\":\"WRLS_HDMI.01.jpg\"\n\t},\n\t{\n\t\t\"id\":\"RCA\",\n\t\t\"img\":\"WRLS_RCA.jpg\"\n\t},\n\t{\n\t\t\"id\":\"Guitar Jack\",\n\t\t\"img\":\"WRLS_guitar_jack.jpg\"\n\t}\n]\n}",
+			"file": "configs.json",
+			"file_size": 6058,
+			"file_write_time": 131489208101412200,
+			"settings":
+			{
+				"buffer_size": 6121,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "wireless.py",
 			"settings":
 			{
-				"buffer_size": 18032,
+				"buffer_size": 21371,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "wireless_props.py",
+			"file": "test/wrls_props.test.py",
 			"settings":
 			{
-				"buffer_size": 19814,
+				"buffer_size": 2919,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "wireless_ui.py",
+			"file": "test/modifiers_functions.test.py",
 			"settings":
 			{
-				"buffer_size": 5084,
+				"buffer_size": 75,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "configs.json",
+			"file": "tests.py",
 			"settings":
 			{
-				"buffer_size": 6058,
+				"buffer_size": 1453,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/__init__.py",
+			"settings":
+			{
+				"buffer_size": 203,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -504,33 +588,23 @@
 			"settings":
 			{
 				"buffer_size": 372,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wireless_props.py",
+			"settings":
+			{
+				"buffer_size": 22872,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "README.md",
+			"file": "wireless_ui.py",
 			"settings":
 			{
-				"buffer_size": 1290,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "__init__.py",
-			"settings":
-			{
-				"buffer_size": 2442,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "categories.md",
-			"settings":
-			{
-				"buffer_size": 1044,
+				"buffer_size": 5410,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -560,9 +634,13 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "pack",
+		"last_filter": "git stat",
 		"selected_items":
 		[
+			[
+				"git stat",
+				"git: status"
+			],
 			[
 				"pack",
 				"Package Control: List Packages"
@@ -596,7 +674,7 @@
 				"Blender : Execute in Blender"
 			]
 		],
-		"width": 392.0
+		"width": 533.0
 	},
 	"console":
 	{
@@ -620,11 +698,39 @@
 	],
 	"file_history":
 	[
-		"/home/alex/Blender/assets/Addons/curve_tools.py",
+		"/home/alex/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/alex/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/alex/livelink/GITHUBS/graphic-scripts/CombinedRenderChecks/04_CUSTOMCOLLAGE_01_GenerateCustomColoursASDA.sh",
+		"/home/alex/livelink/GITHUBS/homesuite/scripts/builder.py",
+		"/home/alex/livelink/GITHUBS/graphic-scripts/CombinedRenderChecks/04_CUSTOMCOLLAGE_02_TidyCustomColoursASDA.sh",
+		"/home/alex/livelink/GITHUBS/graphic-scripts/CombinedRenderChecks/02_CopyFromHereToTemplatesFolder.sh",
+		"/home/alex/working/observer_in_blender/test/test_observer.py",
+		"/home/alex/working/observer_in_blender/subject.py",
+		"/home/alex/Blender/Projects/wireless/wrls.sublime-project",
+		"/home/alex/working/observer_in_blender/__init__.py",
+		"/home/alex/livelink/GITHUBS/homesuite/main.py",
+		"/home/alex/Blender/Projects/wireless/configs.py",
+		"/home/alex/Blender/Projects/wireless/wireless_ui.py",
+		"/home/alex/Blender/Projects/wireless/wireless_props.py",
+		"/home/alex/.config/blender/2.78/scripts/addons/animatedRenderborder v2_1.py",
 		"/home/alex/Blender/Projects/wireless/wireless.py",
+		"/home/alex/Blender/Projects/wireless/categories.md",
+		"/home/alex/Blender/Projects/wireless/__init__.py",
+		"/home/alex/Blender/Projects/wireless/README.md",
+		"/home/alex/Blender/Projects/wireless/configs.json",
+		"/home/alex/Blender/Projects/wireless/.gitignore",
+		"/home/alex/Downloads/apps/sublime/sublime_text_3 /sublime.py",
+		"/home/alex/Blender/Freelance/ArteForm/IKO/IK.511CR-1/renders/makeJPGs.sh",
+		"/home/alex/kivyinstall/practice/pong/main.",
+		"/home/alex/.cache/.fr-dKuShG/wireless/__init__.py",
+		"/home/alex/.cache/.fr-UVwH2f/wireless/__init__.py",
+		"/home/alex/Downloads/Blender/Versions/blender-2.79-rc1-linux-glibc219-x86_64/2.79/scripts/startup/keyingsets_builtins.py",
+		"/home/alex/aerospace/tools/gamepad-tool-amd64/run.sh",
+		"/home/alex/working/pythonpractice/ex1.py",
+		"/home/alex/Blender/Projects/wireless/wireless/__init__.py",
+		"/home/alex/Blender/assets/Addons/curve_tools.py",
 		"/home/alex/Blender/Projects/wireless/model_guidelines.md",
 		"/home/alex/working/LL_Blender_addon/OnWhiteAndAlts/LLUtils.py",
-		"/home/alex/Blender/Projects/wireless/wrls.sublime-project",
 		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/cycles/properties.py",
 		"/home/alex/.config/blender/2.78/scripts/addons/pro_lighting_studio/pl_studio_ui.py",
 		"/home/alex/.config/blender/2.78/scripts/addons/HOps/operators/sharpeners/soft_sharpen.py",
@@ -719,20 +825,11 @@
 		"/home/alex/Blender/scripting/OnWhiteAndAlts/materials.py",
 		"/home/alex/.config/blender/2.78/scripts/addons/node_wrangler.py",
 		"/home/alex/.config/blender/2.78/scripts/addons/ui.py",
-		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/node_wrangler.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/utils.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/flex.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/ordered_set.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/export_smd.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/io_scene_valvesource/datamodel.py",
-		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/new/makeJPGs.sh",
-		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/black/makeJPGs.sh",
-		"/home/alex/Blender/Freelance/ArteForm/STEP/TOKI/scenes/renders/steel/makeJPGs.sh",
-		"/home/alex/Blender/Freelance/ArteForm/DWGs/01_2016_06_10/scenes/renders/steel/makeJPGs.sh"
+		"/home/alex/Downloads/Blender/Versions/blender-2.78-rc2-linux-glibc219-x86_64/2.78/scripts/addons/node_wrangler.py"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -746,6 +843,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"head",
+			"Cable",
+			"curve",
+			"border_min_x",
+			"attr",
+			"old_head_slide",
+			"cable_x",
+			"update",
+			"updaate",
+			"cable_length",
+			"Curve",
+			"cable",
+			"False",
+			"True",
 			"find_part",
 			"head",
 			"d",
@@ -859,21 +970,7 @@
 			"filename",
 			"errors",
 			"filepath",
-			"groupName",
-			" importableGroups",
-			"material_category",
-			"OnWhiteAndAltsProperties",
-			"onwhite_and_alts",
-			"OnWhiteAndAltsProperties",
-			"mat_tpes",
-			"path_to_lib_master",
-			"print",
-			"fileName",
-			"filePath",
-			"filepath",
-			"filePath",
-			"filepath",
-			"filePath"
+			"groupName"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -891,135 +988,16 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "wireless.py",
+					"file": "categories.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18032,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15679,
-								15679
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7042.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "wireless_props.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19814,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12256,
-								12256
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4770.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "wireless_ui.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5084,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4758,
-								4758
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1134.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "configs.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6058,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4508,
-								4508
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2464.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "configs.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 372,
+						"buffer_size": 1044,
 						"regions":
 						{
 						},
@@ -1032,6 +1010,1240 @@
 						],
 						"settings":
 						{
+							"SL.16.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "configs.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6121,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4186,
+								4186
+							]
+						],
+						"settings":
+						{
+							"SL.17.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4123,
+										4124
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/square_bracket.png",
+										"region.bluish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3676,
+										3677
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4185,
+										4186
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/square_bracket.png",
+										"region.bluish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										4141,
+										4142
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2652.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "wireless.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4618,
+								4618
+							]
+						],
+						"settings":
+						{
+							"SL.18.region_keys":
+							[
+							],
+							"SL.38.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.54.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2806.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "test/wrls_props.test.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2919,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2290,
+								2290
+							]
+						],
+						"settings":
+						{
+							"SL.19.region_keys":
+							[
+							],
+							"SL.39.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
+							],
+							"SL.40.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.75.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1713,
+										1714
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1687,
+										1688
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2290,
+										2291
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2280,
+										2281
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "test/modifiers_functions.test.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"SL.20.region_keys":
+							[
+							],
+							"SL.46.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "tests.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1453,
+								1453
+							]
+						],
+						"settings":
+						{
+							"SL.21.region_keys":
+							[
+							],
+							"SL.24.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"auto_name": "",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1044,25 +2256,210 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "README.md",
+					"buffer": 6,
+					"file": "test/__init__.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1290,
+						"buffer_size": 203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								203,
+								203
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"SL.22.region_keys":
+							[
+							],
+							"SL.25.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 22,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										202,
+										203
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										196,
+										197
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1072,24 +2469,188 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "__init__.py",
+					"buffer": 7,
+					"file": "configs.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2442,
+						"buffer_size": 372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								875,
-								875
+								372,
+								372
 							]
 						],
 						"settings":
 						{
+							"SL.20.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot"
+							],
+							"SL.23.region_keys":
+							[
+							],
+							"SL.54.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot"
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1098,35 +2659,498 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 7,
-					"file": "categories.md",
+					"buffer": 8,
+					"file": "wireless_props.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1044,
+						"buffer_size": 22872,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								349,
-								349
+								17769,
+								17769
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"SL.21.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.24.region_keys":
+							[
+							],
+							"SL.41.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.43.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
+							],
+							"SL.55.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										18469,
+										18470
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										18366,
+										18367
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6175.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "wireless_ui.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2786,
+								2786
+							]
+						],
+						"settings":
+						{
+							"SL.22.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.24.region_keys":
+							[
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
+							],
+							"SL.25.region_keys":
+							[
+							],
+							"SL.42.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"SL.44.region_keys":
+							[
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
+							],
+							"SL.56.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.pylint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter.dot",
+								"SL.pylint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32"
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2738,
+										2739
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"region.greenish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2727,
+										2728
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 416.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1134,11 +3158,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 32.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -1149,11 +3173,25 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.212080924856,
+			0.590488318883,
 			1.0
 		],
 		"rows":
@@ -1163,6 +3201,14 @@
 		]
 	},
 	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 90.0
+	},
 	"output.exec":
 	{
 		"height": 25.0
@@ -1175,7 +3221,7 @@
 	"project": "wrls.sublime-project",
 	"replace":
 	{
-		"height": 38.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1205,7 +3251,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -1213,7 +3259,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 150.0,
+	"side_bar_width": 190.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
