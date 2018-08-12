@@ -463,7 +463,7 @@ def measure_curve():
     bm = bmesh.new()
     bm.from_mesh(mesh, face_normals=True, use_shape_key=True)
 
-    length=0
+    length = 0
     for edge in bm.edges:
         length += edge.calc_length()
 
@@ -479,7 +479,7 @@ def update_wrls_data(element, property_name, value):
     Update the property on all other members of the cable group
 
     """
-    elements =  find_parts(element)
+    elements = find_parts(element)
     for part in elements:
         if part is None:
             continue
