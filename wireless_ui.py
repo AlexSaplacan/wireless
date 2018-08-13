@@ -19,8 +19,8 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
 
     def draw_header(self, context):
         @classmethod
-        def pool(cls, context):
-            context.active_object = None
+        def poll(cls, context):
+            return context.active_object != None
         try:
             self.layout.prop(context.active_object.wrls, "enable", text="")
         except:
@@ -29,10 +29,8 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     def draw(self, context):
         """The layout of the UI"""
         @classmethod
-        def pool(cls, context):
-            context.object = None
-
-
+        def poll(cls, context):
+            return context.object != None
         try:
 
             wm_wrls = bpy.context.window_manager.wrls
@@ -152,6 +150,33 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row.operator("wrls.purge_wrls", icon="PARTICLES", text="Purge Wireless Data")
         except:
             pass
+
+
+class OBJECT_PT_WirelessCreate(bpy.types.Panel):
+    bl_label = 'Add to wireless'
+    bl_id_name = 'OBJECT_PT_Wirelessadd'
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'TOOLS'
+    bl_category = 'Wireless'
+
+    @classmethod
+    def poll(cls, context):
+        return context.object is not None
+
+    def draw(self, context):
+
+        # wm_wrls = bpy.context.window_manager.wrls
+        obj = bpy.context.active_object
+        obj_wrls = obj.wrls
+
+
+        layout = self.layout
+        box = layout.box()
+        row = box.row()
+        row.prop(obj, 'name')
+        row = box.row()
+
+
 
 
 
