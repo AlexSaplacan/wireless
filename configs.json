@@ -1,4 +1,4 @@
-{ 
+{
 "Models": {
 	"Flex Metallic" : {
 	 	"name" : "WRLS_Flex_Metallic",
@@ -155,7 +155,7 @@
 		"blend" : "Cables.blend",
 		"cable":false
 		}
-	
+
 
 	},
 "model_types": {
@@ -267,6 +267,12 @@
 		"PC Plug",
 		"HDMI Simple"
 
+	],
+	"New Items":
+	[
+		"Empty Thumb",
+		"New Item Thumb"
+
 	]
 },
 
@@ -294,6 +300,10 @@
 	"Knots",
 	"Chains",
 	"Automotive Parts"
+],
+
+"new_parts":[
+	"New Items"
 ],
 
 "Thumbs": [
@@ -420,6 +430,14 @@
 	{
 		"id":"Guitar Jack",
 		"img":"WRLS_guitar_jack.jpg"
+	},
+	{
+		"id":"Empty Thumb",
+		"img":"empty_thumb.jpg"
+	},
+	{
+		"id":"New Item Thumb",
+		"img":"new_item_thumb.jpg"
 	}
 ]
 }

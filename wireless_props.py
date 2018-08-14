@@ -150,6 +150,7 @@ def load_thumbs():
     configs.thumbs["cables"] = pcoll_thumbs
     log.debug("Thumbs collection is %s" %configs.thumbs["cables"])
 
+
 def create_preview_by_category(category):
 
     """
@@ -162,10 +163,10 @@ def create_preview_by_category(category):
 
     Args:
         category (str(nevere None)) This is the category in the json wile that
-        defines the tupple elements to be added
+        defines the tuple elements to be added
 
     Returns:
-        list of touples
+        list of tuples
     """
 
     enum_thumbs = []
@@ -206,8 +207,8 @@ def create_items_from_category_list(category):
 def cable_preview_items(self, context):
     """Create an Enum Property for the cables"""
 
-
     return create_preview_by_category(self.cable_categories)
+
 
 def cable_preview_update(self, context):
     """This runs when you  choose a different cable type"""
@@ -352,7 +353,7 @@ def toggle_tail_end_cap(self, context):
             configs.switch = False
 
 def head_preview_items(self, context):
-    """Create an EnumProperty for the head endcaps""" 
+    """Create an EnumProperty for the head endcaps"""
 
     return create_preview_by_category(self.head_categories)
 
@@ -391,9 +392,8 @@ def tail_preview_update(self, context):
 
 def cable_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
-
-
     return create_items_from_category_list('cable_categories')
+
 
 def cable_categories_update(self, context):
     pass
@@ -401,20 +401,34 @@ def cable_categories_update(self, context):
 def head_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
 
-
     return create_items_from_category_list('head_categories')
+
 
 def head_categories_update(self, context):
     pass
 
+
 def tail_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
-
-
     return create_items_from_category_list('tail_categories')
+
 
 def tail_categories_update(self, context):
     pass
+
+
+def new_part_preview_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+    return create_preview_by_category(self.new_item_categories)
+
+
+def new_part_update(self, context):
+    pass
+
+
+def new_item_categories_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+    return create_items_from_category_list('new_parts')
 
 
 def set_old_thickness(self, value):
@@ -453,6 +467,7 @@ def update_cable_thickness(self,context):
         bpy.context.scene.update()
         configs.switch = False
 
+
 def head_use_cable_mat_toggle(self, context):
     """Make the head use the first material the same one used by the cable
     if swithched True, or use it's default material if switched False.
@@ -464,6 +479,7 @@ def head_use_cable_mat_toggle(self, context):
 
     context.scene.objects.active = cable
     wireless.setup_materials(cable, head)
+
 
 def tail_use_cable_mat_toggle(self, context):
     """Make the tail use the first material the same one used by the cable
@@ -477,16 +493,19 @@ def tail_use_cable_mat_toggle(self, context):
 
     context.scene.objects.active = cable
     wireless.setup_materials(cable, tail, False)
+
+
 def set_old_cable_stretch(self, value):
     self["old_cable_stretch"] = value
-    
+
+
 def update_cable_stretch(self, context):
     """go on editmode and scale the vets on x by value
     """
     if configs.switch is False:
         active_obj = bpy.context.active_object
         curve, cable, head, tail = wireless.find_parts(active_obj)
- 
+
         old_value = cable.wrls.old_cable_stretch
         value = cable.wrls.cable_stretch
         factor = value / old_value
@@ -521,8 +540,10 @@ def update_cable_stretch(self, context):
         head.wrls.head_updated = True
         bpy.context.scene.objects.active = active_obj
 
+
 def set_old_head_slide(self, value):
     self["old_head_slide"] = value
+
 
 def update_head_slide(self, context):
     """in editmode move the vertices on x  by certain ammount
@@ -552,7 +573,7 @@ def update_head_slide(self, context):
         set_old_head_slide(self, value)
         wireless.update_wrls_data(cable, 'head_slide', value)
         wireless.update_wrls_data(cable, 'old_head_slide', value)
-        head.hide = True  
+        head.hide = True
 
 
 def curve_set(self, value):
@@ -608,6 +629,9 @@ def tail_get(self):
 
 
 def tail_update(self, context):
+    pass
+
+def type_of_new_part(self, context):
     pass
 
 
@@ -788,6 +812,31 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         name='Tail Categories',
         description='Select category for the tail',
         items=tail_categories_items,
+        update=tail_categories_update
+        )
+    type_of_part = bpy.props.EnumProperty(
+        name='Type of new element',
+        description='What type of elemnt it is? Cable or Head/Tail?',
+        items=[('Cable', 'Cable', 'Cable'),
+               ('Head / Tail', 'Head / Tail', 'Head / Tail')],
+        update=type_of_new_part
+        )
+    new_cable_category = bpy.props.EnumProperty(
+        name="New Cable Category",
+        description="What category this cable is part of?",
+        items=cable_categories_items,
+        update=cable_categories_update
+        )
+    new_items = bpy.props.EnumProperty(
+        name="New Parts",
+        description="Do you like it?",
+        items=new_part_preview_items,
+        update=new_part_update
+        )
+    new_item_categories = bpy.props.EnumProperty(
+        name='New_item Categories',
+        description='Select category for new items',
+        items=new_item_categories_items,
         update=tail_categories_update
         )
 

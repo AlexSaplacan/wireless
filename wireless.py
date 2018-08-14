@@ -192,7 +192,7 @@ def wrls_off_and_delete_childs(curve):
 def get_list_and_position(context, list_name, part_type):
     """search for the list_name list in the configs.json
     and also find the position on the list of the corrispective context value
-    for example: if I want to look for the head_types I will get the head_types list and 
+    for example: if I want to look for the head_types I will get the head_types list and
     the position of the wrls.heads_types in that list
 
     Args:
@@ -200,7 +200,7 @@ def get_list_and_position(context, list_name, part_type):
         list_name (str (never None)) - the name of the list to look in
     Return:
         list containing the list_name list and the position of the list_name attribute in it
-        example [list_name, 2] 
+        example [list_name, 2]
     """
     wm_wrls = context.window_manager.wrls
     part_types = {'cables_types': 'cable_categories',
@@ -390,7 +390,7 @@ def setup_materials(cable, cap, is_head=True):
         cable  bpyObject (notNone) - the cable object
         cap  bpyObject(not None) - the extremity (can be either the tail or the head)
         position (bool) default True -  if True, the function affects the head materials,
-        otherwire the tail 
+        otherwire the tail
     """
     if is_head:
         if not cable.wrls.head_use_cable_mat:
@@ -718,6 +718,29 @@ class OBJECT_OT_Update_Head(bpy.types.Operator):
 
         return {'FINISHED'}
 
+class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
+    """
+    Create a thumbnail of the object
+    """
+    bl_idname = "wrls.render_thumbnail"
+    bl_label = "Render Thumbnail"
+
+    def execute(self, context):
+        return {'FINISHED'}
+
+
+class OBJECT_OT_Save_Part(bpy.types.Operator):
+    """
+    Save the new wireless part
+    """
+    bl_idname = "wrls.save_part"
+    bl_label = "Save Part"
+
+    def execute(self, context):
+        """
+        Loads of stuff going in here
+        """
+        return {'FINISHED'}
 
 def register():
     "register"

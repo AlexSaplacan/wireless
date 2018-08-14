@@ -67,20 +67,20 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = box.row()
                 row.prop(obj_wrls, "cable_thickness", text="")
 
-                # # the stretch slider
-                # row = box.row()
-                # row.label(text="Stretch")
-                # row = box.row()
-                # row.prop(cable.wrls, "cable_stretch", text="")
+                # the stretch slider
+                row = box.row()
+                row.label(text="Stretch")
+                row = box.row()
+                row.prop(cable.wrls, "cable_stretch", text="")
 
                 # a Recalculate head button
 
-                # row = box.row()
-                # row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
+                row = box.row()
+                row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
 
                 # slide head
-                # row = box.row()
-                # row.prop(cable.wrls, "head_slide", text="")
+                row = box.row()
+                row.prop(cable.wrls, "head_slide", text="")
 
             # the head endcap area
 
@@ -165,21 +165,28 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
 
     def draw(self, context):
 
-        # wm_wrls = bpy.context.window_manager.wrls
-        obj = bpy.context.active_object
-        obj_wrls = obj.wrls
-
+        obj = bpy.context.object
+        wm_wrls = bpy.context.window_manager.wrls
 
         layout = self.layout
         box = layout.box()
         row = box.row()
         row.prop(obj, 'name')
         row = box.row()
-
-
-
-
-
+        row.label(text='Category')
+        row = box.row()
+        row.prop(wm_wrls, 'type_of_part', expand=True)
+        row = box.row()
+        if wm_wrls.type_of_part == 'Cable':
+            row.prop(wm_wrls, 'cable_categories', text='')
+        else:
+            row.prop(wm_wrls, 'head_categories', text='')
+        row = box.row()
+        row.template_icon_view(wm_wrls, "new_items", show_labels=False, scale=4)
+        row = box.row()
+        row.operator("wrls.render_thumbnail", icon='SCENE', text='Prepare Thumbnail')
+        row = box.row()
+        row.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
 
 def register():
 
