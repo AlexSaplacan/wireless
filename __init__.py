@@ -18,7 +18,7 @@
 
 bl_info = {
     "name": "Wireless",
-    "author": "A_S",
+    "author": "A.S. R.C. R.S.",
     "version": (0, 5, 0),
     "blender": (2, 78, 3),
     "location": "3D View > Toolbar > Wireless",
@@ -32,7 +32,7 @@ import logging
 logger = logging.getLogger("wrls")
 if not logger.handlers:
     handler = logging.StreamHandler()
-    logger.addHandler(handler) 
+    logger.addHandler(handler)
 
 # set logging level here
 handler.setLevel(logging.DEBUG)
@@ -56,13 +56,13 @@ else:
     # handler = logging.StreamHandler()
 
     # # set logging level here
-    # logger.addHandler(handler) 
+    # logger.addHandler(handler)
     # handler.setLevel(logging.DEBUG)
     # formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
     # handler.setFormatter(formatter)
 
 
-    import bpy   
+    import bpy
     from . import (
         configs,
         wireless,
