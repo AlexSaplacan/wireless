@@ -186,7 +186,10 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
         row = box.row()
         row.operator("wrls.render_thumbnail", icon='SCENE', text='Prepare Thumbnail')
         row = box.row()
-        row.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
+        col = row.column()
+        col.operator("wrls.save_part", icon='RECOVER_AUTO', text='Reset')
+        col = row.column()
+        col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
 
 def register():
 

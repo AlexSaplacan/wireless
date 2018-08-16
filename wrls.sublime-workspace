@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"wir",
+				"wireless_props\tmodule"
+			],
+			[
+				"pre",
+				"preview_path\tstatement"
+			],
+			[
+				"bac",
+				"backup_thmb\tstatement"
+			],
+			[
+				"render",
+				"render_filepath\tstatement"
+			],
+			[
+				"copy",
+				"copyfile\tfunction"
+			],
+			[
+				"o",
+				"objects"
+			],
+			[
+				"thu",
+				"thumb_name\tstatement"
+			],
+			[
+				"ac",
+				"actor_name"
+			],
+			[
+				"setu",
+				"setup_studio_scene\tfunction"
+			],
+			[
+				"studi",
+				"studio_path"
+			],
+			[
+				"data",
+				"data_from\tstatement"
+			],
+			[
+				"co",
+				"context"
+			],
+			[
 				"c",
 				"class\tkeyword"
 			],
@@ -220,10 +268,6 @@
 				"measure_cable"
 			],
 			[
-				"ac",
-				"active_object"
-			],
-			[
 				"assi",
 				"assigned_users"
 			],
@@ -242,10 +286,6 @@
 			[
 				"find_",
 				"find_parts"
-			],
-			[
-				"data",
-				"data_obj"
 			],
 			[
 				"dat",
@@ -474,46 +514,6 @@
 			[
 				"app",
 				"append"
-			],
-			[
-				"threebasma",
-				"THREE.MeshBasicMaterial"
-			],
-			[
-				"im",
-				"import"
-			],
-			[
-				"ge",
-				"generate_cats"
-			],
-			[
-				"gene",
-				"generate_subs"
-			],
-			[
-				"co",
-				"context_cat"
-			],
-			[
-				"name",
-				"namecheck"
-			],
-			[
-				"color",
-				"color_mode"
-			],
-			[
-				"b",
-				"bl_idname"
-			],
-			[
-				"Maca",
-				"MaterialCategories"
-			],
-			[
-				"imp",
-				"importable_categories"
 			]
 		]
 	},
@@ -531,7 +531,7 @@
 			"file": "configs.json",
 			"settings":
 			{
-				"buffer_size": 7332,
+				"buffer_size": 7312,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -565,7 +565,7 @@
 			"file": "wireless.py",
 			"settings":
 			{
-				"buffer_size": 22367,
+				"buffer_size": 24310,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -588,10 +588,10 @@
 			}
 		},
 		{
-			"contents": "\n  BRANCH:  On branch `development` tracking `origin/development`.\n  ROOT:    ~/Blender/Projects/wireless\n  HEAD:    1cb3fe4 added first tests\n\n  UNSTAGED:\n    configs.json\n    wireless_props.py\n    wireless_ui.py\n\n  UNTRACKED:\n    .idea/\n    __pycache__/\n    categories.md\n    refs/\n    thumbs/empty_thumb.jpg\n    thumbs/new_item_thumb.jpg\n    working_models/\n\n  ###################                   ###############\n  ## SELECTED FILE ##                   ## ALL FILES ##\n  ###################                   ###############\n\n  [o] open file                         [a] stage all unstaged files\n  [s] stage file                        [A] stage all unstaged and untracked files\n  [u] unstage file                      [U] unstage all staged files\n  [d] discard changes to file           [D] discard all unstaged changes\n  [h] open file on remote\n  [M] launch external merge tool\n\n  [l] diff file inline                  [f] diff all files\n  [e] diff file                         [F] diff all cached files\n\n  #############                         #############\n  ## ACTIONS ##                         ## STASHES ##\n  #############                         #############\n\n  [c] commit                            [t][a] apply stash\n  [C] commit, including unstaged        [t][p] pop stash\n  [m] amend previous commit             [t][s] show stash\n  [p] push current branch               [t][c] create stash\n                                        [t][u] create stash including untracked files\n  [i] ignore file                       [t][g] create stash of staged changes only\n  [I] ignore pattern                    [t][d] drop stash\n\n  [B] abort merge\n\n  ###########\n  ## OTHER ##\n  ###########\n\n  [r]         refresh status\n  [?]         toggle this help menu\n  [tab]       transition to next dashboard\n  [SHIFT-tab] transition to previous dashboard\n  [.]         move cursor to next file\n  [,]         move cursor to previous file\n\n-\n\n",
+			"contents": "\n  BRANCH:  On branch `development` tracking `origin/development`.\n  ROOT:    ~/Blender/Projects/wireless\n  HEAD:    569b8ca UI mockup for add new part\n\n  UNSTAGED:\n    __init__.py\n    wireless.py\n\n  UNTRACKED:\n    .idea/\n    __pycache__/\n    assets/Studio.blend\n    assets/Studio.blend1\n    assets/WRLS_Cube.jpg\n    assets/Wireless Icon Background 2.png\n    assets/Wireless Icon Merged 2.png\n    assets/Wireless Icon Overlay 2.png\n    categories.md\n    refs/\n    working_models/\n\n  ###################                   ###############\n  ## SELECTED FILE ##                   ## ALL FILES ##\n  ###################                   ###############\n\n  [o] open file                         [a] stage all unstaged files\n  [s] stage file                        [A] stage all unstaged and untracked files\n  [u] unstage file                      [U] unstage all staged files\n  [d] discard changes to file           [D] discard all unstaged changes\n  [h] open file on remote\n  [M] launch external merge tool\n\n  [l] diff file inline                  [f] diff all files\n  [e] diff file                         [F] diff all cached files\n\n  #############                         #############\n  ## ACTIONS ##                         ## STASHES ##\n  #############                         #############\n\n  [c] commit                            [t][a] apply stash\n  [C] commit, including unstaged        [t][p] pop stash\n  [m] amend previous commit             [t][s] show stash\n  [p] push current branch               [t][c] create stash\n                                        [t][u] create stash including untracked files\n  [i] ignore file                       [t][g] create stash of staged changes only\n  [I] ignore pattern                    [t][d] drop stash\n\n  [B] abort merge\n\n  ###########\n  ## OTHER ##\n  ###########\n\n  [r]         refresh status\n  [?]         toggle this help menu\n  [tab]       transition to next dashboard\n  [SHIFT-tab] transition to previous dashboard\n  [.]         move cursor to next file\n  [,]         move cursor to previous file\n\n-\n\n",
 			"settings":
 			{
-				"buffer_size": 1939,
+				"buffer_size": 2058,
 				"line_ending": "Unix",
 				"name": "STATUS: wireless",
 				"read_only": true,
@@ -602,7 +602,7 @@
 			"file": "__init__.py",
 			"settings":
 			{
-				"buffer_size": 2442,
+				"buffer_size": 2448,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -724,6 +724,13 @@
 	],
 	"file_history":
 	[
+		"/home/alex/.config/blender/2.78/scripts/addons/Dynamat lite/__init__.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/dynamat.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/camera_tools/camera_action.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/camera_tools/rigs.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/camera_tools/coords_2d.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/LLUtils.py",
+		"/home/alex/Dropbox (LiveLink)/The3DDept/PersonalFolders/Alex/LL_addon/LLUtils/camera_tools/__init__.py",
 		"/home/alex/Blender/Projects/wireless/configs.py",
 		"/home/alex/.cache/.fr-eIyXEj/wireless/wireless.py",
 		"/home/alex/.cache/.fr-EHKB9y/wireless/wireless_props.py",
@@ -844,14 +851,7 @@
 		"/home/alex/.config/blender/2.78/scripts/addons/RetopoFlow/op_tweak/__init__.py",
 		"/tmp/dumps/crash_20170320202759_1.dmp",
 		"/tmp/dumps/crash_20170319145350_1.dmp",
-		"/home/alex/.config/blender/2.78/scripts/addons/Link to LLUtils.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/__init__.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_tools_cloning.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_tools.py",
-		"/home/alex/Blender/Freelance/ArteForm/AICO/Scenes/renders/makeJPGs.sh",
-		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/__init__.py",
-		"/home/alex/working/material_library/mateeerialslib.py",
-		"/home/alex/.config/blender/2.78/scripts/addons/mifth_tools/mifth_vertex_paint.py"
+		"/home/alex/.config/blender/2.78/scripts/addons/Link to LLUtils.py"
 	],
 	"find":
 	{
@@ -869,6 +869,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"new_item_categories_items",
+			"scene.update",
 			"create_preview_by_category",
 			"Rich edit",
 			"blenderExecutable",
@@ -994,9 +996,7 @@
 			"ll_mat_lib",
 			"RefreshMen",
 			"generate_cat",
-			"MainCat_Update",
-			"generate_cat",
-			"ll_mat_lib"
+			"MainCat_Update"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1197,7 +1197,7 @@
 						"translation.y": 401.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1206,15 +1206,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7332,
+						"buffer_size": 7312,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5230,
-								5230
+								4885,
+								4885
 							]
 						],
 						"settings":
@@ -1230,24 +1230,24 @@
 								{
 									"1":
 									[
-										5251,
-										5252
+										4904,
+										4905
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"region.greenish"
 									]
 								},
 								"open":
 								{
 									"1":
 									[
-										5153,
-										5154
+										4889,
+										4890
 									]
 								},
 								"unmatched":
@@ -1256,16 +1256,31 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1276,41 +1291,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -1318,24 +1318,24 @@
 								{
 									"1":
 									[
-										5251,
-										5252
+										4884,
+										4885
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"region.greenish"
 									]
 								},
 								"open":
 								{
 									"1":
 									[
-										5153,
-										5154
+										4872,
+										4873
 									]
 								},
 								"unmatched":
@@ -1344,16 +1344,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1364,48 +1379,33 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4707.0,
+						"translation.y": 4997.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1596,7 +1596,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1618,128 +1618,128 @@
 						"selection":
 						[
 							[
-								13927,
-								13927
+								4361,
+								4361
 							]
 						],
 						"settings":
 						{
 							"SL.18.region_keys":
 							[
-								"SL.pylint.Highlights.|7195e6a6a64fee6da89ae58311fd5be2cd5ca3de091c9cd36b943ec3bc45ff74|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|caf58235fbe52247f6346063c5f771ce3523026ea1c10fdf0b7099b7bc7db7d6|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ca022e8cf78e5ce48ebcf9560da8cefa14e80121e4b9b7432c09abbe09a6eb00|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0094c40b41f3abf771151626731c58a79fd49ea076540d36327505c21ce8897f|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|2046bf556f51a5317ba172373804ea2e86da626fb455542f192982b60aaf0480|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|84778be58b2025a275280af5ee58a9bfabb3db832e14eb1b3276526b6fe53047|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|29c1608922f2742bd75ebccfce5a888e5268e5e6f716ec0324076d179b180e9c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|fe00ce6911abf09289d76ac3d23c764e3b0dee5f0d9bb0c6756fdd8f88725daf|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|a6d06af6d30ff0e5db5a6c6783cbd524862da2ef93f7de47c15f801df237dbc4|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|e56039ad2f0ec532c9c6fe32d530802d0d8f4b16ee9d5eb8280b0e171203c48a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|9853e83ed0d1c06c01ca52e99532dae78ff2ba3ba92f901ff9c8c3050e4780e2|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|67e4507d5f764de54e53289e65ec4255e3f2d9b5e5143d0a5b13c6a554b67842|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a0f0af25c7ae4a59cb2ffacd70cda3c965e40ce4e3f7be03bcc2320730254674|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0c5fb49b01d4dffe8b0fba160f6847a0800d10a4a8c358079186d37e4d11afb2|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d0e7f100d0f5f969fd3ee97d824308aa6cb5d37f1f208d031046e56239fd9d78|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|89571373399836ef5d67d5fb3eb5eb64f3086fce15d0620cc5cdea8dec722658|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|80ea07d77d977e9f8fcaf956e50569eff4415bf6de767b897ac1c249b94a5cbf|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|1896fbbaed418574261a3315e6f71d78d52ce1d3c3c374020cb7f0b88eae492b|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|58878a6c7971eee0419a774721b8558e2bee49953cebbd25a42523a34585efdd|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ae73d80a9afa21f17244bb269811d0dccba08dcd8b26826ec8892f6d1bff2fbc|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|4836266a8b0663d84c6d3fd12dbce46c273545a0c7d0a7e9f34a58d8a10d26c2|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|33b982426b7329da91ec99566d01d2db23d23b4d7e2321c557603c6a698ac079|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|4ffee8fa5e3b7c7460142a3edc9c01a0d127bc6d1436266f8b491b19acabe74a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|b5506108448ec9c990d088ec792160a5667c0a228eaea8a1c9da8cd81b13b295|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|144763fc1d587bfc26a882b18ac077c0bb55fd08630232c4726c3202ffa04734|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|902cc30a9a20eb6e58f5ea10a6dd42252212a15353d85937eefb17d89b85ab4d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6b2553d8b84c90ac044e10abc663cce2a6febb4830625015352d2e3a3d45d812|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4e090079bc9db37e2f1b5c84f39f81e91683f5e5b9255fe6f2bbc851858e8dbd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e1e2c91a97e79a67247fc9cee7871c99bde80ffca748f9ef36f78afd0a5c0574|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|d1ea8ea16ebc28e2f5550a648e87c1c708fffa726b352c9492b5bf80bce96450|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9fcbb2aff68ac63e86c1b463756262400fdb2aafd4fcbe262a27fb7ca3c91eb7|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ba3519345b642967e724092d5dd695c9dfa9d923d86d3c501644b3e60c654cff|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c78fc65eef0c166ac07753646604c24c40193ec6471e4afc493ec63b322fcb08|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d48afe081660aeba7003446443c5717636f4bc723f626cb26636dd3c9ab34577|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|501feb407a32b73d94747c111c7a1bd233046268890d9c7f726b1e470c33fd08|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|67e4507d5f764de54e53289e65ec4255e3f2d9b5e5143d0a5b13c6a554b67842|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|aba6b984c55acf95dfea3993caeb3a38d938dff8ad8a908744f281d76283b4bc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0c5fb49b01d4dffe8b0fba160f6847a0800d10a4a8c358079186d37e4d11afb2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|30232a02c760596a547bce3cc3728ab075d35fcd784c5f4f29b7f30d3f445a7a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|80ea07d77d977e9f8fcaf956e50569eff4415bf6de767b897ac1c249b94a5cbf|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3dc332c11343f9727c4612d9f4d6f3beae2436697ae0a9eeb360cb87b00930a0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|15399613b6fcb193c4273442b58f2906e8f674e0cdc444b459a14a170b04fc86|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4ffee8fa5e3b7c7460142a3edc9c01a0d127bc6d1436266f8b491b19acabe74a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ccbb39e103a9a3a4978bc1faa84191354dc788c7b0f00d92e19f0a5b3daf2337|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9853e83ed0d1c06c01ca52e99532dae78ff2ba3ba92f901ff9c8c3050e4780e2|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|2046bf556f51a5317ba172373804ea2e86da626fb455542f192982b60aaf0480|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|144763fc1d587bfc26a882b18ac077c0bb55fd08630232c4726c3202ffa04734|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|43011eec1a6996c8ce532c30a9418c5f43e06bcc4d0be2f51b334c5616be5e79|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|be969fe327c841e692d82c2b53ebbe799e39c0be5d73bcf0f46aee13b41fa5ff|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0365e9f057b1c1154fac47f2a6ebe3ef4af4182c86d1a80ba79f09f22ad571a6|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|37862031fc2e61be957787f98517cda455b2eee26d3f0779aae02eae9a97309f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d962ce6740e1637e202d34891f9c735bf827cd615fce3234e246b832222b6e99|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cef7f48b7fe3a57e8c9220a5393f58c69efdf54112ad6b81bfab707495f443a8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7878c8d85881877d8b4c74c0647e753b3a5d4e985321f58bdeccf73493dd0872|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|ac141f8f1e7a01f9e23b80e2374a00dc1398e5436a02d82685ac815ae5b9f0de|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|39f68b48a008a9ff83742f8ad1ae05c9f9beba564e0275a126bd183ae949f5fe|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|95b10552d479059efd96f7e87e2cc86e994172d7136a57dcb07bbacc104c11a0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|1939f93b3921802520c21cc3f361f020beb8943fb9a8a57f4728bc4679efdb89|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|29fce620e8ed53449c4e9db9e50e109425d56a386abb0e73d601cb1543b90ae2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|df517d6169ddd0e641f812e2c1e9a8016e374ebebe31db5fabbb5a6ac3dfcaf8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|f4962cddcca69b4acecf2dc7cb11897ebf776294e5d3cf4c33e550203a257ef2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|aa523e3ef71d5b0301c0ddf0c9b3e22c967bb29baa5cbcbd13320d77956d41de|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8d5526a5dccb1e6f1415602f3df85bd8261bdc1b7e996f90458a779157748fa0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7e3df67193758e3483b2ab2bd84a3ff27fa8708dd365bcc106c3999108ba88d3|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|58878a6c7971eee0419a774721b8558e2bee49953cebbd25a42523a34585efdd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d56820d63a740ac0044c2b97ca7da6d0b081b98bf3ea4d93bbf8f38582f63afb|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9f98af5e36707d818b7214a22fbc6801e4f0f3c73c489a1f7c6c7450bcab5e12|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ec28c2514f30dd9e06141d35bd44784931089cb3511470ef9413137c502f2b45|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0cf5de60fc74537e1fbcd725ad8ab93207bcc307374188bdefc7ba4e2765a048|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d3e45cb241121125162f851e25053526f354844b789cda13429d105f7232874d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|879fe9cf4504ffbf2c4f9462bf9dd8b5f07fa847e52bc918d6fa9ff811a445fd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a8cfc816c731f3340e23becc4685c42423e861878758130798854a835eecdf63|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|72b24b91945ba2af9632f42718814223bb5713b17fcd496ac7a2bbf2d6998015|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|5ef0adec6905882d1cac0ae7aa38bccb6e5373f14b855c40fc2266cbec73ddb0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ac19c54db02cf57a79d06098017d3af8696753c4d9c4fcc6c12a8e37c58c12de|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|8901fbbfc92e62eac41293653a355d1be7931982efb5cbcb782d0e81d3fbafb5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|fcd3ea599d1f661d27c44e4847f8b9051c79e374b1841291dd067b581345db4c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|092f3e2bc28ebc4432127421ead803ebf8145cac42ef1119cdb0fbbe11a8266e|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0094c40b41f3abf771151626731c58a79fd49ea076540d36327505c21ce8897f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|70369dc77f61595eb35d3f17187a81e784243e908cf82f31fefaea3e54df4397|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7e43b2dbe8de1cbb2561bdd47a38695b74c15ccee851b6c6f8c52a7575643662|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5fa92d91543376e91246a924166d9add45cf18e78d9ef763490a47907e18d331|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|58d02263957f0fce2167149b4bc5c13c80859c3674dc39e47cf8a58094560890|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|caf58235fbe52247f6346063c5f771ce3523026ea1c10fdf0b7099b7bc7db7d6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4836266a8b0663d84c6d3fd12dbce46c273545a0c7d0a7e9f34a58d8a10d26c2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|967f0d9017b16881a92aede3faa453294a8242ba5861f6aa78208d576250010b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6de186021060f6659df9b0d7760169de0148f4103ed072726f1c6658cb109773|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cc9156e43ecef1a356d6af431732fe66228f50b842b6cf88fe6149c6a14812ba|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ac0f7093ecdb7815df03c97b38f2f04a1c7245e2024c7e481ae7371769154671|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7195e6a6a64fee6da89ae58311fd5be2cd5ca3de091c9cd36b943ec3bc45ff74|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ca022e8cf78e5ce48ebcf9560da8cefa14e80121e4b9b7432c09abbe09a6eb00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|430760a1928441cbe7ec5373657103e0eb2fecf193190b877b32c7a7d87ae50b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|33b982426b7329da91ec99566d01d2db23d23b4d7e2321c557603c6a698ac079|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e88774c4331c8c797749668a8a936c066dee7d40966a534905d552c3abe82cc4|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2556bb36ec76e8dff4db80ee054535c47747baee4c9508bf145843f15e752aa4|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a0f0af25c7ae4a59cb2ffacd70cda3c965e40ce4e3f7be03bcc2320730254674|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0c3097082f1ecd3085e8afae92532c4e06a3c68ae09c7b4a878bb47d25c0fd3f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e3db45c507ee3c879f4c27edb4a21f776b21ce54496faef8ac304b827785abb5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8cf2a7f68a3eb0bd26619c40c4a12fcfd0f28c733645cb8ff82fb80c829d043a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d920a8eee8e0e93d7850e0fa49974b2e4e79d0cef55b62cb82b34a5214e91b9a|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|5cc2f590045f6442f967f8a16c90c481b673f06ea0111ed389756a7ea97d4005|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cea96484e866868c2d8fd6b39215cc036625f828709e07929aa6a6763b308b8c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ae73d80a9afa21f17244bb269811d0dccba08dcd8b26826ec8892f6d1bff2fbc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|25e68eecf0fd8d638779ad42385bcaea9bc477342a7087a5ffb960c1d7780431|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|fcdbcee46c795658191c0dacd9ccfb406e1858cd2c3753f3ac8ac2059cb43be4|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.pylint.Highlights.|d0e7f100d0f5f969fd3ee97d824308aa6cb5d37f1f208d031046e56239fd9d78|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d88fba127c21bd5bb3c0456a3bed3b7d918fb7a82baf10d0cbaada64f77ed9b8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c4724a1e04966a0ffa7aa61f1a2737b504d0db01d0b7d43c89b895b5ce6780a5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|46a19bcfa77cf88f4bccda9aff4f704e1d6a362cd459c7c6982361470fecfb53|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|0a7660c8679ba212b0b41966e768b4072adb6d15060d8adb0fae982e0764d8b8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|fea43aab2a047f6dab096ef92380c8b97e9bb1b4ba6b775148fc855c2308f0cc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9b3baa3f476395a72d0d8f4f097ba9b10821b761671f70da963c5dc08c055a33|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|89571373399836ef5d67d5fb3eb5eb64f3086fce15d0620cc5cdea8dec722658|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|637b8e9af911be8a00ede4ace94a18bfafeab0fff371497b5008feb0a77ccb34|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|f3390a1355a27718a24be35c587f0e3067ad344c9a0af537ce68aab5ab3842ca|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|595b02f18bf7a06b18311311cf032e416b6106015b7ce76f22e529395e2a1a7a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b5506108448ec9c990d088ec792160a5667c0a228eaea8a1c9da8cd81b13b295|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e56039ad2f0ec532c9c6fe32d530802d0d8f4b16ee9d5eb8280b0e171203c48a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|82e36ec955104c9303a9c5e554d39e457de27235d1014865590b7079fe3e8663|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b4a57a64e22f8254cc5a8da958d50e495bb1aecbf1a17c290dcbd21dffdc4956|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|143e016fe118db81d8c1159496cc1bd1bcc03ce5f91326e024028d37f588b8e0|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|bedb2f72b7fea7744867deffa5cf7c4c9805213b758b5352fd129f58ed8deb15|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|2727d72ef5ce32216a638544c106f3aa17137fdc1e4f78c6be2b6efbb07fa0e7|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|7eab60049df68ab01f05349983a991db883eff0ee6ffc338a51bcb2ae547c2a2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|580d4e0a7b9580c484b19734d878a505157de0acfb9b003b4ea7ba226a3dbc22|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d7b4ece512cfcceb23757ddf7b29fd42f45708cfdea48064a899560c909e9de5|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|0e85dc8573f5480551ea32a58fbe3b52bebb67470930e6e0bf39f32b160ecc64|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|268f5bd5a96dfa85f747f612247532cabdd2577a19481d819bfcccd817f09382|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|48fc691d00ca23ef19f38bda7251ad79a8e0711f35d1963191c6c055b5f635b1|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|9f98af5e36707d818b7214a22fbc6801e4f0f3c73c489a1f7c6c7450bcab5e12|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|df517d6169ddd0e641f812e2c1e9a8016e374ebebe31db5fabbb5a6ac3dfcaf8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|fcd3ea599d1f661d27c44e4847f8b9051c79e374b1841291dd067b581345db4c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d962ce6740e1637e202d34891f9c735bf827cd615fce3234e246b832222b6e99|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ccbb39e103a9a3a4978bc1faa84191354dc788c7b0f00d92e19f0a5b3daf2337|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a8cfc816c731f3340e23becc4685c42423e861878758130798854a835eecdf63|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|2556bb36ec76e8dff4db80ee054535c47747baee4c9508bf145843f15e752aa4|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|15399613b6fcb193c4273442b58f2906e8f674e0cdc444b459a14a170b04fc86|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|5ef0adec6905882d1cac0ae7aa38bccb6e5373f14b855c40fc2266cbec73ddb0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|8cf2a7f68a3eb0bd26619c40c4a12fcfd0f28c733645cb8ff82fb80c829d043a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|cc9156e43ecef1a356d6af431732fe66228f50b842b6cf88fe6149c6a14812ba|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|e3db45c507ee3c879f4c27edb4a21f776b21ce54496faef8ac304b827785abb5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|595b02f18bf7a06b18311311cf032e416b6106015b7ce76f22e529395e2a1a7a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|fea43aab2a047f6dab096ef92380c8b97e9bb1b4ba6b775148fc855c2308f0cc|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|5cc2f590045f6442f967f8a16c90c481b673f06ea0111ed389756a7ea97d4005|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ac141f8f1e7a01f9e23b80e2374a00dc1398e5436a02d82685ac815ae5b9f0de|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|1939f93b3921802520c21cc3f361f020beb8943fb9a8a57f4728bc4679efdb89|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|e1e2c91a97e79a67247fc9cee7871c99bde80ffca748f9ef36f78afd0a5c0574|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|f4962cddcca69b4acecf2dc7cb11897ebf776294e5d3cf4c33e550203a257ef2|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d88fba127c21bd5bb3c0456a3bed3b7d918fb7a82baf10d0cbaada64f77ed9b8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0a7660c8679ba212b0b41966e768b4072adb6d15060d8adb0fae982e0764d8b8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|be969fe327c841e692d82c2b53ebbe799e39c0be5d73bcf0f46aee13b41fa5ff|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|143e016fe118db81d8c1159496cc1bd1bcc03ce5f91326e024028d37f588b8e0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|29c1608922f2742bd75ebccfce5a888e5268e5e6f716ec0324076d179b180e9c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0c3097082f1ecd3085e8afae92532c4e06a3c68ae09c7b4a878bb47d25c0fd3f|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d7b4ece512cfcceb23757ddf7b29fd42f45708cfdea48064a899560c909e9de5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d48afe081660aeba7003446443c5717636f4bc723f626cb26636dd3c9ab34577|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|e88774c4331c8c797749668a8a936c066dee7d40966a534905d552c3abe82cc4|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|6b2553d8b84c90ac044e10abc663cce2a6febb4830625015352d2e3a3d45d812|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|82e36ec955104c9303a9c5e554d39e457de27235d1014865590b7079fe3e8663|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ac0f7093ecdb7815df03c97b38f2f04a1c7245e2024c7e481ae7371769154671|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0cf5de60fc74537e1fbcd725ad8ab93207bcc307374188bdefc7ba4e2765a048|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|cef7f48b7fe3a57e8c9220a5393f58c69efdf54112ad6b81bfab707495f443a8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|4e090079bc9db37e2f1b5c84f39f81e91683f5e5b9255fe6f2bbc851858e8dbd|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ac19c54db02cf57a79d06098017d3af8696753c4d9c4fcc6c12a8e37c58c12de|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|ba3519345b642967e724092d5dd695c9dfa9d923d86d3c501644b3e60c654cff|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|902cc30a9a20eb6e58f5ea10a6dd42252212a15353d85937eefb17d89b85ab4d|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|8d5526a5dccb1e6f1415602f3df85bd8261bdc1b7e996f90458a779157748fa0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|95b10552d479059efd96f7e87e2cc86e994172d7136a57dcb07bbacc104c11a0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|46a19bcfa77cf88f4bccda9aff4f704e1d6a362cd459c7c6982361470fecfb53|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|d3e45cb241121125162f851e25053526f354844b789cda13429d105f7232874d|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|9b3baa3f476395a72d0d8f4f097ba9b10821b761671f70da963c5dc08c055a33|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|879fe9cf4504ffbf2c4f9462bf9dd8b5f07fa847e52bc918d6fa9ff811a445fd|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.pylint.Highlights.|580d4e0a7b9580c484b19734d878a505157de0acfb9b003b4ea7ba226a3dbc22|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|43011eec1a6996c8ce532c30a9418c5f43e06bcc4d0be2f51b334c5616be5e79|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.pylint.Highlights.|d56820d63a740ac0044c2b97ca7da6d0b081b98bf3ea4d93bbf8f38582f63afb|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|501feb407a32b73d94747c111c7a1bd233046268890d9c7f726b1e470c33fd08|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|6de186021060f6659df9b0d7760169de0148f4103ed072726f1c6658cb109773|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|7eab60049df68ab01f05349983a991db883eff0ee6ffc338a51bcb2ae547c2a2|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|30232a02c760596a547bce3cc3728ab075d35fcd784c5f4f29b7f30d3f445a7a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|7e3df67193758e3483b2ab2bd84a3ff27fa8708dd365bcc106c3999108ba88d3|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|7878c8d85881877d8b4c74c0647e753b3a5d4e985321f58bdeccf73493dd0872|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|f3390a1355a27718a24be35c587f0e3067ad344c9a0af537ce68aab5ab3842ca|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|430760a1928441cbe7ec5373657103e0eb2fecf193190b877b32c7a7d87ae50b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2727d72ef5ce32216a638544c106f3aa17137fdc1e4f78c6be2b6efbb07fa0e7|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|1e27e80fca88b23a7de12e9261a9a1bff060e50504efe1584e34b9f33f983b97|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|967f0d9017b16881a92aede3faa453294a8242ba5861f6aa78208d576250010b|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|70369dc77f61595eb35d3f17187a81e784243e908cf82f31fefaea3e54df4397|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|29fce620e8ed53449c4e9db9e50e109425d56a386abb0e73d601cb1543b90ae2|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|c4724a1e04966a0ffa7aa61f1a2737b504d0db01d0b7d43c89b895b5ce6780a5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|5fa92d91543376e91246a924166d9add45cf18e78d9ef763490a47907e18d331|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0365e9f057b1c1154fac47f2a6ebe3ef4af4182c86d1a80ba79f09f22ad571a6|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.pylint.Highlights.|fcdbcee46c795658191c0dacd9ccfb406e1858cd2c3753f3ac8ac2059cb43be4|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|25e68eecf0fd8d638779ad42385bcaea9bc477342a7087a5ffb960c1d7780431|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|aa523e3ef71d5b0301c0ddf0c9b3e22c967bb29baa5cbcbd13320d77956d41de|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|cea96484e866868c2d8fd6b39215cc036625f828709e07929aa6a6763b308b8c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|7e43b2dbe8de1cbb2561bdd47a38695b74c15ccee851b6c6f8c52a7575643662|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|d920a8eee8e0e93d7850e0fa49974b2e4e79d0cef55b62cb82b34a5214e91b9a|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|aba6b984c55acf95dfea3993caeb3a38d938dff8ad8a908744f281d76283b4bc|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|39f68b48a008a9ff83742f8ad1ae05c9f9beba564e0275a126bd183ae949f5fe|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|637b8e9af911be8a00ede4ace94a18bfafeab0fff371497b5008feb0a77ccb34|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|8901fbbfc92e62eac41293653a355d1be7931982efb5cbcb782d0e81d3fbafb5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|b4a57a64e22f8254cc5a8da958d50e495bb1aecbf1a17c290dcbd21dffdc4956|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|84778be58b2025a275280af5ee58a9bfabb3db832e14eb1b3276526b6fe53047|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|092f3e2bc28ebc4432127421ead803ebf8145cac42ef1119cdb0fbbe11a8266e|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|58d02263957f0fce2167149b4bc5c13c80859c3674dc39e47cf8a58094560890|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|37862031fc2e61be957787f98517cda455b2eee26d3f0779aae02eae9a97309f|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|fe00ce6911abf09289d76ac3d23c764e3b0dee5f0d9bb0c6756fdd8f88725daf|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|ec28c2514f30dd9e06141d35bd44784931089cb3511470ef9413137c502f2b45|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|3dc332c11343f9727c4612d9f4d6f3beae2436697ae0a9eeb360cb87b00930a0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|9fcbb2aff68ac63e86c1b463756262400fdb2aafd4fcbe262a27fb7ca3c91eb7|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|c78fc65eef0c166ac07753646604c24c40193ec6471e4afc493ec63b322fcb08|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|72b24b91945ba2af9632f42718814223bb5713b17fcd496ac7a2bbf2d6998015|region.redish markup.error.sublime_linter|32"
+								"SL.pylint.Highlights.|48fc691d00ca23ef19f38bda7251ad79a8e0711f35d1963191c6c055b5f635b1|region.yellowish markup.warning.sublime_linter|32"
 							],
 							"SL.21.region_keys":
 							[
@@ -1888,8 +1888,8 @@
 								{
 									"1":
 									[
-										13917,
-										13918
+										25998,
+										25999
 									]
 								},
 								"icon":
@@ -1904,8 +1904,8 @@
 								{
 									"1":
 									[
-										13902,
-										13903
+										25997,
+										25998
 									]
 								},
 								"unmatched":
@@ -1914,16 +1914,31 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1934,67 +1949,37 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"bracket_highlighter.locations":
 							{
 								"close":
 								{
-									"1":
-									[
-										13927,
-										13928
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										13902,
-										13903
-									]
 								},
 								"unmatched":
 								{
@@ -2002,16 +1987,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -2022,41 +2022,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -2064,10 +2049,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5141.0,
+						"translation.y": 1254.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -2091,47 +2076,47 @@
 						{
 							"SL.19.region_keys":
 							[
-								"SL.pylint.Highlights.|8f95283185dd6d4c98f73902d3a405aba63ef7b47d9fc9f6edec3c5962df80d8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|04d267ce6894c43eb8cb5afaa49de35dfc90dd162e1feed52419aa4c1d7839c3|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|492f3176ed5ae56df65b0cd5a17b7c32205c12f0a9c5284855c6062ce5ca2845|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|4f74cd52ac38eed871c2146efcc9dd9f0a2df4ab1cf12123fef71136b41c182c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a7805f07c6f9b5da87421196c6f8200c0fd9569f4b9f5add0b2c5ef4b22c0100|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|6cd683e18b6ec619dc57382cb46a3425582788cf744a7a93a9d0978aab416bd8|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|3ebd7c476f14c174c0ca31c892392483e4922cb5ed1b6105ea91e5654eac0066|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|8e6b48a7d424294c969b3bf95c5b4ec85b02921870e043d2b9cdc621db7a7791|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|0fca05492831e10a12857dad831422f53e405701fdf7670c8c864515cbd6be9f|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|bba25fc0add0d6a52da9fb2cf3fa3585796950eaa3189849221471d7c94f526a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|38e1f5836b49ccc7df92cc5bfbe26c82c5d985f90561cb8e318a55d7349fa5bd|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|7638fc34eb8e97602cf6b7772f5c461615fdca4c1a201aadcc615185b77284bd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3ebd7c476f14c174c0ca31c892392483e4922cb5ed1b6105ea91e5654eac0066|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|4f9340f890aa29c3ec34b106d1bc898a51c139bed53f54363ba774bfe6cc05f9|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5fa45a2f7e12975e14f244d9bca994caea2c11318d344d12ac3c41f0b0f53c74|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|1ab19b76c249514e0c05c4e86e622492e5ceaf24d8dd2fa04db660f18d0bd6fe|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7696b6e7092fb89c54ddc605b9911993acad3661925797888c931e676119dc47|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|734afd9569b77705cb7bc2c59d59dc649c5a31aac920143c6a33e6303a4b70f6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|379d6e103aceddc9e997f43eade61d065c969311ba1fae7e747a4b188465c765|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|492f3176ed5ae56df65b0cd5a17b7c32205c12f0a9c5284855c6062ce5ca2845|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|61752e0f10db2a32e47285ac13e5657e4eeb0f864218acd6bb4230c09c9cd1f3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a7805f07c6f9b5da87421196c6f8200c0fd9569f4b9f5add0b2c5ef4b22c0100|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8782ed3943544eaa038292e862c3ccc3be6a3b91354774ff1271eccc086efb6f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|bb098cd53d190b73cbccdc2e6476ef584bc2e61e77b5a0002df553726014c0fd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4f74cd52ac38eed871c2146efcc9dd9f0a2df4ab1cf12123fef71136b41c182c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|66182b9566f7209ced392e0974ebe8378428d4eaceb1ebda8bdb54f5130b707a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|38e1f5836b49ccc7df92cc5bfbe26c82c5d985f90561cb8e318a55d7349fa5bd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a21d87e7526365354fbb5f09ed69422239b887e85cf1066cd0bf74929cc8975d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|06d74e2c1797d4b831a39941ccdd6942d1c63078b5b9264a02a2b287851c5050|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|7638fc34eb8e97602cf6b7772f5c461615fdca4c1a201aadcc615185b77284bd|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|d64eaa06fbb9a64ee8ae036c2ae45dd238080d20b96937fc0c18460c8715d904|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|4f32522657dd8e3540b9a22d60612622e614d62b62a69f241b463ecafef52708|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|00299cdccd18495aac75bdc57e621eb1648c2012e3819738a19f4ade823969e1|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|510ec3a7c3c9924fdac0cf86d9ca0515b868adc33824ae001fc5587734856c14|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a909682ba7ecd02fe9446f24c5298db297a172ad2bd29f26c4e10550b6fc22d3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|eb581b8d8d706f28a30e5a91a27c371d1d1279e21a7e8f8955e71fb25cef6bdc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6cd683e18b6ec619dc57382cb46a3425582788cf744a7a93a9d0978aab416bd8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|04d267ce6894c43eb8cb5afaa49de35dfc90dd162e1feed52419aa4c1d7839c3|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
 								"SL.pylint.Highlights.|2487ca60392b52b260fc11f2a19f2cef336c7bfb2dd4cae9a2753d1bd503e410|region.yellowish markup.warning.sublime_linter|32",
 								"sublime_linter.protected_regions",
-								"SL.pylint.Highlights.|5fa45a2f7e12975e14f244d9bca994caea2c11318d344d12ac3c41f0b0f53c74|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|ac32607dc22a344249e9d895b7515d78f57d6c6713a68a3e435b79ae2f9ffcea|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|735bacbd0b5ec3af0f2eae79274ec4de1daf11b77a5de5b0f3b42c3830e18e92|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|eb581b8d8d706f28a30e5a91a27c371d1d1279e21a7e8f8955e71fb25cef6bdc|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|379d6e103aceddc9e997f43eade61d065c969311ba1fae7e747a4b188465c765|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a2e0d974db0d54a88a3301f43f9aa24d07a78a61ec2caf60e5c4b029f97682cc|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|61752e0f10db2a32e47285ac13e5657e4eeb0f864218acd6bb4230c09c9cd1f3|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|8e6b48a7d424294c969b3bf95c5b4ec85b02921870e043d2b9cdc621db7a7791|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|492159e9ffdf18fc99fba108f38f272bbba2ec7d5042e6642156a66fc147f8eb|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|06d74e2c1797d4b831a39941ccdd6942d1c63078b5b9264a02a2b287851c5050|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a21d87e7526365354fbb5f09ed69422239b887e85cf1066cd0bf74929cc8975d|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|a0427cb78b668a77fb157c2f334bd4a3426e0ba14b3587d3f7e51eb988fbb2d1|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|6cf851864ef7a394c8749c3968c80f273918be495f56b5ed8d60c3a4498408af|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|1ab19b76c249514e0c05c4e86e622492e5ceaf24d8dd2fa04db660f18d0bd6fe|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|f441fb8e7f2bb3a74aca14793df648abc7723e257945f1b84ac14ef2dfc6aec5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|8782ed3943544eaa038292e862c3ccc3be6a3b91354774ff1271eccc086efb6f|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|bb098cd53d190b73cbccdc2e6476ef584bc2e61e77b5a0002df553726014c0fd|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|7696b6e7092fb89c54ddc605b9911993acad3661925797888c931e676119dc47|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|66182b9566f7209ced392e0974ebe8378428d4eaceb1ebda8bdb54f5130b707a|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|734afd9569b77705cb7bc2c59d59dc649c5a31aac920143c6a33e6303a4b70f6|region.yellowish markup.warning.sublime_linter|32"
+								"SL.pylint.Highlights.|00299cdccd18495aac75bdc57e621eb1648c2012e3819738a19f4ade823969e1|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a0427cb78b668a77fb157c2f334bd4a3426e0ba14b3587d3f7e51eb988fbb2d1|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a909682ba7ecd02fe9446f24c5298db297a172ad2bd29f26c4e10550b6fc22d3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|735bacbd0b5ec3af0f2eae79274ec4de1daf11b77a5de5b0f3b42c3830e18e92|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ac32607dc22a344249e9d895b7515d78f57d6c6713a68a3e435b79ae2f9ffcea|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|510ec3a7c3c9924fdac0cf86d9ca0515b868adc33824ae001fc5587734856c14|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4f32522657dd8e3540b9a22d60612622e614d62b62a69f241b463ecafef52708|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6cf851864ef7a394c8749c3968c80f273918be495f56b5ed8d60c3a4498408af|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a2e0d974db0d54a88a3301f43f9aa24d07a78a61ec2caf60e5c4b029f97682cc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8f95283185dd6d4c98f73902d3a405aba63ef7b47d9fc9f6edec3c5962df80d8|region.yellowish markup.warning.sublime_linter|32"
 							],
 							"SL.28.region_keys":
 							[
@@ -2269,16 +2254,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -2289,41 +2289,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -2331,10 +2316,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 273.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -2343,15 +2328,32 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22367,
+						"buffer_size": 24310,
 						"regions":
 						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										2087,
+										2087
+									],
+									[
+										22664,
+										22664
+									]
+								],
+								"scope": "bookmarks"
+							}
 						},
 						"selection":
 						[
 							[
-								22257,
-								22257
+								24212,
+								24212
 							]
 						],
 						"settings":
@@ -2434,6 +2436,92 @@
 								"SL.pylint.Highlights.|2e8f31412843a56877c79ab7ea0ac89203321f521d7565925cdc8b9a89f69d5c|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|8e28f4f86124be74d22576f8576c742da3127440fb4d777e412cadfbe619b606|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|204889c145b59d6e638792236e00d243553de32e268dc73a3e0f7ace22013f60|region.yellowish markup.warning.sublime_linter|32"
+							],
+							"SL.20.region_keys":
+							[
+								"SL.pylint.Highlights.|95b2e2da4181ebfee08a79e4e025048676e8d31e3066d27ab443d4d17048e398|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|56bac96b3198bd1b0df4d937e855964c8f3dde9bf21d86933aeff338164c3b7b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0dd70e3ba40a22638ae449807b6533f420e8de5fcf2ce1a738693b6159995e2c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8490e81e0c25f87ecbc6856e05f439ceaa19f11a746cc80489024c8983c1a126|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|989d3cf7994d314c691d5ce9840f0d02241e815dca7e5ec227d44377879e01af|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2810df8fb18e72b7183fd7462baad080cebbcb3e0229750f43fd552643104f69|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8fc0a8fe461f39e9212851fe1df99c77f5065eb81272731a7ee91bf7f77c862a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|03889d8df17c39c66e105cd58d604ef84d422de4b42cd092f88354146e1f6b6b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c0c8da1afbaa82aa721e798a7f555682c2872e2636419d1522ea38a8eb873aae|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|32715d4ed6c4b2a96b0bad67668225384fa22e27baa49f1cd689d22215b1484d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b175601155e59b788cc551edabc47415e2b8e45e96a634e23a6c23806e8589e5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c406ec59093d3d405d6ed70e979fae18c6d5a9c4f3d475c481ab029900b96175|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2bdf67680d9447c415a3e4207e7671c0e2060a8d595d8ddac0f3f5012ad54303|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|22163190e73cbb0c8ba324a8c87676580b5ad1fe13e279df56b66be9402b57b9|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4ae9053c2709f1e0dd84091d6854c1810a30eac7f2c98539b2d911f14878d816|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2b8928e6ece4f9caf6c635f5a627d8fd4b649129e555a87d4f47ea90cd2ccc87|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6df266eecbe3c97e6444a3eb24ab032a794dc4b6e8fbcad5f84b7a3030d1d0bf|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7eb3510a066738668e9b09aacacaad98ede2af62fe1e291afec70f84fca3b542|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4ea0b83f28f89732aa900061996b378b23ba61ec50f9db8ff0df383726bfca93|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|102a3a3dd2dc72746b832c9b8f4cc245d91ca25179e73584a4962001d662dca0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4d75603788b178101eead03d427de2248b144ba20c662cc995b00d8a7104dce5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ca7683ba5c82627b1cc862f2a528986035b789425a60191be197d343249c2308|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b30f97b335040cbf9ffe1225d4620d39a6bb541254cbe3e76ccf8e4ad62562b2|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|01bd9562875d2a43d2458affc0c83c737208c9ef145ad39e6bf5b0499730d432|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4459526ce2d550c6de61667e1ff05790c13a36110f9f62a18fe0bf4c4f2da4cb|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2c3e8d8f505b955d579b22d1f21d1586103e7329387bd1ae1e10af940185f7d5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c9ffd632bef5b277fa4762ce1fb2b504f7f86fe1e1314e2976d65ef5f18ea081|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5e732c00308aeb84d0b03872651ce7897ecbdde4fc518c0347b6f383741d5613|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c8a4266a39c6a9bd60216b7a1b3a5970e167d12fca2b6f4dc37b103ff873c083|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8e51ff36ff4a78d46c76c1d254bbd9b9d082c70df58686eb4cf939fcd6535b99|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|49648e7e62a361b135c6ee27f4670f92f352ec6ba472705f05ff44e63372d75b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4924033b46b35685d95e36fc92a26b53fe6e4d09ddfcd44af0eb4d3af07cc60a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|919570870f77f0ecbf16a6c933f2f9a6f9660355d2e1b424b489ab4cc4dba8e3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|60112aa777a850e3037bd3a2722fedf37e4f22b4bfb01936ade237c0f2d560e6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|7361c62353ea9f980ea1bad891f967d5c460bd169503f3fce4a46d617802a029|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|11dcd30e9f6a6baa82ea3f713b54d0ac72a4b3e84e3e0232291cccdefdc9a0a1|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|d34e08cfe9f90fee4166f83fc1335bfe613bc0ee1f6b8e780c5de65956f3eb54|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8838948381acab9f40f1ad36a3f553d74feadf91c7fedf66483bb2d4b3383a2d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cf625a79fbb8020091d5657e8cdbccccbcc85c738af6b76379ff1adbc31506c6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|78c7502ca0bc8f9c89ee72a0d2df39abd36bd2215f89993bc342b38a5700f186|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9be7a94d1475c31cc9172565528d57625ee543da7f051190881d2766045e18fd|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3125a53794eeb8f28414fae5cc4abbf5f16975089f8fe4152240cb3c10311fee|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6f0305df91b6b6aa7a3ff377152d7d49fd81b80952d3a31ac170e3eb25739051|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|09f7d2560f780765deebde588712bf7b82513481834b9a12fc20437a18399d18|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f5ab36dc09174f364544eb22951ca2b2b41befb2db55db38ed57096b22db30|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|65a0cf911efde03fd01b4a90d716d03215402fe63a336f9f12a061831b3bdbf0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5c521222e29ea26c278b69772cba7ed7968db6b5c70630f549f8acaeafa2db51|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d99b5a3b1f5bc100cf2270ed46ddce6666dcdba9859c1ff6752c2abbe3950dc6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8a0f4b35ea77e115a3e84f3f98887b3f6151cf80a5e7113a7e37ab0d9ccdcc76|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|fcdb15d32037a7e6d419f3b583907de2c298e900e381645960d0f76f728cb11f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|eae078e08137641b551efaf6586ddf2467610b1707a3ad343dfebf7cd497b4a9|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|512f41d83e6f6a9b4ad9e60efc287485932640af79c36c2e267c435d8d6cf4a1|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e08f899b7698a7f79f831117949289aa9b3b31b1bbc76b8e3c83c80f5376a085|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|b2a209bacbf9dd99d05d891c7b529ff1d842ba5550aaccc81570cac61a0d50ff|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|aef0ba5e7bad7f7f98a6057f1478e143a7cf3a35aae7b6c115cbf950d60cc59a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a028b41e98e88d201e465c4faee90cffeaa460a1f11259dce2f96d48fcac37b0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|02bd6b41dab4d122684e007f98733b6755749f79261b2a6c8cdf9a5b4731cca9|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|940e72163fb3668d44f1ffc35fe7d4b480719d4495f326f123df7979063fd7ed|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|85e6ee398b2dcdd873ca415d1e45bebb7399e0f7617de8c2cd5242f27c07ed25|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|93ddb29c0e566543c8bea81a755695924bdb66c9a309b692bb093088a60e7015|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|f40786407fb918a8f74a459c5dc8f0ba761169e091c103318c85293a986358c3|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c2185f0248b14017ffe66584a7e94bdab24f6231880fa529fc2adb115ac3240a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cdf23d5f2486e0207f7e6c0a6bc117d7aa398c90e1985b3a306abccff5bc7a4a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|26bc3741434a22380aa70096e266e26e971dfdde25c8fd8f987a82003fd6e70d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c64e7e101658d6c7f2e786d9c413bd6ab358f19fd81a8ab80dd5f320f93e7826|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|d7ad4c67f00c8b37c50d3fcee234165867dc84c0296f9e4ab530dbd9c3ec911a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e619c2c2374cb77ede07b1a1cfd843c9ebeb702c2b6b9938c2a828eec5716521|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.pylint.Highlights.|63c114aea7905ae6d04c2fc2c7d8deac7a7c9d7d1d2a28028d1a6595af9219f5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cf28145aa6b6adb5f2f3effbec09a79718e913ff671f90b86d21aee3a4f8faae|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|334636ddccb3c38d5c484a8a4a28239a665a1ea5604bdd5df2f79dc92e1a8e82|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|001c4388e01cb8a0b25b950912380ef7d709c0df869f12036c910fdaa6a0c2a0|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5cc7d4edea123a229d9d006188d4d5b0f2d670b035c13a6de735cedff8c124c1|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|1e7ae4a6272c018808988262bfbefa3d718f54bf473098712ec21d790e8884a6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d8d1a033fcd7a4be6bcc25fff7b295da24d13d039d7302cd1adfc78c886ce2cb|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3399fa1d44723df25bc93efe8fe569e96760080a0668304c31252ad96d617f9b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|20c92af80eb3917a3517539828bb971d89f39ef067dfaec88b62414d98215f0a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|63f1b594ba8bb7f7cacdfffebe98909d42f11d1f5e43e39455433af6568a24dc|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6c365c707c0d79b5acf70a0f25d70ac6c1bc13b8f37e9027b54992db926bcb65|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0a9fc041b68895b1e9beca4c33b0c48e3aebf999f1d2f60d61d18e5a5cadc6ea|region.yellowish markup.warning.sublime_linter|32"
 							],
 							"SL.23.region_keys":
 							[
@@ -2632,20 +2720,39 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": 23,
+							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
+									"1":
+									[
+										23197,
+										23198
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"region.greenish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										23190,
+										23191
+									]
 								},
 								"unmatched":
 								{
@@ -2653,16 +2760,31 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -2673,41 +2795,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -2726,16 +2833,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -2746,41 +2868,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -2788,7 +2895,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8794.0,
+						"translation.y": 9340.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -2827,6 +2934,21 @@
 								"SL.pylint.Highlights.|52ac3d8b18928bcec70822ba9f09da8985714df21cc49455300317fe1e90d68b|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
 								"SL.pylint.Highlights.|6c6ca07fe1c9a88ecda29acb942cf862fc14d7ea49b23731265a46497472ca02|region.yellowish markup.warning.sublime_linter|32"
+							],
+							"SL.21.region_keys":
+							[
+								"SL.pylint.Highlights.|39565c115f906a27e978be591b317fd3d92529a9eff644f4e3a30a56eb0087b7|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4dc486505108db0867f6dd01c106a0fcd048c5f406adef42ef8da9835e750f7a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|52ac3d8b18928bcec70822ba9f09da8985714df21cc49455300317fe1e90d68b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6c6ca07fe1c9a88ecda29acb942cf862fc14d7ea49b23731265a46497472ca02|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|ce4280a70397299ff03f47ab183485162c8aaf7c8be67570485a9a17fea5544f|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|486ab487dfc05b291fd07d8bc5439797410b894f3f72326334fb2b84b5eea109|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|dac44a8382952f4078b6ba3f6933c990441bab2aacba5013444986c984f14398|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a51e2fdb09d567f0d55c9ffb3303cb700d547a69cbafa6a5caf659f3d4a282ad|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|d25f3a59f6a700e065c166bc3ca00230ec2cad556d5979c93b0dbd82868cbb9d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot"
 							],
 							"SL.29.region_keys":
 							[
@@ -2935,16 +3057,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -2955,41 +3092,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -3000,7 +3122,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -3022,8 +3144,8 @@
 						"selection":
 						[
 							[
-								6945,
-								6945
+								1991,
+								1991
 							]
 						],
 						"settings":
@@ -3094,6 +3216,34 @@
 							],
 							"SL.22.region_keys":
 							[
+								"SL.pylint.Highlights.|a528310fe3ac561e433d8d2b91c426955139b2868fb843558cfddcc8396bc69e|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|de00be10c03d8b90069007060d37273db7dbaf00232df9356c05382364d2427b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.pylint.Highlights.|05abcbb1214361a329befab950a510e8d6d0b0511fb09923499fd09957145fc8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b8a717a6fc33972b6f49c4bdc678eec90413ff71a27965e222f08ac02c4e6f76|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a952e23a316c6504f425760c65aa96ec2589ca895d2d373aca551c5e9c28a828|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|666aaf4ad475249ace9c2a7a44410c710ee6f597e9671fdb3407bcef034bd88f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c31125dc679fe0605ec9084ca3c1c148ca2c4150f6663072f1ee381653208957|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|1adb1c3d9bb2e06d498dd0ed2b283b732533c2595b4f3e11ec7fd0924df217e2|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|a470bae03a9261b52948137511fe3b6ccd390e29cb364a256d31b3b7244c3fa9|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5ed27dbae0a3ec31968c8eabd15751806a93a1fc2d893472acd83b245e36818a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|83b7da5330cefeb985cc5c161ed08eff63cae0ac42ca00e5e45ada3bb0ef3b0c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|03ebdb0c694add66f4a31dfb5ca31bc97db0fefd7dfae0ba58833baba85b18ea|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|88aa8590b9fdd0df789cfd9ddc086e90850c540f64ff18f5f07ea36a02ed37de|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|217e6dbd426fd8ba05a621088321741a3737b36d098cd33001d4b8b0a9ed9320|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|aa0d4c6d43d698b521fcfcc09b8e6c6832a54b767daac87d61899e02f0b4a46c|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9ca961a94232f2cd5b3790bab12098b88ad0eddf0f2f5389cfe83f51eac7ee50|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|f3ab631327254b1c99cd6c2ed83b82d1a5b98595e2083ba3df59937b72255603|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|cd29ad493d212e44b8d2f2dc649becca50e985dcb416b6e5c538525690aed250|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b27e81aa6be9f731d738c3db8969fff397286060f0647c8cf0af89ba04dd45de|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|08497fb1777a2c6883061309cf0f6d0e4f66931259ee31dcf241c47e64eccfec|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|4be908d544535077c154ad279d25012b88f75773ac7f5d23a9ad6a82a29156c7|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|645db36b8d1d8010bc3e72b87c8e26b6392c16199cdcf6a67e86ad4e0e11fd5d|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|14bc36faeb530e894f4fb1fd636edd129433fa4e6e1801b1833d949a46b192ee|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|89d71a306f47af1cee94e5664065952dc8de0a3b46610f211c54624d0200ce96|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot"
 							],
 							"SL.23.region_keys":
 							[
@@ -3223,10 +3373,83 @@
 							{
 								"close":
 								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
 									"1":
 									[
-										6865,
-										6866
+										2042,
+										2043
 									]
 								},
 								"icon":
@@ -3241,96 +3464,8 @@
 								{
 									"1":
 									[
-										6801,
-										6802
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										6945,
-										6946
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										6935,
-										6936
+										1991,
+										1992
 									]
 								},
 								"unmatched":
@@ -3339,16 +3474,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -3359,41 +3509,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -3401,10 +3536,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1579.0,
+						"translation.y": 392.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -3412,15 +3547,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1939,
+						"buffer_size": 2058,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1892,
-								1892
+								211,
+								211
 							]
 						],
 						"settings":
@@ -3518,16 +3653,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -3538,41 +3688,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"default_dir": "/home/alex/Blender/Projects/wireless",
 							"git_savvy.help_hidden": false,
@@ -3587,7 +3722,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -3596,15 +3731,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2442,
+						"buffer_size": 2448,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								851,
-								851
+								1257,
+								1257
 							]
 						],
 						"settings":
@@ -3636,27 +3771,24 @@
 							],
 							"SL.24.region_keys":
 							[
-								"SL.pylint.Highlights.|de0c646441d6034441330eedfaf065e9683c9c2fc549fe446dcc5ed04ec12fa5|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|379d6e103aceddc9e997f43eade61d065c969311ba1fae7e747a4b188465c765|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|3ed91b605b41ab1286ba8c60092cc2ab5912a4ffd327d31d6de95a2981b02350|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|e456b319f6003e92f530785f649a5dfcc25386697e714e3c784e31e42daa8392|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|9c1e9e7c5ba6c9d6d07d0a8ae24d3920d22501316b8c7521a82149fb6400c39e|region.redish markup.error.sublime_linter|32",
-								"SL.pylint.Highlights.|8c297e4c592eaa133821986ff1bbf2c2c4d6d9b69a057302e7c7dde50413c14b|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|133b4f2238031328384e2c870d8011cedab9f802bb86af3b44e216af2b0484a0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.pylint.Highlights.|9af591cb2e38fdf2983e43d65c0bf796d567fa988293a070b2d322bc03165866|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|7505239767a932eb1f1a86594fdb34be363548e6f92af690221ea898e871b3b1|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0d93ff08c95afe765d042e0c79baf85a72ce834c0738bac9b6980fc2c20d9332|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|592e87b4c1acbd7ff608675bb5c29ce9dc5a307b9fac917f973ad18a2e356156|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|0a078fa72cef98b78dae05aee478facd7a277ad3f197a38ee6d9d0758841e21b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|9af591cb2e38fdf2983e43d65c0bf796d567fa988293a070b2d322bc03165866|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.pylint.Highlights.|1fb7166cfaf4e0d17ffdebea4874c4ed209cbac6808aeeefce2469a92f63f3c0|region.yellowish markup.warning.sublime_linter|32",
-								"SL.pylint.Highlights.|11c918d4824ba56b685ec601da19a3ef6f15b13320c45737f024d754384883e6|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.pylint.Highlights.|a7d1610d6f09ae3fbe2d855c7ce0fd526ac9c858e4ff3e53ece59480e225694d|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|0ce67bb4b607f2dbfe73fa0995ba63ded8be14c539e931c6c99ff9a02e73f928|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|43275754689fbe2e84afdf36c03756b15cfa40bea167c38513465ccbbd19c6a9|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|8c297e4c592eaa133821986ff1bbf2c2c4d6d9b69a057302e7c7dde50413c14b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3ed91b605b41ab1286ba8c60092cc2ab5912a4ffd327d31d6de95a2981b02350|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|b3f6d9f6796fd5539d5f13b92540c699f2999a3a6f318ebea625c8d1d15d4a00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a7d1610d6f09ae3fbe2d855c7ce0fd526ac9c858e4ff3e53ece59480e225694d|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Highlights.|379d6e103aceddc9e997f43eade61d065c969311ba1fae7e747a4b188465c765|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0d93ff08c95afe765d042e0c79baf85a72ce834c0738bac9b6980fc2c20d9332|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|de0c646441d6034441330eedfaf065e9683c9c2fc549fe446dcc5ed04ec12fa5|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0a078fa72cef98b78dae05aee478facd7a277ad3f197a38ee6d9d0758841e21b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|11c918d4824ba56b685ec601da19a3ef6f15b13320c45737f024d754384883e6|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e456b319f6003e92f530785f649a5dfcc25386697e714e3c784e31e42daa8392|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|9c1e9e7c5ba6c9d6d07d0a8ae24d3920d22501316b8c7521a82149fb6400c39e|region.redish markup.error.sublime_linter|32",
 								"SL.pylint.Highlights.|5dba638f70dbcfc21831b5ce08eb7d0bdf621c0e2ec07cde06ae3abb9d030cf7|region.redish markup.error.sublime_linter|32"
 							],
 							"SL.25.region_keys":
@@ -3788,24 +3920,24 @@
 								{
 									"1":
 									[
-										1102,
-										1103
+										1256,
+										1257
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
 									]
 								},
 								"open":
 								{
 									"1":
 									[
-										805,
-										806
+										1248,
+										1249
 									]
 								},
 								"unmatched":
@@ -3814,16 +3946,31 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -3834,41 +3981,26 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_savvy.repo_path": "/home/alex/Blender/Projects/wireless",
 							"syntax": "Packages/Python/Python.sublime-syntax",
@@ -3919,7 +4051,7 @@
 		"cols":
 		[
 			0.0,
-			0.244372591523,
+			0.12666425819,
 			0.589446652216,
 			1.0
 		],

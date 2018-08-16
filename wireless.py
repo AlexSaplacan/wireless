@@ -4,6 +4,7 @@
 
 import bpy
 import os
+import shutil
 import logging
 
 import bmesh
@@ -76,6 +77,22 @@ def import_model(obj_name):
     return data_to.objects[0]
 
 
+def setup_studio_scene():
+    """
+    Append the studi scene.
+    """
+
+    studio_path = os.path.join(os.path.dirname(__file__), 'assets', 'Studio.blend')
+
+    with bpy.data.libraries.load(studio_path, link=False) as (data_from, data_to):
+        if 'Studio Scene' in data_from.scenes:
+            data_to.scenes.append('Studio Scene')
+        else:
+            raise NameError("Scene does not exist")
+
+    bpy.context.window.screen.scene = bpy.data.scenes['Studio Scene']
+
+
 def mirror_and_translate_head(obj_name, cable, stretch=False):
     """
     Switch to edit mode and mirror all the vertices on x axis o the object
@@ -124,6 +141,7 @@ def mirror_and_translate_head(obj_name, cable, stretch=False):
 
     bpy.ops.object.editmode_toggle()
     bpy.context.scene.objects.active = a_object
+
 
 def tail_and_head(obj):
     """
@@ -487,6 +505,17 @@ def update_wrls_data(element, property_name, value):
         log.debug("Property set: %s = %s" %(property_name, value))
 
 
+def camera_step_back():
+    """
+    Step back by a certain percentage of the distance
+    between camera and dummy
+    """
+    camera = bpy.data.scenes['Studio Scene'].camera
+    dummy = bpy.data.objects['WRLS_dummy_mesh']
+    distance = dummy.location[1] - camera.location[1]
+    camera.location[1] -= distance * 0.13
+
+
 ############## OPERATORS ###############################
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
@@ -726,6 +755,40 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
     bl_label = "Render Thumbnail"
 
     def execute(self, context):
+        curr_scene = bpy.context.scene
+        actor_name = bpy.context.object.name
+        actor = bpy.data.objects[actor_name]
+
+
+        # append scene
+        setup_studio_scene()
+        #link new object
+        dummy = bpy.context.scene.objects['WRLS_dummy_mesh']
+        dummy.data = actor.data
+        # scene_setup and render thumbnail
+        thumb_name = 'WRLS_' + actor_name
+        render_filepath = os.path.join(os.path.dirname(__file__), 'assets', thumb_name+'.jpg')
+        bpy.data.scenes['Studio Scene'].render.filepath = render_filepath
+        # zoom in and out
+        bpy.ops.object.select_all(action='DESELECT')
+        dummy.select = True
+        bpy.ops.view3d.camera_to_view_selected()
+        camera_step_back()
+        bpy.ops.render.render(write_still=True, scene='Studio Scene')
+
+
+        # update the image
+        preview_path = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+        shutil.move(render_filepath, preview_path)
+
+        # delete scene (and cleanup)
+        for obj in bpy.context.scene.objects:
+            bpy.data.objects.remove(obj, do_unlink=True)
+        bpy.data.scenes.remove(bpy.context.scene, do_unlink=True)
+
+        configs.thumbs['cables'].clear()
+        bpy.utils.previews.remove(configs.thumbs['cables'])
+        wireless_props.load_thumbs()
         return {'FINISHED'}
 
 
@@ -740,6 +803,15 @@ class OBJECT_OT_Save_Part(bpy.types.Operator):
         """
         Loads of stuff going in here
         """
+
+        # for last put back the image where it was
+        backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
+        empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+        shutil.copy(backup_thmb, empty_thumb)
+        configs.thumbs['cables'].clear()
+        bpy.utils.previews.remove(configs.thumbs['cables'])
+        wireless_props.load_thumbs()
+
         return {'FINISHED'}
 
 def register():
