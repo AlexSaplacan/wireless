@@ -71,16 +71,16 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = box.row()
                 row.label(text="Stretch")
                 row = box.row()
-                row.prop(cable.wrls, "cable_stretch", text="")
+                row.prop(obj_wrls, "cable_stretch", text="")
 
-                # a Recalculate head button
+                # # a Recalculate head button
 
-                row = box.row()
-                row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
+                # row = box.row()
+                # row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
 
-                # slide head
-                row = box.row()
-                row.prop(cable.wrls, "head_slide", text="")
+                # # slide head
+                # row = box.row()
+                # row.prop(cable.wrls, "head_slide", text="")
 
             # the head endcap area
 

@@ -4,6 +4,7 @@ import bpy
 import bmesh
 import math
 import mathutils
+import numpy as np
 
 from . import configs
 from . import wireless
@@ -29,6 +30,7 @@ status_items = [
     ("HEAD", "Head", "", 3),
     ("TAIL", "Tail", "", 4)
     ]
+
 
 def toggle_wireless(self, context):
     """
@@ -163,10 +165,10 @@ def create_preview_by_category(category):
 
     Args:
         category (str(nevere None)) This is the category in the json wile that
-        defines the tuple elements to be added
+        defines the tupple elements to be added
 
     Returns:
-        list of tuples
+        list of touples
     """
 
     enum_thumbs = []
@@ -220,6 +222,25 @@ def cable_preview_update(self, context):
     active_obj = bpy.context.active_object
 
     curve, cable, head, tail = wireless.find_parts(active_obj)
+
+    # Rich edit----------
+    thickness = curve.wrls.cable_thickness
+    stretch = curve.wrls.cable_stretch
+
+    # if reset, the cable thickness will go back to one when
+    #   switching cable shapes
+    reset = False
+    if reset:
+        # overwrite the current thickness when switching cables
+        curve.wrls['cable_thickness'] = 1
+        cable.wrls['cable_thickness'] = 1
+        curve.wrls['old_c_thickness'] = 1
+        cable.wrls['old_c_thickness'] = 1
+        # overwrite the current stretch when switching cables
+        curve.wrls['cable_thickness'] = 1
+        cable.wrls['cable_thickness'] = 1
+        curve.wrls['old_c_thickness'] = 1
+        cable.wrls['old_c_thickness'] = 1
 
     # Keep record of the active object
     reverse = False
@@ -277,6 +298,60 @@ def cable_preview_update(self, context):
         context.scene.objects.active = cable_shape
         cable_shape.select
 
+    # Rich edit-------------------
+    # New cable shape will keep thickness setting
+    if not reset:
+        # update mesh:
+        mesh = cable_shape.data
+        v_count = len(mesh.vertices)
+        co = np.zeros(v_count * 3)
+        mesh.vertices.foreach_get('co', co)
+        co.shape = (v_count, 3)
+        co[:, 1:] *= thickness
+        co[:, 0] *= stretch
+        mesh.vertices.foreach_set('co', co.ravel())
+        mesh.update()
+
+        # update properties
+        curve.wrls['cable_thickness'] = thickness
+        cable_shape.wrls['cable_thickness'] = thickness
+        curve.wrls['old_c_thickness'] = thickness
+        cable_shape.wrls['old_c_thickness'] = thickness
+
+        curve.wrls['cable_stretch'] = stretch
+        cable_shape.wrls['cable_stretch'] = stretch
+        curve.wrls['old_cable_stretch'] = stretch
+        cable_shape.wrls['old_cable_stretch'] = stretch
+
+    if curve.wrls.use_tail:
+        offset_tail(cable_shape, tail, cable_co=None)
+
+
+
+def get_co(mesh):
+    v_count = len(mesh.vertices)
+    co = np.zeros(v_count * 3, dtype=np.float32)
+    mesh.vertices.foreach_get('co', co)
+    co.shape = (v_count, 3)
+    return co
+
+
+def get_proxy_co(ob, mod=None):
+    """Returns vertex coords with modifier effects as N x 3"""
+    # set mod status
+    if mod is not None:
+        ob.modifiers[mod].show_render = False
+    me = ob.to_mesh(bpy.context.scene, True, 'RENDER')
+    if mod is not None:
+        ob.modifiers[mod].show_render = True
+    v_count = len(me.vertices)
+    arr = np.zeros(v_count * 3, dtype=np.float32)
+    me.vertices.foreach_get('co', arr)
+    arr.shape = (v_count, 3)
+    bpy.data.meshes.remove(me)
+    return arr
+
+
 def toggle_head_end_cap(self, context):
     """Runs when turning on/off the use head option"""
 
@@ -314,6 +389,25 @@ def toggle_head_end_cap(self, context):
             curve.wrls.use_head = False
             configs.switch = False
 
+
+def offset_tail(cable, tail, cable_co=None):
+    """Moves the tail object so that it lines up
+    during cable stretch adjustments"""
+    if cable_co is None:
+        cable_co = get_co(cable.data)
+
+    tail_co = get_co(tail.data)
+    tail_x_max = np.max(tail_co[:,0])
+
+    cable_x = cable_co[:,0]
+    move = np.max(cable_x) - np.min(cable_x)
+
+    tail_co[:, 0] += (move - tail_x_max)
+
+    tail.data.vertices.foreach_set('co', tail_co.ravel())
+    tail.data.update()
+
+
 def toggle_tail_end_cap(self, context):
     """Runs when turning on/off the use tail option"""
 
@@ -343,6 +437,9 @@ def toggle_tail_end_cap(self, context):
             log.debug("toggle_tail_end_cap -- cable object is %s" %cable)
             wireless.connect_tail(cable, first_tail)
 
+            curve, cable, head, tail = wireless.find_parts(active_obj)
+            offset_tail(cable, tail, cable_co=None)
+
         # Do something else when turned off
         else:
             wireless.clean_obsolete_materials(tail)
@@ -352,10 +449,12 @@ def toggle_tail_end_cap(self, context):
             curve.wrls.use_tail = False
             configs.switch = False
 
+
 def head_preview_items(self, context):
     """Create an EnumProperty for the head endcaps"""
 
     return create_preview_by_category(self.head_categories)
+
 
 def head_preview_update(self, context):
     """Update the head object to the new model"""
@@ -371,10 +470,12 @@ def head_preview_update(self, context):
     wireless.clean_obsolete_materials(head)
     bpy.data.objects.remove(head, do_unlink=True)
 
+
 def tail_preview_items(self, context):
     """Create an EnumProperty for the tail endcaps"""
 
     return create_preview_by_category(self.tail_categories)
+
 
 def tail_preview_update(self, context):
     """Update the tail object to the new model"""
@@ -390,45 +491,50 @@ def tail_preview_update(self, context):
     wireless.clean_obsolete_materials(tail)
     bpy.data.objects.remove(tail, do_unlink=True)
 
+    curve, cable, head, tail = wireless.find_parts(active_obj)
+    if curve.wrls.use_tail:
+        offset_tail(cable, tail, cable_co=None)
+
+
 def cable_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
-    return create_items_from_category_list('cable_categories')
 
+
+    return create_items_from_category_list('cable_categories')
 
 def cable_categories_update(self, context):
     pass
 
 def head_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
-
     return create_items_from_category_list('head_categories')
-
 
 def head_categories_update(self, context):
     pass
-
 
 def tail_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
     return create_items_from_category_list('tail_categories')
 
-
 def tail_categories_update(self, context):
     pass
 
+def tail_update(self, context):
+    pass
+
+def new_part_update(self, context):
+    pass
 
 def new_part_preview_items(self, context):
     """Create an EnumProperty for the Cable categories"""
     return create_preview_by_category(self.new_item_categories)
 
-
-def new_part_update(self, context):
-    pass
-
-
 def new_item_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
     return create_items_from_category_list('new_parts')
+
+def type_of_new_part(self, context):
+    pass
 
 
 def set_old_thickness(self, value):
@@ -441,32 +547,37 @@ def update_cable_thickness(self,context):
         active_obj = bpy.context.active_object
         curve, cable, head, tail = wireless.find_parts(active_obj)
 
-        old_value = cable.wrls.old_c_thickness
-        value = active_obj.wrls.cable_thickness
+        old_value = curve.wrls.old_c_thickness
+        if active_obj == cable:
+            value = cable.wrls.cable_thickness
+            curve.wrls['cable_thickness'] = value
+        else:
+            value = curve.wrls.cable_thickness
+            cable.wrls['cable_thickness'] = value
+
         factor = value / old_value
+
+        # debug info:
         log.debug("Found cable thickness on cable: %s" % cable.wrls.cable_thickness)
         log.debug("Found cable thickness on active object: %s" % active_obj.wrls.cable_thickness)
         log.debug("Old cable thickness on : %s" % old_value)
         log.debug("Factor is : %s" % factor)
+
+        # update mesh:
         mesh = cable.data
-        bpy.context.scene.objects.active = cable
-        if not mesh.is_editmode:
-            bpy.ops.object.editmode_toggle()
 
-        b_mesh = bmesh.from_edit_mesh(mesh)
+        co = get_co(mesh)
 
-        for vert in b_mesh.verts:
-            vert.co.y *= factor
-            vert.co.z *= factor
-        bmesh.update_edit_mesh(mesh, True)
-        # back to object mode now
-        bpy.ops.object.editmode_toggle()
-        set_old_thickness(self, value)
-        configs.switch = True
-        curve.wrls.cable_thickness = value
-        bpy.context.scene.update()
+        co[:, 1:] *= factor
+        mesh.vertices.foreach_set('co', co.ravel())
+        mesh.update()
+
+        configs.switch = True #?? what does this do ??
+
+        curve.wrls.old_c_thickness = value
+        cable.wrls.old_c_thickness = value
+
         configs.switch = False
-
 
 def head_use_cable_mat_toggle(self, context):
     """Make the head use the first material the same one used by the cable
@@ -495,8 +606,31 @@ def tail_use_cable_mat_toggle(self, context):
     wireless.setup_materials(cable, tail, False)
 
 
-def set_old_cable_stretch(self, value):
-    self["old_cable_stretch"] = value
+def adjust_for_head(mesh, curve, co):
+    """Adjust mesh scale slightly so it always fits
+    the curve exactly... that is, within 1e-5"""
+    # get total length of curve:
+    cco = get_proxy_co(curve)
+    vecs = cco[1:] - cco[:-1]
+    total_len = np.sum(np.sqrt(np.einsum("ij,ij->i", vecs, vecs)))
+
+    # if we need to use fit length
+    #mesh.modifiers['WRLS_Array'].fit_length = total_len
+
+    # get length of mesh on x axis
+    mco = co
+    mesh_len = np.max(mco[:,0]) - np.min(mco[:,0])
+
+    # get closest ceiling for nearest repeat count
+    div = total_len / mesh_len
+    ceceil = math.ceil(div)
+
+    # get scale so it duplicates just barely past the end
+    scaly = total_len / (mesh_len * ceceil) + 1e-5
+
+    # apply scale to mesh
+    mco[:,0] *= scaly
+    return scaly
 
 
 def update_cable_stretch(self, context):
@@ -507,38 +641,52 @@ def update_cable_stretch(self, context):
         curve, cable, head, tail = wireless.find_parts(active_obj)
 
         old_value = cable.wrls.old_cable_stretch
-        value = cable.wrls.cable_stretch
+        if active_obj == cable:
+            value = cable.wrls.cable_stretch
+            curve.wrls['cable_stretch'] = value
+        else:
+            value = curve.wrls.cable_stretch
+            cable.wrls['cable_stretch'] = value
+
         factor = value / old_value
+
+        # debug info:
         log.debug("Found cable stretch on cable: %s" % cable.wrls.cable_stretch)
         log.debug("Found cable stretch on curve: %s" % curve.wrls.cable_stretch)
         log.debug("Old cable stretch on cable : %s" % old_value)
         log.debug("Factor is : %s" % factor)
+
+        # update mesh:
         mesh = cable.data
-        bpy.context.scene.objects.active = cable
-        if not mesh.is_editmode:
-            bpy.ops.object.editmode_toggle()
 
-        b_mesh = bmesh.from_edit_mesh(mesh)
+        co = get_co(mesh)
 
-        for vert in b_mesh.verts:
-            vert.co.x *= factor
-        bmesh.update_edit_mesh(mesh, True)
-        # back to object mode now
-        bpy.ops.object.editmode_toggle()
-        set_old_cable_stretch(self, value)
-        if head:
+        co[:, 0] *= factor
+
+        scaly = adjust_for_head(cable, curve, co)
+
+        mesh.vertices.foreach_set('co', co.ravel())
+        mesh.update()
+
+        if curve.wrls.use_tail:
+            offset_tail(cable, tail, cable_co=None)
+
+        #if head:
+        if False:
             head.hide = False
             head.select = True
             wireless.mirror_and_translate_head(head.name, cable, stretch=True)
-            head.hide = True
-            bpy.context.scene.objects.active = active_obj
+            head.hide = False
+
         configs.switch = True
-        curve.wrls.cable_stretch = value
-        cable.wrls.cable_stretch = value
-        bpy.context.scene.update()
+
+        curve.wrls['cable_stretch'] = value * scaly
+        cable.wrls['cable_stretch'] = value * scaly
+
+        curve.wrls.old_cable_stretch = value * scaly
+        cable.wrls.old_cable_stretch = value * scaly
+
         configs.switch = False
-        head.wrls.head_updated = True
-        bpy.context.scene.objects.active = active_obj
 
 
 def set_old_head_slide(self, value):
@@ -626,13 +774,6 @@ def tail_set(self, value):
 
 def tail_get(self):
     return self['tail']
-
-
-def tail_update(self, context):
-    pass
-
-def type_of_new_part(self, context):
-    pass
 
 
 ############### Property Group ########################
@@ -851,6 +992,7 @@ def register():
         type=WirelessSettingsPropertyGroup)
 
     load_thumbs()
+
 
 def unregister():
     """Unregister here:"""
