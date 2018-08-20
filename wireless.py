@@ -510,10 +510,71 @@ def camera_step_back():
     Step back by a certain percentage of the distance
     between camera and dummy
     """
+
     camera = bpy.data.scenes['Studio Scene'].camera
     dummy = bpy.data.objects['WRLS_dummy_mesh']
     distance = dummy.location[1] - camera.location[1]
     camera.location[1] -= distance * 0.13
+
+
+def convert_new_model_name(obj_name):
+    """
+    Add "WRLS_" prefix and replace spases with "_"
+    """
+    new_name = 'WRLS_' + obj_name.replace(' ', '_')
+    return new_name
+
+
+def add_to_category(obj, data):
+    """
+    Add the object name to All Cables or head_types
+    and All Heads and Tails depending on the type_of_part
+    """
+    wm_wrls = bpy.context.window_manager.wrls
+    is_cable = bool(wm_wrls.type_of_part == 'Cable')
+
+
+    if is_cable:
+        data['model_types']['All Cables'].append(obj.name)
+        if wm_wrls.cable_categories != 'All Cables':
+            data['model_types'][wm_wrls.cable_categories].append(obj.name)
+
+    else:
+        data['model_types']['head_types'].append(obj.name)
+        data['model_types']['All Heads and Tails'].append(obj.name)
+        if wm_wrls.head_categories != 'All Heads and Tails':
+            data['model_types'][wm_wrls.head_categories].append(obj.name)
+
+
+def add_thumb(obj, data):
+    """
+    Adds a new element to data['Thumbs']
+    """
+    img_name = convert_new_model_name(obj.name) + '.jpg'
+    new_thumb = {'id': obj.name,
+                 'img': img_name
+                }
+    data['Thumbs'].append(new_thumb)
+
+
+def add_new_model(obj, data):
+    """
+    Add object's information to the data,
+    so it can be used within the addon
+    """
+
+    obj_name = obj.name
+    new_obj_name = convert_new_model_name(obj_name)
+    type_of_part = bpy.context.window_manager.wrls.type_of_part
+    cable = bool(type_of_part == 'Cable')
+
+    obj_info = {'name': new_obj_name,
+                'blend':'Custom.blend',
+                'cable': cable}
+
+    data['Models'][obj_name] = obj_info
+    add_to_category(obj, data)
+    add_thumb(obj, data)
 
 
 ############## OPERATORS ###############################
@@ -789,6 +850,29 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         configs.thumbs['cables'].clear()
         bpy.utils.previews.remove(configs.thumbs['cables'])
         wireless_props.load_thumbs()
+        return {'FINISHED'}
+
+
+class OBJECT_OT_Reset_Part(bpy.types.Operator):
+    """
+    Reset preview to original
+    """
+    bl_idname = "wrls.reset_part"
+    bl_label = "Reset Part"
+
+    def execute(self, context):
+        """
+        Loads of stuff going in here
+        """
+
+        # for last put back the image where it was
+        backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
+        empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+        shutil.copy(backup_thmb, empty_thumb)
+        configs.thumbs['cables'].clear()
+        bpy.utils.previews.remove(configs.thumbs['cables'])
+        wireless_props.load_thumbs()
+
         return {'FINISHED'}
 
 
