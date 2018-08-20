@@ -745,69 +745,6 @@ class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class OBJECT_OT_Update_Head(bpy.types.Operator):
-    """
-    Recalculate the head position after stretching
-    """
-    bl_idname = "wrls.recalculate_head"
-    bl_label = "Recalculate head"
-
-    def execute(self, context):
-        a_object = context.active_object
-
-        # just make sure we're not in edit mode
-        if  a_object.data.is_editmode:
-                bpy.ops.object.editmode_toggle()
-
-        curve, cable, head, tail = find_parts(a_object)
-
-        if head is not None:
-            if not head.wrls.head_updated:
-                pass
-            else:
-
-                curve_length = measure_curve()
-
-                # get length of the cable mesh.
-                # maybe best way to do it is just to disable the modifiers,
-                # measure and re-enable
-                cable.modifiers["WRLS_Array"].show_viewport = False
-                cable.modifiers["WRLS_Curve"].show_viewport = False
-                bpy.context.scene.update()
-                cable_length = cable.dimensions[0]
-                cable.modifiers["WRLS_Array"].show_viewport = True
-                cable.modifiers["WRLS_Curve"].show_viewport = True
-
-                head_offset = curve_length % cable_length
-                log.debug("Curve length is %s" %curve_length)
-                log.debug("Cable length is %s" %cable_length)
-                log.debug("Head offset is %s" %head_offset)
-
-                curve.wrls.use_head = False
-                curve.wrls.use_head = True
-
-                curve, cable, head, tail = find_parts(a_object)
-
-                head.hide = False
-                bpy.context.scene.objects.active = head
-
-                data = head.data
-                if not data.is_editmode:
-                    bpy.ops.object.editmode_toggle()
-                me = bpy.context.object.data
-                mesh = bmesh.from_edit_mesh(me)
-
-                for vert in mesh.verts:
-
-                    vert.co.x -= head_offset
-
-                head.wrls.head_updated = False
-                bpy.ops.object.editmode_toggle()
-                head.hide = True
-                bpy.context.scene.objects.active = a_object
-
-        return {'FINISHED'}
-
 class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
     """
     Create a thumbnail of the object
