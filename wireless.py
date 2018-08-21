@@ -6,6 +6,7 @@ import bpy
 import os
 import shutil
 import logging
+import json
 
 import bmesh
 
@@ -566,15 +567,32 @@ def add_new_model(obj, data):
     obj_name = obj.name
     new_obj_name = convert_new_model_name(obj_name)
     type_of_part = bpy.context.window_manager.wrls.type_of_part
-    cable = bool(type_of_part == 'Cable')
+    cable = True if type_of_part == 'Cable' else False
 
     obj_info = {'name': new_obj_name,
-                'blend':'Custom.blend',
+                'blend':'Custom_parts.blend',
                 'cable': cable}
 
     data['Models'][obj_name] = obj_info
     add_to_category(obj, data)
     add_thumb(obj, data)
+
+    return new_obj_name
+
+
+def write_new_part_to_library():
+    """
+    Export the object to Custom_parts.blend
+    """
+    sel_objects = bpy.context.selected_objects
+    actor_name = sel_objects[0].name
+    new_name = convert_new_model_name(actor_name)
+    bpy.data.objects[actor_name].name = new_name
+    custom_filepath = os.path.join(os.path.dirname(__file__),
+                                   'assets', 'Custom_parts.blend')
+
+    data_blocks = set(bpy.context.selected_objects)
+    bpy.data.libraries.write(custom_filepath, data_blocks)
 
 
 ############## OPERATORS ###############################
@@ -824,14 +842,40 @@ class OBJECT_OT_Save_Part(bpy.types.Operator):
         """
         Loads of stuff going in here
         """
+        actor_name = bpy.context.object.name
+        actor = bpy.data.objects[actor_name]
+        json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
+
+        new_name = add_new_model(actor, configs.data)
+        with open(json_path, 'w') as outfile:
+            json.dump(configs.data, outfile, indent=4)
+        write_new_part_to_library()
+
 
         # for last put back the image where it was
         backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
         empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+        new_thmb = os.path.join(os.path.dirname(__file__), "thumbs", new_name + '.jpg')
+
+        shutil.copy(empty_thumb, new_thmb)
         shutil.copy(backup_thmb, empty_thumb)
         configs.thumbs['cables'].clear()
         bpy.utils.previews.remove(configs.thumbs['cables'])
         wireless_props.load_thumbs()
+
+        return {'FINISHED'}
+
+class OBJECT_OT_Delete_Part(bpy.types.Operator):
+    """
+    Save the new wireless part
+    """
+    bl_idname = "wrls.delete_custom_part"
+    bl_label = "Delete Custom Part"
+
+    def execute(self, context):
+        """
+        Clean data and delete custom part
+        """
 
         return {'FINISHED'}
 

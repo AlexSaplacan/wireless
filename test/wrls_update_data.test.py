@@ -105,7 +105,7 @@ class TestAddData(unittest.TestCase):
         # WHEN the object is added as part
         wireless.add_new_model(self.object, self.data)
         # THEN the new object is in the models
-        self.assertEqual(self.data['Models']['Custom Cube']['blend'], 'Custom.blend')
+        self.assertEqual(self.data['Models']['Custom Cube']['blend'], 'Custom_parts.blend')
 
     def test_add_new_model_has_cable_true_if_wm_wrls_is_cable(self):
 
