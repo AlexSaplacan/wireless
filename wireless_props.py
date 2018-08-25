@@ -58,7 +58,6 @@ def toggle_wireless(self, context):
                 wireless.set_wrls_status(context, obj_name, 'CURVE')
                 curve.wrls.curve = curve.name
 
-
                 # we use the config.data to load the first thumb
                 first_cable = bpy.context.window_manager.wrls.cables_types
 
@@ -83,15 +82,7 @@ def toggle_wireless(self, context):
                 cable_shape.select = False
 
                 # put 2 modifiers on the shape object ARRAY and CURVE
-                wrls_array = cable_shape.modifiers.new(type='ARRAY', name="WRLS_Array")
-                wrls_array.curve = curve
-                wrls_array.fit_type = 'FIT_CURVE'
-                wrls_array.use_merge_vertices = True
-                wrls_array.merge_threshold = 0.0001
-
-                wrls_curve = cable_shape.modifiers.new(name='WRLS_Curve', type='CURVE')
-                wrls_curve.object = curve
-
+                wireless.add_cable_modifiers(cable_shape, curve)
             # bpy.ops.wrls.wrls_init()
         else:
             configs.switch = True
@@ -911,6 +902,11 @@ class WirelessPropertyGroup(PropertyGroup):
         soft_max=1.0,
         update=update_head_slide
         )
+    has_thumb = BoolProperty(
+        name='part has thumbnail',
+        description='',
+        default=False)
+
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
 

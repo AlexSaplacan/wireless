@@ -161,35 +161,39 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
 
     @classmethod
     def poll(cls, context):
-        return context.object is not None
+        """ If this is already a wireles part don't do anything."""
+        obj = context.object
+        return obj is not None
 
     def draw(self, context):
 
         obj = bpy.context.object
         wm_wrls = bpy.context.window_manager.wrls
-
-        layout = self.layout
-        box = layout.box()
-        row = box.row()
-        row.prop(obj, 'name')
-        row = box.row()
-        row.label(text='Category')
-        row = box.row()
-        row.prop(wm_wrls, 'type_of_part', expand=True)
-        row = box.row()
-        if wm_wrls.type_of_part == 'Cable':
-            row.prop(wm_wrls, 'cable_categories', text='')
-        else:
-            row.prop(wm_wrls, 'head_categories', text='')
-        row = box.row()
-        row.template_icon_view(wm_wrls, "new_items", show_labels=False, scale=4)
-        row = box.row()
-        row.operator("wrls.render_thumbnail", icon='SCENE', text='Prepare Thumbnail')
-        row = box.row()
-        col = row.column()
-        col.operator("wrls.reset_part", icon='RECOVER_AUTO', text='Reset')
-        col = row.column()
-        col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
+        if obj is not None:
+            if obj.wrls.wrls_status == 'UNDEFINED' and obj.type == 'MESH':
+                layout = self.layout
+                box = layout.box()
+                row = box.row()
+                row.prop(obj, 'name')
+                row = box.row()
+                row.label(text='Category')
+                row = box.row()
+                row.prop(wm_wrls, 'type_of_part', expand=True)
+                row = box.row()
+                if wm_wrls.type_of_part == 'Cable':
+                    row.prop(wm_wrls, 'cable_categories', text='')
+                else:
+                    row.prop(wm_wrls, 'head_categories', text='')
+                row = box.row()
+                row.template_icon_view(wm_wrls, "new_items", show_labels=False, scale=4)
+                row = box.row()
+                row.operator("wrls.render_thumbnail", icon='SCENE', text='Prepare Thumbnail')
+                row = box.row()
+                col = row.column()
+                col.operator("wrls.reset_part", icon='RECOVER_AUTO', text='Reset')
+                col = row.column()
+                col.active = obj.wrls.has_thumb
+                col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
 
 def register():
 

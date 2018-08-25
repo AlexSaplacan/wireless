@@ -463,6 +463,24 @@ def setup_materials(cable, cap, is_head=True):
         bpy.context.scene.objects.active = a_object
 
 
+def add_cable_modifiers(cable, curve):
+    """
+    Puts on the array and curve modifiers on the cable object
+
+    Args:
+        cable - the cable mest
+        curve - the curve to follow
+    """
+    wrls_array = cable.modifiers.new(type='ARRAY', name="WRLS_Array")
+    wrls_array.curve = curve
+    wrls_array.fit_type = 'FIT_CURVE'
+    wrls_array.use_merge_vertices = True
+    wrls_array.merge_threshold = 0.0001
+
+    wrls_curve = cable.modifiers.new(name='WRLS_Curve', type='CURVE')
+    wrls_curve.object = curve
+
+
 def measure_curve():
     """
     Duplicates the curve, convert it to mesh and add all segments lenghts.
@@ -774,13 +792,19 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         curr_scene = bpy.context.scene
         actor_name = bpy.context.object.name
         actor = bpy.data.objects[actor_name]
+        new_part_type = context.window_manager.wrls.type_of_part
 
 
         # append scene
         setup_studio_scene()
         #link new object
         dummy = bpy.context.scene.objects['WRLS_dummy_mesh']
+        guide_curve = bpy.context.scene.objects['WRLS_curve_guide']
         dummy.data = actor.data
+        if new_part_type == 'Cable':
+            # add array and curve modifiers
+            add_cable_modifiers(dummy, guide_curve)
+
         # scene_setup and render thumbnail
         thumb_name = 'WRLS_' + actor_name
         render_filepath = os.path.join(os.path.dirname(__file__), 'assets', thumb_name+'.jpg')
@@ -805,6 +829,7 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         configs.thumbs['cables'].clear()
         bpy.utils.previews.remove(configs.thumbs['cables'])
         wireless_props.load_thumbs()
+        actor.wrls.has_thumb = True
         return {'FINISHED'}
 
 
@@ -819,6 +844,8 @@ class OBJECT_OT_Reset_Part(bpy.types.Operator):
         """
         Loads of stuff going in here
         """
+        actor_name = bpy.context.object.name
+        actor = bpy.data.objects[actor_name]
 
         # for last put back the image where it was
         backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
@@ -827,6 +854,7 @@ class OBJECT_OT_Reset_Part(bpy.types.Operator):
         configs.thumbs['cables'].clear()
         bpy.utils.previews.remove(configs.thumbs['cables'])
         wireless_props.load_thumbs()
+        actor.wrls.has_thumb = False
 
         return {'FINISHED'}
 
@@ -845,23 +873,22 @@ class OBJECT_OT_Save_Part(bpy.types.Operator):
         actor_name = bpy.context.object.name
         actor = bpy.data.objects[actor_name]
         json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
+        if actor.wrls.has_thumb:
+            new_name = add_new_model(actor, configs.data)
+            with open(json_path, 'w') as outfile:
+                json.dump(configs.data, outfile, indent=4)
+            write_new_part_to_library()
 
-        new_name = add_new_model(actor, configs.data)
-        with open(json_path, 'w') as outfile:
-            json.dump(configs.data, outfile, indent=4)
-        write_new_part_to_library()
+            # for last put back the image where it was and set the new one
+            backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
+            empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+            new_thmb = os.path.join(os.path.dirname(__file__), "thumbs", new_name + '.jpg')
 
-
-        # for last put back the image where it was
-        backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
-        empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
-        new_thmb = os.path.join(os.path.dirname(__file__), "thumbs", new_name + '.jpg')
-
-        shutil.copy(empty_thumb, new_thmb)
-        shutil.copy(backup_thmb, empty_thumb)
-        configs.thumbs['cables'].clear()
-        bpy.utils.previews.remove(configs.thumbs['cables'])
-        wireless_props.load_thumbs()
+            shutil.copy(empty_thumb, new_thmb)
+            shutil.copy(backup_thmb, empty_thumb)
+            configs.thumbs['cables'].clear()
+            bpy.utils.previews.remove(configs.thumbs['cables'])
+            wireless_props.load_thumbs()
 
         return {'FINISHED'}
 
