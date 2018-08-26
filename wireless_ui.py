@@ -51,14 +51,14 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = box.row()
                 row.prop(wm_wrls, 'cable_categories', text='')
                 row = box.row()
+                row.template_icon_view(wm_wrls, "cables_types", show_labels=True, scale=4)
+                row = box.row()
                 col = row.column()
-                col.scale_y = 6
+                col.scale_x = 4
                 col.operator("wrls.cable_prev", icon="TRIA_LEFT", text="")
                 col = row.column()
-                col.template_icon_view(wm_wrls, "cables_types", show_labels=True, scale=4)
-
                 col = row.column()
-                col.scale_y = 6
+                col.scale_x = 4
                 col.operator("wrls.cable_next", icon="TRIA_RIGHT", text="")
 
                 # the thicknes slider
@@ -72,15 +72,6 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row.label(text="Stretch")
                 row = box.row()
                 row.prop(obj_wrls, "cable_stretch", text="")
-
-                # # a Recalculate head button
-
-                # row = box.row()
-                # row.operator("wrls.recalculate_head", icon="FILE_TICK", text="Recalculate Head")
-
-                # # slide head
-                # row = box.row()
-                # row.prop(cable.wrls, "head_slide", text="")
 
             # the head endcap area
 
@@ -99,13 +90,14 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     row = box.row()
                     row.prop(wm_wrls, 'head_categories', text='')
                     row = box.row()
+                    row.template_icon_view(wm_wrls, "head_types", show_labels=True, scale=4)
+                    row = box.row()
                     col = row.column()
-                    col.scale_y = 6
+                    col.scale_x = 4
                     col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
                     col = row.column()
-                    col.template_icon_view(wm_wrls, "head_types", show_labels=True, scale=4)
                     col = row.column()
-                    col.scale_y = 6
+                    col.scale_x = 4
                     col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
                     row = box.row()
                     row.prop(obj_wrls, "head_use_cable_mat", text="Use cable material")
@@ -126,13 +118,14 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                     row = box.row()
                     row.prop(wm_wrls, 'tail_categories', text='')
                     row = box.row()
+                    row.template_icon_view(wm_wrls, "tail_types", show_labels=True, scale=4)
+                    row = box.row()
                     col = row.column()
-                    col.scale_y = 6
+                    col.scale_x = 4
                     col.operator("wrls.tail_prev", icon="TRIA_LEFT", text="")
                     col = row.column()
-                    col.template_icon_view(wm_wrls, "tail_types", show_labels=True, scale=4)
                     col = row.column()
-                    col.scale_y = 6
+                    col.scale_x = 4
                     col.operator("wrls.tail_next", icon="TRIA_RIGHT", text="")
                     row = box.row()
                     row.prop(obj_wrls, "tail_use_cable_mat", text="Use cable material")
