@@ -164,10 +164,23 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
         wm_wrls = bpy.context.window_manager.wrls
         if obj is not None:
             if obj.wrls.wrls_status == 'UNDEFINED' and obj.type == 'MESH':
+                errors = 0
                 layout = self.layout
                 box = layout.box()
                 row = box.row()
                 row.prop(obj, 'name')
+                if wireless.check_name_taken(obj):
+                    row = box.row()
+                    row.label(text='Name already in use',
+                              icon='ERROR')
+                    errors += 1
+                mat_error = wireless.error_in_material_slots(obj)
+                if mat_error:
+                    row = box.row()
+                    row.label(text=mat_error,
+                              icon='ERROR')
+                    errors += 1
+
                 row = box.row()
                 row.label(text='Category')
                 row = box.row()
@@ -185,7 +198,7 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                 col = row.column()
                 col.operator("wrls.reset_part", icon='RECOVER_AUTO', text='Reset')
                 col = row.column()
-                col.active = obj.wrls.has_thumb
+                col.enabled = obj.wrls.has_thumb and errors == 0
                 col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
 
 def register():

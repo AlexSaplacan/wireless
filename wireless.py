@@ -613,6 +613,72 @@ def write_new_part_to_library():
     bpy.data.libraries.write(custom_filepath, data_blocks)
 
 
+def check_name_taken(obj):
+    """
+    Check if the name of the object already exists in the configs
+    and return True or False
+    """
+    data = configs.data
+    return bool(obj.name in data["Models"])
+
+def error_in_material_slots(obj):
+    """
+    Check if the object has at max 1 matrial
+    assigned to slot [0] if cable
+    or if has maximum 3 materials assigned to
+    slots [0-2] if head/tail
+
+    Returns False if no error, or error message of first found
+    """
+    error = None
+    type_of_part = bpy.context.window_manager.wrls.type_of_part
+
+    if type_of_part == 'Cable':
+        if len(obj.material_slots) > 1:
+            for slot in obj.material_slots[1:]:
+                if slot.material == None:
+                    continue
+                error = 'Found more than one material on cable {}'.format(obj.name)
+                break
+
+    if type_of_part == 'Head / Tail':
+        if len(obj.material_slots) > 3:
+            error = 'Max 3 materials allowed on Heads/Tails'
+
+    return error
+
+def update_material_slots(obj):
+    """
+    Setup the material slots to 7 material slots for the
+    cable or add new material slots up to 4 and move the assigned
+    materials one slot up for each of them
+    """
+    type_of_part = bpy.context.window_manager.wrls.type_of_part
+    if type_of_part == 'Cable':
+        n_slots = len(obj.material_slots)
+        for i in range(7 - n_slots):
+            bpy.ops.object.material_slot_add()
+
+    if type_of_part == 'Head / Tail':
+        mats = [obj.material_slots[i].material for i in range(len(obj.material_slots))]
+
+        n_slots = len(obj.material_slots)
+        for i in range(4 - n_slots):
+            bpy.ops.object.material_slot_add()
+        for i in range(len(mats)):
+            obj.material_slots[i + 1].material = mats[i]
+        obj.material_slots[0].material = None
+
+def reset_material_slots(obj):
+
+    type_of_part = bpy.context.window_manager.wrls.type_of_part
+    if type_of_part == 'Head / Tail':
+        mats = [obj.material_slots[i].material for i in range(len(obj.material_slots))]
+        for i in range(3):
+            obj.material_slots[i].material = mats[i + 1]
+        bpy.ops.object.material_slot_remove()
+
+
 ############## OPERATORS ###############################
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
@@ -870,25 +936,28 @@ class OBJECT_OT_Save_Part(bpy.types.Operator):
         """
         Loads of stuff going in here
         """
+        log.debug('Aim gonna save this part')
         actor_name = bpy.context.object.name
         actor = bpy.data.objects[actor_name]
         json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
-        if actor.wrls.has_thumb:
-            new_name = add_new_model(actor, configs.data)
-            with open(json_path, 'w') as outfile:
-                json.dump(configs.data, outfile, indent=4)
-            write_new_part_to_library()
+        new_name = add_new_model(actor, configs.data)
+        update_material_slots(actor)
+        with open(json_path, 'w') as outfile:
+            json.dump(configs.data, outfile, indent=4)
+        write_new_part_to_library()
+        reset_material_slots(actor)
+        actor.name = actor_name
 
-            # for last put back the image where it was and set the new one
-            backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
-            empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
-            new_thmb = os.path.join(os.path.dirname(__file__), "thumbs", new_name + '.jpg')
+        # for last put back the image where it was and set the new one
+        backup_thmb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb_backup.jpg')
+        empty_thumb = os.path.join(os.path.dirname(__file__), "thumbs", 'empty_thumb.jpg')
+        new_thmb = os.path.join(os.path.dirname(__file__), "thumbs", new_name + '.jpg')
 
-            shutil.copy(empty_thumb, new_thmb)
-            shutil.copy(backup_thmb, empty_thumb)
-            configs.thumbs['cables'].clear()
-            bpy.utils.previews.remove(configs.thumbs['cables'])
-            wireless_props.load_thumbs()
+        shutil.copy(empty_thumb, new_thmb)
+        shutil.copy(backup_thmb, empty_thumb)
+        configs.thumbs['cables'].clear()
+        bpy.utils.previews.remove(configs.thumbs['cables'])
+        wireless_props.load_thumbs()
 
         return {'FINISHED'}
 
