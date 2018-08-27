@@ -666,7 +666,7 @@ def update_cable_stretch(self, context):
         if False:
             head.hide = False
             head.select = True
-            wireless.mirror_and_translate_head(head.name, cable, stretch=True)
+            wireless.mirror_and_translate_head()
             head.hide = False
 
         configs.switch = True

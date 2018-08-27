@@ -7,6 +7,7 @@ import os
 import shutil
 import logging
 import json
+import numpy as np
 
 import bmesh
 
@@ -94,54 +95,28 @@ def setup_studio_scene():
     bpy.context.window.screen.scene = bpy.data.scenes['Studio Scene']
 
 
-def mirror_and_translate_head(obj_name, cable, stretch=False):
-    """
-    Switch to edit mode and mirror all the vertices on x axis o the object
-    is facing now the right way. Also translate the head by value on negative x to
-    avoid the gap between the cable and the head
+def get_co(mesh):
+    v_count = len(mesh.vertices)
+    co = np.zeros(v_count * 3, dtype=np.float32)
+    mesh.vertices.foreach_get('co', co)
+    co.shape = (v_count, 3)
+    return co
 
-    Args:
-        obj_name (str(never None)) - the name of the bpy object that is going to be mirrored
-        cable (bpyObject (neve rNone)) - the cable at whom the head is conected
 
-    Return:
-        None
+def mirror_and_translate_head():
     """
-    # check first if is in editmode and if yes turn in object mode
+    Scale the head's verts on x and y by -1
+    """
+
     a_object = bpy.context.active_object
-    if  a_object.data.is_editmode:
-            bpy.ops.object.editmode_toggle()
-    head_obj = bpy.data.objects[obj_name]
-    cable_x = cable.wrls.cable_x
-    # cable_s = cable.wrls.cable_stretch
-    # cable_o_s = cable.wrls.old_cable_stretch
-    # cable_o = cable.wrls.cable_original_x
-    curve_length = measure_curve()
-    x_offset = curve_length % cable_x
+    curve, cable, head, tail = find_parts(a_object)
 
-    bpy.context.scene.objects.active = head_obj
-    data = head_obj.data
-    if not data.is_editmode:
-        bpy.ops.object.editmode_toggle()
-    me = bpy.context.object.data
-    mesh = bmesh.from_edit_mesh(me)
+    head_co = get_co(head.data)
 
-    for vert in mesh.verts:
-        if not stretch:
+    head_co[:, :2] *= -1
 
-            vert.co.x *= -1
-
-            vert.co.x -= cable_x
-        # else:
-        #     vert.co.x -= cable_o * (cable_s - cable_o_s)
-
-    # recalculate normals here
-    bpy.ops.mesh.select_all(action='DESELECT')
-    bpy.ops.mesh.select_all(action='TOGGLE')
-    bpy.ops.mesh.normals_make_consistent(inside=False)
-
-    bpy.ops.object.editmode_toggle()
-    bpy.context.scene.objects.active = a_object
+    head.data.vertices.foreach_set('co', head_co.ravel())
+    head.data.update()
 
 
 def tail_and_head(obj):
@@ -373,7 +348,7 @@ def connect_head(cable, head):
     cable.modifiers["WRLS_Array"].end_cap = head_model
     bpy.context.scene.objects.link(head_model)
     # mirror to orient the head in the right direction
-    mirror_and_translate_head(head_model.name, cable)
+    mirror_and_translate_head()
 
     head_model.hide = True
     head_model.hide_render = True
@@ -661,12 +636,25 @@ def update_material_slots(obj):
 
     if type_of_part == 'Head / Tail':
         mats = [obj.material_slots[i].material for i in range(len(obj.material_slots))]
-
         n_slots = len(obj.material_slots)
         for i in range(4 - n_slots):
             bpy.ops.object.material_slot_add()
-        for i in range(len(mats)):
-            obj.material_slots[i + 1].material = mats[i]
+
+        # reassign verts to slots
+        if not obj.data.is_editmode:
+            bpy.ops.object.editmode_toggle()
+        for i in range(2, -1, -1):
+            bpy.ops.mesh.select_all(action='DESELECT')
+            obj.active_material_index = i
+            bpy.ops.object.material_slot_select()
+            obj.active_material_index = i + 1
+            bpy.ops.object.material_slot_assign()
+            obj.material_slots[i + 1].material = obj.material_slots[i].material
+
+        # for i in range(len(mats)):
+        #     obj.material_slots[i + 1].material = mats[i]
+
+        bpy.ops.object.editmode_toggle()
         obj.material_slots[0].material = None
 
 def reset_material_slots(obj):
@@ -674,8 +662,17 @@ def reset_material_slots(obj):
     type_of_part = bpy.context.window_manager.wrls.type_of_part
     if type_of_part == 'Head / Tail':
         mats = [obj.material_slots[i].material for i in range(len(obj.material_slots))]
-        for i in range(3):
-            obj.material_slots[i].material = mats[i + 1]
+        if not obj.data.is_editmode:
+            bpy.ops.object.editmode_toggle()
+        for i in range(1, 4):
+            bpy.ops.mesh.select_all(action='DESELECT')
+            obj.active_material_index = i
+            bpy.ops.object.material_slot_select()
+            obj.active_material_index = i - 1
+            bpy.ops.object.material_slot_assign()
+            obj.material_slots[i - 1].material = obj.material_slots[i].material
+        bpy.ops.object.editmode_toggle()
+        obj.active_material_index = 4
         bpy.ops.object.material_slot_remove()
 
 
@@ -867,6 +864,12 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         dummy = bpy.context.scene.objects['WRLS_dummy_mesh']
         guide_curve = bpy.context.scene.objects['WRLS_curve_guide']
         dummy.data = actor.data
+
+        # if actor has subsurf modifier, add it to the dummy too
+        for mod in actor.modifiers:
+            if mod.type == 'SUBSURF':
+                dummy.modifiers.new(type='SUBSURF', name='Subsurf')
+                dummy.modifiers['Subsurf'].levels = mod.levels
         if new_part_type == 'Cable':
             # add array and curve modifiers
             add_cable_modifiers(dummy, guide_curve)
