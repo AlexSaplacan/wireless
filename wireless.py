@@ -675,6 +675,11 @@ def reset_material_slots(obj):
         obj.active_material_index = 4
         bpy.ops.object.material_slot_remove()
 
+def scale_thumb_curve(actor, guide_curve):
+    ideal_thick = 0.004
+    max_thick = max(actor.dimensions[1], actor.dimensions[2])
+    factor = max_thick / ideal_thick
+    guide_curve.scale = ((factor, factor, factor))
 
 ############## OPERATORS ###############################
 
@@ -872,6 +877,7 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
                 dummy.modifiers['Subsurf'].levels = mod.levels
         if new_part_type == 'Cable':
             # add array and curve modifiers
+            scale_thumb_curve(actor, guide_curve)
             add_cable_modifiers(dummy, guide_curve)
 
         # scene_setup and render thumbnail
