@@ -272,6 +272,9 @@
 	[
 		"Empty Thumb"
 
+	],
+	"Custom Parts":
+	[
 	]
 },
 
@@ -305,6 +308,10 @@
 
 "new_parts":[
 	"New Items"
+],
+
+"custom_parts":[
+	"Custom Parts"
 ],
 
 "Thumbs": [
