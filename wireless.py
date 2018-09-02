@@ -199,10 +199,14 @@ def get_list_and_position(context, list_name, part_type):
     wm_wrls = context.window_manager.wrls
     part_types = {'cables_types': 'cable_categories',
                   'head_types': 'head_categories',
-                  'tail_types': 'tail_categories'
+                  'tail_types': 'tail_categories',
+                  'custom_parts': 'Custom Parts'
 
     }
-    category = getattr(wm_wrls, part_types[part_type])
+    try:
+        category = getattr(wm_wrls, part_types[part_type])
+    except:
+        category = part_types[part_type]
     cables_list = configs.data["model_types"][category]
     current = list_name
     current_pos = [i for i, x in enumerate(cables_list) if x == current]
@@ -569,6 +573,8 @@ def add_new_model(obj, data):
     data['Models'][obj_name] = obj_info
     add_to_category(obj, data)
     add_thumb(obj, data)
+
+    data['model_types']['Custom Parts'].append(obj_name)
 
     return new_obj_name
 
