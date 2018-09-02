@@ -201,6 +201,43 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                 col.enabled = obj.wrls.has_thumb and errors == 0
                 col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
 
+
+
+class OBJECT_PT_WirelessEdit(bpy.types.Panel):
+    bl_label = 'Edit custom part'
+    bl_id_name = 'OBJECT_PT_Wirelessedit'
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'TOOLS'
+    bl_category = 'Wireless'
+
+    @classmethod
+    def poll(cls, context):
+        """ If this is already a wireles part don't do anything."""
+        obj = context.object
+        return obj is not None
+
+    def draw(self, context):
+        wm_wrls = bpy.context.window_manager.wrls
+
+        layout = self.layout
+        if len(configs.data['model_types']['Custom Parts']) == 0:
+            layout.label(text='No custom parts yet.')
+        else:
+            box = layout.box()
+            row = box.row()
+            row.template_icon_view(wm_wrls, 'custom_parts', show_labels=False)
+            row = box.row()
+            col = row.column()
+            col.scale_x = 4
+            col.operator("wrls.custom_prev", icon="TRIA_LEFT", text="")
+            col = row.column()
+            col = row.column()
+            col.scale_x = 4
+            col.operator("wrls.custom_next", icon="TRIA_RIGHT", text="")
+
+
+
+
 def register():
 
     "register"

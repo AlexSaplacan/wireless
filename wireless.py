@@ -984,6 +984,35 @@ class OBJECT_OT_Delete_Part(bpy.types.Operator):
 
         return {'FINISHED'}
 
+class OBJECT_OT_Custom_Next(bpy.types.Operator):
+
+    """Load the next head type.
+    """
+    bl_idname = "wrls.custom_next"
+    bl_label = "Next custom part"
+
+    def execute(self, context):
+        wm_wrls = bpy.context.window_manager.wrls
+        get_next_item(context, wm_wrls.tail_types, 'tail_types')
+
+        return {'FINISHED'}
+
+
+class OBJECT_OT_Custom_Prev(bpy.types.Operator):
+
+    """Load the prevoius custom part.
+    """
+    bl_idname = "wrls.custom_prev"
+    bl_label = "Previous custom part"
+
+    def execute(self, context):
+        wm_wrls = bpy.context.window_manager.wrls
+        get_prev_item(context, wm_wrls.tail_types, 'tail_types')
+
+        return {'FINISHED'}
+
+
+
 def register():
     "register"
 

@@ -524,6 +524,14 @@ def new_item_categories_items(self, context):
     """Create an EnumProperty for the Cable categories"""
     return create_items_from_category_list('new_parts')
 
+def custom_part_preview_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+    return create_preview_by_category('Custom Parts')
+
+def custom_parts_items(self, context):
+    """Create an EnumProperty for the Cable categories"""
+    return create_items_from_category_list('custom_parts')
+
 def type_of_new_part(self, context):
     pass
 
@@ -976,7 +984,12 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         items=new_item_categories_items,
         update=tail_categories_update
         )
-
+    custom_parts = bpy.props.EnumProperty(
+        name='Custom parts',
+        description='Select custom part to edit',
+        items=custom_part_preview_items,
+        update=new_part_update
+        )
 def register():
     """Register here"""
     bpy.types.Object.wrls = PointerProperty(
