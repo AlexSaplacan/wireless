@@ -1,10 +1,433 @@
 {
+    "Models": {
+        "Industrial 220V F open": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_220_Industrial_F_A"
+        },
+        "Jack 3.5mm": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Jack_3.5"
+        },
+        "Plug EU Simple_F": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Electric_EU.001"
+        },
+        "Round Simple": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Round_Simple"
+        },
+        "Industrial 220V F closed": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_220_Industrial_F_B"
+        },
+        "Schuko Triple": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Schuko_triple"
+        },
+        "USB F": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_USB_F"
+        },
+        "SATA Female": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_SATA_Female"
+        },
+        "XLR Male": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_XLR_Male"
+        },
+        "IDE Female Thin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_IDE_Female_Thin"
+        },
+        "Power Plug US 2 pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Plug_US_Simple_M.000"
+        },
+        "Appliance End": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Appliance_end"
+        },
+        "Laptop Adapter": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Laptop_Adapter"
+        },
+        "IDE Cable": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_IDE_Cable"
+        },
+        "Cloverleaf": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Cloverleaf"
+        },
+        "SATA Female Clamp": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_SATA_Female_Clamp"
+        },
+        "Dual Twisted": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Dual_Twisted"
+        },
+        "Power Female": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Power_Female"
+        },
+        "Industrial 220V M": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_220_Industrial_M"
+        },
+        "PC Plug": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_PC_Plug.000"
+        },
+        "Guitar Jack": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Guitar_Jack"
+        },
+        "SATA Female L Power": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_SATA_Female_L_Power"
+        },
+        "IDE Cable Thin": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_IDE_Cable_Thin"
+        },
+        "Schuko": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Schuko.000"
+        },
+        "HDMI Simple": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_HDMI"
+        },
+        "UK Mainpower 3Way": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Electrical_Triple_UK.000"
+        },
+        "Power Plug US 3 pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Power_Cable_US_3_pin"
+        },
+        "Adaptor 4pin Long": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Adaptor_4pin_Long"
+        },
+        "XLR Female Long": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_XLR_Female_Long"
+        },
+        "Plug EU Simple_M": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Electric_EU.000"
+        },
+        "XLR Female": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_XLR_Female"
+        },
+        "Adaptor 4pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Adaptor_4pin"
+        },
+        "SATA Cable": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_SATA_Cable"
+        },
+        "Data Flat": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Data_Flat"
+        },
+        "Triple Flat": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Triple_Flat"
+        },
+        "SATA Female L": {
+            "blend": "Custom_parts.blend",
+            "cable": false,
+            "name": "WRLS_SATA_Female_L"
+        },
+        "USB 2B": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_USB_2B"
+        },
+        "ATX 4pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_ATX_4pin"
+        },
+        "ATX 6pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_ATX_6pin"
+        },
+        "Power Male": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Power_Male"
+        },
+        "Ethernet": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Ethernet"
+        },
+        "IDE Female": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_IDE_Female"
+        },
+        "USB Type C": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_USB_Type_C"
+        },
+        "RCA": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_RCA"
+        },
+        "Power adaptor L": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Power_adaptor_L"
+        },
+        "12 Volt 2 pin": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_12v_2Pin"
+        },
+        "Triple Twisted": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Triple_Twisted"
+        },
+        "Flex Metallic": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Flex_Metallic"
+        },
+        "Dual Flat": {
+            "blend": "Cables.blend",
+            "cable": true,
+            "name": "WRLS_Dual_Flat"
+        },
+        "Plug 220 UK": {
+            "blend": "Cables.blend",
+            "cable": false,
+            "name": "WRLS_Electric_UK.000"
+        }
+    },
+    "model_types": {
+        "Data Parts": [
+            "USB F",
+            "USB Type C",
+            "USB 2B",
+            "Ethernet",
+            "12 Volt 2 pin",
+            "Laptop Adapter",
+            "Cloverleaf",
+            "PC Plug",
+            "HDMI Simple"
+        ],
+        "Automotive Parts": [],
+        "head_types": [
+            "USB F",
+            "USB Type C",
+            "USB 2B",
+            "Jack 3.5mm",
+            "Industrial 220V M",
+            "Industrial 220V F open",
+            "Industrial 220V F closed",
+            "Plug 220 UK",
+            "UK Mainpower 3Way",
+            "Plug EU Simple_M",
+            "Plug EU Simple_F",
+            "Power Plug US 2 pin",
+            "Power Plug US 3 pin",
+            "Appliance End",
+            "Ethernet",
+            "12 Volt 2 pin",
+            "Laptop Adapter",
+            "Schuko",
+            "Schuko Triple",
+            "Cloverleaf",
+            "PC Plug",
+            "HDMI Simple",
+            "RCA",
+            "Guitar Jack",
+            "XLR Female",
+            "XLR Male",
+            "XLR Female Long",
+            "Adaptor 4pin",
+            "Adaptor 4pin Long",
+            "ATX 4pin",
+            "ATX 6pin",
+            "IDE Female",
+            "IDE Female Thin",
+            "Power adaptor L",
+            "Power Female",
+            "Power Male",
+            "SATA Female",
+            "SATA Female Clamp",
+            "SATA Female L",
+            "SATA Female L Power"
+        ],
+        "All Cables": [
+            "Round Simple",
+            "Data Flat",
+            "Dual Flat",
+            "Flex Metallic",
+            "Dual Twisted",
+            "Triple Twisted",
+            "Triple Flat",
+            "IDE Cable",
+            "IDE Cable Thin",
+            "SATA Cable"
+        ],
+        "Electric Plugs": [
+            "Industrial 220V M",
+            "Industrial 220V F open",
+            "Industrial 220V F closed",
+            "Plug 220 UK",
+            "UK Mainpower 3Way",
+            "Plug EU Simple_M",
+            "Plug EU Simple_F",
+            "Power Plug US 2 pin",
+            "Power Plug US 3 pin",
+            "Laptop Adapter",
+            "Schuko",
+            "Schuko Triple",
+            "Cloverleaf",
+            "PC Plug",
+            "12 Volt 2 pin"
+        ],
+        "All Heads and Tails": [
+            "USB F",
+            "USB Type C",
+            "USB 2B",
+            "Jack 3.5mm",
+            "Industrial 220V M",
+            "Industrial 220V F open",
+            "Industrial 220V F closed",
+            "Plug 220 UK",
+            "UK Mainpower 3Way",
+            "Plug EU Simple_M",
+            "Plug EU Simple_F",
+            "Power Plug US 2 pin",
+            "Power Plug US 3 pin",
+            "Appliance End",
+            "Ethernet",
+            "12 Volt 2 pin",
+            "Laptop Adapter",
+            "Schuko",
+            "Schuko Triple",
+            "Cloverleaf",
+            "PC Plug",
+            "HDMI Simple",
+            "RCA",
+            "Guitar Jack",
+            "XLR Female",
+            "XLR Male",
+            "XLR Female Long",
+            "Adaptor 4pin",
+            "Adaptor 4pin Long",
+            "ATX 4pin",
+            "ATX 6pin",
+            "IDE Female",
+            "IDE Female Thin",
+            "Power adaptor L",
+            "Power Female",
+            "Power Male",
+            "SATA Female",
+            "SATA Female Clamp",
+            "SATA Female L",
+            "SATA Female L Power"
+        ],
+        "Ropes": [],
+        "Electric Cables": [
+            "Round Simple",
+            "Data Flat",
+            "Dual Flat",
+            "Dual Twisted",
+            "Triple Twisted",
+            "Triple Flat"
+        ],
+        "Custom Parts": [
+        ],
+        "New Items": [
+            "Empty Thumb"
+        ],
+        "PC Internal": [
+            "Adaptor 4pin",
+            "Adaptor 4pin Long",
+            "ATX 4pin",
+            "ATX 6pin",
+            "IDE Female",
+            "IDE Female Thin",
+            "Power adaptor L",
+            "Power Female",
+            "Power Male",
+            "SATA Female",
+            "SATA Female Clamp",
+            "SATA Female L Power"
+        ],
+        "PC Cables": [
+            "IDE Cable",
+            "IDE Cable Thin",
+            "SATA Cable"
+        ],
+        "Audio Parts": [
+            "Jack 3.5mm",
+            "Guitar Jack",
+            "RCA",
+            "XLR Female",
+            "XLR Female Long",
+            "XLR Male"
+        ]
+    },
     "cable_categories": [
         "All Cables",
         "Electric Cables",
         "Ropes",
         "PC Cables",
         "Automotive Parts"
+    ],
+    "custom_parts": [
+        "Custom Parts"
     ],
     "head_categories": [
         "All Heads and Tails",
@@ -15,248 +438,6 @@
         "PC Internal",
         "Automotive Parts"
     ],
-    "Models": {
-        "USB Type C": {
-            "blend": "Cables.blend",
-            "name": "WRLS_USB_Type_C",
-            "cable": false
-        },
-        "XLR Female Long": {
-            "blend": "Cables.blend",
-            "name": "WRLS_XLR_Female_Long",
-            "cable": false
-        },
-        "Plug EU Simple_M": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Electric_EU.000",
-            "cable": false
-        },
-        "XLR Male": {
-            "blend": "Cables.blend",
-            "name": "WRLS_XLR_Male",
-            "cable": false
-        },
-        "Ethernet": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Ethernet",
-            "cable": false
-        },
-        "Schuko": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Schuko.000",
-            "cable": false
-        },
-        "Jack 3.5mm": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Jack_3.5",
-            "cable": false
-        },
-        "USB F": {
-            "blend": "Cables.blend",
-            "name": "WRLS_USB_F",
-            "cable": false
-        },
-        "Plug 220 UK": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Electric_UK.000",
-            "cable": false
-        },
-        "SATA Female Clamp": {
-            "blend": "Cables.blend",
-            "name": "WRLS_SATA_Female_Clamp",
-            "cable": false
-        },
-        "HDMI Simple": {
-            "blend": "Cables.blend",
-            "name": "WRLS_HDMI",
-            "cable": false
-        },
-        "SATA Female": {
-            "blend": "Cables.blend",
-            "name": "WRLS_SATA_Female",
-            "cable": false
-        },
-        "RCA": {
-            "blend": "Cables.blend",
-            "name": "WRLS_RCA",
-            "cable": false
-        },
-        "Data Flat": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Data_Flat",
-            "cable": true
-        },
-        "Flex Metallic": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Flex_Metallic",
-            "cable": true
-        },
-        "Adaptor 4pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Adaptor_4pin",
-            "cable": false
-        },
-        "Industrial 220V F closed": {
-            "blend": "Cables.blend",
-            "name": "WRLS_220_Industrial_F_B",
-            "cable": false
-        },
-        "Schuko Triple": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Schuko_triple",
-            "cable": false
-        },
-        "ATX 6pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_ATX_6pin",
-            "cable": false
-        },
-        "IDE Female Thin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_IDE_Female_Thin",
-            "cable": false
-        },
-        "Adaptor 4pin Long": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Adaptor_4pin_Long",
-            "cable": false
-        },
-        "Round Simple": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Round_Simple",
-            "cable": true
-        },
-        "Appliance End": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Appliance_end",
-            "cable": false
-        },
-        "Guitar Jack": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Guitar_Jack",
-            "cable": false
-        },
-        "Dual Flat": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Dual_Flat",
-            "cable": true
-        },
-        "Power Female": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Power_Female",
-            "cable": false
-        },
-        "Cloverleaf": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Cloverleaf",
-            "cable": false
-        },
-        "IDE Cable": {
-            "blend": "Cables.blend",
-            "name": "WRLS_IDE_Cable",
-            "cable": true
-        },
-        "Industrial 220V F open": {
-            "blend": "Cables.blend",
-            "name": "WRLS_220_Industrial_F_A",
-            "cable": false
-        },
-        "Plug EU Simple_F": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Electric_EU.001",
-            "cable": false
-        },
-        "USB 2B": {
-            "blend": "Cables.blend",
-            "name": "WRLS_USB_2B",
-            "cable": false
-        },
-        "XLR Female": {
-            "blend": "Cables.blend",
-            "name": "WRLS_XLR_Female",
-            "cable": false
-        },
-        "IDE Cable Thin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_IDE_Cable_Thin",
-            "cable": true
-        },
-        "Power adaptor L": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Power_adaptor_L",
-            "cable": false
-        },
-        "Triple Flat": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Triple_Flat",
-            "cable": true
-        },
-        "Power Plug US 3 pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Power_Cable_US_3_pin",
-            "cable": false
-        },
-        "UK Mainpower 3Way": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Electrical_Triple_UK.000",
-            "cable": false
-        },
-        "Power Plug US 2 pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Plug_US_Simple_M.000",
-            "cable": false
-        },
-        "Industrial 220V M": {
-            "blend": "Cables.blend",
-            "name": "WRLS_220_Industrial_M",
-            "cable": false
-        },
-        "Triple Twisted": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Triple_Twisted",
-            "cable": true
-        },
-        "Dual Twisted": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Dual_Twisted",
-            "cable": true
-        },
-        "12 Volt 2 pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_12v_2Pin",
-            "cable": false
-        },
-        "PC Plug": {
-            "blend": "Cables.blend",
-            "name": "WRLS_PC_Plug.000",
-            "cable": false
-        },
-        "ATX 4pin": {
-            "blend": "Cables.blend",
-            "name": "WRLS_ATX_4pin",
-            "cable": false
-        },
-        "SATA Cable": {
-            "blend": "Cables.blend",
-            "name": "WRLS_SATA_Cable",
-            "cable": true
-        },
-        "Laptop Adapter": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Laptop_Adapter",
-            "cable": false
-        },
-        "Power Male": {
-            "blend": "Cables.blend",
-            "name": "WRLS_Power_Male",
-            "cable": false
-        },
-        "IDE Female": {
-            "blend": "Cables.blend",
-            "name": "WRLS_IDE_Female",
-            "cable": false
-        }
-    },
     "Thumbs": [
         {
             "id": "Flex Metallic",
@@ -457,174 +638,16 @@
         {
             "id": "SATA Female Clamp",
             "img": "WRLS_SATA_Female_Clamp.jpg"
+        },
+        {
+            "id": "SATA Female L",
+            "img": "WRLS_SATA_Female_L.jpg"
+        },
+        {
+            "id": "SATA Female L Power",
+            "img": "WRLS_SATA_Female_L_Power.jpg"
         }
     ],
-    "new_parts": [
-        "New Items"
-    ],
-    "model_types": {
-        "New Items": [
-            "Empty Thumb"
-        ],
-        "Automotive Parts": [],
-        "Electric Cables": [
-            "Round Simple",
-            "Data Flat",
-            "Dual Flat",
-            "Dual Twisted",
-            "Triple Twisted",
-            "Triple Flat"
-        ],
-        "head_types": [
-            "USB F",
-            "USB Type C",
-            "USB 2B",
-            "Jack 3.5mm",
-            "Industrial 220V M",
-            "Industrial 220V F open",
-            "Industrial 220V F closed",
-            "Plug 220 UK",
-            "UK Mainpower 3Way",
-            "Plug EU Simple_M",
-            "Plug EU Simple_F",
-            "Power Plug US 2 pin",
-            "Power Plug US 3 pin",
-            "Appliance End",
-            "Ethernet",
-            "12 Volt 2 pin",
-            "Laptop Adapter",
-            "Schuko",
-            "Schuko Triple",
-            "Cloverleaf",
-            "PC Plug",
-            "HDMI Simple",
-            "RCA",
-            "Guitar Jack",
-            "XLR Female",
-            "XLR Male",
-            "XLR Female Long",
-            "Adaptor 4pin",
-            "Adaptor 4pin Long",
-            "ATX 4pin",
-            "ATX 6pin",
-            "IDE Female",
-            "IDE Female Thin",
-            "Power adaptor L",
-            "Power Female",
-            "Power Male",
-            "SATA Female",
-            "SATA Female Clamp"
-        ],
-        "Electric Plugs": [
-            "Industrial 220V M",
-            "Industrial 220V F open",
-            "Industrial 220V F closed",
-            "Plug 220 UK",
-            "UK Mainpower 3Way",
-            "Plug EU Simple_M",
-            "Plug EU Simple_F",
-            "Power Plug US 2 pin",
-            "Power Plug US 3 pin",
-            "Laptop Adapter",
-            "Schuko",
-            "Schuko Triple",
-            "Cloverleaf",
-            "PC Plug",
-            "12 Volt 2 pin"
-        ],
-        "Data Parts": [
-            "USB F",
-            "USB Type C",
-            "USB 2B",
-            "Ethernet",
-            "12 Volt 2 pin",
-            "Laptop Adapter",
-            "Cloverleaf",
-            "PC Plug",
-            "HDMI Simple"
-        ],
-        "Audio Parts": [
-            "Jack 3.5mm",
-            "Guitar Jack",
-            "RCA",
-            "XLR Female",
-            "XLR Female Long",
-            "XLR Male"
-        ],
-        "Ropes": [],
-        "PC Internal": [
-            "Adaptor 4pin",
-            "Adaptor 4pin Long",
-            "ATX 4pin",
-            "ATX 6pin",
-            "IDE Female",
-            "IDE Female Thin",
-            "Power adaptor L",
-            "Power Female",
-            "Power Male",
-            "SATA Female",
-            "SATA Female Clamp"
-        ],
-        "All Cables": [
-            "Round Simple",
-            "Data Flat",
-            "Dual Flat",
-            "Flex Metallic",
-            "Dual Twisted",
-            "Triple Twisted",
-            "Triple Flat",
-            "IDE Cable",
-            "IDE Cable Thin",
-            "SATA Cable"
-        ],
-        "PC Cables": [
-            "IDE Cable",
-            "IDE Cable Thin",
-            "SATA Cable"
-        ],
-        "Custom Parts": [
-        ],
-        "All Heads and Tails": [
-            "USB F",
-            "USB Type C",
-            "USB 2B",
-            "Jack 3.5mm",
-            "Industrial 220V M",
-            "Industrial 220V F open",
-            "Industrial 220V F closed",
-            "Plug 220 UK",
-            "UK Mainpower 3Way",
-            "Plug EU Simple_M",
-            "Plug EU Simple_F",
-            "Power Plug US 2 pin",
-            "Power Plug US 3 pin",
-            "Appliance End",
-            "Ethernet",
-            "12 Volt 2 pin",
-            "Laptop Adapter",
-            "Schuko",
-            "Schuko Triple",
-            "Cloverleaf",
-            "PC Plug",
-            "HDMI Simple",
-            "RCA",
-            "Guitar Jack",
-            "XLR Female",
-            "XLR Male",
-            "XLR Female Long",
-            "Adaptor 4pin",
-            "Adaptor 4pin Long",
-            "ATX 4pin",
-            "ATX 6pin",
-            "IDE Female",
-            "IDE Female Thin",
-            "Power adaptor L",
-            "Power Female",
-            "Power Male",
-            "SATA Female",
-            "SATA Female Clamp"
-        ]
-    },
     "tail_categories": [
         "All Heads and Tails",
         "Electric Plugs",
@@ -634,7 +657,7 @@
         "PC Internal",
         "Automotive Parts"
     ],
-    "custom_parts": [
-        "Custom Parts"
+    "new_parts": [
+        "New Items"
     ]
 }
