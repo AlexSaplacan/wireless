@@ -99,7 +99,7 @@ def toggle_wireless(self, context):
             wrls_status = cable.wrls.wrls_status
 
             if wrls_status == 'CURVE':
-                wireless.wrls_off_and_delete_childs(cable)
+                wireless.wrls_off_and_delete_children(cable)
             elif wrls_status == 'CABLE':
                 cable = cable.parent
                 cable.select = True
@@ -107,7 +107,7 @@ def toggle_wireless(self, context):
                 bpy.context.scene.objects.active = bpy.data.objects[cable.name]
                 # update the scene to avoid error
                 bpy.context.scene.update()
-                wireless.wrls_off_and_delete_childs(cable)
+                wireless.wrls_off_and_delete_children(cable)
                 configs.switch = True
                 cable.wrls.enable = False
                 configs.switch = False

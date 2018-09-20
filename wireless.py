@@ -151,7 +151,7 @@ def tail_and_head(obj):
     else:
         return None
 
-def wrls_off_and_delete_childs(curve):
+def wrls_off_and_delete_children(curve):
     """
     Find all the children of the curve tha have wrls_status 'CABLE'
     and remove them from the scene
@@ -567,7 +567,7 @@ def add_new_model(obj, data):
     cable = True if type_of_part == 'Cable' else False
 
     obj_info = {'name': new_obj_name,
-                'blend':'Custom_parts.blend',
+                'blend': obj_name + '.blend',
                 'cable': cable}
 
     data['Models'][obj_name] = obj_info
@@ -588,10 +588,13 @@ def write_new_part_to_library():
     new_name = convert_new_model_name(actor_name)
     bpy.data.objects[actor_name].name = new_name
     custom_filepath = os.path.join(os.path.dirname(__file__),
-                                   'assets', 'Custom_parts.blend')
+                                   'assets', actor_name + '.blend')
 
-    data_blocks = set(bpy.context.selected_objects)
-    bpy.data.libraries.write(custom_filepath, data_blocks)
+    if os.path.exists(custom_filepath):
+        os.remove(custom_filepath)
+
+    data_blocks = set(sel_objects)
+    bpy.data.libraries.write(custom_filepath, data_blocks, fake_user=True)
 
 
 def check_name_taken(obj):
@@ -1017,6 +1020,12 @@ class OBJECT_OT_Custom_Prev(bpy.types.Operator):
 
         return {'FINISHED'}
 
+class DUMMY_OT(bpy.types.Operator):
+    bl_idname = 'wrls.dummy_op'
+    bl_label = 'do nothing'
+
+    def execute(self, context):
+        return {'FINISHED'}
 
 
 def register():
