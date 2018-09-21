@@ -690,6 +690,21 @@ def scale_thumb_curve(actor, guide_curve):
     factor = max_thick / ideal_thick
     guide_curve.scale = ((factor, factor, factor))
 
+
+def delete_custom_part_data():
+    data = configs.data
+    custom_part = bpy.context.window_manager.wrls.custom_parts
+
+    print (type(data['model_types']))
+
+    for part_type, values in data['model_types'].items():
+        data['model_types'][part_type] = [ x for x in values if x != custom_part]
+
+    data['Models'].pop(custom_part)
+
+    data['Thumbs'] = [thumb for thumb in data['Thumbs'] if thumb['id'] != custom_part]
+
+
 ############## OPERATORS ###############################
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
@@ -990,6 +1005,19 @@ class OBJECT_OT_Delete_Part(bpy.types.Operator):
         """
         Clean data and delete custom part
         """
+        custom_part = bpy.context.window_manager.wrls.custom_parts
+        json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
+
+        delete_custom_part_data()
+        with open(json_path, 'w') as outfile:
+            json.dump(configs.data, outfile, indent=4)
+
+        thumb_name = convert_new_model_name(custom_part) + '.jpg'
+        thumb_path = os.path.join(os.path.dirname(__file__), "thumbs", thumb_name)
+        lib_path = os.path.join(os.path.dirname(__file__), "assets", custom_part + '.blend')
+        os.remove(thumb_path)
+        os.remove(lib_path)
+
 
         return {'FINISHED'}
 

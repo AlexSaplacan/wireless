@@ -235,7 +235,7 @@ class OBJECT_PT_WirelessEdit(bpy.types.Panel):
             col.scale_x = 4
             col.operator("wrls.custom_next", icon="TRIA_RIGHT", text="")
             row = box.row()
-            row.operator('wrls.dummy_op', text='Erase part')
+            row.operator('wrls.delete_custom_part', text='Erase part')
 
 
 
