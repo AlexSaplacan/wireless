@@ -890,7 +890,8 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         curr_scene = bpy.context.scene
         actor_name = bpy.context.object.name
         actor = bpy.data.objects[actor_name]
-        new_part_type = context.window_manager.wrls.type_of_part
+        wm_wrls = context.window_manager.wrls
+        new_part_type = wm_wrls.type_of_part
 
 
         # append scene
@@ -908,6 +909,7 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         if new_part_type == 'Cable':
             # add array and curve modifiers
             scale_thumb_curve(actor, guide_curve)
+            dummy.wrls.array_offset = wm_wrls.new_item_offset
             add_cable_modifiers(dummy, guide_curve)
 
         # scene_setup and render thumbnail
