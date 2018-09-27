@@ -194,6 +194,9 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                 row.template_icon_view(wm_wrls, "new_items", show_labels=False, scale=4)
                 row = box.row()
                 row.operator("wrls.render_thumbnail", icon='SCENE', text='Prepare Thumbnail')
+                if wm_wrls.type_of_part == 'Cable':
+                    row = box.row()
+                    row.prop(wm_wrls, 'new_item_offset', text='Relative offset')
                 row = box.row()
                 col = row.column()
                 col.operator("wrls.reset_part", icon='RECOVER_AUTO', text='Reset')

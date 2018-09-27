@@ -265,6 +265,7 @@ def cable_preview_update(self, context):
     wrls_array.fit_type = 'FIT_CURVE'
     wrls_array.use_merge_vertices = True
     wrls_array.merge_threshold = 0.0001
+    wrls_array.relative_offset_displace[0] = cable_shape.wrls.array_offset
 
     # check for tail and head, and if there were, put them back, set up materials
     if head is not None:
@@ -914,6 +915,15 @@ class WirelessPropertyGroup(PropertyGroup):
         name='part has thumbnail',
         description='',
         default=False)
+    array_offset = FloatProperty(
+        name="Offset",
+        description="",
+        default=1,
+        min=0,
+        max=100,
+        soft_min=-0,
+        soft_max=1
+        )
 
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
@@ -983,6 +993,16 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         description='Select category for new items',
         items=new_item_categories_items,
         update=tail_categories_update
+        )
+    new_item_offset = FloatProperty(
+        name="Offset",
+        description="",
+        default=1,
+        min=0,
+        max=100,
+        soft_min=-0,
+        soft_max=1
+        # update=update_head_slide
         )
     custom_parts = bpy.props.EnumProperty(
         name='Custom parts',

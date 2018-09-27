@@ -75,8 +75,10 @@ def import_model(obj_name):
             data_to.objects.append(my_model)
         else:
             raise NameError("The object does not exists")
-
-    return data_to.objects[0]
+    new_model = data_to.objects[0]
+    if 'offset' in models[obj_name]:
+        new_model.wrls.array_offset =  models[obj_name]['offset']
+    return new_model
 
 
 def setup_studio_scene():
@@ -450,11 +452,13 @@ def add_cable_modifiers(cable, curve):
         cable - the cable mest
         curve - the curve to follow
     """
+
     wrls_array = cable.modifiers.new(type='ARRAY', name="WRLS_Array")
     wrls_array.curve = curve
     wrls_array.fit_type = 'FIT_CURVE'
     wrls_array.use_merge_vertices = True
     wrls_array.merge_threshold = 0.0001
+    wrls_array.relative_offset_displace[0] = cable.wrls.array_offset
 
     wrls_curve = cable.modifiers.new(name='WRLS_Curve', type='CURVE')
     wrls_curve.object = curve
@@ -560,15 +564,17 @@ def add_new_model(obj, data):
     Add object's information to the data,
     so it can be used within the addon
     """
-
+    wm_wrls = bpy.context.window_manager.wrls
     obj_name = obj.name
     new_obj_name = convert_new_model_name(obj_name)
-    type_of_part = bpy.context.window_manager.wrls.type_of_part
+    type_of_part = wm_wrls.type_of_part
     cable = True if type_of_part == 'Cable' else False
 
     obj_info = {'name': new_obj_name,
                 'blend': obj_name + '.blend',
                 'cable': cable}
+    if cable:
+        obj_info['offset'] = wm_wrls.new_item_offset
 
     data['Models'][obj_name] = obj_info
     add_to_category(obj, data)
@@ -975,6 +981,7 @@ class OBJECT_OT_Save_Part(bpy.types.Operator):
         json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
         new_name = add_new_model(actor, configs.data)
         update_material_slots(actor)
+        actor.wrls.array_offset = bpy.context.window_manager.wrls.new_item_offset
         with open(json_path, 'w') as outfile:
             json.dump(configs.data, outfile, indent=4)
         write_new_part_to_library()
