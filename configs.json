@@ -1,426 +1,22 @@
 {
+    "new_parts": [
+        "New Items"
+    ],
     "head_categories": [
         "All Heads and Tails",
         "Electric Plugs",
         "Audio Parts",
+        "Video Parts",
         "Data Parts",
         "PC Internal",
         "Connectors"
     ],
-    "Models": {
-        "Flex Metallic": {
-            "name": "WRLS_Flex_Metallic",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Long Adaptor": {
-            "name": "WRLS_Long_Adaptor",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Ring Connector M4": {
-            "name": "WRLS_Insulated_Crimp_Ring_Connector_M4",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Ethernet": {
-            "name": "WRLS_Ethernet",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "SATA Female Clamp": {
-            "name": "WRLS_SATA_Female_Clamp",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "RCA": {
-            "name": "WRLS_RCA",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Female 6.3": {
-            "name": "WRLS_Insulated_Crimp_Connector_Female_6.3",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Spade Connector M5": {
-            "name": "WRLS_Insulated_Crimp_Spade_Connector_M5",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Power Female": {
-            "name": "WRLS_Power_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "USB 2B": {
-            "name": "WRLS_USB_2B",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Ring Connector M3": {
-            "name": "WRLS_Insulated_Crimp_Ring_Connector_M3",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Schuko Triple": {
-            "name": "WRLS_Schuko_triple",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Appliance End": {
-            "name": "WRLS_Appliance_end",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Blade Crimp Connector 4.8": {
-            "name": "WRLS_Insulated_Blade_Crimp_Connector_4.8",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Printer Connector": {
-            "name": "WRLS_Printer_Connector",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Female 4.8": {
-            "name": "WRLS_Insulated_Crimp_Connector_Female_4.8",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Adaptor 4pin Long": {
-            "name": "WRLS_Adaptor_4pin_Long",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Spade Connector M4": {
-            "name": "WRLS_Insulated_Crimp_Spade_Connector_M4",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "XLR Female Long": {
-            "name": "WRLS_XLR_Female_Long",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "IDE Cable Thin": {
-            "name": "WRLS_IDE_Cable_Thin",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Power Plug US 2 pin": {
-            "name": "WRLS_Plug_US_Simple_M.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Triple Flat": {
-            "name": "WRLS_Triple_Flat",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Dual Twisted": {
-            "name": "WRLS_Dual_Twisted",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "SATA Female L Power": {
-            "name": "WRLS_SATA_Female_L_Power",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Data Flat": {
-            "name": "WRLS_Data_Flat",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "12 Volt 2 pin": {
-            "name": "WRLS_12v_2Pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Power adaptor L": {
-            "name": "WRLS_Power_adaptor_L",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "IDE Female": {
-            "name": "WRLS_IDE_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "SATA Female L": {
-            "name": "WRLS_SATA_Female_L",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Plug EU Simple_F": {
-            "name": "WRLS_Electric_EU.001",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "SATA Cable": {
-            "name": "WRLS_SATA_Cable",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Laptop Adapter": {
-            "name": "WRLS_Laptop_Adapter",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Ring Connector M6": {
-            "name": "WRLS_Insulated_Crimp_Ring_Connector_M6",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "USB Female": {
-            "name": "WRLS_USB_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Industrial 220V F open": {
-            "name": "WRLS_220_Industrial_F_A",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Mouse": {
-            "name": "WRLS_Mouse",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "ATX 6pin": {
-            "name": "WRLS_ATX_6pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Industrial 220V M": {
-            "name": "WRLS_220_Industrial_M",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "ATX 4pin": {
-            "name": "WRLS_ATX_4pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Female 2.8": {
-            "name": "WRLS_Insulated_Crimp_Connector_Female_2.8",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Schuko": {
-            "name": "WRLS_Schuko.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Round Simple": {
-            "name": "WRLS_Round_Simple",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Ring Connector M5": {
-            "name": "WRLS_Insulated_Crimp_Ring_Connector_M5",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "XLR Male": {
-            "name": "WRLS_XLR_Male",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "USB Port Female 9pin": {
-            "name": "WRLS_USB_Port_Female_9pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Blade Crimp Connector 6.3": {
-            "name": "WRLS_Insulated_Blade_Crimp_Connector_6.3",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "USB F": {
-            "name": "WRLS_USB_F",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "SATA Female Power": {
-            "name": "WRLS_SATA_Female_Power",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Jack 3.5mm": {
-            "name": "WRLS_Jack_3.5",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Bullet Female": {
-            "name": "WRLS_Insulated_Crimp_Connector_Bullet_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "XLR Female": {
-            "name": "WRLS_XLR_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "USB Type C": {
-            "name": "WRLS_USB_Type_C",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "SATA Female": {
-            "name": "WRLS_SATA_Female",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "PC Plug": {
-            "name": "WRLS_PC_Plug.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Plug 220 UK": {
-            "name": "WRLS_Electric_UK.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Adaptor 4pin": {
-            "name": "WRLS_Adaptor_4pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Bullet Male": {
-            "name": "WRLS_Insulated_Crimp_Connector_Bullet_Male",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Plug EU Simple_M": {
-            "name": "WRLS_Electric_EU.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Cloverleaf": {
-            "name": "WRLS_Cloverleaf",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Power Plug US 3 pin": {
-            "name": "WRLS_Power_Cable_US_3_pin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Guitar Jack": {
-            "name": "WRLS_Guitar_Jack",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Triple Twisted": {
-            "name": "WRLS_Triple_Twisted",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Female 4": {
-            "name": "WRLS_Insulated_Crimp_Connector_Female_4",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Insulated Crimp Connector Male 2.8": {
-            "name": "WRLS_Insulated_Crimp_Connector_Male_2.8",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Industrial 220V F closed": {
-            "name": "WRLS_220_Industrial_F_B",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Power Male": {
-            "name": "WRLS_Power_Male",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "Dual Flat": {
-            "name": "WRLS_Dual_Flat",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "IDE Female Thin": {
-            "name": "WRLS_IDE_Female_Thin",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "UK Mainpower 3Way": {
-            "name": "WRLS_Electrical_Triple_UK.000",
-            "cable": false,
-            "blend": "Cables.blend"
-        },
-        "IDE Cable": {
-            "name": "WRLS_IDE_Cable",
-            "cable": true,
-            "blend": "Cables.blend"
-        },
-        "HDMI Simple": {
-            "name": "WRLS_HDMI",
-            "cable": false,
-            "blend": "Cables.blend"
-        }
-    },
+    "cable_categories": [
+        "All Cables",
+        "Electric Cables",
+        "PC Cables"
+    ],
     "model_types": {
-        "Electric Cables": [
-            "Round Simple",
-            "Data Flat",
-            "Dual Flat",
-            "Dual Twisted",
-            "Triple Twisted",
-            "Triple Flat"
-        ],
-        "Electric Plugs": [
-            "Industrial 220V M",
-            "Industrial 220V F open",
-            "Industrial 220V F closed",
-            "Plug 220 UK",
-            "UK Mainpower 3Way",
-            "Plug EU Simple_M",
-            "Plug EU Simple_F",
-            "Power Plug US 2 pin",
-            "Power Plug US 3 pin",
-            "Laptop Adapter",
-            "Schuko",
-            "Schuko Triple",
-            "Cloverleaf",
-            "PC Plug",
-            "12 Volt 2 pin"
-        ],
-        "Data Parts": [
-            "USB F",
-            "USB Type C",
-            "USB 2B",
-            "Ethernet",
-            "12 Volt 2 pin",
-            "Laptop Adapter",
-            "Cloverleaf",
-            "PC Plug",
-            "HDMI Simple",
-            "USB Female",
-            "Mouse",
-            "Long Adaptor",
-            "Printer Connector"
-        ],
-        "PC Internal": [
-            "Adaptor 4pin",
-            "Adaptor 4pin Long",
-            "ATX 4pin",
-            "ATX 6pin",
-            "IDE Female",
-            "IDE Female Thin",
-            "Power adaptor L",
-            "Power Female",
-            "Power Male",
-            "SATA Female",
-            "SATA Female Clamp",
-            "SATA Female L Power",
-            "SATA Female Power",
-            "USB Port Female 9pin"
-        ],
         "head_types": [
             "USB F",
             "USB Type C",
@@ -482,53 +78,10 @@
             "Insulated Blade Crimp Connector 4.8",
             "Insulated Crimp Connector Female 4.8",
             "Insulated Crimp Connector Male 2.8",
-            "Insulated Crimp Connector Bullet Female"
-        ],
-        "Connectors": [
-            "Insulated Crimp Ring Connector M5",
-            "Insulated Crimp Ring Connector M6",
-            "Insulated Crimp Ring Connector M4",
-            "Insulated Crimp Ring Connector M3",
-            "Insulated Crimp Spade Connector M5",
-            "Insulated Crimp Spade Connector M4",
-            "Insulated Blade Crimp Connector 6.3",
-            "Insulated Crimp Connector Female 4",
-            "Insulated Crimp Connector Bullet Male",
-            "Insulated Crimp Connector Female 6.3",
-            "Insulated Crimp Connector Female 2.8",
-            "Insulated Blade Crimp Connector 4.8",
-            "Insulated Crimp Connector Female 4.8",
-            "Insulated Crimp Connector Male 2.8",
-            "Insulated Crimp Connector Bullet Female"
-        ],
-        "Custom Parts": [],
-        "All Cables": [
-            "Round Simple",
-            "Data Flat",
-            "Dual Flat",
-            "Flex Metallic",
-            "Dual Twisted",
-            "Triple Twisted",
-            "Triple Flat",
-            "IDE Cable",
-            "IDE Cable Thin",
-            "SATA Cable"
-        ],
-        "PC Cables": [
-            "IDE Cable",
-            "IDE Cable Thin",
-            "SATA Cable"
-        ],
-        "New Items": [
-            "Empty Thumb"
-        ],
-        "Audio Parts": [
-            "Jack 3.5mm",
-            "Guitar Jack",
-            "RCA",
-            "XLR Female",
-            "XLR Female Long",
-            "XLR Male"
+            "Insulated Crimp Connector Bullet Female",
+            "Mouse Adaptor",
+            "DVI",
+            "Scart"
         ],
         "All Heads and Tails": [
             "USB F",
@@ -591,7 +144,118 @@
             "Insulated Blade Crimp Connector 4.8",
             "Insulated Crimp Connector Female 4.8",
             "Insulated Crimp Connector Male 2.8",
+            "Insulated Crimp Connector Bullet Female",
+            "Mouse Adaptor",
+            "DVI",
+            "Scart"
+        ],
+        "Data Parts": [
+            "USB F",
+            "USB Type C",
+            "USB 2B",
+            "Ethernet",
+            "12 Volt 2 pin",
+            "Laptop Adapter",
+            "Cloverleaf",
+            "PC Plug",
+            "USB Female",
+            "Mouse",
+            "Long Adaptor",
+            "Printer Connector",
+            "Mouse Adaptor"
+        ],
+        "PC Cables": [
+            "IDE Cable",
+            "IDE Cable Thin",
+            "SATA Cable"
+        ],
+        "Connectors": [
+            "Insulated Crimp Ring Connector M5",
+            "Insulated Crimp Ring Connector M6",
+            "Insulated Crimp Ring Connector M4",
+            "Insulated Crimp Ring Connector M3",
+            "Insulated Crimp Spade Connector M5",
+            "Insulated Crimp Spade Connector M4",
+            "Insulated Blade Crimp Connector 6.3",
+            "Insulated Crimp Connector Female 4",
+            "Insulated Crimp Connector Bullet Male",
+            "Insulated Crimp Connector Female 6.3",
+            "Insulated Crimp Connector Female 2.8",
+            "Insulated Blade Crimp Connector 4.8",
+            "Insulated Crimp Connector Female 4.8",
+            "Insulated Crimp Connector Male 2.8",
             "Insulated Crimp Connector Bullet Female"
+        ],
+        "Electric Cables": [
+            "Round Simple",
+            "Data Flat",
+            "Dual Flat",
+            "Dual Twisted",
+            "Triple Twisted",
+            "Triple Flat"
+        ],
+        "All Cables": [
+            "Round Simple",
+            "Data Flat",
+            "Dual Flat",
+            "Flex Metallic",
+            "Dual Twisted",
+            "Triple Twisted",
+            "Triple Flat",
+            "IDE Cable",
+            "IDE Cable Thin",
+            "SATA Cable"
+        ],
+        "Custom Parts": [
+        ],
+        "PC Internal": [
+            "Adaptor 4pin",
+            "Adaptor 4pin Long",
+            "ATX 4pin",
+            "ATX 6pin",
+            "IDE Female",
+            "IDE Female Thin",
+            "Power adaptor L",
+            "Power Female",
+            "Power Male",
+            "SATA Female",
+            "SATA Female Clamp",
+            "SATA Female L Power",
+            "SATA Female Power",
+            "USB Port Female 9pin"
+        ],
+        "New Items": [
+            "Empty Thumb"
+        ],
+        "Audio Parts": [
+            "Jack 3.5mm",
+            "Guitar Jack",
+            "RCA",
+            "XLR Female",
+            "XLR Female Long",
+            "XLR Male"
+        ],
+        "Electric Plugs": [
+            "Industrial 220V M",
+            "Industrial 220V F open",
+            "Industrial 220V F closed",
+            "Plug 220 UK",
+            "UK Mainpower 3Way",
+            "Plug EU Simple_M",
+            "Plug EU Simple_F",
+            "Power Plug US 2 pin",
+            "Power Plug US 3 pin",
+            "Laptop Adapter",
+            "Schuko",
+            "Schuko Triple",
+            "Cloverleaf",
+            "PC Plug",
+            "12 Volt 2 pin"
+        ],
+        "Video Parts": [
+            "DVI",
+            "HDMI Simple",
+            "Scart"
         ]
     },
     "custom_parts": [
@@ -601,18 +265,383 @@
         "All Heads and Tails",
         "Electric Plugs",
         "Audio Parts",
+        "Video Parts",
         "Data Parts",
         "PC Internal",
         "Connectors"
     ],
-    "new_parts": [
-        "New Items"
-    ],
-    "cable_categories": [
-        "All Cables",
-        "Electric Cables",
-        "PC Cables"
-    ],
+    "Models": {
+        "IDE Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_IDE_Female"
+        },
+        "Adaptor 4pin Long": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Adaptor_4pin_Long"
+        },
+        "Insulated Crimp Ring Connector M4": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Ring_Connector_M4"
+        },
+        "Insulated Crimp Connector Female 2.8": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Female_2.8"
+        },
+        "Schuko": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Schuko.000"
+        },
+        "Insulated Crimp Spade Connector M5": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Spade_Connector_M5"
+        },
+        "SATA Female L": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Female_L"
+        },
+        "Power Plug US 3 pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Power_Cable_US_3_pin"
+        },
+        "Mouse Adaptor": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Mouse_Adaptor"
+        },
+        "Insulated Crimp Connector Female 4": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Female_4"
+        },
+        "HDMI Simple": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_HDMI"
+        },
+        "SATA Female Power": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Female_Power"
+        },
+        "ATX 4pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_ATX_4pin"
+        },
+        "Long Adaptor": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Long_Adaptor"
+        },
+        "XLR Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_XLR_Female"
+        },
+        "Power Plug US 2 pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Plug_US_Simple_M.000"
+        },
+        "Appliance End": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Appliance_end"
+        },
+        "USB Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_USB_Female"
+        },
+        "Printer Connector": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Printer_Connector"
+        },
+        "Mouse": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Mouse"
+        },
+        "Industrial 220V F open": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_220_Industrial_F_A"
+        },
+        "ATX 6pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_ATX_6pin"
+        },
+        "IDE Cable Thin": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_IDE_Cable_Thin"
+        },
+        "Ethernet": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Ethernet"
+        },
+        "Dual Flat": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Dual_Flat"
+        },
+        "XLR Male": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_XLR_Male"
+        },
+        "Plug EU Simple_M": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Electric_EU.000"
+        },
+        "USB Type C": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_USB_Type_C"
+        },
+        "SATA Female L Power": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Female_L_Power"
+        },
+        "Power Male": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Power_Male"
+        },
+        "Guitar Jack": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Guitar_Jack"
+        },
+        "USB F": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_USB_F"
+        },
+        "Plug EU Simple_F": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Electric_EU.001"
+        },
+        "SATA Female Clamp": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Female_Clamp"
+        },
+        "Insulated Crimp Spade Connector M4": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Spade_Connector_M4"
+        },
+        "Insulated Crimp Connector Bullet Male": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Bullet_Male"
+        },
+        "Dual Twisted": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Dual_Twisted"
+        },
+        "Plug 220 UK": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Electric_UK.000"
+        },
+        "SATA Cable": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Cable"
+        },
+        "RCA": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_RCA"
+        },
+        "Laptop Adapter": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Laptop_Adapter"
+        },
+        "Insulated Blade Crimp Connector 4.8": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Blade_Crimp_Connector_4.8"
+        },
+        "Cloverleaf": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Cloverleaf"
+        },
+        "Triple Flat": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Triple_Flat"
+        },
+        "Insulated Blade Crimp Connector 6.3": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Blade_Crimp_Connector_6.3"
+        },
+        "SATA Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_SATA_Female"
+        },
+        "Industrial 220V M": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_220_Industrial_M"
+        },
+        "DVI": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_DVI"
+        },
+        "USB 2B": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_USB_2B"
+        },
+        "USB Port Female 9pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_USB_Port_Female_9pin"
+        },
+        "Round Simple": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Round_Simple"
+        },
+        "IDE Cable": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_IDE_Cable"
+        },
+        "Triple Twisted": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Triple_Twisted"
+        },
+        "Power Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Power_Female"
+        },
+        "UK Mainpower 3Way": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Electrical_Triple_UK.000"
+        },
+        "Adaptor 4pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Adaptor_4pin"
+        },
+        "Insulated Crimp Ring Connector M5": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Ring_Connector_M5"
+        },
+        "Data Flat": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Data_Flat"
+        },
+        "Insulated Crimp Connector Male 2.8": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Male_2.8"
+        },
+        "12 Volt 2 pin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_12v_2Pin"
+        },
+        "Insulated Crimp Ring Connector M6": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Ring_Connector_M6"
+        },
+        "Jack 3.5mm": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Jack_3.5"
+        },
+        "Insulated Crimp Ring Connector M3": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Ring_Connector_M3"
+        },
+        "Industrial 220V F closed": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_220_Industrial_F_B"
+        },
+        "Schuko Triple": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Schuko_triple"
+        },
+        "PC Plug": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_PC_Plug.000"
+        },
+        "Flex Metallic": {
+            "cable": true,
+            "blend": "Cables.blend",
+            "name": "WRLS_Flex_Metallic"
+        },
+        "Insulated Crimp Connector Female 6.3": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Female_6.3"
+        },
+        "Power adaptor L": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Power_adaptor_L"
+        },
+        "Scart": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Scart"
+        },
+        "Insulated Crimp Connector Female 4.8": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Female_4.8"
+        },
+        "XLR Female Long": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_XLR_Female_Long"
+        },
+        "Insulated Crimp Connector Bullet Female": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_Insulated_Crimp_Connector_Bullet_Female"
+        },
+        "IDE Female Thin": {
+            "cable": false,
+            "blend": "Cables.blend",
+            "name": "WRLS_IDE_Female_Thin"
+        }
+    },
     "Thumbs": [
         {
             "img": "WRLS_FlexMetallic.jpg",
@@ -905,6 +934,18 @@
         {
             "img": "WRLS_Insulated_Crimp_Connector_Bullet_Female.jpg",
             "id": "Insulated Crimp Connector Bullet Female"
+        },
+        {
+            "img": "WRLS_Mouse_Adaptor.jpg",
+            "id": "Mouse Adaptor"
+        },
+        {
+            "img": "WRLS_DVI.jpg",
+            "id": "DVI"
+        },
+        {
+            "img": "WRLS_Scart.jpg",
+            "id": "Scart"
         }
     ]
 }
