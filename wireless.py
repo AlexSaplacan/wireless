@@ -731,6 +731,68 @@ def write_custom_data():
     log.debug(c_data)
     return c_data
 
+def export_custom_parts(custom_data, dst_dir):
+
+    loc_dir = os.path.dirname(__file__)
+    dst_thumbs = os.path.join(dst_dir, 'thumbs')
+    dst_assets = os.path.join(dst_dir, 'assets')
+    os.mkdir(dst_thumbs)
+    os.mkdir(dst_assets)
+
+    for thumb in custom_data['Thumbs']:
+        img = thumb['img']
+        src = os.path.join(loc_dir, 'thumbs', img)
+        dst = os.path.join(dst_thumbs, img)
+        shutil.copyfile(src, dst)
+
+    models = [v['blend'] for k, v in custom_data['Models'].items()]
+    for model in models:
+        src = os.path.join(loc_dir, 'assets', model)
+        dst = os.path.join(dst_assets, model)
+        shutil.copyfile(src, dst)
+
+def check_import_directory(imp_path):
+    data = configs.data
+    json_path = os.path.join(imp_path, 'custom_configs.json')
+    new_models = []
+    try:
+        with open(json_path) as data_file:
+            c_data = json.load(data_file)
+    except FileNotFoundError:
+
+        err = 'Could not find custom_configs.json in %s. Aborting' % imp_path
+        return err
+
+    try:
+        new_models = c_data['model_types']['Custom Parts']
+    except KeyError:
+        err = 'Could not find Custom Parts list. Aborting'
+        return err
+    log.debug(new_models)
+
+    for model in new_models:
+        if model in data['Models']:
+            err = 'Model %s already in the wireless data. Aborting.' % model
+            return err
+
+        for item in c_data['Thumbs']:
+            if item['id'] != model:
+                continue
+            img_name = item['img']
+            img_src = os.path.join(imp_path, 'thumbs', img_name)
+            log.debug(img_src)
+            if os.path.isfile(img_src):
+                continue
+            err = 'Could not find thumbnail for %s. Aborting' % model
+            return err
+        blend = c_data['Models'][model]['blend']
+        pkg_src = os.path.join(imp_path, 'assets', blend)
+        if not os.path.isfile(pkg_src):
+            err = 'Could not find package for %s. Aborting' % model
+            return err
+    return None
+
+
 ############## OPERATORS ###############################
 
 class OBJECT_OT_Cable_Previous(bpy.types.Operator):
@@ -1047,7 +1109,6 @@ class OBJECT_OT_Delete_Part(bpy.types.Operator):
         os.remove(thumb_path)
         os.remove(lib_path)
 
-
         return {'FINISHED'}
 
 class OBJECT_OT_Custom_Next(bpy.types.Operator):
@@ -1095,6 +1156,10 @@ class OBJECT_OT_wireless_preferences_export_path(bpy.types.Operator):
             err = 'Permission denied %s' % c_dir_path
             self.report({'ERROR'}, err)
             return {'FINISHED'}
+        except NotADirectoryError:
+            err = '%s is not a directory path' % exp_path
+            self.report({'ERROR'}, err)
+            return {'FINISHED'}
 
         c_data = write_custom_data()
         json_path = os.path.join(c_dir_path, 'custom_configs.json')
@@ -1102,9 +1167,33 @@ class OBJECT_OT_wireless_preferences_export_path(bpy.types.Operator):
         with open(json_path, 'w') as outfile:
             json.dump(c_data, outfile, indent=4)
 
-        info = ("Exported with success to : %s" % exp_path)
+        export_custom_parts(c_data, c_dir_path)
+
+        info = ("Exported successfuly to : %s" % exp_path)
         self.report({'INFO'}, info)
         print(info)
+
+        return {'FINISHED'}
+
+class OBJECT_OT_wireless_preferences_import(bpy.types.Operator):
+
+    bl_idname = "wrls.preferences_import"
+    bl_label = 'Import custom parts'
+
+    def execute(self, context):
+
+        data = configs.data
+        user_preferences = context.user_preferences
+        addon_preferences = user_preferences.addons[__package__].preferences
+        imp_path = addon_preferences.imp_filepath
+
+        log.info('checking directory for wireless data: %s' % imp_path)
+
+        err = check_import_directory(imp_path)
+        if err is not None:
+            self.report({'ERROR'}, err)
+            return {'FINISHED'}
+        self.report({'INFO'}, 'Package OK')
 
         return {'FINISHED'}
 

@@ -246,17 +246,14 @@ class WirelessPreferencePanel(bpy.types.AddonPreferences):
     bl_idname = __package__
 
     exp_filepath = StringProperty(
-                name="Export filepath",
+                name="Export folder path",
                 subtype='FILE_PATH',
                 )
-    number = IntProperty(
-                name="Example Number",
-                default=4,
+    imp_filepath = StringProperty(
+                name="Import folder path",
+                subtype='FILE_PATH',
                 )
-    boolean = BoolProperty(
-                name="Example Boolean",
-                default=False,
-                )
+
 
     def draw(self, context):
         layout = self.layout
@@ -265,10 +262,19 @@ class WirelessPreferencePanel(bpy.types.AddonPreferences):
         box.prop(self, "exp_filepath")
         if self.exp_filepath == "":
             row = box.row()
-            row.label(text='Choose a directory to export',
+            row.label(text='Choose a destination folder to export',
                               icon='ERROR')
+        row = box.row()
+        row.enabled = bool(self.exp_filepath)
+        row.operator('wrls.preferences_export', text='Export Custom Collection')
 
-        box.operator('wrls.preferences_export', text='Export Custom Collection')
+        box = layout.box()
+        box.label(text="Import from folder")
+        box.prop(self, "imp_filepath")
+        row = box.row()
+        row.enabled = bool(self.imp_filepath)
+        row.operator('wrls.preferences_import', text='Import Custom Collection')
+
 
 
 
