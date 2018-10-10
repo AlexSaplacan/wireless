@@ -1086,7 +1086,7 @@ class OBJECT_OT_wireless_preferences_export_path(bpy.types.Operator):
         addon_preferences = user_preferences.addons[__package__].preferences
         exp_path = addon_preferences.exp_filepath
         now = datetime.datetime.now()
-        dir_name = now.strftime("%Y_%M_%d_wireless_custom_%f%S")
+        dir_name = now.strftime("%y_%m_%d_wireless_custom_%f%S")
         c_dir_path = os.path.join(exp_path, dir_name)
         log.info('Trying to write custom data to %s' % c_dir_path)
         try:
