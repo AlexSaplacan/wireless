@@ -2,6 +2,7 @@ import os
 import bpy
 from . import configs
 from . import wireless
+from bpy.props import StringProperty, IntProperty, BoolProperty
 
 
 ################## UI #####################
@@ -241,6 +242,33 @@ class OBJECT_PT_WirelessEdit(bpy.types.Panel):
             row.operator('wrls.delete_custom_part', text='Erase part')
 
 
+class WirelessPreferencePanel(bpy.types.AddonPreferences):
+    bl_idname = __package__
+
+    exp_filepath = StringProperty(
+                name="Export filepath",
+                subtype='FILE_PATH',
+                )
+    number = IntProperty(
+                name="Example Number",
+                default=4,
+                )
+    boolean = BoolProperty(
+                name="Example Boolean",
+                default=False,
+                )
+
+    def draw(self, context):
+        layout = self.layout
+        box = layout.box()
+        box.label(text="Export custom parts")
+        box.prop(self, "exp_filepath")
+        if self.exp_filepath == "":
+            row = box.row()
+            row.label(text='Choose a directory to export',
+                              icon='ERROR')
+
+        box.operator('wrls.preferences_export', text='Export Custom Collection')
 
 
 

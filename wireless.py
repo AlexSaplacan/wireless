@@ -8,6 +8,7 @@ import shutil
 import logging
 import json
 import numpy as np
+import datetime
 
 import bmesh
 
@@ -710,6 +711,25 @@ def delete_custom_part_data():
 
     data['Thumbs'] = [thumb for thumb in data['Thumbs'] if thumb['id'] != custom_part]
 
+def write_custom_data():
+    data = configs.data
+    c_data = data.copy()
+    c_parts = c_data['model_types']['Custom Parts']
+    log.debug(c_parts)
+    c_data['Models'] = {k : c_data['Models'][k] for k in c_parts}
+    log.debug(c_data['Models'])
+    c_data['Thumbs'] = [x for x in c_data['Thumbs'] if x['id'] in c_parts]
+    log.debug(c_data['Thumbs'])
+    for cat in c_data['cable_categories'] + c_data['tail_categories']:
+        if cat in c_data['model_types']:
+            if any(v in c_data['model_types'][cat] for v in c_parts):
+                c_cat = [v for v in c_data['model_types'][cat] if v in c_parts]
+                c_data['model_types'][cat] = c_cat
+                continue
+            c_data['model_types'].pop(cat, None)
+
+    log.debug(c_data)
+    return c_data
 
 ############## OPERATORS ###############################
 
@@ -1054,6 +1074,37 @@ class OBJECT_OT_Custom_Prev(bpy.types.Operator):
     def execute(self, context):
         wm_wrls = bpy.context.window_manager.wrls
         get_prev_item(context, wm_wrls.custom_parts, 'custom_parts')
+
+        return {'FINISHED'}
+
+class OBJECT_OT_wireless_preferences_export_path(bpy.types.Operator):
+    bl_idname = "wrls.preferences_export"
+    bl_label = 'Export custom parts'
+
+    def execute(self, context):
+        user_preferences = context.user_preferences
+        addon_preferences = user_preferences.addons[__package__].preferences
+        exp_path = addon_preferences.exp_filepath
+        now = datetime.datetime.now()
+        dir_name = now.strftime("%Y_%M_%d_wireless_custom_%f%S")
+        c_dir_path = os.path.join(exp_path, dir_name)
+        log.info('Trying to write custom data to %s' % c_dir_path)
+        try:
+            os.makedirs(c_dir_path)
+        except PermissionError:
+            err = 'Permission denied %s' % c_dir_path
+            self.report({'ERROR'}, err)
+            return {'FINISHED'}
+
+        c_data = write_custom_data()
+        json_path = os.path.join(c_dir_path, 'custom_configs.json')
+
+        with open(json_path, 'w') as outfile:
+            json.dump(c_data, outfile, indent=4)
+
+        info = ("Exported with success to : %s" % exp_path)
+        self.report({'INFO'}, info)
+        print(info)
 
         return {'FINISHED'}
 
