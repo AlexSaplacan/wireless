@@ -751,10 +751,13 @@ def export_custom_parts(custom_data, dst_dir):
         dst = os.path.join(dst_assets, model)
         shutil.copyfile(src, dst)
 
-def check_import_directory(imp_path):
-    data = configs.data
+
+def get_custom_data_from_path(imp_path):
+    """
+    return json data for the custom_configs.json within imp_path
+    """
     json_path = os.path.join(imp_path, 'custom_configs.json')
-    new_models = []
+
     try:
         with open(json_path) as data_file:
             c_data = json.load(data_file)
@@ -762,7 +765,12 @@ def check_import_directory(imp_path):
 
         err = 'Could not find custom_configs.json in %s. Aborting' % imp_path
         return err
+    return c_data
 
+
+def check_import_directory(imp_path):
+    data = configs.data
+    c_data = get_custom_data_from_path(imp_path)
     try:
         new_models = c_data['model_types']['Custom Parts']
     except KeyError:
@@ -791,6 +799,42 @@ def check_import_directory(imp_path):
             err = 'Could not find package for %s. Aborting' % model
             return err
     return None
+
+def import_parts(imp_path, c_data):
+
+    dst_img = os.path.join(os.path.dirname(__file__), 'thumbs')
+    dst_pkg = os.path.join(os.path.dirname(__file__), 'assets')
+    new_models = c_data['model_types']['Custom Parts']
+    for model in new_models:
+        for item in c_data['Thumbs']:
+            if item['id'] != model:
+                continue
+            img_name = item['img']
+            src_img = os.path.join(imp_path, 'thumbs', img_name)
+            log.info('Copying file from %s ---->>> %s' %(src_img, dst_img))
+            shutil.copy(src_img, dst_img)
+        src_pkg = os.path.join(imp_path, 'assets', c_data['Models'][model]['blend'])
+        log.info('Copying file from %s ---->>> %s' %(src_pkg, dst_pkg))
+        shutil.copy(src_pkg, dst_pkg)
+
+
+def import_parts_data(c_data):
+
+    data = configs.data
+    new_models = c_data['model_types']['Custom Parts']
+    for model in new_models:
+        data['Models'][model] = c_data['Models'][model]
+        for item in c_data['Thumbs']:
+            if item['id'] != model:
+                continue
+            data['Thumbs'].append(item)
+
+        for k, f in c_data['model_types'].items():
+            if model not in c_data['model_types'][k]:
+                continue
+            data['model_types'][k].append(model)
+
+
 
 
 ############## OPERATORS ###############################
@@ -1193,6 +1237,16 @@ class OBJECT_OT_wireless_preferences_import(bpy.types.Operator):
         if err is not None:
             self.report({'ERROR'}, err)
             return {'FINISHED'}
+
+        c_data = get_custom_data_from_path(imp_path)
+        import_parts(imp_path, c_data)
+        import_parts_data(c_data)
+
+        json_path = os.path.join(os.path.dirname(__file__), 'configs.json')
+        with open(json_path, 'w') as outfile:
+            json.dump(data, outfile, indent=4)
+
+        wireless_props.load_thumbs()
         self.report({'INFO'}, 'Package OK')
 
         return {'FINISHED'}
