@@ -15,10 +15,9 @@ import bmesh
 from . import configs
 from . import wireless_props
 
-
 # logging setup
 log = logging.getLogger('wrls.wireless')
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 def get_is_undefined_curve(context):

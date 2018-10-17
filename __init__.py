@@ -19,8 +19,8 @@
 bl_info = {
     "name": "Wireless",
     "author": "A.S. R.C. R.S.",
-    "version": (0, 6, 6),
-    "blender": (2, 78, 3),
+    "version": (0, 6, 7),
+    "blender": (2, 79, 3),
     "location": "3D View > Toolbar > Wireless",
     "description": "Transform quickly a curve into a cable",
     "warning": "",
@@ -35,7 +35,7 @@ if not logger.handlers:
     logger.addHandler(handler)
 
 # set logging level here
-handler.setLevel(logging.DEBUG)
+handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
 handler.setFormatter(formatter)
 
