@@ -74,6 +74,12 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
                 row = box.row()
                 row.prop(obj_wrls, "cable_stretch", text="")
 
+                # the target mesh
+                # row = box.row()
+                # row.label(text='Terrain target')
+                row = box.row()
+                row.prop_search(obj_wrls, 'shrink_target', bpy.data, 'objects')
+
             # the head endcap area
 
             if a_object.wrls.wrls_status == 'UNDEFINED':

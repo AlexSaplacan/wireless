@@ -35,7 +35,7 @@ if not logger.handlers:
     logger.addHandler(handler)
 
 # set logging level here
-handler.setLevel(logging.INFO)
+handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
 handler.setFormatter(formatter)
 

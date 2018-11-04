@@ -463,6 +463,13 @@ def add_cable_modifiers(cable, curve):
     wrls_curve = cable.modifiers.new(name='WRLS_Curve', type='CURVE')
     wrls_curve.object = curve
 
+    wrls_shrink = cable.modifiers.new(name='WRLS_Shrinkwrap', type='SHRINKWRAP')
+    wrls_shrink.wrap_method = 'PROJECT'
+    wrls_shrink.vertex_group = 'terrain_project'
+    wrls_shrink.use_project_z = True
+    wrls_shrink.use_positive_direction = True
+    wrls_shrink.use_negative_direction = True
+
 
 def measure_curve():
     """
@@ -542,7 +549,7 @@ def add_to_category(obj, data):
             data['model_types'][wm_wrls.cable_categories].append(obj.name)
 
     else:
-        data['model_types']['head_types'].append(obj.name)
+        # data['model_types']['head_types'].append(obj.name)
         data['model_types']['All Heads and Tails'].append(obj.name)
         if wm_wrls.head_categories != 'All Heads and Tails':
             data['model_types'][wm_wrls.head_categories].append(obj.name)

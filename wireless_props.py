@@ -19,7 +19,7 @@ from bpy.props import StringProperty
 from bpy.utils import previews
 
 log = logging.getLogger('wrls.props')
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 ############### Property Update Functions ############
 
@@ -776,6 +776,26 @@ def tail_get(self):
     return self['tail']
 
 
+def shrink_target_update(self, context):
+    active_obj = bpy.context.active_object
+    curve, cable, head, tail = wireless.find_parts(active_obj)
+    log.debug(cable.wrls.shrink_target)
+    if self.shrink_target == '':
+        cable.modifiers['WRLS_Shrinkwrap'].target = bpy.data.objects[self.shrink_target]
+
+    elif bpy.data.objects[self.shrink_target].type != 'MESH':
+        log.debug('Target is not a mesh, skipping')
+    else:
+        cable.modifiers['WRLS_Shrinkwrap'].target = bpy.data.objects[self.shrink_target]
+
+# def shrink_target_set(self, value):
+#     pass
+
+
+# def shrink_target_get(self):
+#     return 'OK'
+
+
 ############### Property Group ########################
 
 class WirelessPropertyGroup(PropertyGroup):
@@ -924,7 +944,14 @@ class WirelessPropertyGroup(PropertyGroup):
         soft_min=-0,
         soft_max=1
         )
-
+    shrink_target = StringProperty(
+        name='Target Terrain:',
+        description='Terrain_Target',
+        default='',
+        update=shrink_target_update,
+        # set=shrink_target_set,
+        # get=shrink_target_get
+         )
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
 
