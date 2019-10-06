@@ -1196,8 +1196,8 @@ class OBJECT_OT_wireless_preferences_export_path(bpy.types.Operator):
     bl_label = 'Export custom parts'
 
     def execute(self, context):
-        user_preferences = context.user_preferences
-        addon_preferences = user_preferences.addons[__package__].preferences
+        preferences = context.preferences
+        addon_preferences = preferences.addons[__package__].preferences
         exp_path = addon_preferences.exp_filepath
         now = datetime.datetime.now()
         dir_name = now.strftime("%y_%m_%d_wireless_custom_%f%S")
@@ -1236,8 +1236,8 @@ class OBJECT_OT_wireless_preferences_import(bpy.types.Operator):
     def execute(self, context):
 
         data = configs.data
-        user_preferences = context.user_preferences
-        addon_preferences = user_preferences.addons[__package__].preferences
+        preferences = context.preferences
+        addon_preferences = preferences.addons[__package__].preferences
         imp_path = addon_preferences.imp_filepath
 
         log.info('checking directory for wireless data: %s' % imp_path)
