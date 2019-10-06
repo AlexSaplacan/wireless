@@ -407,7 +407,8 @@
             "IDE Cable Thin",
             "SATA Cable"
         ],
-        "Custom Parts": [],
+        "Custom Parts": [
+        ],
         "All Heads and Tails": [
             "USB F",
             "USB Type C",
