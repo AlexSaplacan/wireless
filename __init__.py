@@ -19,8 +19,8 @@
 bl_info = {
     "name": "Wireless",
     "author": "A.S. R.C. R.S.",
-    "version": (0, 6, 7),
-    "blender": (2, 79, 3),
+    "version": (0, 7, 0),
+    "blender": (2, 80, 0),
     "location": "3D View > Toolbar > Wireless",
     "description": "Transform quickly a curve into a cable",
     "warning": "",
@@ -35,31 +35,31 @@ if not logger.handlers:
     logger.addHandler(handler)
 
 # set logging level here
-handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-handler.setFormatter(formatter)
+# handler.setLevel(logging.INFO)
+# formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+# handler.setFormatter(formatter)
 
 if "bpy" in locals():
 
     import imp
 
     imp.reload(configs)
+    imp.reload(wireless_props)
     imp.reload(wireless)
     imp.reload(wireless_ui)
-    imp.reload(wireless_props)
 
     configs.init()
 
 else:
-    # import logging
-    # logger = logging.getLogger("wrls")
-    # handler = logging.StreamHandler()
+    import logging
+    logger = logging.getLogger("wrls")
+    handler = logging.StreamHandler()
 
-    # # set logging level here
-    # logger.addHandler(handler)
-    # handler.setLevel(logging.DEBUG)
-    # formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
-    # handler.setFormatter(formatter)
+    # set logging level here
+    logger.addHandler(handler)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(levelname)s - %(name)s - %(message)s')
+    handler.setFormatter(formatter)
 
 
     import bpy
@@ -67,24 +67,22 @@ else:
         configs,
         wireless,
         wireless_ui,
-        wireless_props,
+        wireless_props
         )
 
     configs.init()
 
 def register():
     print("Start register")
-    bpy.utils.register_module(__name__)
-    wireless.register()
     wireless_props.register()
+    wireless.register()
     wireless_ui.register()
     print("Register done")
 
 def unregister():
-    bpy.utils.unregister_module(__name__)
+    wireless_ui.unregister()
     wireless.unregister()
     wireless_props.unregister()
-    wireless_ui.unregister()
 
 
 

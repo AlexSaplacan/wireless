@@ -43,12 +43,20 @@ def set_wrls_status(context, obj_name, value):
         value (str(never None)) - predefined value, enum in
                                 ['UNDEFINED', 'CURVE', 'CABLE', 'HEAD', 'TAIL']
 
-    Returns
+    Return
         None
     """
     bpy.data.objects[obj_name].wrls.wrls_status = value
     log.debug("wrls_status of %s changed to %s" % (obj_name, value))
 
+
+def set_wrls_collection():
+    if 'WrlS' in bpy.data.collections:
+        return bpy.data.collections['WrlS']
+    else:
+        wrls_coll = bpy.data.collections.new('WrlS')
+        master_coll = bpy.context.scene.collection
+        master_coll.children.link(wrls_coll)
 
 
 def import_model(obj_name):
@@ -77,13 +85,13 @@ def import_model(obj_name):
             raise NameError("The object does not exists")
     new_model = data_to.objects[0]
     if 'offset' in models[obj_name]:
-        new_model.wrls.array_offset =  models[obj_name]['offset']
+        new_model.wrls.array_offset = models[obj_name]['offset']
     return new_model
 
 
 def setup_studio_scene():
     """
-    Append the studi scene.
+    Append the studio scene.
     """
 
     studio_path = os.path.join(os.path.dirname(__file__), 'assets', 'Studio.blend')
@@ -94,7 +102,9 @@ def setup_studio_scene():
         else:
             raise NameError("Scene does not exist")
 
-    bpy.context.window.screen.scene = bpy.data.scenes['Studio Scene']
+    # bpy.context.window.screen.scene = bpy.data.scenes['Studio Scene']
+    studio_scene = bpy.data.scenes['Studio Scene']
+    bpy.context.window.scene = studio_scene
 
 
 def get_co(mesh):
@@ -352,11 +362,11 @@ def connect_head(cable, head):
     # materials setup for the head
     setup_materials(cable, head_model)
     cable.modifiers["WRLS_Array"].end_cap = head_model
-    bpy.context.scene.objects.link(head_model)
+    bpy.context.scene.collection.children['WrlS'].objects.link(head_model)
     # mirror to orient the head in the right direction
     mirror_and_translate_head()
 
-    head_model.hide = True
+    head_model.hide_viewport = True
     head_model.hide_render = True
     head_model.parent = cable.parent
 
@@ -372,12 +382,12 @@ def connect_tail(cable, tail):
     """
     tail_model = import_model(tail)
     tail_model.wrls.wrls_status = 'TAIL'
-    bpy.context.scene.objects.link(tail_model)
+    bpy.context.scene.collection.children['WrlS'].objects.link(tail_model)
     setup_materials(cable, tail_model, False)
     cable.modifiers["WRLS_Array"].start_cap = tail_model
     # mirror to orient the tail in the right direction
 
-    tail_model.hide = True
+    tail_model.hide_viewport = True
     tail_model.hide_render = True
     tail_model.parent = cable.parent
 
@@ -412,9 +422,9 @@ def setup_materials(cable, cap, is_head=True):
             bpy.ops.object.editmode_toggle()
 
         # now perform stuff on the tail
-        cap.select = True
-        cap.hide = False
-        bpy.context.scene.objects.active = cap
+        cap.select_set(True)
+        cap.hide_viewport = False
+        bpy.context.view_layer.objects.active = cap
         bpy.ops.object.editmode_toggle()
 
         # safty check... how many material slots we have?
@@ -436,12 +446,12 @@ def setup_materials(cable, cap, is_head=True):
             cable.material_slots[i + 3].material = cap.material_slots[i].material
 
         bpy.ops.object.editmode_toggle()
-        cap.hide = True
+        cap.hide_viewport = True
         # now check if to use the cable material
         if cable.wrls.tail_use_cable_mat:
             cable.material_slots[4].material = cable.material_slots[0].material
-        a_object.select = True
-        bpy.context.scene.objects.active = a_object
+        a_object.select_set(True)
+        bpy.context.view_layer.objects.active = a_object
 
 
 def add_cable_modifiers(cable, curve):
@@ -993,8 +1003,8 @@ class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
         bpy.data.objects.remove(cable, do_unlink=True)
 
          # select the curve and set wrls_status to UNDEFINED
-        context.scene.objects.active = curve
-        curve.select = True
+        context.view_layer.objects.active = curve
+        curve.select_set(True)
         configs.switch = True
         bpy.ops.wm.properties_remove(data_path="object",
                                      property="wrls")
@@ -1043,7 +1053,7 @@ class OBJECT_OT_Prepare_Thumbnail(bpy.types.Operator):
         bpy.data.scenes['Studio Scene'].render.filepath = render_filepath
         # zoom in and out
         bpy.ops.object.select_all(action='DESELECT')
-        dummy.select = True
+        dummy.select_set(True)
         bpy.ops.view3d.camera_to_view_selected()
         camera_step_back()
         bpy.ops.render.render(write_still=True, scene='Studio Scene')
@@ -1257,10 +1267,32 @@ class DUMMY_OT(bpy.types.Operator):
     def execute(self, context):
         return {'FINISHED'}
 
+classes = (
+           OBJECT_OT_Cable_Previous,
+           OBJECT_OT_Cable_Next,
+           OBJECT_OT_Custom_Next,
+           OBJECT_OT_Custom_Prev,
+           OBJECT_OT_Delete_Part,
+           OBJECT_OT_Head_Next,
+           OBJECT_OT_Head_Prev,
+           OBJECT_OT_Tail_Next,
+           OBJECT_OT_Tail_Prev,
+           OBJECT_OT_Prepare_Thumbnail,
+           OBJECT_OT_Purge_Wireless,
+           OBJECT_OT_Reset_Part,
+           OBJECT_OT_Save_Part,
+           OBJECT_OT_Wireless_Apply,
+           OBJECT_OT_wireless_preferences_import,
+           OBJECT_OT_wireless_preferences_export_path,
+           DUMMY_OT
+           )
+
 
 def register():
-    "register"
-
+    for clss in classes:
+        bpy.utils.register_class(clss)
+        'register'
 
 def unregister():
-    "unregister"
+    for clss in reversed(classes):
+        bpy.utils.register_class(clss)

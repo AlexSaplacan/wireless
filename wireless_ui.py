@@ -5,13 +5,41 @@ from . import wireless
 from bpy.props import StringProperty, IntProperty, BoolProperty
 
 
+# imported function from wireless as could not import
+
+def error_in_material_slots(obj):
+    """
+    Check if the object has at max 1 material
+    assigned to slot [0] if cable
+    or if has maximum 3 materials assigned to
+    slots [0-2] if head/tail
+
+    Returns False if no error, or errir nessage of first found
+    """
+    error = None 
+    type_of_part = bpy.context.window_manager.wrls.type_of_part
+
+    if type_of_part == 'Cable':
+        if len(obj.material_slots) > 1:
+            for slot in obj.material_slots[1:]:
+                if slot.material == None:
+                    continue
+                error = 'Found more than one material on cable {}'.format(obj.name)
+                break
+
+    if type_of_part == 'Head / Tail':
+        if len(obj.material_slots) > 3:
+            error = 'Max 3 materials allowed on Heads/Tails'
+
+    return error
+
 ################## UI #####################
 
 class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     bl_label = "Create some Wires"
     bl_idname = "OBJECT_PT_wireless"
     bl_space_type = 'VIEW_3D'
-    bl_region_type = 'TOOLS'
+    bl_region_type = 'UI'
     bl_category = "Wireless"
 
     # @classmethod
@@ -32,125 +60,125 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
         @classmethod
         def poll(cls, context):
             return context.object != None
-        try:
 
-            wm_wrls = bpy.context.window_manager.wrls
-            obj_wrls = bpy.context.active_object.wrls
-            curve, cable, head, tail  = wireless.find_parts(bpy.context.active_object)
-            layout = self.layout
+        wm_wrls = bpy.context.window_manager.wrls
+        obj_wrls = bpy.context.active_object.wrls
+        # curve, cable, head, tail  = wireless.find_parts(bpy.context.active_object)
+        layout = self.layout
+        box = layout.box()
+        # setting layout to Active , but I see this still allows me to change previews,
+        # therefore, I could make strange choiches
+        a_object = context.object
+        if a_object.type != 'CURVE' and a_object.wrls.wrls_status == 'UNDEFINED':
+            layout.label(text="Plese select a curve")
+        elif a_object.wrls.wrls_status == 'UNDEFINED':
+            layout.label(text="Enable wireless")
+        elif a_object.wrls.wrls_status != 'UNDEFINED':
+            # layout.active = False
+            box.label(text='Category:')
+            row = box.row()
+            row.prop(wm_wrls, 'cable_categories', text='')
+            row = box.row()
+            row.template_icon_view(wm_wrls, "cables_types", show_labels=True, scale=4)
+            row = box.row()
+            col = row.column()
+            col.scale_x = 4
+            col.operator("wrls.cable_prev", icon="TRIA_LEFT", text="")
+            col = row.column()
+            col = row.column()
+            col.scale_x = 4
+            col.operator("wrls.cable_next", icon="TRIA_RIGHT", text="")
+
+            # the thicknes slider
+            row = box.row()
+            row.label(text="Thickness")
+            row = box.row()
+            row.prop(obj_wrls, "cable_thickness", text="")
+
+            # the stretch slider
+            row = box.row()
+            row.label(text="Stretch")
+            row = box.row()
+            row.prop(obj_wrls, "cable_stretch", text="")
+
+        # the head endcap area
+
+        if a_object.wrls.wrls_status == 'UNDEFINED':
+            pass
+        else:
             box = layout.box()
-            # setting layout to Active , but I see this still allows me to change previews,
-            # therefore, I could make strange choiches
-            a_object = context.object
-            if a_object.type != 'CURVE' and a_object.wrls.wrls_status == 'UNDEFINED':
-                layout.label(text="Plese select a curve")
-            elif a_object.wrls.wrls_status == 'UNDEFINED':
-                layout.label(text="Enable wireless")
-            elif a_object.wrls.wrls_status != 'UNDEFINED':
-                # layout.active = False
+            row = box.row()
+            row.prop(obj_wrls, "use_head", text="Use head end cap")
+
+            if not a_object.wrls.use_head:
+                box.label(text="")
+            else:
+                # box.active = False
                 box.label(text='Category:')
                 row = box.row()
-                row.prop(wm_wrls, 'cable_categories', text='')
+                row.prop(wm_wrls, 'head_categories', text='')
                 row = box.row()
-                row.template_icon_view(wm_wrls, "cables_types", show_labels=True, scale=4)
+                row.template_icon_view(wm_wrls, "head_types", show_labels=True, scale=4)
                 row = box.row()
                 col = row.column()
                 col.scale_x = 4
-                col.operator("wrls.cable_prev", icon="TRIA_LEFT", text="")
+                col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
                 col = row.column()
                 col = row.column()
                 col.scale_x = 4
-                col.operator("wrls.cable_next", icon="TRIA_RIGHT", text="")
-
-                # the thicknes slider
+                col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
                 row = box.row()
-                row.label(text="Thickness")
-                row = box.row()
-                row.prop(obj_wrls, "cable_thickness", text="")
+                row.prop(obj_wrls, "head_use_cable_mat", text="Use cable material")
 
-                # the stretch slider
-                row = box.row()
-                row.label(text="Stretch")
-                row = box.row()
-                row.prop(obj_wrls, "cable_stretch", text="")
-
-            # the head endcap area
-
-            if a_object.wrls.wrls_status == 'UNDEFINED':
-                pass
-            else:
-                box = layout.box()
-                row = box.row()
-                row.prop(obj_wrls, "use_head", text="Use head end cap")
-
-                if not a_object.wrls.use_head:
-                    box.label(text="")
-                else:
-                    # box.active = False
-                    box.label(text='Category:')
-                    row = box.row()
-                    row.prop(wm_wrls, 'head_categories', text='')
-                    row = box.row()
-                    row.template_icon_view(wm_wrls, "head_types", show_labels=True, scale=4)
-                    row = box.row()
-                    col = row.column()
-                    col.scale_x = 4
-                    col.operator("wrls.head_prev", icon="TRIA_LEFT", text="")
-                    col = row.column()
-                    col = row.column()
-                    col.scale_x = 4
-                    col.operator("wrls.head_next", icon="TRIA_RIGHT", text="")
-                    row = box.row()
-                    row.prop(obj_wrls, "head_use_cable_mat", text="Use cable material")
-
-            # the tail endcap area
-            if a_object.wrls.wrls_status == 'UNDEFINED':
-                pass
-            else:
-                box = layout.box()
-                row = box.row()
-                row.prop(obj_wrls, "use_tail", text="Use tail end cap")
-
-                if not a_object.wrls.use_tail:
-                    box.label(text="")
-                else:
-                    # box.active = False
-                    box.label(text='Category:')
-                    row = box.row()
-                    row.prop(wm_wrls, 'tail_categories', text='')
-                    row = box.row()
-                    row.template_icon_view(wm_wrls, "tail_types", show_labels=True, scale=4)
-                    row = box.row()
-                    col = row.column()
-                    col.scale_x = 4
-                    col.operator("wrls.tail_prev", icon="TRIA_LEFT", text="")
-                    col = row.column()
-                    col = row.column()
-                    col.scale_x = 4
-                    col.operator("wrls.tail_next", icon="TRIA_RIGHT", text="")
-                    row = box.row()
-                    row.prop(obj_wrls, "tail_use_cable_mat", text="Use cable material")
-
-            # a box with apply and purge buttons:
-            # the tail endcap area
-            if a_object.wrls.wrls_status == 'UNDEFINED':
-                pass
-            else:
-                box = layout.box()
-                box.label(text="Utilities")
-                row = box.row()
-                row.operator("wrls.apply_wrls", icon="FILE_TICK", text="Apply Wireless Data")
-                row = box.row()
-                row.operator("wrls.purge_wrls", icon="PARTICLES", text="Purge Wireless Data")
-        except:
+        # the tail endcap area
+        if a_object.wrls.wrls_status == 'UNDEFINED':
             pass
+        else:
+            box = layout.box()
+            row = box.row()
+            row.prop(obj_wrls, "use_tail", text="Use tail end cap")
+
+            if not a_object.wrls.use_tail:
+                box.label(text="")
+            else:
+                # box.active = False
+                box.label(text='Category:')
+                row = box.row()
+                row.prop(wm_wrls, 'tail_categories', text='')
+                row = box.row()
+                row.template_icon_view(wm_wrls, "tail_types", show_labels=True, scale=4)
+                row = box.row()
+                col = row.column()
+                col.scale_x = 4
+                col.operator("wrls.tail_prev", icon="TRIA_LEFT", text="")
+                col = row.column()
+                col = row.column()
+                col.scale_x = 4
+                col.operator("wrls.tail_next", icon="TRIA_RIGHT", text="")
+                row = box.row()
+                row.prop(obj_wrls, "tail_use_cable_mat", text="Use cable material")
+
+        # a box with apply and purge buttons:
+        # the tail endcap area
+        if a_object.wrls.wrls_status == 'UNDEFINED':
+            pass
+        else:
+            box = layout.box()
+            box.label(text="Utilities")
+            row = box.row()
+            row.operator("wrls.apply_wrls", icon="FILE_TICK", text="Apply Wireless Data")
+            row = box.row()
+            row.operator("wrls.purge_wrls", icon="PARTICLES", text="Purge Wireless Data")
+        # except:
+            # print('something Went wrong')
+            # pass
 
 
 class OBJECT_PT_WirelessCreate(bpy.types.Panel):
     bl_label = 'Add to wireless'
     bl_id_name = 'OBJECT_PT_Wirelessadd'
     bl_space_type = 'VIEW_3D'
-    bl_region_type = 'TOOLS'
+    bl_region_type = 'UI'
     bl_category = 'Wireless'
 
     @classmethod
@@ -170,12 +198,12 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                 box = layout.box()
                 row = box.row()
                 row.prop(obj, 'name')
-                if wireless.check_name_taken(obj):
+                if(obj.name in configs.data['Models']):
                     row = box.row()
                     row.label(text='Name already in use',
                               icon='ERROR')
                     errors += 1
-                mat_error = wireless.error_in_material_slots(obj)
+                mat_error = error_in_material_slots(obj)
                 if mat_error:
                     row = box.row()
                     row.label(text=mat_error,
@@ -200,7 +228,7 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                     row.prop(wm_wrls, 'new_item_offset', text='Relative offset')
                 row = box.row()
                 col = row.column()
-                col.operator("wrls.reset_part", icon='RECOVER_AUTO', text='Reset')
+                col.operator("wrls.reset_part", icon='FILE_REFRESH', text='Reset')
                 col = row.column()
                 col.enabled = obj.wrls.has_thumb and errors == 0
                 col.operator("wrls.save_part", icon='NEWFOLDER', text='Save Part')
@@ -211,7 +239,7 @@ class OBJECT_PT_WirelessEdit(bpy.types.Panel):
     bl_label = 'Edit custom part'
     bl_id_name = 'OBJECT_PT_Wirelessedit'
     bl_space_type = 'VIEW_3D'
-    bl_region_type = 'TOOLS'
+    bl_region_type = 'UI'
     bl_category = 'Wireless'
 
     @classmethod
@@ -245,11 +273,11 @@ class OBJECT_PT_WirelessEdit(bpy.types.Panel):
 class WirelessPreferencePanel(bpy.types.AddonPreferences):
     bl_idname = __package__
 
-    exp_filepath = StringProperty(
+    exp_filepath: StringProperty(
                 name="Export folder path",
                 subtype='FILE_PATH',
                 )
-    imp_filepath = StringProperty(
+    imp_filepath: StringProperty(
                 name="Import folder path",
                 subtype='FILE_PATH',
                 )
@@ -276,12 +304,18 @@ class WirelessPreferencePanel(bpy.types.AddonPreferences):
         row.operator('wrls.preferences_import', text='Import Custom Collection')
 
 
-
+classes = (
+    OBJECT_PT_WireLessPanel,
+    OBJECT_PT_WirelessCreate,
+    OBJECT_PT_WirelessEdit,
+    WirelessPreferencePanel,
+    )
 
 
 def register():
-
-    "register"
+    for clss in classes:
+        bpy.utils.register_class(clss)
 
 def unregister():
-    "unregister"
+    for clss in reversed(classes):
+        bpy.utils.register_class(clss)
