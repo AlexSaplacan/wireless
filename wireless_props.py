@@ -1027,6 +1027,9 @@ def register():
 
 def unregister():
     """Unregister here:"""
+    classes = (WirelessPropertyGroup,
+            WirelessSettingsPropertyGroup,
+            )
 
     for clss in reversed(classes):
         bpy.utils.unregister_class(clss)

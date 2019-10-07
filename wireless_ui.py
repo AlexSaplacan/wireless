@@ -318,4 +318,4 @@ def register():
 
 def unregister():
     for clss in reversed(classes):
-        bpy.utils.register_class(clss)
+        bpy.utils.unregister_class(clss)
