@@ -104,7 +104,8 @@ def toggle_wireless(self, context):
                 cable = cable.parent
                 cable.select_set(True)
                 # make active the curve so doesn't return error on wireless_ui
-                bpy.context.scene.objects.active = bpy.data.objects[cable.name]
+                # bpy.context.scene.objects.active = bpy.data.objects[cable.name]
+                context.view_layer.objects.active = bpy.data.objects[cable.name]
                 # update the scene to avoid error
                 bpy.context.scene.update()
                 wireless.wrls_off_and_delete_children(cable)
@@ -707,7 +708,8 @@ def update_head_slide(self, context):
         factor = value - old_value
 
         head.hide = False
-        bpy.context.scene.objects.active = head
+        # bpy.context.scene.objects.active = head
+        context.view_layer.objects.active = head
 
         data = head.data
         if not data.is_editmode:

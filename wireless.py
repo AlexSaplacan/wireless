@@ -951,7 +951,8 @@ class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
         curve, cable, head, tail = find_parts(active_object)
 
-        context.scene.objects.active = cable
+        # context.scene.objects.active = cable
+        context.view_layer.objects.active = cable
 
         # find WRLS modifiers and apply them
         for modifier in cable.modifiers:
@@ -966,14 +967,15 @@ class OBJECT_OT_Wireless_Apply(bpy.types.Operator):
 
         # cable now has no parent
         a_object = context.active_object
-        a_object.select = True
+        a_object.select_set(True)
         log.debug("Before_clear active object is %s" % a_object)
         bpy.ops.object.parent_clear(type='CLEAR_KEEP_TRANSFORM')
 
         # set WRLS status to UNDEFINED to cable and curve
         configs.switch = True
         bpy.ops.wm.properties_remove(data_path="object", property="wrls")
-        context.scene.objects.active = curve
+        # context.scene.objects.active = curve
+        context.view_layer.objects.active = curve
         bpy.ops.wm.properties_remove(data_path="object", property="wrls")
         configs.switch = False
 
