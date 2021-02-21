@@ -1,16 +1,15 @@
 # ##############################
 # wireless.py
 # ##############################
-
-import bpy
+import datetime
+import json
+import logging
 import os
 import shutil
-import logging
-import json
-import numpy as np
-import datetime
 
 import bmesh
+import bpy
+import numpy as np
 
 from . import configs
 from . import wireless_props
@@ -209,10 +208,11 @@ def get_list_and_position(context, list_name, part_type):
         example [list_name, 2]
     """
     wm_wrls = context.window_manager.wrls
-    part_types = {'cables_types': 'cable_categories',
-                  'head_types': 'head_categories',
-                  'tail_types': 'tail_categories',
-                  'custom_parts': 'Custom Parts'
+    part_types = {
+        'cables_types': 'cable_categories',
+                      'head_types': 'head_categories',
+                      'tail_types': 'tail_categories',
+                      'custom_parts': 'Custom Parts',
 
     }
     try:
@@ -563,9 +563,10 @@ def add_thumb(obj, data):
     Adds a new element to data['Thumbs']
     """
     img_name = convert_new_model_name(obj.name) + '.jpg'
-    new_thumb = {'id': obj.name,
-                 'img': img_name
-                }
+    new_thumb = {
+        'id': obj.name,
+         'img': img_name,
+    }
     data['Thumbs'].append(new_thumb)
 
 
@@ -580,9 +581,11 @@ def add_new_model(obj, data):
     type_of_part = wm_wrls.type_of_part
     cable = True if type_of_part == 'Cable' else False
 
-    obj_info = {'name': new_obj_name,
-                'blend': obj_name + '.blend',
-                'cable': cable}
+    obj_info = {
+        'name': new_obj_name,
+        'blend': obj_name + '.blend',
+        'cable': cable,
+    }
     if cable:
         obj_info['offset'] = wm_wrls.new_item_offset
 
@@ -603,8 +606,10 @@ def write_new_part_to_library():
     actor_name = sel_objects[0].name
     new_name = convert_new_model_name(actor_name)
     bpy.data.objects[actor_name].name = new_name
-    custom_filepath = os.path.join(os.path.dirname(__file__),
-                                   'assets', actor_name + '.blend')
+    custom_filepath = os.path.join(
+        os.path.dirname(__file__),
+        'assets', actor_name + '.blend',
+    )
 
     if os.path.exists(custom_filepath):
         os.remove(custom_filepath)
@@ -1008,8 +1013,10 @@ class OBJECT_OT_Purge_Wireless(bpy.types.Operator):
         context.view_layer.objects.active = curve
         curve.select_set(True)
         configs.switch = True
-        bpy.ops.wm.properties_remove(data_path="object",
-                                     property="wrls")
+        bpy.ops.wm.properties_remove(
+            data_path="object",
+            property="wrls",
+        )
         configs.switch = False
         log.info("All wrls data cleaned.")
 
@@ -1286,8 +1293,8 @@ classes = (
            OBJECT_OT_Wireless_Apply,
            OBJECT_OT_wireless_preferences_import,
            OBJECT_OT_wireless_preferences_export_path,
-           DUMMY_OT
-           )
+           DUMMY_OT,
+)
 
 
 def register():

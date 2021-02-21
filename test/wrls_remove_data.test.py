@@ -1,6 +1,8 @@
-import bpy
-import unittest
 import json
+import unittest
+
+import bpy
+
 from wireless import wireless
 
 class TestAddData(unittest.TestCase):

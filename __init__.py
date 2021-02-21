@@ -26,7 +26,7 @@ bl_info = {
     "warning": "",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "3D View"
+    "category": "3D View",
 }
 import logging
 logger = logging.getLogger("wrls")
@@ -67,8 +67,8 @@ else:
         configs,
         wireless,
         wireless_ui,
-        wireless_props
-        )
+        wireless_props,
+    )
 
     configs.init()
 

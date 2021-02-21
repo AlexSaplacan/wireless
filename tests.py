@@ -1,8 +1,8 @@
 import os
-import subprocess
-import shutil
-import sys
 import re
+import shutil
+import subprocess
+import sys
 
 if os.path.exists('./test/tmp'):
     shutil.rmtree('./test/tmp', ignore_errors=True)
@@ -45,22 +45,26 @@ for root, dirs, files in os.walk('test'):
             blendFile = pyFile.replace('.py', '.blend')
             print ("Running file "+ pyFile)
 
-            args = [BLENDER_EXE,
-                    '--addons',
-                    'wireless',
-                    '--factory-startup',
-                    '-noaudio',
-                    '-b']
+            args = [
+                BLENDER_EXE,
+                '--addons',
+                'wireless',
+                '--factory-startup',
+                '-noaudio',
+                '-b',
+            ]
             if os.path.exists(blendFile):
                 args.append(blendFile)
 
             else:
-                print('WARNING: Blend file ' +
-                      blendFile + 'does not exists')
+                print(
+                    'WARNING: Blend file ' +
+                    blendFile + 'does not exists',
+                )
 
             args.append('--python')
             args.append(pyFile)
 
             out = subprocess.check_output(args, stderr=subprocess.STDOUT)
 
-            print out
+            print(out)

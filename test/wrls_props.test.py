@@ -1,8 +1,9 @@
 """
 Test cases for curve and cables property groups
 """
-import bpy
 import unittest
+
+import bpy
 # import runTestCases
 
 

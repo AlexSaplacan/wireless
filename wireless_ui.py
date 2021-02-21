@@ -1,8 +1,12 @@
 import os
+
 import bpy
+from bpy.props import BoolProperty
+from bpy.props import IntProperty
+from bpy.props import StringProperty
+
 from . import configs
 from . import wireless
-from bpy.props import StringProperty, IntProperty, BoolProperty
 
 
 # imported function from wireless as could not import
@@ -200,14 +204,18 @@ class OBJECT_PT_WirelessCreate(bpy.types.Panel):
                 row.prop(obj, 'name')
                 if(obj.name in configs.data['Models']):
                     row = box.row()
-                    row.label(text='Name already in use',
-                              icon='ERROR')
+                    row.label(
+                        text='Name already in use',
+                        icon='ERROR',
+                    )
                     errors += 1
                 mat_error = error_in_material_slots(obj)
                 if mat_error:
                     row = box.row()
-                    row.label(text=mat_error,
-                              icon='ERROR')
+                    row.label(
+                        text=mat_error,
+                        icon='ERROR',
+                    )
                     errors += 1
 
                 row = box.row()
@@ -276,11 +284,11 @@ class WirelessPreferencePanel(bpy.types.AddonPreferences):
     exp_filepath: StringProperty(
                 name="Export folder path",
                 subtype='FILE_PATH',
-                )
+    )
     imp_filepath: StringProperty(
                 name="Import folder path",
                 subtype='FILE_PATH',
-                )
+    )
 
 
     def draw(self, context):
@@ -290,8 +298,10 @@ class WirelessPreferencePanel(bpy.types.AddonPreferences):
         box.prop(self, "exp_filepath")
         if self.exp_filepath == "":
             row = box.row()
-            row.label(text='Choose a destination folder to export',
-                              icon='ERROR')
+            row.label(
+                text='Choose a destination folder to export',
+                icon='ERROR',
+            )
         row = box.row()
         row.enabled = bool(self.exp_filepath)
         row.operator('wrls.preferences_export', text='Export Custom Collection')
@@ -309,7 +319,7 @@ classes = (
     OBJECT_PT_WirelessCreate,
     OBJECT_PT_WirelessEdit,
     WirelessPreferencePanel,
-    )
+)
 
 
 def register():

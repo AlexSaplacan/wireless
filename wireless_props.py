@@ -1,22 +1,21 @@
-import os
 import logging
-import bpy
-import bmesh
 import math
+import os
+
+import bmesh
+import bpy
 import mathutils
 import numpy as np
+from bpy.props import BoolProperty
+from bpy.props import EnumProperty
+from bpy.props import FloatProperty
+from bpy.props import PointerProperty
+from bpy.props import StringProperty
+from bpy.types import PropertyGroup
+from bpy.utils import previews
 
 from . import configs
 from . import wireless
-
-from bpy.types import PropertyGroup
-from bpy.props import BoolProperty
-from bpy.props import PointerProperty
-from bpy.props import EnumProperty
-from bpy.props import FloatProperty
-from bpy.props import StringProperty
-
-from bpy.utils import previews
 
 log = logging.getLogger('wrls.props')
 log.setLevel(logging.INFO)
@@ -28,8 +27,8 @@ status_items = [
     ("CURVE", "Curve", "", 1),
     ("CABLE", "Cable", "", 2),
     ("HEAD", "Head", "", 3),
-    ("TAIL", "Tail", "", 4)
-    ]
+    ("TAIL", "Tail", "", 4),
+]
 
 
 def toggle_wireless(self, context):
@@ -129,7 +128,8 @@ def load_thumbs():
 
     pcoll_thumbs = bpy.utils.previews.new()
     pcoll_thumbs_dir = os.path.join(
-        os.path.dirname(__file__), "thumbs")
+        os.path.dirname(__file__), "thumbs",
+    )
 
     thumbs_list = configs.data["Thumbs"]
 
@@ -789,13 +789,13 @@ class WirelessPropertyGroup(PropertyGroup):
     wrls_status: EnumProperty(
         name='Status',
         default='UNDEFINED',
-        items=status_items
-        )
+        items=status_items,
+    )
     enable: BoolProperty(
         default=False,
         description="Enable Wireless",
-        update=toggle_wireless
-        )
+        update=toggle_wireless,
+    )
 
     curve: StringProperty(
         name='Curve',
@@ -803,8 +803,8 @@ class WirelessPropertyGroup(PropertyGroup):
         default='None',
         update=curve_update,
         set=curve_set,
-        get=curve_get
-        )
+        get=curve_get,
+    )
 
     cable: StringProperty(
         name='Cable',
@@ -812,16 +812,16 @@ class WirelessPropertyGroup(PropertyGroup):
         default='None',
         update=cable_update,
         set=cable_set,
-        get=cable_get
-        )
+        get=cable_get,
+    )
     head: StringProperty(
         name='Head',
         description='The head object',
         default='None',
         update=head_update,
         set=head_set,
-        get=head_get
-        )
+        get=head_get,
+    )
 
     tail: StringProperty(
         name='Tail',
@@ -829,18 +829,18 @@ class WirelessPropertyGroup(PropertyGroup):
         default='None',
         update=tail_update,
         set=tail_set,
-        get=tail_get
-        )
+        get=tail_get,
+    )
     use_head: BoolProperty(
         default=False,
         description="Use head end cap",
-        update=toggle_head_end_cap
-        )
+        update=toggle_head_end_cap,
+    )
     use_tail: BoolProperty(
         default=False,
         description="Use tail end cap",
-        update=toggle_tail_end_cap
-        )
+        update=toggle_tail_end_cap,
+    )
     cable_thickness: FloatProperty(
         name="Cable thickness",
         description="Set the Cable thickness",
@@ -849,36 +849,36 @@ class WirelessPropertyGroup(PropertyGroup):
         max=100.0,
         soft_min=0.01,
         soft_max=10.0,
-        update=update_cable_thickness
-        )
+        update=update_cable_thickness,
+    )
     old_c_thickness: FloatProperty(
         name="Old thickness",
         description="",
-        default=1.0
-        )
+        default=1.0,
+    )
     # cable_x stores the x size of the cable without modifiers (used for the head translation)
     cable_x: FloatProperty(
         name="cable_x",
         description="",
-        default=0.01
-        )
+        default=0.01,
+    )
     head_use_cable_mat: BoolProperty(
         name="hea use cable material",
         description="",
         default=False,
-        update=head_use_cable_mat_toggle
-        )
+        update=head_use_cable_mat_toggle,
+    )
     tail_use_cable_mat: BoolProperty(
         name="tail use cable material",
         description="",
         default=False,
-        update=tail_use_cable_mat_toggle
-        )
+        update=tail_use_cable_mat_toggle,
+    )
     old_cable_stretch: FloatProperty(
         name="Cable Stretch",
         description="",
-        default=1.0
-        )
+        default=1.0,
+    )
     cable_stretch: FloatProperty(
         name="Cable Stretch",
         description="",
@@ -887,22 +887,22 @@ class WirelessPropertyGroup(PropertyGroup):
         max=20.0,
         soft_min=0.1,
         soft_max=10.0,
-        update=update_cable_stretch
-        )
+        update=update_cable_stretch,
+    )
     cable_original_x: FloatProperty(
         name="Cable Original X",
-        description=""
-        )
+        description="",
+    )
     head_updated: BoolProperty(
         name="head is updated",
         description="",
-        default=False
-        )
+        default=False,
+    )
     old_head_slide: FloatProperty(
         name="Cable Stretch",
         description="",
-        default=0
-        )
+        default=0,
+    )
     head_slide: FloatProperty(
         name="Head Slide",
         description="",
@@ -911,12 +911,13 @@ class WirelessPropertyGroup(PropertyGroup):
         max=2,
         soft_min=-1.0,
         soft_max=1.0,
-        update=update_head_slide
-        )
+        update=update_head_slide,
+    )
     has_thumb: BoolProperty(
         name='part has thumbnail',
         description='',
-        default=False)
+        default=False,
+    )
     array_offset: FloatProperty(
         name="Offset",
         description="",
@@ -924,8 +925,8 @@ class WirelessPropertyGroup(PropertyGroup):
         min=0,
         max=100,
         soft_min=-0,
-        soft_max=1
-        )
+        soft_max=1,
+    )
 
 
 class WirelessSettingsPropertyGroup(PropertyGroup):
@@ -938,64 +939,66 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         name="Cable types",
         description="Choose your cable",
         items=cable_preview_items,
-        update=cable_preview_update
-        )
+        update=cable_preview_update,
+    )
     head_types: bpy.props.EnumProperty(
         name="Head types",
         description="Choose the head endcap",
         items=head_preview_items,
-        update=head_preview_update
-        )
+        update=head_preview_update,
+    )
     tail_types: bpy.props.EnumProperty(
         name="Tail types",
         description="Choose the tail endcap",
         items=tail_preview_items,
-        update=tail_preview_update
-        )
+        update=tail_preview_update,
+    )
     cable_categories: bpy.props.EnumProperty(
         name='Cable Categories',
         description='Select category for the cable',
         items=cable_categories_items,
-        update=cable_categories_update
-        )
+        update=cable_categories_update,
+    )
 
     head_categories: bpy.props.EnumProperty(
         name='Head Categories',
         description='Select category for the head',
         items=head_categories_items,
-        update=head_categories_update
-        )
+        update=head_categories_update,
+    )
     tail_categories: bpy.props.EnumProperty(
         name='Tail Categories',
         description='Select category for the tail',
         items=tail_categories_items,
-        update=tail_categories_update
-        )
+        update=tail_categories_update,
+    )
     type_of_part: bpy.props.EnumProperty(
         name='Type of new element',
         description='What type of elemnt it is? Cable or Head/Tail?',
-        items=[('Cable', 'Cable', 'Cable'),
-               ('Head / Tail', 'Head / Tail', 'Head / Tail')],
-        update=type_of_new_part
-        )
+        items=[
+            ('Cable', 'Cable', 'Cable'),
+            ('Head / Tail', 'Head / Tail', 'Head / Tail'),
+        ],
+        update=type_of_new_part,
+    )
     new_cable_category: bpy.props.EnumProperty(
         name="New Cable Category",
         description="What category this cable is part of?",
         items=cable_categories_items,
-        update=cable_categories_update
-        )
+        update=cable_categories_update,
+    )
     new_items: bpy.props.EnumProperty(
         name="New Parts",
         description="Do you like it?",
         items=new_part_preview_items,
-        update=new_part_update
-        )
+        update=new_part_update,
+    )
     new_item_categories: bpy.props.EnumProperty(
         name='New_item Categories',
         description='Select category for new items',
         items=new_item_categories_items,
-        update=tail_categories_update
-        )
+        update=tail_categories_update,
+    )
     new_item_offset: FloatProperty(
         name="Offset",
         description="",
@@ -1003,15 +1006,15 @@ class WirelessSettingsPropertyGroup(PropertyGroup):
         min=0,
         max=100,
         soft_min=-0,
-        soft_max=1
+        soft_max=1,
         # update=update_head_slide
-        )
+    )
     custom_parts: bpy.props.EnumProperty(
         name='Custom parts',
         description='Select custom part to edit',
         items=custom_part_preview_items,
-        update=new_part_update
-        )
+        update=new_part_update,
+    )
 
 def register():
     """Register here"""
@@ -1023,15 +1026,17 @@ def register():
 
     bpy.utils.register_class(WirelessSettingsPropertyGroup)
     bpy.types.WindowManager.wrls = PointerProperty(
-        type=WirelessSettingsPropertyGroup)
+        type=WirelessSettingsPropertyGroup,
+    )
 
 
 
 def unregister():
     """Unregister here:"""
-    classes = (WirelessPropertyGroup,
-            WirelessSettingsPropertyGroup,
-            )
+    classes = (
+        WirelessPropertyGroup,
+        WirelessSettingsPropertyGroup,
+    )
 
     for clss in reversed(classes):
         bpy.utils.unregister_class(clss)
