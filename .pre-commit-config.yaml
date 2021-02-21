@@ -7,6 +7,7 @@ repos:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
     -   id: pretty-format-json
+        args: [--autofix]
     -   id: debug-statements
 
 -   repo: https://github.com/asottile/add-trailing-comma
