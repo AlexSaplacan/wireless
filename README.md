@@ -1,9 +1,9 @@
 Wireless is a blender addon
 
-It lets you easily tranform a curve into a cable of predefined shape and 
+It lets you easily tranform a curve into a cable of predefined shape and
 gives the option to add a tail and / or a head at the extremities.
 
-This way you can quickly create an usb cable, or a rope with knots , or a lead with 
+This way you can quickly create an usb cable, or a rope with knots , or a lead with
 electric sockets.
 
 At the moment you are able to turn on and off wireless on a curve, it loads a default cable type.
@@ -32,5 +32,3 @@ Now all the work I do on my working folder is updated on the blender addon folde
 Are not required to install any modules, bpy it's already part of blender wheere the addon is run from.
 
 When you start blender, start it from the console, in such way thaat you can always see log messages.
-
-

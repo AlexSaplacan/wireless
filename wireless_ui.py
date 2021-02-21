@@ -16,7 +16,7 @@ def error_in_material_slots(obj):
 
     Returns False if no error, or errir nessage of first found
     """
-    error = None 
+    error = None
     type_of_part = bpy.context.window_manager.wrls.type_of_part
 
     if type_of_part == 'Cable':
