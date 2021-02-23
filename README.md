@@ -1,6 +1,7 @@
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/AlexSaplacan/wireless/master.svg)](https://results.pre-commit.ci/latest/github/AlexSaplacan/wireless/master)
 
+[![Coverage Status](https://coveralls.io/repos/github/AlexSaplacan/wireless/badge.svg?branch=master)](https://coveralls.io/github/AlexSaplacan/wireless?branch=master)
 
 Wireless is a blender addon
 
