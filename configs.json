@@ -315,6 +315,11 @@
       "cable": false,
       "name": "WRLS_Schuko_triple"
     },
+    "Test thing_2": {
+      "blend": "Test thing_2.blend",
+      "cable": false,
+      "name": "WRLS_Test_thing_2"
+    },
     "Triple Flat": {
       "blend": "Cables.blend",
       "cable": true,
@@ -369,6 +374,12 @@
       "blend": "Cables.blend",
       "cable": false,
       "name": "WRLS_XLR_Male"
+    },
+    "test_cable": {
+      "blend": "test_cable.blend",
+      "cable": true,
+      "name": "WRLS_test_cable",
+      "offset": 1.0
     }
   },
   "Thumbs": [
@@ -675,6 +686,14 @@
     {
       "id": "Scart",
       "img": "WRLS_Scart.jpg"
+    },
+    {
+      "id": "Test thing_2",
+      "img": "WRLS_Test_thing_2.jpg"
+    },
+    {
+      "id": "test_cable",
+      "img": "WRLS_test_cable.jpg"
     }
   ],
   "cable_categories": [
@@ -705,7 +724,8 @@
       "Triple Flat",
       "IDE Cable",
       "IDE Cable Thin",
-      "SATA Cable"
+      "SATA Cable",
+      "test_cable"
     ],
     "All Heads and Tails": [
       "USB F",
@@ -771,7 +791,8 @@
       "Insulated Crimp Connector Bullet Female",
       "Mouse Adaptor",
       "DVI",
-      "Scart"
+      "Scart",
+      "Test thing_2"
     ],
     "Audio Parts": [
       "Jack 3.5mm",
@@ -798,7 +819,10 @@
       "Insulated Crimp Connector Male 2.8",
       "Insulated Crimp Connector Bullet Female"
     ],
-    "Custom Parts": [],
+    "Custom Parts": [
+      "Test thing_2",
+      "test_cable"
+    ],
     "Data Parts": [
       "USB F",
       "USB Type C",

@@ -10,8 +10,10 @@ if os.path.exists('./test/tmp'):
 # create temp directory if don't exists
 os.makedirs('./test/tmp')
 
+
 def getFlag(name):
     return name in sys.argv
+
 
 def getOption(name, default):
     index = -1

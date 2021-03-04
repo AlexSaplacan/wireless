@@ -114,14 +114,10 @@ def get_co(mesh):
     return co
 
 
-def mirror_and_translate_head():
+def mirror_and_translate_head(head):
     """
     Scale the head's verts on x and y by -1
     """
-
-    a_object = bpy.context.active_object
-    curve, cable, head, tail = find_parts(a_object)
-
     head_co = get_co(head.data)
 
     head_co[:, :2] *= -1
@@ -203,6 +199,7 @@ def get_list_and_position(context, list_name, part_type):
     Args:
         context - the bpy.context
         list_name (str (never None)) - the name of the list to look in
+        part_type - str
     Return:
         list containing the list_name list and the position of the list_name attribute in it
         example [list_name, 2]
@@ -210,9 +207,9 @@ def get_list_and_position(context, list_name, part_type):
     wm_wrls = context.window_manager.wrls
     part_types = {
         'cables_types': 'cable_categories',
-                      'head_types': 'head_categories',
-                      'tail_types': 'tail_categories',
-                      'custom_parts': 'Custom Parts',
+        'head_types': 'head_categories',
+        'tail_types': 'tail_categories',
+        'custom_parts': 'Custom Parts',
 
     }
     try:
@@ -364,7 +361,7 @@ def connect_head(cable, head):
     cable.modifiers["WRLS_Array"].end_cap = head_model
     bpy.context.scene.collection.children['WrlS'].objects.link(head_model)
     # mirror to orient the head in the right direction
-    mirror_and_translate_head()
+    mirror_and_translate_head(head_model)
 
     head_model.hide_viewport = True
     head_model.hide_render = True
@@ -552,7 +549,6 @@ def add_to_category(obj, data):
             data['model_types'][wm_wrls.cable_categories].append(obj.name)
 
     else:
-        data['model_types']['head_types'].append(obj.name)
         data['model_types']['All Heads and Tails'].append(obj.name)
         if wm_wrls.head_categories != 'All Heads and Tails':
             data['model_types'][wm_wrls.head_categories].append(obj.name)

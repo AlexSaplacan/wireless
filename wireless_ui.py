@@ -37,7 +37,6 @@ def error_in_material_slots(obj):
 
     return error
 
-################## UI #####################
 
 class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     bl_label = "Create some Wires"
@@ -49,11 +48,10 @@ class OBJECT_PT_WireLessPanel(bpy.types.Panel):
     # @classmethod
     # def pool(cls,context):
 
-
     def draw_header(self, context):
         @classmethod
         def poll(cls, context):
-            return context.active_object != None
+            return context.active_object is not None
         try:
             self.layout.prop(context.active_object.wrls, "enable", text="")
         except:

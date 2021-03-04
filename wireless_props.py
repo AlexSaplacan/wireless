@@ -52,7 +52,9 @@ def toggle_wireless(self, context):
                 log.debug("This curve is already cable.")
 
             else:
-                log.debug("This is an undefined curve, doing something.")
+                log.debug(
+                    "This is an undefined curve, doing something.",
+                )
                 obj_name = curve.name
                 wireless.set_wrls_status(context, obj_name, 'CURVE')
                 curve.wrls.curve = curve.name
@@ -102,11 +104,8 @@ def toggle_wireless(self, context):
             elif wrls_status == 'CABLE':
                 cable = cable.parent
                 cable.select_set(True)
-                # make active the curve so doesn't return error on wireless_ui
-                # bpy.context.scene.objects.active = bpy.data.objects[cable.name]
                 context.view_layer.objects.active = bpy.data.objects[cable.name]
-                # update the scene to avoid error
-                bpy.context.scene.update()
+                bpy.context.view_layer.update()
                 wireless.wrls_off_and_delete_children(cable)
                 configs.switch = True
                 cable.wrls.enable = False
@@ -114,7 +113,6 @@ def toggle_wireless(self, context):
             else:
                 log.debug("This should not happen.")
             cable.wrls.wrls_status = 'UNDEFINED'
-            # bpy.ops.wrls.cable_unset()
 
     return None
 
