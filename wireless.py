@@ -10,6 +10,8 @@ import shutil
 import bmesh
 import bpy
 import numpy as np
+from bpy_types import Collection
+from bpy_types import Object
 
 from . import configs
 from . import wireless_props
@@ -17,6 +19,8 @@ from . import wireless_props
 # logging setup
 log = logging.getLogger('wrls.wireless')
 log.setLevel(logging.INFO)
+
+C = bpy.context
 
 
 def get_is_undefined_curve(context):
@@ -189,6 +193,21 @@ def wrls_off_and_delete_children(curve):
             bpy.data.objects.remove(child, do_unlink=True)
 
 
+def get_part_category(part_type: str):
+    wm_wrls = C.window_manager.wrls
+    part_types = {
+        'cables_types': 'cable_categories',
+        'head_types': 'head_categories',
+        'tail_types': 'tail_categories',
+        'custom_parts': 'Custom Parts',
+
+    }
+    try:
+        category = getattr(wm_wrls, part_types[part_type])
+    except KeyError:
+        category = part_types[part_type]
+    return category
+
 
 def get_list_and_position(context, list_name, part_type):
     """search for the list_name list in the configs.json
@@ -345,6 +364,18 @@ def clean_obsolete_materials(obj):
     log.info("Removed %s obsolete node group(s)" %node_count)
 
 
+def hide_model(obj: Object) -> None:
+    obj.hide_viewport = True
+    obj.hide_render = True
+
+
+def link_obj_to_collection(
+    obj: Object,
+    col: str = "WrlS",
+) -> None:
+    bpy.context.scene.collection.children[col].objects.link(obj)
+
+
 def connect_head(cable, head):
     """Import and connect the head object to the cable object,
     set it as end cap to the array modifier
@@ -359,12 +390,11 @@ def connect_head(cable, head):
     # materials setup for the head
     setup_materials(cable, head_model)
     cable.modifiers["WRLS_Array"].end_cap = head_model
-    bpy.context.scene.collection.children['WrlS'].objects.link(head_model)
+    link_obj_to_collection(head_model)
     # mirror to orient the head in the right direction
     mirror_and_translate_head(head_model)
 
-    head_model.hide_viewport = True
-    head_model.hide_render = True
+    hide_model(head_model)
     head_model.parent = cable.parent
 
 
@@ -379,13 +409,12 @@ def connect_tail(cable, tail):
     """
     tail_model = import_model(tail)
     tail_model.wrls.wrls_status = 'TAIL'
-    bpy.context.scene.collection.children['WrlS'].objects.link(tail_model)
+    link_obj_to_collection(tail_model)
     setup_materials(cable, tail_model, False)
     cable.modifiers["WRLS_Array"].start_cap = tail_model
     # mirror to orient the tail in the right direction
 
-    tail_model.hide_viewport = True
-    tail_model.hide_render = True
+    hide_model(tail_model)
     tail_model.parent = cable.parent
 
 
@@ -778,6 +807,20 @@ def get_custom_data_from_path(imp_path):
     return c_data
 
 
+def new_models_in_models_list(custom_models: list, models_list: list):
+    union = set(custom_models) & set(models_list)
+    return len(union)
+
+
+def get_model_image_path(root_path: str, model: str, c_data: dict):
+    for item in c_data['Thumbs']:
+        if item['id'] != model:
+            continue
+        img_name = item['img']
+        img_src = os.path.join(root_path, 'thumbs', img_name)
+        return img_src
+
+
 def check_import_directory(imp_path):
     data = configs.data
     c_data = get_custom_data_from_path(imp_path)
@@ -786,29 +829,22 @@ def check_import_directory(imp_path):
     except KeyError:
         err = 'Could not find Custom Parts list. Aborting'
         return err
-    log.debug(new_models)
+    if new_models_in_models_list(new_models, data['Models']):
+        return "Found model already in the wireless data. Aborting."
 
     for model in new_models:
-        if model in data['Models']:
-            err = 'Model %s already in the wireless data. Aborting.' % model
-            return err
-
-        for item in c_data['Thumbs']:
-            if item['id'] != model:
-                continue
-            img_name = item['img']
-            img_src = os.path.join(imp_path, 'thumbs', img_name)
-            log.debug(img_src)
-            if os.path.isfile(img_src):
-                continue
-            err = 'Could not find thumbnail for %s. Aborting' % model
-            return err
+        img_src = get_model_image_path(model, c_data)
+        if os.path.isfile(img_src):
+            continue
+        err = 'Could not find thumbnail for %s. Aborting' % model
+        return err
         blend = c_data['Models'][model]['blend']
         pkg_src = os.path.join(imp_path, 'assets', blend)
         if not os.path.isfile(pkg_src):
             err = 'Could not find package for %s. Aborting' % model
             return err
     return None
+
 
 def import_parts(imp_path, c_data):
 

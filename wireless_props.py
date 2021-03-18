@@ -751,9 +751,6 @@ def cable_update(self, context):
     configs.switch = True
 
 
-    pass
-
-
 def head_set(self, value):
     self['head'] = value
     return None
