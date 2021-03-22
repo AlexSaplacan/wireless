@@ -819,6 +819,19 @@ def get_model_image_path(root_path: str, model: str, c_data: dict):
         img_name = item['img']
         img_src = os.path.join(root_path, 'thumbs', img_name)
         return img_src
+    else:
+        return "broken_path"
+
+
+def new_models_have_missing_images(import_path: str, new_models: list, c_data):
+    for model in new_models:
+        model_img = get_model_image_path(import_path, model, c_data)
+        print(model_img)
+        if not os.path.exists(model_img):
+            err = f'Could not find thumbnail for {model}. Aborting'
+            return err
+    else:
+        return False
 
 
 def check_import_directory(imp_path):

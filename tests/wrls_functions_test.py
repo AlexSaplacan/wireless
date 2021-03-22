@@ -9,6 +9,7 @@ from wireless.wireless import get_part_category
 from wireless.wireless import hide_model
 from wireless.wireless import link_obj_to_collection
 from wireless.wireless import mirror_and_translate_head
+from wireless.wireless import new_models_have_missing_images
 from wireless.wireless import new_models_in_models_list
 from wireless.wireless import set_wrls_collection
 
@@ -55,7 +56,7 @@ def c_data():
     },
 },
 
-  "Thumbs": [
+"Thumbs": [
     {
       "id": "Some Cable",
       "img": "WRLS_SomeCable.jpg",
@@ -64,7 +65,13 @@ def c_data():
       "id": "USB F",
       "img": "WRLS_USB_F.jpg",
     },
-  ],
+],
+  "model_types": {
+    "Custom Parts": [
+      "Some Cable",
+      "Burp Cable",
+    ],
+  },
 }
     return c
 
@@ -139,3 +146,27 @@ def test_get_model_image_path(tmpdir, c_data):
     result = get_model_image_path(tmpdir, "Some Cable", c_data)
     # THEN it returns the expected result
     assert result == str(img)
+
+
+@pytest.mark.parametrize(
+    ("model_list", "expected"),
+    (
+        (['Some Cable'], False),
+        (['Poo Cable'], 'Could not find thumbnail for Poo Cable. Aborting'),
+        (['Some Cable', 'Poo Cable'], 'Could not find thumbnail for Poo Cable. Aborting'),
+    ),
+)
+def test_new_models_have_missing_images(
+    tmpdir,
+    model_list,
+    c_data,
+    expected,
+):
+    # GIVEN a directory with img_path and a cables config
+    img = tmpdir.mkdir('thumbs').join('WRLS_SomeCable.jpg')
+    with open(img, 'w')as f:
+        f.write("oops")
+    # WHEN new_models_have_missing_images is called
+    result = new_models_have_missing_images(tmpdir, model_list, c_data)
+    # THEN result is like expected
+    assert result == expected
